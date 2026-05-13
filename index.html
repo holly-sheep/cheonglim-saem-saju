@@ -464,6 +464,15 @@
       if (period === 'PM' && hour !== 12) hour += 12;
       return hour;
     }
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+      })[char]);
+    }
     function elementOverview(year, hour, unknownTime) {
       const pillar = yearPillar(year);
       const hourInfo = unknownTime ? { name: 'Unknown', animal: 'unknown', element: 'Water' } : hourBranch(hour);
@@ -494,6 +503,7 @@
       const pillar = overview.pillar;
       const hourInfo = overview.hourInfo;
       const place = city ? `${city}, ${country}` : country;
+      const safePlace = escapeHtml(place);
       const regionNote = /korea|south korea|republic of korea/i.test(country)
         ? 'For Korea births, local civil time is usually the starting point.'
         : 'Because this birth is outside Korea, timezone, DST, longitude, and true-solar preference may change the hour reading.';
@@ -520,7 +530,7 @@
           <div class="teaser-item"><b>Missing support</b><span>${weakest.name} is the area to inspect. The paid report turns it into a practical habit and timing strategy.</span></div>
           <div class="teaser-item"><b>Birthplace risk</b><span>${buyerHook}</span></div>
         </div>
-        <p><b>Birthplace check:</b> ${place}. ${regionNote}</p>
+        <p><b>Birthplace check:</b> ${safePlace}. ${regionNote}</p>
         <div class="overview-card">
           <div class="overview-head"><b>Five-element overview</b><span>Sample balance from the submitted basics</span></div>
           <div class="overview-body">
