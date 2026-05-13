@@ -23,7 +23,7 @@
     body { margin:0; font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:#ded8cf; line-height:1.58; }
     a { color:inherit; text-decoration:none; }
     .phone { width:min(100%, 430px); min-height:100vh; margin:0 auto; background:var(--paper); box-shadow:0 0 0 1px rgba(0,0,0,.05); }
-    header { position:sticky; top:0; z-index:30; height:64px; border-bottom:1px solid var(--line); background:rgba(255,250,242,.96); backdrop-filter:blur(12px); }
+    header { position:relative; z-index:30; height:64px; border-bottom:1px solid var(--line); background:rgba(255,250,242,.96); backdrop-filter:blur(12px); }
     nav { height:64px; display:grid; grid-template-columns:42px 1fr 42px; align-items:center; gap:8px; padding:0 14px; }
     .mark { width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:var(--deep); color:#fff3d4; font-weight:950; }
     .title { min-width:0; text-align:center; }
@@ -81,12 +81,37 @@
     .conversion-strip p { margin:0; color:var(--deep); font-size:14px; }
     .preview-form { display:grid; gap:12px; margin-top:24px; }
     .field { display:grid; gap:6px; font-weight:850; }
-    input { width:100%; min-height:46px; border:1px solid var(--line); border-radius:10px; padding:10px 12px; background:#fffdf8; color:var(--ink); font:inherit; }
-    .preview-result { display:none; margin-top:18px; border:1px solid var(--line); border-radius:18px; padding:18px; background:#fffdf8; }
+    input, select { width:100%; min-height:46px; border:1px solid var(--line); border-radius:10px; padding:10px 12px; background:#fffdf8; color:var(--ink); font:inherit; }
+    .time-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
+    .check-row { display:flex; align-items:center; gap:10px; color:var(--muted); font-size:14px; font-weight:800; }
+    .check-row input { width:20px; min-height:20px; }
+    .segment { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .segment label { min-height:46px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:10px; background:#fffdf8; font-weight:900; }
+    .segment input { position:absolute; opacity:0; pointer-events:none; }
+    .segment label:has(input:checked) { border-color:var(--jade); background:var(--jade); color:white; }
+    .preview-result { display:none; margin-top:18px; border:1px solid #123c77; border-radius:8px; padding:18px; background:#081526; color:white; }
     .preview-result.is-visible { display:block; }
     .preview-result h3 { margin:0 0 10px; font-size:21px; }
-    .preview-result p { margin:10px 0 0; font-size:15px; }
+    .preview-result p { margin:10px 0 0; color:#d9e4f2; font-size:15px; }
     .preview-result .button { margin-top:16px; }
+    .overview-card { margin-top:16px; border:1px solid rgba(255,255,255,.22); border-radius:8px; background:#f8f5ec; color:#1d2734; overflow:hidden; }
+    .overview-head { padding:16px; background:#0b3e7f; color:white; }
+    .overview-head b { display:block; font-size:22px; }
+    .overview-body { padding:16px; }
+    .element-row { display:grid; grid-template-columns:54px 1fr 72px; gap:10px; align-items:center; padding:12px 0; border-bottom:1px solid #e2ddd2; font-weight:900; }
+    .element-row:last-child { border-bottom:0; }
+    .element-row .barline { height:10px; border-radius:999px; background:#e9e3d6; overflow:hidden; }
+    .element-row .barline span { display:block; height:100%; border-radius:999px; }
+    .overview-gods { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:16px; text-align:center; }
+    .god { border-left:1px solid #ddd5c7; }
+    .god:first-child { border-left:0; }
+    .god small { display:block; color:#68717b; font-weight:900; }
+    .god span { width:48px; height:48px; margin:8px auto; display:grid; place-items:center; border-radius:50%; border:2px solid currentColor; font-size:24px; font-weight:950; }
+    .strength { margin-top:18px; }
+    .strength-line { display:grid; grid-template-columns:repeat(7,1fr); align-items:center; margin-top:10px; color:#8f949a; font-size:12px; text-align:center; }
+    .strength-line span::before { content:""; width:18px; height:18px; display:block; margin:0 auto 6px; border-radius:50%; background:#f3a1a7; }
+    .strength-line span:nth-child(6) { color:#17120d; font-weight:950; }
+    .strength-line span:nth-child(6)::before { background:#cf3137; }
     .package { position:relative; border:1px solid var(--line); border-radius:8px; padding:18px; background:#fffdf8; }
     .package.featured { border-color:var(--jade); box-shadow:0 10px 28px rgba(36,102,92,.14); }
     .package h3 { margin:0; font-size:21px; }
@@ -108,7 +133,7 @@
     .faq article { border-top:1px solid var(--line); padding-top:14px; }
     .faq h3 { margin:0 0 6px; font-size:17px; }
     .faq p { margin:0; font-size:14px; }
-    .bottom-cta { position:sticky; bottom:0; z-index:30; border-top:1px solid var(--line); background:rgba(255,250,242,.98); padding:10px 14px calc(10px + env(safe-area-inset-bottom)); }
+    .bottom-cta { position:relative; z-index:30; border-top:1px solid var(--line); background:rgba(255,250,242,.98); padding:10px 14px calc(10px + env(safe-area-inset-bottom)); }
     .bottom-cta p { margin:0 0 8px; color:var(--ink); font-size:13px; text-align:center; }
     .bottom-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
     .bottom-actions .button { min-height:44px; padding:0 10px; font-size:14px; }
@@ -121,8 +146,8 @@
   <div class="phone">
     <header>
       <nav>
-        <a class="mark" href="#top">靑</a>
-        <div class="title"><b>Cheonglim Saem</b><span>청림샘 Korean Four Pillars</span></div>
+        <a class="mark" href="#top">CL</a>
+        <div class="title"><b>Cheonglim Saem</b><span>Korean Four Pillars</span></div>
         <a class="menu" href="#packages" aria-label="Open packages">≡</a>
       </nav>
     </header>
@@ -150,10 +175,25 @@
         <p>This quick preview gives only a small teaser from your birth year, local birth hour, and birthplace context. The paid report verifies the full Four Pillars, solar-term boundaries, and regional time variables.</p>
         <form class="preview-form" id="previewForm">
           <label class="field">Birth date<input id="birthDate" type="date" required></label>
-          <label class="field">Birth time<input id="birthTime" type="time" required></label>
+          <div class="field" id="birthTimeGroup">
+            <span>Birth time</span>
+            <div class="time-grid">
+              <select id="birthHour" aria-label="Birth hour"></select>
+              <select id="birthMinute" aria-label="Birth minute"></select>
+              <select id="birthPeriod" aria-label="AM or PM"><option>AM</option><option>PM</option></select>
+            </div>
+            <label class="check-row"><input id="unknownBirthTime" type="checkbox"> I don't know my birth time</label>
+          </div>
+          <div class="field">
+            <span>Gender marker</span>
+            <div class="segment">
+              <label><input type="radio" name="gender" value="male" checked> Male</label>
+              <label><input type="radio" name="gender" value="female"> Female</label>
+            </div>
+          </div>
           <label class="field">Birth country<input id="birthCountry" placeholder="United States / Canada / Korea / ..." required></label>
           <label class="field">Birth city or region<input id="birthCity" placeholder="Los Angeles, CA / London / Seoul"></label>
-          <button class="button primary" type="submit">Show my mini preview</button>
+          <button class="button primary" type="submit">View my overview</button>
         </form>
         <div class="preview-result" id="previewResult" aria-live="polite"></div>
       </section>
@@ -259,7 +299,7 @@
       </div>
       <a class="bottom-form-link" href="intake.html?tier=basic">Already paid? Send birth details</a>
     </div>
-    <footer>Cheonglim Saem. 청림샘 Korean Four Pillars reading. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="korean-saju-reading-online.html">Online Saju reading</a> · <a href="basic-korean-saju-report.html">Basic report</a> · <a href="saju-without-birth-time.html">Unknown birth time</a> · <a href="intake.html?tier=premium">Birth details form</a> · <a href="overseas-birth-saju.html">Overseas birth guide</a> · <a href="true-solar-time-saju.html">True solar time guide</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
+    <footer>Cheonglim Saem. Korean Four Pillars reading. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="korean-saju-reading-online.html">Online Saju reading</a> · <a href="basic-korean-saju-report.html">Basic report</a> · <a href="saju-without-birth-time.html">Unknown birth time</a> · <a href="intake.html?tier=premium">Birth details form</a> · <a href="overseas-birth-saju.html">Overseas birth guide</a> · <a href="true-solar-time-saju.html">True solar time guide</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
   </div>
   <script>
     const heavenlyStems = [
@@ -288,33 +328,97 @@
       const branch = earthlyBranches[index];
       return { name: branch[0], animal: branch[1], element: branch[2] };
     }
+    const hourSelect = document.getElementById('birthHour');
+    const minuteSelect = document.getElementById('birthMinute');
+    for (let hour = 1; hour <= 12; hour += 1) {
+      hourSelect.add(new Option(String(hour).padStart(2, '0'), String(hour)));
+    }
+    for (let minute = 0; minute < 60; minute += 5) {
+      minuteSelect.add(new Option(String(minute).padStart(2, '0'), String(minute)));
+    }
+    function selectedHour24() {
+      let hour = Number(document.getElementById('birthHour').value);
+      const period = document.getElementById('birthPeriod').value;
+      if (period === 'AM' && hour === 12) hour = 0;
+      if (period === 'PM' && hour !== 12) hour += 12;
+      return hour;
+    }
+    function elementOverview(year, hour, unknownTime) {
+      const pillar = yearPillar(year);
+      const hourInfo = unknownTime ? { name: 'Unknown', animal: 'unknown', element: 'Water' } : hourBranch(hour);
+      const base = { Wood: 18, Fire: 18, Earth: 18, Metal: 18, Water: 18 };
+      base[pillar.stemElement] += 20;
+      base[pillar.branchElement] += 12;
+      if (!unknownTime) base[hourInfo.element] += 14;
+      if (unknownTime) base.Water += 8;
+      const total = Object.values(base).reduce((sum, value) => sum + value, 0);
+      const rows = [
+        ['Wood', 'Growth', '#17999a'],
+        ['Fire', 'Visibility', '#e2393f'],
+        ['Earth', 'Stability', '#d8ae18'],
+        ['Metal', 'Standards', '#8d8f93'],
+        ['Water', 'Strategy', '#253746'],
+      ];
+      return { pillar, hourInfo, rows: rows.map(([name, hanja, color]) => ({ name, hanja, color, percent: Math.round((base[name] / total) * 100) })) };
+    }
     document.getElementById('previewForm').addEventListener('submit', (event) => {
       event.preventDefault();
       const dateValue = document.getElementById('birthDate').value;
-      const timeValue = document.getElementById('birthTime').value;
+      const unknownTime = document.getElementById('unknownBirthTime').checked;
       const country = document.getElementById('birthCountry').value.trim();
       const city = document.getElementById('birthCity').value.trim();
       const year = Number(dateValue.slice(0, 4));
-      const hour = Number(timeValue.slice(0, 2));
-      const pillar = yearPillar(year);
-      const hourInfo = hourBranch(hour);
+      const hour = selectedHour24();
+      const overview = elementOverview(year, hour, unknownTime);
+      const pillar = overview.pillar;
+      const hourInfo = overview.hourInfo;
       const place = city ? `${city}, ${country}` : country;
       const regionNote = /korea|south korea|republic of korea/i.test(country)
         ? 'For Korea births, local civil time is usually the starting point.'
         : 'Because this birth is outside Korea, timezone, DST, longitude, and true-solar preference may change the hour reading.';
+      const hourCopy = unknownTime
+        ? 'Birth time is marked unknown, so the hour pillar stays uncertain until you provide a reliable range.'
+        : `Your local birth hour falls near the ${hourInfo.animal} hour, which colors private rhythm and long-term planning.`;
+      const elementRows = overview.rows.map((row) => `
+          <div class="element-row">
+            <span style="color:${row.color}">${row.name}<br>${row.hanja}</span>
+            <div class="barline"><span style="width:${row.percent}%;background:${row.color}"></span></div>
+            <strong>${row.percent}%</strong>
+          </div>`).join('');
       const result = document.getElementById('previewResult');
       result.innerHTML = `
-        <h3>Your teaser: ${pillar.stemName}-${pillar.branchName} year, ${hourInfo.name} hour</h3>
+        <h3>Overview: ${pillar.stemName}-${pillar.branchName} year${unknownTime ? '' : `, ${hourInfo.name} hour`}</h3>
         <p>Your birth year points toward <b>${pillar.stemElement}</b> themes: ${elementCopy[pillar.stemElement]}.</p>
-        <p>Your local birth hour falls near the <b>${hourInfo.animal}</b> hour, which often colors future direction, private rhythm, and long-term planning.</p>
+        <p>${hourCopy}</p>
         <p><b>Birthplace check:</b> ${place}. ${regionNote}</p>
-        <p>This is only a surface preview. The paid report checks the full chart order, climate balance, structure, self-support, missing links, 10-year cycle, and annual flow.</p>
+        <div class="overview-card">
+          <div class="overview-head"><b>Five-element overview</b><span>Sample balance from the submitted basics</span></div>
+          <div class="overview-body">
+            ${elementRows}
+            <div class="overview-gods">
+              <div class="god" style="color:#d8ae18"><small>Resource</small><span>E</span><b>Earth</b></div>
+              <div class="god" style="color:#e2393f"><small>Output</small><span>F</span><b>Fire</b></div>
+              <div class="god" style="color:#17999a"><small>Useful</small><span>W</span><b>Wood</b></div>
+            </div>
+            <div class="strength">
+              <b>Day-master strength</b>
+              <div class="strength-line"><span>Weak</span><span>Low</span><span>Soft</span><span>Balanced</span><span>Strong</span><span>Very strong</span><span>Excess</span></div>
+            </div>
+          </div>
+        </div>
+        <p>This is only a surface overview. The paid report checks the full chart order, climate balance, structure, self-support, missing links, 10-year cycle, and annual flow.</p>
         <div class="button-row">
           <a class="button secondary" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
           <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
         </div>`;
       result.classList.add('is-visible');
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+    document.getElementById('unknownBirthTime').addEventListener('change', (event) => {
+      const disabled = event.target.checked;
+      document.getElementById('birthHour').disabled = disabled;
+      document.getElementById('birthMinute').disabled = disabled;
+      document.getElementById('birthPeriod').disabled = disabled;
     });
   </script>
 </body>

@@ -30,6 +30,13 @@
     input, select, textarea { width:100%; min-height:46px; padding:10px 12px; border:1px solid var(--line); border-radius:7px; background:white; color:var(--ink); font:inherit; }
     textarea { min-height:118px; resize:vertical; }
     .full { grid-column:1 / -1; }
+    .time-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
+    .check-row { display:flex; align-items:center; gap:10px; color:var(--muted); font-size:14px; font-weight:800; }
+    .check-row input { width:20px; min-height:20px; }
+    .segment { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .segment label { min-height:46px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:7px; background:white; font-weight:900; }
+    .segment input { position:absolute; opacity:0; pointer-events:none; }
+    .segment label:has(input:checked) { border-color:var(--accent); background:var(--accent); color:white; }
     .actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
     button, a.button { min-height:46px; border-radius:7px; border:1px solid var(--accent); background:var(--accent); color:white; font-weight:900; padding:0 16px; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
     button.secondary { background:transparent; color:var(--accent); }
@@ -40,7 +47,7 @@
 </head>
 <body>
   <main>
-    <div class="top"><a class="home" href="index.html">Cheonglim Saem · 청림샘</a><a class="home" href="mailto:aideseobot@gmail.com">aideseobot@gmail.com</a></div>
+    <div class="top"><a class="home" href="index.html">Cheonglim Saem</a><a class="home" href="mailto:aideseobot@gmail.com">aideseobot@gmail.com</a></div>
     <h1>Send your birth details after PayPal checkout.</h1>
     <p>This form creates the order email used by the automated delivery worker. Send it after PayPal checkout, and the inbox processor will calculate the chart, generate the PDF, and reply by email. For overseas births, country, city, timezone, longitude, and daylight saving context can affect the hour pillar.</p>
     <form id="intakeForm">
@@ -50,8 +57,23 @@
         <label>Full name<input name="name" required></label>
         <label>Email<input name="email" type="email" required></label>
         <label>Birth date<input name="birthDate" placeholder="YYYY-MM-DD" required><span class="help">Use the date recorded at your birthplace.</span></label>
-        <label>Birth time<input name="birthTime" placeholder="HH:MM" required><span class="help">Use 24-hour local civil time if known.</span></label>
-        <label>Gender marker<select name="gender" required><option value="male">male</option><option value="female">female</option></select></label>
+        <div>
+          <label>Birth time</label>
+          <div class="time-grid">
+            <select name="birthHour" aria-label="Birth hour"></select>
+            <select name="birthMinute" aria-label="Birth minute"></select>
+            <select name="birthPeriod" aria-label="AM or PM"><option>AM</option><option>PM</option></select>
+          </div>
+          <label class="check-row"><input name="unknownBirthTime" type="checkbox"> I don't know my birth time</label>
+          <span class="help">AM/PM is shown in English so the order email is not affected by browser locale.</span>
+        </div>
+        <div>
+          <label>Gender marker</label>
+          <div class="segment">
+            <label><input type="radio" name="gender" value="male" checked> Male</label>
+            <label><input type="radio" name="gender" value="female"> Female</label>
+          </div>
+        </div>
         <label>Birth country<input name="birthCountry" placeholder="United States / Canada / Korea / ..." required></label>
         <label>Birth city or region<input name="birthCity" placeholder="Los Angeles, CA / London / Seoul" required></label>
         <label>IANA timezone<input name="timezone" placeholder="America/Los_Angeles / Europe/London / Asia/Seoul"></label>
@@ -75,9 +97,26 @@
     if (tier === 'basic' || tier === 'premium' || tier === 'vip') {
       form.elements.tier.value = tier;
     }
+    for (let hour = 1; hour <= 12; hour += 1) {
+      form.elements.birthHour.add(new Option(String(hour).padStart(2, '0'), String(hour)));
+    }
+    for (let minute = 0; minute < 60; minute += 5) {
+      form.elements.birthMinute.add(new Option(String(minute).padStart(2, '0'), String(minute)));
+    }
+    function birthTimeValue(data) {
+      if (data.unknownBirthTime) return 'unknown';
+      let hour = Number(data.birthHour);
+      if (data.birthPeriod === 'AM' && hour === 12) hour = 0;
+      if (data.birthPeriod === 'PM' && hour !== 12) hour += 12;
+      return `${String(hour).padStart(2, '0')}:${String(data.birthMinute).padStart(2, '0')}`;
+    }
     function buildText() {
       const data = Object.fromEntries(new FormData(form).entries());
-      return `order_id: ${data.orderId}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${data.birthDate}\nbirth_time: ${data.birthTime}\ngender: ${data.gender}\nbirth_country: ${data.birthCountry}\nbirth_city: ${data.birthCity}\ntimezone: ${data.timezone}\nlongitude: ${data.longitude}\ntime_policy: ${data.timePolicy}\nmemo: ${data.memo}`;
+      const memo = data.unknownBirthTime
+        ? `Birth time unknown.\n${data.memo || ''}`.trim()
+        : data.memo;
+      const timePolicy = data.unknownBirthTime ? 'unknown-time' : data.timePolicy;
+      return `order_id: ${data.orderId}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${data.birthDate}\nbirth_time: ${birthTimeValue(data)}\ngender: ${data.gender}\nbirth_country: ${data.birthCountry}\nbirth_city: ${data.birthCity}\ntimezone: ${data.timezone}\nlongitude: ${data.longitude}\ntime_policy: ${timePolicy}\nmemo: ${memo}`;
     }
     function refresh() { output.textContent = buildText(); }
     form.addEventListener('input', refresh);
@@ -91,6 +130,13 @@
       const subject = encodeURIComponent('Saju report birth details');
       const body = encodeURIComponent(output.textContent);
       window.location.href = `mailto:aideseobot@gmail.com?subject=${subject}&body=${body}`;
+    });
+    form.elements.unknownBirthTime.addEventListener('change', (event) => {
+      const disabled = event.target.checked;
+      form.elements.birthHour.disabled = disabled;
+      form.elements.birthMinute.disabled = disabled;
+      form.elements.birthPeriod.disabled = disabled;
+      refresh();
     });
     refresh();
   </script>
