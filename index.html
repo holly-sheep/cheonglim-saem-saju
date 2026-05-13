@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="no-referrer">
-  <title>Cheonglim Saem | Korean Four Pillars Reading</title>
-  <meta name="description" content="Korean Saju readings for overseas clients, adjusted for birth country, city, timezone, longitude, DST, and optional true solar time.">
+  <title>Cheonglim Saem | K-fortune Korean Four Pillars Reading</title>
+  <meta name="description" content="K-fortune Korean Saju readings for overseas clients, adjusted for birth country, city, timezone, longitude, DST, and true solar time.">
   <link rel="canonical" href="https://holly-sheep.github.io/cheonglim-saem-saju/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cheonglim Saem">
-  <meta property="og:title" content="Cheonglim Saem | Korean Saju Reading for Overseas Births">
-  <meta property="og:description" content="Try a free mini preview, then order a Korean Four Pillars report adjusted for birth country, city, timezone, longitude, DST, and optional true solar time.">
+  <meta property="og:title" content="Cheonglim Saem | K-fortune Korean Saju Reading">
+  <meta property="og:description" content="Try a free mini preview, then order a K-fortune Four Pillars report adjusted for birth country, city, timezone, longitude, DST, and true solar time.">
   <meta property="og:url" content="https://holly-sheep.github.io/cheonglim-saem-saju/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Cheonglim Saem | Korean Saju Reading">
-  <meta name="twitter:description" content="Korean Four Pillars report for overseas clients, with birth-region and time-variable checks.">
+  <meta name="twitter:title" content="Cheonglim Saem | K-fortune Reading">
+  <meta name="twitter:description" content="K-fortune Four Pillars report for overseas clients, with birth-region and time-variable checks.">
   <style>
     :root { color-scheme:light; --ink:#17120d; --muted:#6c6256; --line:#e2d6c7; --paper:#f4f0ea; --panel:#fffaf2; --deep:#153b36; --jade:#24665c; --red:#a93f2a; --gold:#b3843f; --cream:#fff7e8; }
     * { box-sizing:border-box; }
@@ -45,9 +45,9 @@
     .dark p { color:#eadfcd; }
     .hero-visual { position:absolute; inset:0; }
     .hero-visual img { width:100%; height:100%; object-fit:cover; object-position:58% center; display:block; }
-    .hero-visual::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(13,12,10,.34), rgba(13,12,10,.22) 34%, rgba(13,12,10,.9) 100%), linear-gradient(90deg, rgba(13,12,10,.7), rgba(13,12,10,.08) 55%); }
-    .hero-copy { position:relative; z-index:2; padding:84px 24px 210px; }
-    .hero-copy p { max-width:335px; font-size:17px; }
+    .hero-visual::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(13,12,10,.14), rgba(13,12,10,.08) 34%, rgba(13,12,10,.72) 100%), linear-gradient(90deg, rgba(13,12,10,.46), rgba(13,12,10,.02) 62%); }
+    .hero-copy { position:relative; z-index:2; padding:72px 24px 148px; }
+    .hero-copy p { max-width:260px; font-size:15px; }
     .hero-copy h1 { text-shadow:0 2px 16px rgba(0,0,0,.3); }
     .speech { position:relative; z-index:2; margin-top:24px; padding:18px; border:1px solid rgba(255,255,255,.28); border-radius:8px; background:rgba(18,37,34,.72); color:#fff6e4; font-size:16px; backdrop-filter:blur(10px); }
     .hero-actions { position:relative; z-index:2; display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:18px; }
@@ -112,6 +112,14 @@
     .strength-line span::before { content:""; width:18px; height:18px; display:block; margin:0 auto 6px; border-radius:50%; background:#f3a1a7; }
     .strength-line span:nth-child(6) { color:#17120d; font-weight:950; }
     .strength-line span:nth-child(6)::before { background:#cf3137; }
+    .teaser-grid { display:grid; gap:8px; margin-top:14px; }
+    .teaser-item { padding:12px; border:1px solid rgba(255,255,255,.2); border-radius:8px; background:rgba(255,255,255,.08); }
+    .teaser-item b { display:block; color:#fffaf2; }
+    .teaser-item span { display:block; margin-top:3px; color:#d9e4f2; font-size:14px; }
+    .locked-list { display:grid; gap:8px; margin-top:14px; }
+    .locked-item { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px; border-radius:8px; background:#f7efe2; color:#1d2734; font-weight:900; }
+    .locked-item small { color:#8a4a36; font-weight:950; text-transform:uppercase; }
+    .urgency-note { margin-top:14px; padding:12px; border-left:4px solid #f0c982; background:rgba(240,201,130,.12); color:#fff4dc; font-weight:850; }
     .package { position:relative; border:1px solid var(--line); border-radius:8px; padding:18px; background:#fffdf8; }
     .package.featured { border-color:var(--jade); box-shadow:0 10px 28px rgba(36,102,92,.14); }
     .package h3 { margin:0; font-size:21px; }
@@ -147,7 +155,7 @@
     <header>
       <nav>
         <a class="mark" href="#top">CL</a>
-        <div class="title"><b>Cheonglim Saem</b><span>Korean Four Pillars</span></div>
+        <div class="title"><b>Cheonglim Saem</b><span>K-fortune · Korean Four Pillars</span></div>
         <a class="menu" href="#packages" aria-label="Open packages">≡</a>
       </nav>
     </header>
@@ -158,21 +166,20 @@
           <img src="assets/seoseonsaeng-writing.png" alt="">
         </div>
         <div class="hero-copy">
-          <p class="kicker">For clients born outside Korea</p>
-          <h1>Cheonglim Saem Korean Saju, read from your real birthplace.</h1>
-          <p>Birth country, city, timezone, daylight saving time, longitude, and optional true solar time are checked before interpretation. Basic starts at KRW 9,900.</p>
+          <p class="kicker">K-fortune for global clients</p>
+          <h1>K-fortune from your real birthplace.</h1>
+          <p>True-solar Korean Four Pillars. Starts at $9.</p>
           <div class="hero-actions">
             <a class="hero-link primary" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
             <a class="hero-link" href="#free-preview">Free preview</a>
           </div>
-          <div class="speech">Overseas births need the recorded local time checked before interpretation.</div>
         </div>
       </section>
 
       <section class="panel compact" id="free-preview">
         <p class="kicker">Free mini preview</p>
         <h2>Enter your birth basics first.</h2>
-        <p>This quick preview gives only a small teaser from your birth year, local birth hour, and birthplace context. The paid report verifies the full Four Pillars, solar-term boundaries, and regional time variables.</p>
+        <p>Get one real clue for free. The paid report unlocks corrected birth time, full chart structure, timing, and practical guidance.</p>
         <form class="preview-form" id="previewForm">
           <label class="field">Birth date<input id="birthDate" type="date" required></label>
           <div class="field" id="birthTimeGroup">
@@ -200,12 +207,12 @@
 
       <section class="panel compact gold">
         <p class="kicker">Why this is different</p>
-        <h2>A Korean-style reading, rebuilt for global buyers.</h2>
+        <h2>K-fortune, rebuilt for global buyers.</h2>
         <div class="story-feature">
           <img src="assets/seohyang-seated.png" alt="Korean hanbok guide in a traditional room">
           <div class="caption">
-            <b>Traditional structure, online delivery.</b>
-            <p>The report keeps the Korean Four Pillars order while making payment, intake, and PDF delivery simple for English-speaking clients.</p>
+            <b>Korean tradition, online delivery.</b>
+            <p>The report keeps the Korean Four Pillars structure while making payment, intake, and PDF delivery simple for English-speaking K-fortune clients.</p>
           </div>
         </div>
         <div class="story">
@@ -241,26 +248,26 @@
       <section class="panel compact" id="packages">
         <p class="kicker">Packages</p>
         <h2>Choose your report depth.</h2>
-        <p>Basic stays visible as the low-friction entry offer. The daily KRW 10,000 target is cleared by either two Basic orders or one Premium/VIP order. PayPal shows the final checkout amount and currency conversion.</p>
+        <p>Basic stays visible as the low-friction entry offer. Start with a small K-fortune report, or choose Premium/VIP when you want deeper timing, relationship, career, and money-pattern analysis.</p>
         <div class="conversion-strip">
-          <p><b>Daily target math:</b> 2 Basic orders = KRW 19,800, 1 Premium order = KRW 19,900, and 1 VIP order = KRW 39,900 before platform fees.</p>
-          <p>The free preview drives discovery, Basic lowers the first-purchase barrier, and Premium remains the recommended one-order path.</p>
+          <p><b>Simple pricing:</b> Basic $9, Premium $19, and VIP $39 before any PayPal currency conversion or platform fees.</p>
+          <p>The free preview drives discovery, Basic lowers the first-purchase barrier, and Premium remains the recommended K-fortune path.</p>
         </div>
         <div class="packages">
           <article class="package">
-            <h3>Basic</h3><div class="price">KRW 9,900</div>
+            <h3>Basic</h3><div class="price">$9</div>
             <ul class="list"><li>Automated PDF reply by email</li><li>Original chart</li><li>Climate balance</li><li>Current luck cycle and annual flow</li></ul>
             <a class="button" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
             <a class="afterpay" href="intake.html?tier=basic">After payment: send Basic birth details</a>
           </article>
           <article class="package featured">
-            <span class="badge">Recommended</span><h3>Premium</h3><div class="price">KRW 19,900</div>
+            <span class="badge">Recommended</span><h3>Premium</h3><div class="price">$19</div>
             <ul class="list"><li>Everything in Basic</li><li>Birth region/time check</li><li>Palace interpretation</li><li>Career and money activity pattern</li><li>Practical next-step guidance</li></ul>
             <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
             <a class="afterpay" href="intake.html?tier=premium">After payment: send Premium birth details</a>
           </article>
           <article class="package">
-            <h3>VIP</h3><div class="price">KRW 39,900</div>
+            <h3>VIP</h3><div class="price">$39</div>
             <ul class="list"><li>Everything in Premium</li><li>Five-element constitution</li><li>Relationship pattern</li><li>10-year luck roadmap</li><li>3-5 year timing outlook</li></ul>
             <a class="button" href="https://www.paypal.com/ncp/payment/4BY7WQZQV55SC">Order VIP</a>
             <a class="afterpay" href="intake.html?tier=vip">After payment: send VIP birth details</a>
@@ -272,7 +279,7 @@
         <p class="kicker">After checkout</p>
         <h2>Send details once. Delivery is automated.</h2>
         <div class="steps">
-          <div class="step"><div class="num">1</div><div><b>Pay with PayPal</b><p>Choose Basic, Premium, or VIP. The daily target is two Basic orders or one Premium/VIP order.</p></div></div>
+          <div class="step"><div class="num">1</div><div><b>Pay with PayPal</b><p>Choose Basic, Premium, or VIP. PayPal shows the final checkout amount and currency handling.</p></div></div>
           <div class="step"><div class="num">2</div><div><b>Open the birth form</b><p>Submit PayPal order ID, email, birth date, birth time, country, and city from the same device.</p></div></div>
           <div class="step"><div class="num">3</div><div><b>Email worker checks paid orders</b><p>The order inbox is checked every few hours and matched against PayPal payment notifications.</p></div></div>
           <div class="step"><div class="num">4</div><div><b>Receive the PDF reply</b><p>The generated PDF report is attached to an email reply when processing is complete.</p></div></div>
@@ -292,14 +299,14 @@
     </main>
 
     <div class="bottom-cta">
-      <p><b>Start small:</b> Basic KRW 9,900 · <b>Recommended:</b> Premium KRW 19,900</p>
+      <p><b>Start small:</b> Basic $9 · <b>Recommended:</b> Premium $19</p>
       <div class="bottom-actions">
         <a class="button secondary" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
         <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
       </div>
       <a class="bottom-form-link" href="intake.html?tier=basic">Already paid? Send birth details</a>
     </div>
-    <footer>Cheonglim Saem. Korean Four Pillars reading. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="korean-saju-reading-online.html">Online Saju reading</a> · <a href="basic-korean-saju-report.html">Basic report</a> · <a href="saju-without-birth-time.html">Unknown birth time</a> · <a href="intake.html?tier=premium">Birth details form</a> · <a href="overseas-birth-saju.html">Overseas birth guide</a> · <a href="true-solar-time-saju.html">True solar time guide</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
+    <footer>Cheonglim Saem. K-fortune Korean Four Pillars reading. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="korean-saju-reading-online.html">Online Saju reading</a> · <a href="basic-korean-saju-report.html">Basic report</a> · <a href="saju-without-birth-time.html">Unknown birth time</a> · <a href="intake.html?tier=premium">Birth details form</a> · <a href="overseas-birth-saju.html">Overseas birth guide</a> · <a href="true-solar-time-saju.html">True solar time guide</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
   </div>
   <script>
     const heavenlyStems = [
@@ -379,6 +386,11 @@
       const hourCopy = unknownTime
         ? 'Birth time is marked unknown, so the hour pillar stays uncertain until you provide a reliable range.'
         : `Your local birth hour falls near the ${hourInfo.animal} hour, which colors private rhythm and long-term planning.`;
+      const strongest = overview.rows.reduce((best, row) => row.percent > best.percent ? row : best, overview.rows[0]);
+      const weakest = overview.rows.reduce((low, row) => row.percent < low.percent ? row : low, overview.rows[0]);
+      const buyerHook = unknownTime
+        ? 'Your missing birth time is not a small detail. The paid report marks the hour pillar as uncertain instead of pretending it is fixed.'
+        : `Your ${hourInfo.animal} hour may change after timezone, DST, longitude, and true-solar correction. Premium checks that before interpretation.`;
       const elementRows = overview.rows.map((row) => `
           <div class="element-row">
             <span style="color:${row.color}">${row.name}<br>${row.hanja}</span>
@@ -387,9 +399,13 @@
           </div>`).join('');
       const result = document.getElementById('previewResult');
       result.innerHTML = `
-        <h3>Overview: ${pillar.stemName}-${pillar.branchName} year${unknownTime ? '' : `, ${hourInfo.name} hour`}</h3>
-        <p>Your birth year points toward <b>${pillar.stemElement}</b> themes: ${elementCopy[pillar.stemElement]}.</p>
-        <p>${hourCopy}</p>
+        <h3>Your K-fortune teaser: one strong clue, three locked answers.</h3>
+        <p>Your free preview shows the first signal only: <b>${pillar.stemElement}</b> themes often mean ${elementCopy[pillar.stemElement]}.</p>
+        <div class="teaser-grid">
+          <div class="teaser-item"><b>Visible pattern</b><span>${strongest.name} is strongest in this sample. The paid report explains where that repeats in decisions, work style, and relationships.</span></div>
+          <div class="teaser-item"><b>Missing support</b><span>${weakest.name} is the area to inspect. The paid report turns it into a practical habit and timing strategy.</span></div>
+          <div class="teaser-item"><b>Birthplace risk</b><span>${buyerHook}</span></div>
+        </div>
         <p><b>Birthplace check:</b> ${place}. ${regionNote}</p>
         <div class="overview-card">
           <div class="overview-head"><b>Five-element overview</b><span>Sample balance from the submitted basics</span></div>
@@ -406,10 +422,15 @@
             </div>
           </div>
         </div>
-        <p>This is only a surface overview. The paid report checks the full chart order, climate balance, structure, self-support, missing links, 10-year cycle, and annual flow.</p>
+        <div class="locked-list">
+          <div class="locked-item"><span>Why this pattern repeats in work and money</span><small>Basic</small></div>
+          <div class="locked-item"><span>Whether true solar time changes your hour pillar</span><small>Premium</small></div>
+          <div class="locked-item"><span>Relationship pattern and 3-5 year timing plan</span><small>VIP</small></div>
+        </div>
+        <div class="urgency-note">The free preview is intentionally incomplete. The paid report checks the full chart order, corrected birth time, climate balance, self-support, missing links, 10-year cycle, and annual flow.</div>
         <div class="button-row">
-          <a class="button secondary" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
-          <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
+          <a class="button secondary" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Unlock Basic $9</a>
+          <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Check timing $19</a>
         </div>`;
       result.classList.add('is-visible');
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
