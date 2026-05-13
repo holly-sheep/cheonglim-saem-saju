@@ -45,7 +45,7 @@
     <p>This form creates the order email used by the automated delivery worker. Send it after PayPal checkout, and the inbox processor will calculate the chart, generate the PDF, and reply by email. For overseas births, country, city, timezone, longitude, and daylight saving context can affect the hour pillar.</p>
     <form id="intakeForm">
       <div class="grid">
-        <label>PayPal order ID<input name="orderId" placeholder="Example: 1AB23456CD789012E" required></label>
+        <label>PayPal transaction/order ID<input name="orderId" placeholder="Example: 1AB23456CD789012E" required><span class="help">Use the same ID shown in your PayPal receipt so the payment email can be matched.</span></label>
         <label>Package<select name="tier" required><option>basic</option><option selected>premium</option><option>vip</option></select></label>
         <label>Full name<input name="name" required></label>
         <label>Email<input name="email" type="email" required></label>
@@ -64,7 +64,7 @@
         <button type="button" class="secondary" id="mailButton">Send by email</button>
       </div>
     </form>
-    <div class="note">After payment, send this information to aideseobot@gmail.com. New order emails are checked every few hours and answered with the generated PDF when processing is complete.</div>
+    <div class="note">After payment, send this information to aideseobot@gmail.com. New order emails are matched against PayPal payment notifications, checked every few hours, and answered with the generated PDF when processing is complete.</div>
     <h2>Generated order message</h2>
     <pre id="output"></pre>
   </main>
