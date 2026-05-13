@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="no-referrer">
   <title>Cheonglim Saem | Korean Four Pillars Reading</title>
-  <meta name="description" content="A Korean Saju reading for overseas clients, adjusted for birth country, city, timezone, longitude, DST, and optional true solar time.">
+  <meta name="description" content="Korean Saju readings for overseas clients, adjusted for birth country, city, timezone, longitude, DST, and optional true solar time.">
   <link rel="canonical" href="https://hollysheep-ai.github.io/cheonglim-saem-saju/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cheonglim Saem">
@@ -66,6 +66,8 @@
     .track { height:10px; border-radius:999px; background:#eadfce; overflow:hidden; }
     .fill { height:100%; background:var(--jade); }
     .packages { display:grid; gap:14px; margin-top:24px; }
+    .conversion-strip { display:grid; gap:8px; margin-top:20px; padding:16px; border:1px solid rgba(36,102,92,.28); border-radius:12px; background:#eef6f3; color:var(--deep); font-weight:850; }
+    .conversion-strip p { margin:0; color:var(--deep); font-size:14px; }
     .preview-form { display:grid; gap:12px; margin-top:24px; }
     .field { display:grid; gap:6px; font-weight:850; }
     input { width:100%; min-height:46px; border:1px solid var(--line); border-radius:10px; padding:10px 12px; background:#fffdf8; color:var(--ink); font:inherit; }
@@ -185,7 +187,11 @@
       <section class="panel compact" id="packages">
         <p class="kicker">Packages</p>
         <h2>Choose your report depth.</h2>
-        <p>Premium is the default launch offer because one order already clears the daily KRW 10,000 revenue target. PayPal shows the final checkout amount and currency conversion.</p>
+        <p>Basic stays visible as the low-friction entry offer. The daily KRW 10,000 target is cleared by either two Basic orders or one Premium/VIP order. PayPal shows the final checkout amount and currency conversion.</p>
+        <div class="conversion-strip">
+          <p><b>Daily target math:</b> 2 Basic orders = KRW 19,800, 1 Premium order = KRW 19,900, and 1 VIP order = KRW 39,900 before platform fees.</p>
+          <p>The free preview drives discovery, Basic lowers the first-purchase barrier, and Premium remains the recommended one-order path.</p>
+        </div>
         <div class="packages">
           <article class="package">
             <h3>Basic</h3><div class="price">KRW 9,900</div>
@@ -209,8 +215,8 @@
         <p class="kicker">After checkout</p>
         <h2>Send the details needed for an overseas birth.</h2>
         <div class="steps">
-          <div class="step"><div class="num">1</div><div><b>Pay with PayPal</b><p>Choose Basic, Premium, or VIP.</p></div></div>
-          <div class="step"><div class="num">2</div><div><b>Open the birth form</b><p>Submit PayPal order ID, email, birth date, birth time, country, and city.</p></div></div>
+          <div class="step"><div class="num">1</div><div><b>Pay with PayPal</b><p>Choose Basic, Premium, or VIP. The daily target is two Basic orders or one Premium/VIP order.</p></div></div>
+          <div class="step"><div class="num">2</div><div><b>Open the birth form</b><p>Submit PayPal order ID, email, birth date, birth time, country, and city from the same device.</p></div></div>
           <div class="step"><div class="num">3</div><div><b>Time variables are checked</b><p>Timezone, longitude, DST, and optional true solar time are reviewed.</p></div></div>
           <div class="step"><div class="num">4</div><div><b>Receive your report</b><p>The personalized report is delivered by email after confirmation.</p></div></div>
         </div>
@@ -232,7 +238,7 @@
       <p><b>Recommended:</b> Premium Saju Report, KRW 19,900</p>
       <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium with PayPal</a>
     </div>
-    <footer>Cheonglim Saem. 청림샘 Korean Four Pillars reading. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="intake.html">Birth details form</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
+    <footer>Cheonglim Saem. 청림샘 Korean Four Pillars reading. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="intake.html?tier=premium">Birth details form</a> · <a href="overseas-birth-saju.html">Overseas birth guide</a> · <a href="true-solar-time-saju.html">True solar time guide</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
   </div>
   <script>
     const heavenlyStems = [

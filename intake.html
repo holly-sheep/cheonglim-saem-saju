@@ -71,6 +71,10 @@
   <script>
     const form = document.getElementById('intakeForm');
     const output = document.getElementById('output');
+    const tier = new URLSearchParams(window.location.search).get('tier');
+    if (tier === 'basic' || tier === 'premium' || tier === 'vip') {
+      form.elements.tier.value = tier;
+    }
     function buildText() {
       const data = Object.fromEntries(new FormData(form).entries());
       return `order_id: ${data.orderId}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${data.birthDate}\nbirth_time: ${data.birthTime}\ngender: ${data.gender}\nbirth_country: ${data.birthCountry}\nbirth_city: ${data.birthCity}\ntimezone: ${data.timezone}\nlongitude: ${data.longitude}\ntime_policy: ${data.timePolicy}\nmemo: ${data.memo}`;
