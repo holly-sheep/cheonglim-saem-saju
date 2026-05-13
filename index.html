@@ -68,6 +68,23 @@
     .comparison-cell strong { display:block; margin-bottom:4px; color:var(--ink); font-size:14px; }
     .comparison-cell.highlight { background:#153b36; color:#e9ddca; }
     .comparison-cell.highlight strong { color:#fff7e8; }
+    .value-grid { display:grid; gap:12px; margin-top:22px; }
+    .value-card { border:1px solid var(--line); border-radius:8px; padding:16px; background:#fffdf8; }
+    .value-card b { display:block; font-size:17px; line-height:1.25; }
+    .value-card p { margin:6px 0 0; font-size:14px; }
+    .proof-bar { display:grid; gap:10px; margin-top:18px; }
+    .proof-item { padding:13px 14px; border-left:4px solid var(--jade); background:#edf5f1; color:var(--deep); font-size:14px; font-weight:850; }
+    .sample-pages { display:grid; gap:12px; margin-top:22px; }
+    .sample-page { border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fffdf8; }
+    .sample-page img { width:100%; display:block; border-bottom:1px solid var(--line); background:#f4eadc; }
+    .sample-page div { padding:12px; }
+    .sample-page b { display:block; font-size:15px; }
+    .sample-page p { margin:4px 0 0; font-size:13px; }
+    .sample-link { display:inline-flex; margin-top:10px; color:var(--jade); font-size:13px; font-weight:950; text-decoration:underline; text-underline-offset:3px; }
+    .trust-grid { display:grid; gap:12px; margin-top:24px; }
+    .trust-card { border:1px solid rgba(255,255,255,.18); border-radius:8px; padding:16px; background:rgba(255,255,255,.08); }
+    .trust-card b { display:block; color:#fff7e8; font-size:17px; }
+    .trust-card p { margin:6px 0 0; color:#eadfcd; font-size:14px; }
     .story-feature { position:relative; min-height:380px; margin-top:24px; overflow:hidden; border-radius:8px; background:#17120d; }
     .story-feature img { width:100%; height:100%; min-height:380px; object-fit:cover; display:block; }
     .story-feature::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.72)); }
@@ -142,6 +159,10 @@
     .package.featured { border-color:var(--jade); box-shadow:0 10px 28px rgba(36,102,92,.14); }
     .package h3 { margin:0; font-size:21px; }
     .price { margin:6px 0 10px; font-size:28px; font-weight:950; }
+    .package-meta { display:grid; gap:6px; margin:0 0 14px; color:var(--muted); font-size:13px; font-weight:850; }
+    .package-meta span { display:block; }
+    .tier-for { margin:12px 0 14px; padding:12px; border-radius:8px; background:#f4eadc; color:#43382c; font-size:14px; }
+    .tier-for b { display:block; margin-bottom:3px; color:var(--ink); }
     .badge { position:absolute; top:16px; right:16px; padding:5px 8px; border-radius:999px; background:#e9f2ef; color:var(--jade); font-size:11px; font-weight:950; }
     .list { margin:0 0 16px; padding-left:18px; color:var(--muted); font-size:14px; }
     .list li { margin:6px 0; }
@@ -167,6 +188,23 @@
     footer { padding:28px 24px 92px; color:var(--muted); font-size:13px; background:var(--paper); }
     @media (max-width:380px) { .comparison-row { grid-template-columns:1fr; } }
     @media (min-width:760px) { body { padding:24px 0; } .phone { border-radius:24px; overflow:hidden; } }
+    @media (min-width:980px) {
+      .phone { width:min(100%, 960px); }
+      nav { grid-template-columns:52px 1fr 52px; padding:0 24px; }
+      .panel { padding:56px 48px; }
+      .panel.compact { padding:58px 48px; }
+      .panel.hero { min-height:680px; }
+      .hero-copy { padding:96px 48px 110px; }
+      .hero-copy p { max-width:390px; }
+      h1 { max-width:470px; font-size:54px; }
+      h2 { max-width:620px; font-size:38px; }
+      .story, .difference-list, .value-grid, .sample-pages, .trust-grid, .packages { grid-template-columns:repeat(3, minmax(0, 1fr)); }
+      .trust-card.operator-card { grid-column:1 / -1; }
+      .proof-bar { grid-template-columns:repeat(3, minmax(0, 1fr)); }
+      .comparison { grid-template-columns:1fr 1fr; }
+      .report-box { max-width:640px; }
+      .bottom-cta { max-width:960px; margin:0 auto; }
+    }
   </style>
 </head>
 <body>
@@ -264,8 +302,9 @@
       </section>
 
       <section class="panel compact">
-        <p class="kicker">Sample report flow</p>
-        <h2>Your chart is read in order.</h2>
+        <p class="kicker">Report preview</p>
+        <h2>What the paid PDF actually contains.</h2>
+        <p>Each report is a finished English PDF, not a short teaser. The tiers differ by depth and planning range, but every paid tier includes a calculated chart, plain-English interpretation, practical guidance, and visual pages.</p>
         <div class="guide-strip">
           <img src="assets/seohyang-overhead.png" alt="Korean hanbok guide in warm indoor light">
         </div>
@@ -284,32 +323,53 @@
             <div class="bar"><span>Missing links</span><div class="track"><div class="fill" style="width:72%"></div></div></div>
           </div>
         </div>
+        <div class="value-grid">
+          <article class="value-card"><b>Calculation basis first</b><p>Birth country, city, timezone, DST, longitude, and true-solar context are shown before interpretation, so overseas buyers can see what was used.</p></article>
+          <article class="value-card"><b>Mid-report visuals</b><p>Five-element cycle, annual energy map, and long-cycle visuals appear inside the PDF where they help the reading, not only on the cover.</p></article>
+          <article class="value-card"><b>Actionable close</b><p>The report ends with practical review steps, habits, and decision filters so the PDF remains useful after the first read.</p></article>
+        </div>
+        <div class="sample-pages" aria-label="Sample PDF pages">
+          <article class="sample-page"><img src="assets/sample-basic-page.png" alt="Sample Basic PDF page showing a profile card"><div><b>Basic sample page</b><p>A profile card turns the Day Master and missing element into a quick working summary.</p><a class="sample-link" href="assets/sample-basic.pdf" download>Download full Basic sample PDF</a></div></article>
+          <article class="sample-page"><img src="assets/sample-premium-page.png" alt="Sample Premium PDF page showing an immediate action card"><div><b>Premium sample page</b><p>Action cards make the longer report easier to use after the first read.</p><a class="sample-link" href="assets/sample-premium.pdf" download>Download full Premium sample PDF</a></div></article>
+          <article class="sample-page"><img src="assets/sample-vip-page.png" alt="Sample VIP PDF page showing annual energy map"><div><b>VIP sample page</b><p>Longer planning pages with roadmap, risk, annual review, and dashboard guidance.</p><a class="sample-link" href="assets/sample-vip.pdf" download>Download full VIP sample PDF</a></div></article>
+        </div>
       </section>
 
       <section class="panel compact" id="packages">
         <p class="kicker">Packages</p>
         <h2>Choose your report depth.</h2>
-        <p>Basic stays visible as the low-friction entry offer. Start with a small K-fortune report, or choose Premium/VIP when you want deeper timing, relationship, career, and money-pattern analysis.</p>
+        <p>Start with a compact Korean Saju reading, or choose a longer report when you want timing, career, money behavior, relationship pattern, and long-cycle planning connected in one PDF.</p>
         <div class="conversion-strip">
-          <p><b>Simple pricing:</b> Basic $9, Premium $19, and VIP $39 before any PayPal currency conversion or platform fees.</p>
-          <p>The free preview drives discovery, Basic lowers the first-purchase barrier, and Premium remains the recommended K-fortune path.</p>
+          <p><b>Why the price is low:</b> the report is generated by an automated email worker from the birth details you submit after PayPal checkout. That keeps the service affordable.</p>
+          <p><b>What is still checked:</b> chart calculation, birth-region variables, tier-specific sections, PDF formatting, and email delivery. PayPal shows the final currency conversion and platform fees before you pay.</p>
+        </div>
+        <div class="proof-bar">
+          <div class="proof-item">Delivery: automated PDF reply by email after your payment and birth form are matched.</div>
+          <div class="proof-item">Language: English buyer-facing report with Korean Saju concepts explained in plain terms.</div>
+          <div class="proof-item">Use: educational self-reflection and decision support, not medical, legal, financial, or therapeutic advice.</div>
         </div>
         <div class="packages">
           <article class="package">
             <h3>Basic</h3><div class="price">$9</div>
-            <ul class="list"><li>Automated PDF reply by email</li><li>Original chart</li><li>Climate balance</li><li>Current luck cycle and annual flow</li></ul>
+            <div class="package-meta"><span>Expected length: about 16 pages</span><span>Delivery: PDF email after processing</span></div>
+            <div class="tier-for"><b>Best for</b>first-time buyers who want a real K-fortune reading without a large commitment.</div>
+            <ul class="list"><li>Calculated Four Pillars chart</li><li>Timezone and true-solar basis shown</li><li>Five Elements and chart weather</li><li>Day Master, work/money pattern, current timing</li><li>Thirty-day starter plan and re-reading guide</li></ul>
             <a class="button" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
             <a class="afterpay" href="intake.html?tier=basic">After payment: send Basic birth details</a>
           </article>
           <article class="package featured">
             <span class="badge">Recommended</span><h3>Premium</h3><div class="price">$19</div>
-            <ul class="list"><li>Everything in Basic</li><li>Birth region/time check</li><li>Palace interpretation</li><li>Career and money activity pattern</li><li>Practical next-step guidance</li></ul>
+            <div class="package-meta"><span>Expected length: about 25 pages</span><span>Delivery: PDF email after processing</span></div>
+            <div class="tier-for"><b>Best for</b>buyers who want the most balanced report: timing, life areas, work, and money behavior.</div>
+            <ul class="list"><li>Everything in Basic</li><li>Palace reading for life areas</li><li>Deficiency and repeated desire pattern</li><li>Quarterly flow and regional time review</li><li>Career fit, economic activity pattern, action priorities</li></ul>
             <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
             <a class="afterpay" href="intake.html?tier=premium">After payment: send Premium birth details</a>
           </article>
           <article class="package">
             <h3>VIP</h3><div class="price">$39</div>
-            <ul class="list"><li>Everything in Premium</li><li>Five-element constitution</li><li>Relationship pattern</li><li>10-year luck roadmap</li><li>3-5 year timing outlook</li></ul>
+            <div class="package-meta"><span>Expected length: about 36 pages</span><span>Delivery: PDF email after processing</span></div>
+            <div class="tier-for"><b>Best for</b>buyers who want a longer planning document they can revisit across the year.</div>
+            <ul class="list"><li>Everything in Premium</li><li>Five-element constitution and relationship pattern</li><li>Ten-year luck roadmap</li><li>Next three-to-five-year timing outlook</li><li>Decision framework, annual review, risk register, dashboard</li></ul>
             <a class="button" href="https://www.paypal.com/ncp/payment/4BY7WQZQV55SC">Order VIP</a>
             <a class="afterpay" href="intake.html?tier=vip">After payment: send VIP birth details</a>
           </article>
@@ -321,9 +381,20 @@
         <h2>Send details once. Delivery is automated.</h2>
         <div class="steps">
           <div class="step"><div class="num">1</div><div><b>Pay with PayPal</b><p>Choose Basic, Premium, or VIP. PayPal shows the final checkout amount and currency handling.</p></div></div>
-          <div class="step"><div class="num">2</div><div><b>Open the birth form</b><p>Submit PayPal order ID, email, birth date, birth time, country, and city from the same device.</p></div></div>
-          <div class="step"><div class="num">3</div><div><b>Email worker checks paid orders</b><p>The order inbox is checked every few hours and matched against PayPal payment notifications.</p></div></div>
-          <div class="step"><div class="num">4</div><div><b>Receive the PDF reply</b><p>The generated PDF report is attached to an email reply when processing is complete.</p></div></div>
+          <div class="step"><div class="num">2</div><div><b>Open the birth form</b><p>Submit PayPal order ID, email, birth date, birth time, country, city, timezone, and optional longitude from the same device.</p></div></div>
+          <div class="step"><div class="num">3</div><div><b>Email worker matches the order</b><p>The inbox is checked every few hours and matched against PayPal notifications. Most matched orders are processed within 24 hours.</p></div></div>
+          <div class="step"><div class="num">4</div><div><b>Receive the PDF reply</b><p>The PDF is attached to an email reply. If nothing arrives within 48 hours, email support with your PayPal order ID.</p></div></div>
+        </div>
+      </section>
+
+      <section class="panel compact dark">
+        <p class="kicker">Trust and privacy</p>
+        <h2>How your birth data is handled.</h2>
+        <div class="trust-grid">
+          <article class="trust-card operator-card"><b>Who prepares this report</b><p>Cheonglim Saem combines Korean Four Pillars structure with automated report generation for overseas clients. The report is generated from the birth details you submit, then delivered by email as an English PDF. For corrections, delivery issues, or deletion requests, contact aideseobot@gmail.com.</p></article>
+          <article class="trust-card"><b>Method</b><p>Cheonglim Saem reads Korean Four Pillars, known as saju-palja. The report starts from Heavenly Stems, Earthly Branches, Day Master, Five Elements, ten-year cycles, and yearly flow.</p></article>
+          <article class="trust-card"><b>Automation boundary</b><p>The worker calculates the chart, assembles the tier-specific report, formats the PDF, and sends it by email. The report is educational decision-support, not medical, legal, financial, therapeutic, or investment advice.</p></article>
+          <article class="trust-card"><b>Data handling</b><p>Your order ID, email, birth details, country/city, timezone, and optional longitude are used only to generate and deliver the report. Data is not sold. For correction or deletion requests, contact aideseobot@gmail.com.</p></article>
         </div>
       </section>
 
@@ -334,6 +405,8 @@
           <article><h3>I was born outside Korea. Is that okay?</h3><p>Yes. The form asks for birth country and city so the hour pillar can be checked against regional time variables.</p></article>
           <article><h3>Do you always use true solar time?</h3><p>No. Local civil time is the default. True solar time is checked only when the birth location makes it relevant or when you request it.</p></article>
           <article><h3>What if I do not know my birth time?</h3><p>A reading is possible, but the hour pillar will be uncertain. <a href="saju-without-birth-time.html">Read the unknown birth time guide</a> before ordering.</p></article>
+          <article><h3>When will I receive the PDF?</h3><p>Most matched orders are processed within 24 hours. If the PayPal notification and birth form do not match, support may ask for the order ID again.</p></article>
+          <article><h3>Can I correct my details?</h3><p>Input errors can be corrected once before delivery. After delivery, a changed birth time, city, timezone, or longitude may require regeneration.</p></article>
           <article><h3>Can I get a refund?</h3><p>Because each report is personalized, completed reports are not refundable. Input errors can be corrected once before delivery.</p></article>
         </div>
       </section>
