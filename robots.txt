@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hollysheep-ai.github.io/cheonglim-saem-saju/sitemap.xml
