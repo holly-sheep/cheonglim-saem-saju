@@ -87,6 +87,7 @@
     .button.primary { border-color:var(--jade); background:var(--jade); color:white; }
     .button.secondary { border-color:var(--deep); background:#fffdf8; color:var(--deep); }
     .button-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:16px; }
+    .afterpay { display:block; margin-top:10px; color:var(--jade); font-size:13px; font-weight:950; text-align:center; text-decoration:underline; text-underline-offset:3px; }
     .steps { display:grid; gap:14px; margin-top:24px; }
     .step { display:grid; grid-template-columns:36px 1fr; gap:12px; align-items:start; }
     .num { width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:var(--deep); color:#fff3d4; font-weight:950; }
@@ -100,6 +101,7 @@
     .bottom-cta p { margin:0 0 8px; color:var(--ink); font-size:13px; text-align:center; }
     .bottom-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
     .bottom-actions .button { min-height:44px; padding:0 10px; font-size:14px; }
+    .bottom-form-link { display:block; margin-top:8px; color:var(--jade); font-size:13px; font-weight:950; text-align:center; text-decoration:underline; text-underline-offset:3px; }
     footer { padding:28px 24px 92px; color:var(--muted); font-size:13px; background:var(--paper); }
     @media (min-width:760px) { body { padding:24px 0; } .phone { border-radius:24px; overflow:hidden; } }
   </style>
@@ -201,16 +203,19 @@
             <h3>Basic</h3><div class="price">KRW 9,900</div>
             <ul class="list"><li>Automated PDF reply by email</li><li>Original chart</li><li>Climate balance</li><li>Current luck cycle and annual flow</li></ul>
             <a class="button" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
+            <a class="afterpay" href="intake.html?tier=basic">After payment: send Basic birth details</a>
           </article>
           <article class="package featured">
             <span class="badge">Recommended</span><h3>Premium</h3><div class="price">KRW 19,900</div>
             <ul class="list"><li>Everything in Basic</li><li>Birth region/time check</li><li>Palace interpretation</li><li>Career and money activity pattern</li><li>Practical next-step guidance</li></ul>
             <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
+            <a class="afterpay" href="intake.html?tier=premium">After payment: send Premium birth details</a>
           </article>
           <article class="package">
             <h3>VIP</h3><div class="price">KRW 39,900</div>
             <ul class="list"><li>Everything in Premium</li><li>Five-element constitution</li><li>Relationship pattern</li><li>10-year luck roadmap</li><li>3-5 year timing outlook</li></ul>
             <a class="button" href="https://www.paypal.com/ncp/payment/4BY7WQZQV55SC">Order VIP</a>
+            <a class="afterpay" href="intake.html?tier=vip">After payment: send VIP birth details</a>
           </article>
         </div>
       </section>
@@ -244,6 +249,7 @@
         <a class="button secondary" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
         <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
       </div>
+      <a class="bottom-form-link" href="intake.html?tier=basic">Already paid? Send birth details</a>
     </div>
     <footer>Cheonglim Saem. 청림샘 Korean Four Pillars reading. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="basic-korean-saju-report.html">Basic report</a> · <a href="intake.html?tier=premium">Birth details form</a> · <a href="overseas-birth-saju.html">Overseas birth guide</a> · <a href="true-solar-time-saju.html">True solar time guide</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
   </div>

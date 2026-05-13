@@ -36,6 +36,10 @@
     .actions { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
     .button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; padding:0 18px; border-radius:8px; background:white; color:var(--deep); font-weight:950; text-decoration:none; }
     .button.primary { background:var(--jade); color:white; }
+    .steps { display:grid; gap:12px; margin-top:22px; }
+    .step { border-left:4px solid var(--jade); padding:10px 0 10px 14px; background:rgba(255,255,255,.45); }
+    .step b { display:block; }
+    .step p { margin:4px 0 0; }
     @media (max-width:720px){ .top { flex-direction:column; } .grid, .actions { grid-template-columns:1fr; } }
   </style>
 </head>
@@ -57,6 +61,12 @@
     </div>
     <h2>Why Basic stays visible</h2>
     <p>One Basic order is an easy first step for buyers who are not ready for a Premium reading. Two Basic orders in a day produce KRW 19,800 before platform fees, which clears the KRW 10,000 daily revenue target.</p>
+    <h2>Order flow</h2>
+    <div class="steps">
+      <article class="step"><b>1. Pay with PayPal</b><p>Use the Basic checkout link and keep the transaction or order ID from the receipt.</p></article>
+      <article class="step"><b>2. Send birth details</b><p>Open the Basic intake form, paste the PayPal ID, and send the generated message by email.</p></article>
+      <article class="step"><b>3. Receive the PDF</b><p>The inbox worker checks paid orders every few hours and replies with the generated PDF.</p></article>
+    </div>
     <div class="cta">
       <b>Order Basic when you want the first report without overthinking the package.</b>
       <p>Use the same PayPal transaction or order ID in the intake form so the payment email can be matched automatically.</p>
