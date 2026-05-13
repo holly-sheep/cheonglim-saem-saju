@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="no-referrer">
+  <title>Cheonglim Saju Studio | Korean Four Pillars Reading</title>
+  <meta name="description" content="A Korean Saju reading for overseas clients, adjusted for birth country, city, timezone, longitude, DST, and optional true solar time.">
+  <style>
+    :root { color-scheme: light; --ink:#15120f; --muted:#665e55; --line:#ded6cc; --paper:#fbf5ec; --panel:#fffdfa; --accent:#165f55; --accent2:#9c3d23; --gold:#b48239; --soft:#efe5d8; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--paper); line-height:1.58; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1120px, calc(100% - 40px)); margin:0 auto; }
+    header { position:sticky; top:0; z-index:20; border-bottom:1px solid var(--line); background:rgba(255,253,250,.94); backdrop-filter:blur(12px); }
+    nav { min-height:66px; display:flex; align-items:center; justify-content:space-between; gap:18px; }
+    .brand { display:grid; gap:1px; font-weight:900; line-height:1.05; }
+    .brand small { color:var(--muted); font-weight:700; font-size:12px; }
+    .navlinks { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .button { display:inline-flex; min-height:44px; align-items:center; justify-content:center; padding:0 16px; border-radius:7px; border:1px solid var(--ink); background:#fff; font-weight:850; white-space:nowrap; }
+    .button.primary { background:var(--accent); border-color:var(--accent); color:white; }
+    .button.ghost { border-color:var(--line); color:var(--muted); background:transparent; }
+    .hero { min-height:calc(100vh - 66px); display:grid; grid-template-columns:minmax(0,1fr) minmax(330px,.78fr); gap:46px; align-items:center; padding:54px 0 42px; }
+    .eyebrow { color:var(--accent2); font-weight:900; text-transform:uppercase; letter-spacing:.08em; font-size:13px; }
+    h1 { margin:10px 0 0; max-width:760px; font-size:clamp(42px, 6vw, 78px); line-height:1; letter-spacing:0; }
+    .lead { max-width:690px; margin:22px 0 0; color:var(--muted); font-size:20px; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
+    .trust { display:flex; gap:10px; flex-wrap:wrap; margin-top:24px; color:var(--muted); font-size:14px; }
+    .pill { border:1px solid var(--line); border-radius:999px; padding:7px 11px; background:var(--panel); }
+    .product-shot { border:1px solid var(--line); border-radius:10px; background:var(--panel); box-shadow:0 18px 44px rgba(49,39,29,.12); overflow:hidden; }
+    .shot-top { min-height:150px; padding:22px; color:white; background:#153f3a; display:flex; flex-direction:column; justify-content:space-between; }
+    .moon { width:74px; height:74px; border-radius:50%; background:#f5e3b9; box-shadow:0 0 0 16px rgba(245,227,185,.10); }
+    .shot-top b { font-size:24px; line-height:1.08; max-width:280px; }
+    .report { padding:20px; }
+    .report-head { display:flex; justify-content:space-between; gap:14px; padding-bottom:14px; margin-bottom:14px; border-bottom:1px solid var(--line); }
+    .report-title { font-weight:900; font-size:18px; }
+    .stamp { color:var(--accent2); font-weight:900; font-size:12px; text-transform:uppercase; }
+    .pillars { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--line); border-radius:7px; overflow:hidden; }
+    .pillar { min-height:64px; padding:9px 6px; display:grid; place-items:center; text-align:center; border-right:1px solid var(--line); background:white; font-weight:850; }
+    .pillar:last-child { border-right:0; }
+    .pillar small { display:block; color:var(--muted); font-size:12px; font-weight:700; }
+    .bars { margin-top:16px; display:grid; gap:8px; }
+    .bar { display:grid; grid-template-columns:82px 1fr; gap:10px; align-items:center; font-size:13px; color:var(--muted); }
+    .track { height:10px; border-radius:999px; background:var(--soft); overflow:hidden; }
+    .fill { height:100%; background:var(--accent); }
+    section { padding:72px 0; border-top:1px solid var(--line); }
+    h2 { margin:0; font-size:clamp(28px, 4vw, 42px); line-height:1.12; letter-spacing:0; }
+    .section-lead { max-width:760px; margin:14px 0 0; color:var(--muted); font-size:18px; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:26px; }
+    .card { border:1px solid var(--line); border-radius:10px; background:var(--panel); padding:20px; display:grid; gap:12px; align-content:start; }
+    .card.featured { border-color:var(--accent); box-shadow:0 14px 36px rgba(22,95,85,.13); }
+    .card h3 { margin:0; font-size:22px; }
+    .price { font-size:28px; font-weight:950; }
+    .note { color:var(--muted); font-size:14px; }
+    .list { margin:0; padding-left:18px; color:var(--muted); }
+    .list li { margin:7px 0; }
+    .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:26px; }
+    .step { border-top:2px solid var(--accent); padding-top:12px; color:var(--muted); }
+    .step b { display:block; color:var(--ink); margin-bottom:5px; }
+    .faq { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:26px; }
+    .faq article { border-top:1px solid var(--line); padding-top:16px; }
+    .faq h3 { margin:0 0 8px; }
+    .faq p { margin:0; color:var(--muted); }
+    .sticky-buy { position:sticky; bottom:0; z-index:18; border-top:1px solid var(--line); background:rgba(255,253,250,.96); backdrop-filter:blur(12px); }
+    .sticky-inner { min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
+    .sticky-inner p { margin:0; color:var(--muted); }
+    footer { border-top:1px solid var(--line); padding:32px 0 92px; color:var(--muted); font-size:14px; }
+    @media (max-width:860px) { .hero { min-height:auto; grid-template-columns:1fr; padding-top:36px; } .cards,.steps,.faq { grid-template-columns:1fr; } .navlinks .ghost { display:none; } .sticky-inner { align-items:flex-start; flex-direction:column; padding:12px 0; } .sticky-inner .button { width:100%; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#top">Cheonglim Saju Studio<small>Korean Four Pillars Reading</small></a>
+        <div class="navlinks">
+          <a class="button ghost" href="#packages">Packages</a>
+          <a class="button ghost" href="intake.html">Birth Form</a>
+          <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main id="top">
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow">For clients born outside Korea</div>
+        <h1>A Korean Saju reading adjusted for your real birth location.</h1>
+        <p class="lead">Most Four Pillars readings quietly assume Korean time. This report checks birth country, city, timezone, longitude, daylight saving time, and optional true solar time before interpreting your chart.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Premium KRW 19,900</a>
+          <a class="button" href="#packages">Compare packages</a>
+        </div>
+        <div class="trust">
+          <span class="pill">PayPal checkout</span>
+          <span class="pill">Delivered by email</span>
+          <span class="pill">Region-aware calculation</span>
+          <span class="pill">Not financial, medical, or legal advice</span>
+        </div>
+      </div>
+      <aside class="product-shot" aria-label="Sample report preview">
+        <div class="shot-top">
+          <div class="moon" aria-hidden="true"></div>
+          <b>Personal Saju Report for Overseas Births</b>
+        </div>
+        <div class="report">
+          <div class="report-head">
+            <div><div class="report-title">Premium Report</div><div class="note">Structure before interpretation</div></div>
+            <div class="stamp">Timezone checked</div>
+          </div>
+          <div class="pillars">
+            <div class="pillar"><span><small>Year</small>Roots</span></div>
+            <div class="pillar"><span><small>Month</small>Society</span></div>
+            <div class="pillar"><span><small>Day</small>Self</span></div>
+            <div class="pillar"><span><small>Hour</small>Future</span></div>
+          </div>
+          <div class="bars">
+            <div class="bar"><span>Climate</span><div class="track"><div class="fill" style="width:78%"></div></div></div>
+            <div class="bar"><span>Structure</span><div class="track"><div class="fill" style="width:68%"></div></div></div>
+            <div class="bar"><span>Self-support</span><div class="track"><div class="fill" style="width:55%"></div></div></div>
+            <div class="bar"><span>Missing links</span><div class="track"><div class="fill" style="width:72%"></div></div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <section id="packages">
+      <div class="wrap">
+        <h2>Choose a report depth.</h2>
+        <p class="section-lead">Premium is the default launch offer because one order already clears the daily KRW 10,000 revenue target. PayPal will show the final checkout amount and currency conversion.</p>
+        <div class="cards">
+          <article class="card">
+            <h3>Basic</h3>
+            <div class="price">KRW 9,900</div>
+            <p class="note">A concise reading for your chart foundation.</p>
+            <ul class="list"><li>Original chart</li><li>Climate balance</li><li>Structure and self-support</li><li>Current luck cycle and annual flow</li></ul>
+            <a class="button" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
+          </article>
+          <article class="card featured">
+            <h3>Premium</h3>
+            <div class="price">KRW 19,900</div>
+            <p class="note">The recommended option for overseas clients.</p>
+            <ul class="list"><li>Everything in Basic</li><li>Birth region/time check</li><li>Palace interpretation</li><li>Career and money activity pattern</li><li>Practical next-step guidance</li></ul>
+            <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
+          </article>
+          <article class="card">
+            <h3>VIP</h3>
+            <div class="price">KRW 39,900</div>
+            <p class="note">For a longer-range personal roadmap.</p>
+            <ul class="list"><li>Everything in Premium</li><li>Five-element constitution</li><li>Relationship pattern</li><li>10-year luck roadmap</li><li>3-5 year timing outlook</li></ul>
+            <a class="button" href="https://www.paypal.com/ncp/payment/4BY7WQZQV55SC">Order VIP</a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap">
+        <h2>How it works.</h2>
+        <div class="steps">
+          <div class="step"><b>1. Pay with PayPal</b>Choose Basic, Premium, or VIP.</div>
+          <div class="step"><b>2. Send birth details</b>Use the birth form after checkout.</div>
+          <div class="step"><b>3. Time variables are checked</b>Country, city, timezone, longitude, DST, and optional true solar time are reviewed.</div>
+          <div class="step"><b>4. Receive your report</b>The personalized report is delivered by email.</div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap">
+        <h2>Information needed after payment.</h2>
+        <p class="section-lead">Please submit your PayPal order ID, name, email, birth date, birth time, gender marker, birth country, birth city, and any known timezone or longitude information.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="intake.html">Open birth form</a>
+          <a class="button" href="mailto:aideseobot@gmail.com">Email support</a>
+        </div>
+      </div>
+    </section>
+    <section id="faq">
+      <div class="wrap">
+        <h2>FAQ</h2>
+        <div class="faq">
+          <article><h3>I was born outside Korea. Is that okay?</h3><p>Yes. The order form asks for birth country and city so the hour pillar can be checked against regional time variables.</p></article>
+          <article><h3>Do you always use true solar time?</h3><p>No. Local civil time is the default. True solar time is checked only when the birth location makes it relevant or when you request it.</p></article>
+          <article><h3>What if I do not know my birth time?</h3><p>A reading is possible, but the hour pillar will be uncertain. Contact us before ordering if your birth time is unknown.</p></article>
+          <article><h3>Can I get a refund?</h3><p>Because each report is personalized, completed reports are not refundable. Input errors can be corrected once before delivery.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="sticky-buy">
+    <div class="wrap sticky-inner">
+      <p><b>Recommended:</b> Premium Saju Report, KRW 19,900, PayPal checkout.</p>
+      <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
+    </div>
+  </div>
+  <footer><div class="wrap">Cheonglim Saju Studio. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice.</div></footer>
+</body>
+</html>

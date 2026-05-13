@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="no-referrer">
+  <title>Birth Details Form | Cheonglim Saju Studio</title>
+  <meta name="description" content="Submit birth details for a Korean Saju report after PayPal checkout.">
+  <style>
+    :root { --ink:#15120f; --muted:#665e55; --line:#ded6cc; --paper:#fbf5ec; --panel:#fffdfa; --accent:#165f55; --accent2:#9c3d23; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--paper); line-height:1.55; }
+    main { max-width:900px; margin:0 auto; padding:42px 20px 84px; }
+    a { color:inherit; }
+    .top { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:32px; }
+    .home { text-decoration:none; color:var(--muted); font-weight:800; }
+    h1 { font-size:clamp(34px, 6vw, 56px); line-height:1.04; margin:0 0 14px; letter-spacing:0; }
+    p { color:var(--muted); max-width:760px; }
+    form { display:grid; gap:16px; margin-top:28px; }
+    .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+    label { display:grid; gap:6px; font-weight:800; }
+    span.help { color:var(--muted); font-weight:600; font-size:13px; }
+    input, select, textarea { width:100%; min-height:46px; padding:10px 12px; border:1px solid var(--line); border-radius:7px; background:white; color:var(--ink); font:inherit; }
+    textarea { min-height:118px; resize:vertical; }
+    .full { grid-column:1 / -1; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+    button, a.button { min-height:46px; border-radius:7px; border:1px solid var(--accent); background:var(--accent); color:white; font-weight:900; padding:0 16px; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
+    button.secondary { background:transparent; color:var(--accent); }
+    .note { border:1px solid var(--line); background:var(--panel); padding:14px; border-radius:9px; margin-top:20px; color:var(--muted); }
+    pre { white-space:pre-wrap; word-break:break-word; border:1px solid var(--line); background:white; padding:14px; border-radius:9px; min-height:132px; }
+    @media (max-width:720px){ .grid { grid-template-columns:1fr; } .full { grid-column:auto; } .top { align-items:flex-start; flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="top"><a class="home" href="index.html">Cheonglim Saju Studio</a><a class="home" href="mailto:aideseobot@gmail.com">aideseobot@gmail.com</a></div>
+    <h1>Send your birth details after PayPal checkout.</h1>
+    <p>This form does not store data on a server. It creates a formatted message that you can copy or send by email. For overseas births, country, city, timezone, longitude, and daylight saving context can affect the hour pillar.</p>
+    <form id="intakeForm">
+      <div class="grid">
+        <label>PayPal order ID<input name="orderId" placeholder="Example: 1AB23456CD789012E" required></label>
+        <label>Package<select name="tier" required><option>basic</option><option selected>premium</option><option>vip</option></select></label>
+        <label>Full name<input name="name" required></label>
+        <label>Email<input name="email" type="email" required></label>
+        <label>Birth date<input name="birthDate" placeholder="YYYY-MM-DD" required><span class="help">Use the date recorded at your birthplace.</span></label>
+        <label>Birth time<input name="birthTime" placeholder="HH:MM" required><span class="help">Use 24-hour local civil time if known.</span></label>
+        <label>Gender marker<select name="gender" required><option value="male">male</option><option value="female">female</option></select></label>
+        <label>Birth country<input name="birthCountry" placeholder="United States / Canada / Korea / ..." required></label>
+        <label>Birth city or region<input name="birthCity" placeholder="Los Angeles, CA / London / Seoul" required></label>
+        <label>IANA timezone<input name="timezone" placeholder="America/Los_Angeles / Europe/London / Asia/Seoul"></label>
+        <label>Longitude<input name="longitude" placeholder="West is negative. Example: -118.2437"></label>
+        <label>Time policy<select name="timePolicy"><option value="local-civil">local-civil</option><option value="true-solar">true-solar</option></select></label>
+        <label class="full">Notes<textarea name="memo" placeholder="If the birth time is approximate, or the birthplace is a small town, write the nearest major city here."></textarea></label>
+      </div>
+      <div class="actions">
+        <button type="button" id="copyButton">Copy order details</button>
+        <button type="button" class="secondary" id="mailButton">Send by email</button>
+      </div>
+    </form>
+    <div class="note">After payment, send this information to aideseobot@gmail.com. Your report will be prepared after the order and birth details are confirmed.</div>
+    <h2>Generated order message</h2>
+    <pre id="output"></pre>
+  </main>
+  <script>
+    const form = document.getElementById('intakeForm');
+    const output = document.getElementById('output');
+    function buildText() {
+      const data = Object.fromEntries(new FormData(form).entries());
+      return `order_id: ${data.orderId}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${data.birthDate}\nbirth_time: ${data.birthTime}\ngender: ${data.gender}\nbirth_country: ${data.birthCountry}\nbirth_city: ${data.birthCity}\ntimezone: ${data.timezone}\nlongitude: ${data.longitude}\ntime_policy: ${data.timePolicy}\nmemo: ${data.memo}`;
+    }
+    function refresh() { output.textContent = buildText(); }
+    form.addEventListener('input', refresh);
+    document.getElementById('copyButton').addEventListener('click', async () => {
+      refresh();
+      await navigator.clipboard.writeText(output.textContent);
+      alert('Order details copied.');
+    });
+    document.getElementById('mailButton').addEventListener('click', () => {
+      refresh();
+      const subject = encodeURIComponent('Saju report birth details');
+      const body = encodeURIComponent(output.textContent);
+      window.location.href = `mailto:aideseobot@gmail.com?subject=${subject}&body=${body}`;
+    });
+    refresh();
+  </script>
+</body>
+</html>
