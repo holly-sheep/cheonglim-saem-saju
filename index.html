@@ -6,16 +6,16 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="no-referrer">
   <title>Cheonglim Saem | K-fortune Korean Four Pillars Reading</title>
-  <meta name="description" content="K-fortune Korean Saju readings for overseas clients, adjusted for birth country, city, timezone, longitude, DST, and true solar time.">
+  <meta name="description" content="K-fortune Korean Saju readings for overseas clients, different from generic Saju because birth country, city, timezone, longitude, DST, and true solar time are checked.">
   <link rel="canonical" href="https://holly-sheep.github.io/cheonglim-saem-saju/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cheonglim Saem">
   <meta property="og:title" content="Cheonglim Saem | K-fortune Korean Saju Reading">
-  <meta property="og:description" content="Try a free mini preview, then order a K-fortune Four Pillars report adjusted for birth country, city, timezone, longitude, DST, and true solar time.">
+  <meta property="og:description" content="Try a free mini preview, then order a K-fortune Four Pillars report that explains why your birthplace, timezone, and true solar time make this different from generic Saju.">
   <meta property="og:url" content="https://holly-sheep.github.io/cheonglim-saem-saju/">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Cheonglim Saem | K-fortune Reading">
-  <meta name="twitter:description" content="K-fortune Four Pillars report for overseas clients, with birth-region and time-variable checks.">
+  <meta name="twitter:description" content="K-fortune Four Pillars report for overseas clients, with birth-region checks that make it different from generic Saju.">
   <style>
     :root { color-scheme:light; --ink:#17120d; --muted:#6c6256; --line:#e2d6c7; --paper:#f4f0ea; --panel:#fffaf2; --deep:#153b36; --jade:#24665c; --red:#a93f2a; --gold:#b3843f; --cream:#fff7e8; }
     * { box-sizing:border-box; }
@@ -57,6 +57,17 @@
     .story-card { border:1px solid var(--line); border-radius:8px; padding:18px; background:#fffdf8; }
     .story-card b { display:block; margin-bottom:6px; font-size:18px; }
     .story-card p { margin:0; font-size:15px; }
+    .difference-list { display:grid; gap:10px; margin-top:24px; }
+    .difference-item { display:grid; grid-template-columns:34px 1fr; gap:12px; padding:14px; border:1px solid var(--line); border-radius:8px; background:#fffdf8; }
+    .difference-mark { width:34px; height:34px; display:grid; place-items:center; border-radius:50%; background:var(--deep); color:#fff3d4; font-size:14px; font-weight:950; }
+    .difference-item b { display:block; line-height:1.2; }
+    .difference-item p { margin:4px 0 0; font-size:14px; }
+    .comparison { display:grid; gap:10px; margin-top:20px; }
+    .comparison-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .comparison-cell { padding:12px; border-radius:8px; background:#f4eadc; color:var(--muted); font-size:13px; font-weight:850; }
+    .comparison-cell strong { display:block; margin-bottom:4px; color:var(--ink); font-size:14px; }
+    .comparison-cell.highlight { background:#153b36; color:#e9ddca; }
+    .comparison-cell.highlight strong { color:#fff7e8; }
     .story-feature { position:relative; min-height:380px; margin-top:24px; overflow:hidden; border-radius:8px; background:#17120d; }
     .story-feature img { width:100%; height:100%; min-height:380px; object-fit:cover; display:block; }
     .story-feature::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.72)); }
@@ -154,6 +165,7 @@
     .bottom-actions .button { min-height:44px; padding:0 10px; font-size:14px; }
     .bottom-form-link { display:block; margin-top:8px; color:var(--jade); font-size:13px; font-weight:950; text-align:center; text-decoration:underline; text-underline-offset:3px; }
     footer { padding:28px 24px 92px; color:var(--muted); font-size:13px; background:var(--paper); }
+    @media (max-width:380px) { .comparison-row { grid-template-columns:1fr; } }
     @media (min-width:760px) { body { padding:24px 0; } .phone { border-radius:24px; overflow:hidden; } }
   </style>
 </head>
@@ -213,7 +225,7 @@
       </section>
 
       <section class="panel compact gold">
-        <p class="kicker">Why this is different</p>
+        <p class="kicker">Built for global buyers</p>
         <h2>K-fortune, rebuilt for global buyers.</h2>
         <div class="story-feature">
           <img src="assets/seohyang-seated.png" alt="Korean hanbok guide in a traditional room">
@@ -226,6 +238,28 @@
           <div class="story-card"><b>1. Local birth time first</b><p>The chart starts from the recorded time and place of birth, not a Korea-only assumption.</p></div>
           <div class="story-card"><b>2. Region variables checked</b><p>Timezone, DST, longitude, and true-solar preference are reviewed when they can affect the hour pillar.</p></div>
           <div class="story-card"><b>3. Structure before comfort</b><p>The report follows climate balance, structure, self-support, missing links, luck cycle, and annual flow.</p></div>
+        </div>
+      </section>
+
+      <section class="panel compact">
+        <p class="kicker">Why this is special</p>
+        <h2>Not a generic Saju template.</h2>
+        <p>Most quick readings start from a simple birth date and give a polished answer. Cheonglim Saem starts by checking whether the chart itself is being calculated from the right place, clock, and solar time.</p>
+        <div class="difference-list">
+          <article class="difference-item"><span class="difference-mark">1</span><div><b>Your birthplace is treated as part of the chart.</b><p>Country, city, timezone, daylight saving, and longitude are not side notes. They can change the hour pillar.</p></div></article>
+          <article class="difference-item"><span class="difference-mark">2</span><div><b>It does not fake certainty.</b><p>If the birth time is unknown, approximate, or near a boundary, the report says what is uncertain instead of forcing a confident answer.</p></div></article>
+          <article class="difference-item"><span class="difference-mark">3</span><div><b>It teaches K-fortune in plain English.</b><p>The report explains Saju terms before using them, so first-time English-speaking clients can actually understand the reading.</p></div></article>
+          <article class="difference-item"><span class="difference-mark">4</span><div><b>It reads structure before comfort.</b><p>The chart is organized by climate balance, self-support, missing links, timing, money pattern, and relationship rhythm.</p></div></article>
+        </div>
+        <div class="comparison">
+          <div class="comparison-row">
+            <div class="comparison-cell"><strong>Typical quick Saju</strong>Birth date in, generic personality answer out.</div>
+            <div class="comparison-cell highlight"><strong>Cheonglim Saem</strong>Birthplace, timezone, DST, longitude, and true solar time checked before interpretation.</div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-cell"><strong>Typical quick Saju</strong>Assumes the reader already knows Saju vocabulary.</div>
+            <div class="comparison-cell highlight"><strong>Cheonglim Saem</strong>Explains K-fortune concepts in English before applying them to your chart.</div>
+          </div>
         </div>
       </section>
 
