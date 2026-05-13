@@ -42,7 +42,7 @@
   <main>
     <div class="top"><a class="home" href="index.html">Cheonglim Saem · 청림샘</a><a class="home" href="mailto:aideseobot@gmail.com">aideseobot@gmail.com</a></div>
     <h1>Send your birth details after PayPal checkout.</h1>
-    <p>This form does not store data on a server. It creates a formatted message that you can copy or send by email. For overseas births, country, city, timezone, longitude, and daylight saving context can affect the hour pillar.</p>
+    <p>This form creates the order email used by the automated delivery worker. Send it after PayPal checkout, and the inbox processor will calculate the chart, generate the PDF, and reply by email. For overseas births, country, city, timezone, longitude, and daylight saving context can affect the hour pillar.</p>
     <form id="intakeForm">
       <div class="grid">
         <label>PayPal order ID<input name="orderId" placeholder="Example: 1AB23456CD789012E" required></label>
@@ -64,7 +64,7 @@
         <button type="button" class="secondary" id="mailButton">Send by email</button>
       </div>
     </form>
-    <div class="note">After payment, send this information to aideseobot@gmail.com. Your report will be prepared after the order and birth details are confirmed.</div>
+    <div class="note">After payment, send this information to aideseobot@gmail.com. New order emails are checked every few hours and answered with the generated PDF when processing is complete.</div>
     <h2>Generated order message</h2>
     <pre id="output"></pre>
   </main>

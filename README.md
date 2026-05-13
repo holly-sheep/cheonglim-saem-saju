@@ -15,5 +15,6 @@ Daily revenue target paths:
 - 1 VIP order = KRW 39,900 before platform fees
 
 The intake page sends email to `aideseobot@gmail.com`.
+Fulfillment is designed to be handled by the `saju/mail_order_worker.py` automation in the local Saju project: the worker polls the inbox every few hours, parses order details, generates a PDF, and replies by email.
 
 No server is required.
