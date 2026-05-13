@@ -2,114 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="no-referrer">
   <title>Cheonglim Saju Studio | Korean Four Pillars Reading</title>
   <meta name="description" content="A Korean Saju reading for overseas clients, adjusted for birth country, city, timezone, longitude, DST, and optional true solar time.">
   <style>
-    :root { color-scheme: light; --ink:#15120f; --muted:#665e55; --line:#ded6cc; --paper:#fbf5ec; --panel:#fffdfa; --accent:#165f55; --accent2:#9c3d23; --gold:#b48239; --soft:#efe5d8; }
+    :root { color-scheme:light; --ink:#17120d; --muted:#6c6256; --line:#e2d6c7; --paper:#f4f0ea; --panel:#fffaf2; --deep:#17443d; --jade:#24665c; --red:#a93f2a; --gold:#b3843f; --cream:#fff7e8; }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
-    body { margin:0; font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--paper); line-height:1.58; }
+    body { margin:0; font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:#ded8cf; line-height:1.58; }
     a { color:inherit; text-decoration:none; }
-    .wrap { width:min(1120px, calc(100% - 40px)); margin:0 auto; }
-    header { position:sticky; top:0; z-index:20; border-bottom:1px solid var(--line); background:rgba(255,253,250,.94); backdrop-filter:blur(12px); }
-    nav { min-height:66px; display:flex; align-items:center; justify-content:space-between; gap:18px; }
-    .brand { display:grid; gap:1px; font-weight:900; line-height:1.05; }
-    .brand small { color:var(--muted); font-weight:700; font-size:12px; }
-    .navlinks { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-    .button { display:inline-flex; min-height:44px; align-items:center; justify-content:center; padding:0 16px; border-radius:7px; border:1px solid var(--ink); background:#fff; font-weight:850; white-space:nowrap; }
-    .button.primary { background:var(--accent); border-color:var(--accent); color:white; }
-    .button.ghost { border-color:var(--line); color:var(--muted); background:transparent; }
-    .hero { min-height:calc(100vh - 66px); display:grid; grid-template-columns:minmax(0,1fr) minmax(330px,.78fr); gap:46px; align-items:center; padding:54px 0 42px; }
-    .eyebrow { color:var(--accent2); font-weight:900; text-transform:uppercase; letter-spacing:.08em; font-size:13px; }
-    h1 { margin:10px 0 0; max-width:760px; font-size:clamp(42px, 6vw, 78px); line-height:1; letter-spacing:0; }
-    .lead { max-width:690px; margin:22px 0 0; color:var(--muted); font-size:20px; }
-    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
-    .trust { display:flex; gap:10px; flex-wrap:wrap; margin-top:24px; color:var(--muted); font-size:14px; }
-    .pill { border:1px solid var(--line); border-radius:999px; padding:7px 11px; background:var(--panel); }
-    .product-shot { border:1px solid var(--line); border-radius:10px; background:var(--panel); box-shadow:0 18px 44px rgba(49,39,29,.12); overflow:hidden; }
-    .shot-top { min-height:150px; padding:22px; color:white; background:#153f3a; display:flex; flex-direction:column; justify-content:space-between; }
-    .moon { width:74px; height:74px; border-radius:50%; background:#f5e3b9; box-shadow:0 0 0 16px rgba(245,227,185,.10); }
-    .shot-top b { font-size:24px; line-height:1.08; max-width:280px; }
-    .report { padding:20px; }
-    .report-head { display:flex; justify-content:space-between; gap:14px; padding-bottom:14px; margin-bottom:14px; border-bottom:1px solid var(--line); }
-    .report-title { font-weight:900; font-size:18px; }
-    .stamp { color:var(--accent2); font-weight:900; font-size:12px; text-transform:uppercase; }
-    .pillars { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--line); border-radius:7px; overflow:hidden; }
-    .pillar { min-height:64px; padding:9px 6px; display:grid; place-items:center; text-align:center; border-right:1px solid var(--line); background:white; font-weight:850; }
+    .phone { width:min(100%, 430px); min-height:100vh; margin:0 auto; background:var(--paper); box-shadow:0 0 0 1px rgba(0,0,0,.05); }
+    header { position:sticky; top:0; z-index:30; height:64px; border-bottom:1px solid var(--line); background:rgba(255,250,242,.96); backdrop-filter:blur(12px); }
+    nav { height:64px; display:grid; grid-template-columns:42px 1fr 42px; align-items:center; gap:8px; padding:0 14px; }
+    .mark { width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:var(--deep); color:#fff3d4; font-weight:950; }
+    .title { min-width:0; text-align:center; }
+    .title b, .title span { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .title b { font-size:15px; }
+    .title span { color:var(--muted); font-size:12px; }
+    .menu { border:0; background:transparent; color:var(--ink); font-size:24px; font-weight:900; }
+    .panel { position:relative; min-height:640px; padding:36px 24px; overflow:hidden; border-bottom:1px solid var(--line); background:var(--panel); }
+    .panel.dark { color:#fff8ea; background:var(--deep); }
+    .panel.gold { background:#f8ead2; }
+    .panel.compact { min-height:auto; padding:42px 24px; }
+    .kicker { margin:0 0 12px; color:var(--red); font-size:12px; font-weight:950; letter-spacing:.09em; text-transform:uppercase; }
+    .dark .kicker { color:#f0c982; }
+    h1, h2 { margin:0; letter-spacing:0; line-height:1.06; }
+    h1 { font-size:42px; max-width:350px; }
+    h2 { font-size:31px; }
+    p { margin:16px 0 0; color:var(--muted); }
+    .dark p { color:#eadfcd; }
+    .hero-copy { position:relative; z-index:2; padding-top:4px; }
+    .hero-copy p { max-width:325px; font-size:17px; }
+    .hanbok-card { position:absolute; right:-20px; bottom:-8px; width:310px; height:440px; }
+    .moon { position:absolute; left:30px; bottom:180px; width:108px; height:108px; border-radius:50%; background:#fff0bd; opacity:.9; }
+    .mountains { position:absolute; inset:auto 0 0; height:210px; background:linear-gradient(160deg, transparent 0 20%, rgba(13,49,44,.12) 20% 100%); clip-path:polygon(0 55%, 24% 34%, 46% 64%, 68% 28%, 100% 58%, 100% 100%, 0 100%); }
+    .character { position:absolute; inset:0; width:100%; height:100%; }
+    .speech { position:relative; z-index:2; margin-top:28px; padding:18px; border:1px solid rgba(255,255,255,.28); border-radius:16px; background:rgba(255,250,242,.12); color:#fff6e4; font-size:16px; }
+    .hero-link { position:relative; z-index:2; display:inline-flex; margin-top:18px; min-height:46px; align-items:center; justify-content:center; padding:0 16px; border-radius:10px; background:#fff7e8; color:var(--deep); font-weight:950; }
+    .story { display:grid; gap:18px; margin-top:26px; }
+    .story-card { border:1px solid var(--line); border-radius:18px; padding:18px; background:#fffdf8; }
+    .story-card b { display:block; margin-bottom:6px; font-size:18px; }
+    .story-card p { margin:0; font-size:15px; }
+    .report-box { margin-top:26px; border:1px solid var(--line); border-radius:18px; overflow:hidden; background:#fffdf8; }
+    .report-head { padding:16px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; gap:12px; }
+    .stamp { color:var(--red); font-weight:950; font-size:12px; text-transform:uppercase; }
+    .pillars { display:grid; grid-template-columns:repeat(4,1fr); }
+    .pillar { min-height:72px; padding:10px 4px; display:grid; place-items:center; text-align:center; border-right:1px solid var(--line); background:white; font-weight:900; }
     .pillar:last-child { border-right:0; }
-    .pillar small { display:block; color:var(--muted); font-size:12px; font-weight:700; }
-    .bars { margin-top:16px; display:grid; gap:8px; }
-    .bar { display:grid; grid-template-columns:82px 1fr; gap:10px; align-items:center; font-size:13px; color:var(--muted); }
-    .track { height:10px; border-radius:999px; background:var(--soft); overflow:hidden; }
-    .fill { height:100%; background:var(--accent); }
-    section { padding:72px 0; border-top:1px solid var(--line); }
-    h2 { margin:0; font-size:clamp(28px, 4vw, 42px); line-height:1.12; letter-spacing:0; }
-    .section-lead { max-width:760px; margin:14px 0 0; color:var(--muted); font-size:18px; }
-    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:26px; }
-    .card { border:1px solid var(--line); border-radius:10px; background:var(--panel); padding:20px; display:grid; gap:12px; align-content:start; }
-    .card.featured { border-color:var(--accent); box-shadow:0 14px 36px rgba(22,95,85,.13); }
-    .card h3 { margin:0; font-size:22px; }
-    .price { font-size:28px; font-weight:950; }
-    .note { color:var(--muted); font-size:14px; }
-    .list { margin:0; padding-left:18px; color:var(--muted); }
-    .list li { margin:7px 0; }
-    .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:26px; }
-    .step { border-top:2px solid var(--accent); padding-top:12px; color:var(--muted); }
-    .step b { display:block; color:var(--ink); margin-bottom:5px; }
-    .faq { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:26px; }
-    .faq article { border-top:1px solid var(--line); padding-top:16px; }
-    .faq h3 { margin:0 0 8px; }
-    .faq p { margin:0; color:var(--muted); }
-    .sticky-buy { position:sticky; bottom:0; z-index:18; border-top:1px solid var(--line); background:rgba(255,253,250,.96); backdrop-filter:blur(12px); }
-    .sticky-inner { min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
-    .sticky-inner p { margin:0; color:var(--muted); }
-    footer { border-top:1px solid var(--line); padding:32px 0 92px; color:var(--muted); font-size:14px; }
-    @media (max-width:860px) { .hero { min-height:auto; grid-template-columns:1fr; padding-top:36px; } .cards,.steps,.faq { grid-template-columns:1fr; } .navlinks .ghost { display:none; } .sticky-inner { align-items:flex-start; flex-direction:column; padding:12px 0; } .sticky-inner .button { width:100%; } }
+    .pillar small { display:block; color:var(--muted); font-size:11px; font-weight:700; }
+    .bars { display:grid; gap:10px; padding:16px; }
+    .bar { display:grid; grid-template-columns:96px 1fr; gap:10px; align-items:center; color:var(--muted); font-size:13px; }
+    .track { height:10px; border-radius:999px; background:#eadfce; overflow:hidden; }
+    .fill { height:100%; background:var(--jade); }
+    .packages { display:grid; gap:14px; margin-top:24px; }
+    .preview-form { display:grid; gap:12px; margin-top:24px; }
+    .field { display:grid; gap:6px; font-weight:850; }
+    input { width:100%; min-height:46px; border:1px solid var(--line); border-radius:10px; padding:10px 12px; background:#fffdf8; color:var(--ink); font:inherit; }
+    .preview-result { display:none; margin-top:18px; border:1px solid var(--line); border-radius:18px; padding:18px; background:#fffdf8; }
+    .preview-result.is-visible { display:block; }
+    .preview-result h3 { margin:0 0 10px; font-size:21px; }
+    .preview-result p { margin:10px 0 0; font-size:15px; }
+    .preview-result .button { margin-top:16px; }
+    .package { position:relative; border:1px solid var(--line); border-radius:18px; padding:18px; background:#fffdf8; }
+    .package.featured { border-color:var(--jade); box-shadow:0 10px 28px rgba(36,102,92,.14); }
+    .package h3 { margin:0; font-size:21px; }
+    .price { margin:6px 0 10px; font-size:28px; font-weight:950; }
+    .badge { position:absolute; top:16px; right:16px; padding:5px 8px; border-radius:999px; background:#e9f2ef; color:var(--jade); font-size:11px; font-weight:950; }
+    .list { margin:0 0 16px; padding-left:18px; color:var(--muted); font-size:14px; }
+    .list li { margin:6px 0; }
+    .button { display:inline-flex; width:100%; min-height:48px; align-items:center; justify-content:center; padding:0 16px; border-radius:10px; border:1px solid var(--ink); background:#fff; font-weight:950; }
+    .button.primary { border-color:var(--jade); background:var(--jade); color:white; }
+    .steps { display:grid; gap:14px; margin-top:24px; }
+    .step { display:grid; grid-template-columns:36px 1fr; gap:12px; align-items:start; }
+    .num { width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:var(--deep); color:#fff3d4; font-weight:950; }
+    .step b { display:block; }
+    .step p { margin:2px 0 0; font-size:14px; }
+    .faq { display:grid; gap:14px; margin-top:24px; }
+    .faq article { border-top:1px solid var(--line); padding-top:14px; }
+    .faq h3 { margin:0 0 6px; font-size:17px; }
+    .faq p { margin:0; font-size:14px; }
+    .bottom-cta { position:sticky; bottom:0; z-index:30; border-top:1px solid var(--line); background:rgba(255,250,242,.98); padding:10px 14px calc(10px + env(safe-area-inset-bottom)); }
+    .bottom-cta p { margin:0 0 8px; color:var(--ink); font-size:13px; text-align:center; }
+    footer { padding:28px 24px 92px; color:var(--muted); font-size:13px; background:var(--paper); }
+    @media (min-width:760px) { body { padding:24px 0; } .phone { border-radius:24px; overflow:hidden; } }
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
+  <div class="phone">
+    <header>
       <nav>
-        <a class="brand" href="#top">Cheonglim Saju Studio<small>Korean Four Pillars Reading</small></a>
-        <div class="navlinks">
-          <a class="button ghost" href="#packages">Packages</a>
-          <a class="button ghost" href="intake.html">Birth Form</a>
-          <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
-        </div>
+        <a class="mark" href="#top">靑</a>
+        <div class="title"><b>Cheonglim Saju Studio</b><span>Korean Four Pillars Reading</span></div>
+        <a class="menu" href="#packages" aria-label="Open packages">≡</a>
       </nav>
-    </div>
-  </header>
-  <main id="top">
-    <div class="wrap hero">
-      <div>
-        <div class="eyebrow">For clients born outside Korea</div>
-        <h1>A Korean Saju reading adjusted for your real birth location.</h1>
-        <p class="lead">Most Four Pillars readings quietly assume Korean time. This report checks birth country, city, timezone, longitude, daylight saving time, and optional true solar time before interpreting your chart.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Premium KRW 19,900</a>
-          <a class="button" href="#packages">Compare packages</a>
+    </header>
+
+    <main id="top">
+      <section class="panel dark">
+        <div class="moon" aria-hidden="true"></div>
+        <div class="mountains" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="kicker">For clients born outside Korea</p>
+          <h1>Korean Saju, read from your real birthplace.</h1>
+          <p>Birth country, city, timezone, daylight saving time, longitude, and optional true solar time are checked before interpretation.</p>
+          <div class="speech">Most readings assume one clock. Overseas births need a more careful time check.</div>
+          <a class="hero-link" href="#free-preview">Try a free mini preview</a>
         </div>
-        <div class="trust">
-          <span class="pill">PayPal checkout</span>
-          <span class="pill">Delivered by email</span>
-          <span class="pill">Region-aware calculation</span>
-          <span class="pill">Not financial, medical, or legal advice</span>
+        <div class="hanbok-card" aria-hidden="true">
+          <svg class="character" viewBox="0 0 310 440" role="img" aria-label="Original Korean hanbok guide character">
+            <path d="M150 96c-58 0-91 42-91 94 0 34 14 62 39 78h105c25-16 39-44 39-78 0-52-34-94-92-94z" fill="#2b211c"/>
+            <path d="M85 251c22-38 42-56 66-56 25 0 47 18 75 56 24 34 41 81 53 143H33c12-62 28-109 52-143z" fill="#1f6b60"/>
+            <path d="M112 234l38 70 44-70c19 20 35 62 47 126H68c10-61 25-103 44-126z" fill="#f6efe2"/>
+            <path d="M115 235l37 70 41-70 25 39-39 86h-55l-36-86 27-39z" fill="#b23f2c" opacity=".95"/>
+            <path d="M110 170c0-36 18-60 42-60s43 24 43 60c0 38-18 68-43 68s-42-30-42-68z" fill="#f3c7aa"/>
+            <path d="M107 162c9-20 22-29 42-29 21 0 35 10 49 30-4-35-20-58-48-58-27 0-43 22-43 57z" fill="#2b211c"/>
+            <circle cx="135" cy="174" r="4" fill="#1f1713"/><circle cx="171" cy="174" r="4" fill="#1f1713"/>
+            <path d="M138 204c9 8 20 8 29 0" fill="none" stroke="#8e3b30" stroke-width="4" stroke-linecap="round"/>
+            <path d="M96 114c15-31 35-47 59-47s43 16 57 47c-17-13-36-19-57-19-22 0-41 6-59 19z" fill="#241915"/>
+            <path d="M133 76h42l-8 22h-25l-9-22z" fill="#b3843f"/>
+            <path d="M65 319c30-21 55-26 75-15" fill="none" stroke="#184c45" stroke-width="18" stroke-linecap="round"/>
+            <path d="M245 319c-31-21-55-26-75-15" fill="none" stroke="#184c45" stroke-width="18" stroke-linecap="round"/>
+            <path d="M115 360h82l20 52H94l21-52z" fill="#143d38"/>
+          </svg>
         </div>
-      </div>
-      <aside class="product-shot" aria-label="Sample report preview">
-        <div class="shot-top">
-          <div class="moon" aria-hidden="true"></div>
-          <b>Personal Saju Report for Overseas Births</b>
+      </section>
+
+      <section class="panel compact" id="free-preview">
+        <p class="kicker">Free mini preview</p>
+        <h2>Enter your birth basics first.</h2>
+        <p>This quick preview gives only a small teaser from your birth year, local birth hour, and birthplace context. The paid report verifies the full Four Pillars, solar-term boundaries, and regional time variables.</p>
+        <form class="preview-form" id="previewForm">
+          <label class="field">Birth date<input id="birthDate" type="date" required></label>
+          <label class="field">Birth time<input id="birthTime" type="time" required></label>
+          <label class="field">Birth country<input id="birthCountry" placeholder="United States / Canada / Korea / ..." required></label>
+          <label class="field">Birth city or region<input id="birthCity" placeholder="Los Angeles, CA / London / Seoul"></label>
+          <button class="button primary" type="submit">Show my mini preview</button>
+        </form>
+        <div class="preview-result" id="previewResult" aria-live="polite"></div>
+      </section>
+
+      <section class="panel compact gold">
+        <p class="kicker">Why this is different</p>
+        <h2>A Korean-style reading, rebuilt for global buyers.</h2>
+        <div class="story">
+          <div class="story-card"><b>1. Local birth time first</b><p>The chart starts from the recorded time and place of birth, not a Korea-only assumption.</p></div>
+          <div class="story-card"><b>2. Region variables checked</b><p>Timezone, DST, longitude, and true-solar preference are reviewed when they can affect the hour pillar.</p></div>
+          <div class="story-card"><b>3. Structure before comfort</b><p>The report follows climate balance, structure, self-support, missing links, luck cycle, and annual flow.</p></div>
         </div>
-        <div class="report">
-          <div class="report-head">
-            <div><div class="report-title">Premium Report</div><div class="note">Structure before interpretation</div></div>
-            <div class="stamp">Timezone checked</div>
-          </div>
+      </section>
+
+      <section class="panel compact">
+        <p class="kicker">Sample report flow</p>
+        <h2>Your chart is read in order.</h2>
+        <div class="report-box">
+          <div class="report-head"><div><b>Premium Report</b><p style="margin:2px 0 0;font-size:13px">Region-aware Saju reading</p></div><div class="stamp">Timezone checked</div></div>
           <div class="pillars">
             <div class="pillar"><span><small>Year</small>Roots</span></div>
             <div class="pillar"><span><small>Month</small>Society</span></div>
@@ -123,76 +171,112 @@
             <div class="bar"><span>Missing links</span><div class="track"><div class="fill" style="width:72%"></div></div></div>
           </div>
         </div>
-      </aside>
-    </div>
-    <section id="packages">
-      <div class="wrap">
-        <h2>Choose a report depth.</h2>
-        <p class="section-lead">Premium is the default launch offer because one order already clears the daily KRW 10,000 revenue target. PayPal will show the final checkout amount and currency conversion.</p>
-        <div class="cards">
-          <article class="card">
-            <h3>Basic</h3>
-            <div class="price">KRW 9,900</div>
-            <p class="note">A concise reading for your chart foundation.</p>
+      </section>
+
+      <section class="panel compact" id="packages">
+        <p class="kicker">Packages</p>
+        <h2>Choose your report depth.</h2>
+        <p>Premium is the default launch offer because one order already clears the daily KRW 10,000 revenue target. PayPal shows the final checkout amount and currency conversion.</p>
+        <div class="packages">
+          <article class="package">
+            <h3>Basic</h3><div class="price">KRW 9,900</div>
             <ul class="list"><li>Original chart</li><li>Climate balance</li><li>Structure and self-support</li><li>Current luck cycle and annual flow</li></ul>
             <a class="button" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
           </article>
-          <article class="card featured">
-            <h3>Premium</h3>
-            <div class="price">KRW 19,900</div>
-            <p class="note">The recommended option for overseas clients.</p>
+          <article class="package featured">
+            <span class="badge">Recommended</span><h3>Premium</h3><div class="price">KRW 19,900</div>
             <ul class="list"><li>Everything in Basic</li><li>Birth region/time check</li><li>Palace interpretation</li><li>Career and money activity pattern</li><li>Practical next-step guidance</li></ul>
             <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
           </article>
-          <article class="card">
-            <h3>VIP</h3>
-            <div class="price">KRW 39,900</div>
-            <p class="note">For a longer-range personal roadmap.</p>
+          <article class="package">
+            <h3>VIP</h3><div class="price">KRW 39,900</div>
             <ul class="list"><li>Everything in Premium</li><li>Five-element constitution</li><li>Relationship pattern</li><li>10-year luck roadmap</li><li>3-5 year timing outlook</li></ul>
             <a class="button" href="https://www.paypal.com/ncp/payment/4BY7WQZQV55SC">Order VIP</a>
           </article>
         </div>
-      </div>
-    </section>
-    <section>
-      <div class="wrap">
-        <h2>How it works.</h2>
+      </section>
+
+      <section class="panel compact gold">
+        <p class="kicker">After checkout</p>
+        <h2>Send the details needed for an overseas birth.</h2>
         <div class="steps">
-          <div class="step"><b>1. Pay with PayPal</b>Choose Basic, Premium, or VIP.</div>
-          <div class="step"><b>2. Send birth details</b>Use the birth form after checkout.</div>
-          <div class="step"><b>3. Time variables are checked</b>Country, city, timezone, longitude, DST, and optional true solar time are reviewed.</div>
-          <div class="step"><b>4. Receive your report</b>The personalized report is delivered by email.</div>
+          <div class="step"><div class="num">1</div><div><b>Pay with PayPal</b><p>Choose Basic, Premium, or VIP.</p></div></div>
+          <div class="step"><div class="num">2</div><div><b>Open the birth form</b><p>Submit PayPal order ID, email, birth date, birth time, country, and city.</p></div></div>
+          <div class="step"><div class="num">3</div><div><b>Time variables are checked</b><p>Timezone, longitude, DST, and optional true solar time are reviewed.</p></div></div>
+          <div class="step"><div class="num">4</div><div><b>Receive your report</b><p>The personalized report is delivered by email after confirmation.</p></div></div>
         </div>
-      </div>
-    </section>
-    <section>
-      <div class="wrap">
-        <h2>Information needed after payment.</h2>
-        <p class="section-lead">Please submit your PayPal order ID, name, email, birth date, birth time, gender marker, birth country, birth city, and any known timezone or longitude information.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="intake.html">Open birth form</a>
-          <a class="button" href="mailto:aideseobot@gmail.com">Email support</a>
-        </div>
-      </div>
-    </section>
-    <section id="faq">
-      <div class="wrap">
-        <h2>FAQ</h2>
+      </section>
+
+      <section class="panel compact">
+        <p class="kicker">FAQ</p>
+        <h2>Before you order.</h2>
         <div class="faq">
-          <article><h3>I was born outside Korea. Is that okay?</h3><p>Yes. The order form asks for birth country and city so the hour pillar can be checked against regional time variables.</p></article>
+          <article><h3>I was born outside Korea. Is that okay?</h3><p>Yes. The form asks for birth country and city so the hour pillar can be checked against regional time variables.</p></article>
           <article><h3>Do you always use true solar time?</h3><p>No. Local civil time is the default. True solar time is checked only when the birth location makes it relevant or when you request it.</p></article>
           <article><h3>What if I do not know my birth time?</h3><p>A reading is possible, but the hour pillar will be uncertain. Contact us before ordering if your birth time is unknown.</p></article>
           <article><h3>Can I get a refund?</h3><p>Because each report is personalized, completed reports are not refundable. Input errors can be corrected once before delivery.</p></article>
         </div>
-      </div>
-    </section>
-  </main>
-  <div class="sticky-buy">
-    <div class="wrap sticky-inner">
-      <p><b>Recommended:</b> Premium Saju Report, KRW 19,900, PayPal checkout.</p>
-      <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
+      </section>
+    </main>
+
+    <div class="bottom-cta">
+      <p><b>Recommended:</b> Premium Saju Report, KRW 19,900</p>
+      <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium with PayPal</a>
     </div>
+    <footer>Cheonglim Saju Studio. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="intake.html">Birth details form</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
   </div>
-  <footer><div class="wrap">Cheonglim Saju Studio. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice.</div></footer>
+  <script>
+    const heavenlyStems = [
+      ['Jia', 'Wood'], ['Yi', 'Wood'], ['Bing', 'Fire'], ['Ding', 'Fire'], ['Wu', 'Earth'],
+      ['Ji', 'Earth'], ['Geng', 'Metal'], ['Xin', 'Metal'], ['Ren', 'Water'], ['Gui', 'Water']
+    ];
+    const earthlyBranches = [
+      ['Zi', 'Rat', 'Water'], ['Chou', 'Ox', 'Earth'], ['Yin', 'Tiger', 'Wood'], ['Mao', 'Rabbit', 'Wood'],
+      ['Chen', 'Dragon', 'Earth'], ['Si', 'Snake', 'Fire'], ['Wu', 'Horse', 'Fire'], ['Wei', 'Goat', 'Earth'],
+      ['Shen', 'Monkey', 'Metal'], ['You', 'Rooster', 'Metal'], ['Xu', 'Dog', 'Earth'], ['Hai', 'Pig', 'Water']
+    ];
+    const elementCopy = {
+      Wood: 'growth, planning, learning, and long-term direction',
+      Fire: 'visibility, expression, momentum, and social presence',
+      Earth: 'stability, responsibility, routines, and practical decisions',
+      Metal: 'standards, refinement, boundaries, and sharp judgment',
+      Water: 'reflection, strategy, sensitivity, and hidden movement'
+    };
+    function yearPillar(year) {
+      const stem = heavenlyStems[(year - 4) % 10];
+      const branch = earthlyBranches[(year - 4) % 12];
+      return { stemName: stem[0], stemElement: stem[1], branchName: branch[0], animal: branch[1], branchElement: branch[2] };
+    }
+    function hourBranch(hour) {
+      const index = Math.floor(((hour + 1) % 24) / 2);
+      const branch = earthlyBranches[index];
+      return { name: branch[0], animal: branch[1], element: branch[2] };
+    }
+    document.getElementById('previewForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const dateValue = document.getElementById('birthDate').value;
+      const timeValue = document.getElementById('birthTime').value;
+      const country = document.getElementById('birthCountry').value.trim();
+      const city = document.getElementById('birthCity').value.trim();
+      const year = Number(dateValue.slice(0, 4));
+      const hour = Number(timeValue.slice(0, 2));
+      const pillar = yearPillar(year);
+      const hourInfo = hourBranch(hour);
+      const place = city ? `${city}, ${country}` : country;
+      const regionNote = /korea|south korea|republic of korea/i.test(country)
+        ? 'For Korea births, local civil time is usually the starting point.'
+        : 'Because this birth is outside Korea, timezone, DST, longitude, and true-solar preference may change the hour reading.';
+      const result = document.getElementById('previewResult');
+      result.innerHTML = `
+        <h3>Your teaser: ${pillar.stemName}-${pillar.branchName} year, ${hourInfo.name} hour</h3>
+        <p>Your birth year points toward <b>${pillar.stemElement}</b> themes: ${elementCopy[pillar.stemElement]}.</p>
+        <p>Your local birth hour falls near the <b>${hourInfo.animal}</b> hour, which often colors future direction, private rhythm, and long-term planning.</p>
+        <p><b>Birthplace check:</b> ${place}. ${regionNote}</p>
+        <p>This is only a surface preview. The paid report checks the full chart order, climate balance, structure, self-support, missing links, 10-year cycle, and annual flow.</p>
+        <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Unlock the Premium report</a>`;
+      result.classList.add('is-visible');
+      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  </script>
 </body>
 </html>
