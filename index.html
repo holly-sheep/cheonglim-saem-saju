@@ -85,6 +85,8 @@
     .list li { margin:6px 0; }
     .button { display:inline-flex; width:100%; min-height:48px; align-items:center; justify-content:center; padding:0 16px; border-radius:10px; border:1px solid var(--ink); background:#fff; font-weight:950; }
     .button.primary { border-color:var(--jade); background:var(--jade); color:white; }
+    .button.secondary { border-color:var(--deep); background:#fffdf8; color:var(--deep); }
+    .button-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:16px; }
     .steps { display:grid; gap:14px; margin-top:24px; }
     .step { display:grid; grid-template-columns:36px 1fr; gap:12px; align-items:start; }
     .num { width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:var(--deep); color:#fff3d4; font-weight:950; }
@@ -96,6 +98,8 @@
     .faq p { margin:0; font-size:14px; }
     .bottom-cta { position:sticky; bottom:0; z-index:30; border-top:1px solid var(--line); background:rgba(255,250,242,.98); padding:10px 14px calc(10px + env(safe-area-inset-bottom)); }
     .bottom-cta p { margin:0 0 8px; color:var(--ink); font-size:13px; text-align:center; }
+    .bottom-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .bottom-actions .button { min-height:44px; padding:0 10px; font-size:14px; }
     footer { padding:28px 24px 92px; color:var(--muted); font-size:13px; background:var(--paper); }
     @media (min-width:760px) { body { padding:24px 0; } .phone { border-radius:24px; overflow:hidden; } }
   </style>
@@ -117,7 +121,7 @@
         <div class="hero-copy">
           <p class="kicker">For clients born outside Korea</p>
           <h1>Korean Saju, read from your real birthplace.</h1>
-          <p>Birth country, city, timezone, daylight saving time, longitude, and optional true solar time are checked before interpretation.</p>
+          <p>Birth country, city, timezone, daylight saving time, longitude, and optional true solar time are checked before interpretation. Basic starts at KRW 9,900.</p>
           <div class="speech">Most readings assume one clock. Overseas births need a more careful time check.</div>
           <a class="hero-link" href="#free-preview">Try a free mini preview</a>
         </div>
@@ -235,10 +239,13 @@
     </main>
 
     <div class="bottom-cta">
-      <p><b>Recommended:</b> Premium Saju Report, KRW 19,900</p>
-      <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium with PayPal</a>
+      <p><b>Start small:</b> Basic KRW 9,900 · <b>Recommended:</b> Premium KRW 19,900</p>
+      <div class="bottom-actions">
+        <a class="button secondary" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
+        <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
+      </div>
     </div>
-    <footer>Cheonglim Saem. 청림샘 Korean Four Pillars reading. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="intake.html?tier=premium">Birth details form</a> · <a href="overseas-birth-saju.html">Overseas birth guide</a> · <a href="true-solar-time-saju.html">True solar time guide</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
+    <footer>Cheonglim Saem. 청림샘 Korean Four Pillars reading. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="basic-korean-saju-report.html">Basic report</a> · <a href="intake.html?tier=premium">Birth details form</a> · <a href="overseas-birth-saju.html">Overseas birth guide</a> · <a href="true-solar-time-saju.html">True solar time guide</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
   </div>
   <script>
     const heavenlyStems = [
@@ -288,7 +295,10 @@
         <p>Your local birth hour falls near the <b>${hourInfo.animal}</b> hour, which often colors future direction, private rhythm, and long-term planning.</p>
         <p><b>Birthplace check:</b> ${place}. ${regionNote}</p>
         <p>This is only a surface preview. The paid report checks the full chart order, climate balance, structure, self-support, missing links, 10-year cycle, and annual flow.</p>
-        <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Unlock the Premium report</a>`;
+        <div class="button-row">
+          <a class="button secondary" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
+          <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
+        </div>`;
       result.classList.add('is-visible');
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });

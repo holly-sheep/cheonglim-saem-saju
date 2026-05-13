@@ -35,7 +35,9 @@
     .cta { margin-top:34px; padding:18px; border-radius:8px; background:var(--deep); color:#fff8ea; }
     .cta p { color:#eadfcd; }
     .button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; margin-top:12px; padding:0 18px; border-radius:8px; background:white; color:var(--deep); font-weight:950; text-decoration:none; }
-    @media (max-width:720px){ .top { flex-direction:column; } }
+    .actions { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
+    .actions .button { margin-top:0; }
+    @media (max-width:720px){ .top { flex-direction:column; } .actions { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -61,7 +63,10 @@
     <div class="cta">
       <b>Order Basic to start small, or Premium when the hour pillar needs a careful check.</b>
       <p>Two Basic orders or one Premium order clear the KRW 10,000 daily revenue target before platform fees.</p>
-      <a class="button" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium with PayPal</a>
+      <div class="actions">
+        <a class="button" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
+        <a class="button" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
+      </div>
     </div>
   </main>
 </body>
