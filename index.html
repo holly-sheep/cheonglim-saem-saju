@@ -17,7 +17,7 @@
   <meta name="twitter:title" content="Cheonglim Saem | Korean Saju Reading">
   <meta name="twitter:description" content="Korean Four Pillars report for overseas clients, with birth-region and time-variable checks.">
   <style>
-    :root { color-scheme:light; --ink:#17120d; --muted:#6c6256; --line:#e2d6c7; --paper:#f4f0ea; --panel:#fffaf2; --deep:#17443d; --jade:#24665c; --red:#a93f2a; --gold:#b3843f; --cream:#fff7e8; }
+    :root { color-scheme:light; --ink:#17120d; --muted:#6c6256; --line:#e2d6c7; --paper:#f4f0ea; --panel:#fffaf2; --deep:#153b36; --jade:#24665c; --red:#a93f2a; --gold:#b3843f; --cream:#fff7e8; }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
     body { margin:0; font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:#ded8cf; line-height:1.58; }
@@ -33,6 +33,7 @@
     .menu { border:0; background:transparent; color:var(--ink); font-size:24px; font-weight:900; }
     .panel { position:relative; min-height:640px; padding:36px 24px; overflow:hidden; border-bottom:1px solid var(--line); background:var(--panel); }
     .panel.dark { color:#fff8ea; background:var(--deep); }
+    .panel.hero { min-height:760px; padding:0; display:grid; align-items:end; background:#100e0c; }
     .panel.gold { background:#f8ead2; }
     .panel.compact { min-height:auto; padding:42px 24px; }
     .kicker { margin:0 0 12px; color:var(--red); font-size:12px; font-weight:950; letter-spacing:.09em; text-transform:uppercase; }
@@ -42,18 +43,28 @@
     h2 { font-size:31px; }
     p { margin:16px 0 0; color:var(--muted); }
     .dark p { color:#eadfcd; }
-    .hero-copy { position:relative; z-index:2; padding-top:4px; }
-    .hero-copy p { max-width:325px; font-size:17px; }
-    .hanbok-card { position:absolute; right:-20px; bottom:-8px; width:310px; height:440px; }
-    .moon { position:absolute; left:30px; bottom:180px; width:108px; height:108px; border-radius:50%; background:#fff0bd; opacity:.9; }
-    .mountains { position:absolute; inset:auto 0 0; height:210px; background:linear-gradient(160deg, transparent 0 20%, rgba(13,49,44,.12) 20% 100%); clip-path:polygon(0 55%, 24% 34%, 46% 64%, 68% 28%, 100% 58%, 100% 100%, 0 100%); }
-    .character { position:absolute; inset:0; width:100%; height:100%; }
-    .speech { position:relative; z-index:2; margin-top:28px; padding:18px; border:1px solid rgba(255,255,255,.28); border-radius:16px; background:rgba(255,250,242,.12); color:#fff6e4; font-size:16px; }
-    .hero-link { position:relative; z-index:2; display:inline-flex; margin-top:18px; min-height:46px; align-items:center; justify-content:center; padding:0 16px; border-radius:10px; background:#fff7e8; color:var(--deep); font-weight:950; }
+    .hero-visual { position:absolute; inset:0; }
+    .hero-visual img { width:100%; height:100%; object-fit:cover; object-position:58% center; display:block; }
+    .hero-visual::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(13,12,10,.34), rgba(13,12,10,.22) 34%, rgba(13,12,10,.9) 100%), linear-gradient(90deg, rgba(13,12,10,.7), rgba(13,12,10,.08) 55%); }
+    .hero-copy { position:relative; z-index:2; padding:84px 24px 210px; }
+    .hero-copy p { max-width:335px; font-size:17px; }
+    .hero-copy h1 { text-shadow:0 2px 16px rgba(0,0,0,.3); }
+    .speech { position:relative; z-index:2; margin-top:24px; padding:18px; border:1px solid rgba(255,255,255,.28); border-radius:8px; background:rgba(18,37,34,.72); color:#fff6e4; font-size:16px; backdrop-filter:blur(10px); }
+    .hero-actions { position:relative; z-index:2; display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:18px; }
+    .hero-link { display:inline-flex; min-height:48px; align-items:center; justify-content:center; padding:0 14px; border-radius:8px; background:#fff7e8; color:var(--deep); font-weight:950; text-align:center; }
+    .hero-link.primary { background:#f0c982; color:#1f1713; }
     .story { display:grid; gap:18px; margin-top:26px; }
-    .story-card { border:1px solid var(--line); border-radius:18px; padding:18px; background:#fffdf8; }
+    .story-card { border:1px solid var(--line); border-radius:8px; padding:18px; background:#fffdf8; }
     .story-card b { display:block; margin-bottom:6px; font-size:18px; }
     .story-card p { margin:0; font-size:15px; }
+    .story-feature { position:relative; min-height:380px; margin-top:24px; overflow:hidden; border-radius:8px; background:#17120d; }
+    .story-feature img { width:100%; height:100%; min-height:380px; object-fit:cover; display:block; }
+    .story-feature::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.72)); }
+    .story-feature .caption { position:absolute; left:16px; right:16px; bottom:16px; z-index:1; padding:16px; border:1px solid rgba(255,255,255,.24); border-radius:8px; background:rgba(21,59,54,.74); color:#fff7e8; backdrop-filter:blur(10px); }
+    .story-feature .caption b { display:block; font-size:18px; }
+    .story-feature .caption p { margin:6px 0 0; color:#eadfcd; font-size:14px; }
+    .guide-strip { display:grid; gap:10px; margin-top:20px; }
+    .guide-strip img { width:100%; border-radius:8px; border:1px solid var(--line); display:block; }
     .report-box { margin-top:26px; border:1px solid var(--line); border-radius:18px; overflow:hidden; background:#fffdf8; }
     .report-head { padding:16px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; gap:12px; }
     .stamp { color:var(--red); font-weight:950; font-size:12px; text-transform:uppercase; }
@@ -76,7 +87,7 @@
     .preview-result h3 { margin:0 0 10px; font-size:21px; }
     .preview-result p { margin:10px 0 0; font-size:15px; }
     .preview-result .button { margin-top:16px; }
-    .package { position:relative; border:1px solid var(--line); border-radius:18px; padding:18px; background:#fffdf8; }
+    .package { position:relative; border:1px solid var(--line); border-radius:8px; padding:18px; background:#fffdf8; }
     .package.featured { border-color:var(--jade); box-shadow:0 10px 28px rgba(36,102,92,.14); }
     .package h3 { margin:0; font-size:21px; }
     .price { margin:6px 0 10px; font-size:28px; font-weight:950; }
@@ -117,32 +128,19 @@
     </header>
 
     <main id="top">
-      <section class="panel dark">
-        <div class="moon" aria-hidden="true"></div>
-        <div class="mountains" aria-hidden="true"></div>
+      <section class="panel dark hero">
+        <div class="hero-visual" aria-hidden="true">
+          <img src="assets/seoseonsaeng-writing.png" alt="">
+        </div>
         <div class="hero-copy">
           <p class="kicker">For clients born outside Korea</p>
-          <h1>Korean Saju, read from your real birthplace.</h1>
+          <h1>Cheonglim Saem Korean Saju, read from your real birthplace.</h1>
           <p>Birth country, city, timezone, daylight saving time, longitude, and optional true solar time are checked before interpretation. Basic starts at KRW 9,900.</p>
-          <div class="speech">Most readings assume one clock. Overseas births need a more careful time check.</div>
-          <a class="hero-link" href="#free-preview">Try a free mini preview</a>
-        </div>
-        <div class="hanbok-card" aria-hidden="true">
-          <svg class="character" viewBox="0 0 310 440" role="img" aria-label="Original Korean hanbok guide character">
-            <path d="M150 96c-58 0-91 42-91 94 0 34 14 62 39 78h105c25-16 39-44 39-78 0-52-34-94-92-94z" fill="#2b211c"/>
-            <path d="M85 251c22-38 42-56 66-56 25 0 47 18 75 56 24 34 41 81 53 143H33c12-62 28-109 52-143z" fill="#1f6b60"/>
-            <path d="M112 234l38 70 44-70c19 20 35 62 47 126H68c10-61 25-103 44-126z" fill="#f6efe2"/>
-            <path d="M115 235l37 70 41-70 25 39-39 86h-55l-36-86 27-39z" fill="#b23f2c" opacity=".95"/>
-            <path d="M110 170c0-36 18-60 42-60s43 24 43 60c0 38-18 68-43 68s-42-30-42-68z" fill="#f3c7aa"/>
-            <path d="M107 162c9-20 22-29 42-29 21 0 35 10 49 30-4-35-20-58-48-58-27 0-43 22-43 57z" fill="#2b211c"/>
-            <circle cx="135" cy="174" r="4" fill="#1f1713"/><circle cx="171" cy="174" r="4" fill="#1f1713"/>
-            <path d="M138 204c9 8 20 8 29 0" fill="none" stroke="#8e3b30" stroke-width="4" stroke-linecap="round"/>
-            <path d="M96 114c15-31 35-47 59-47s43 16 57 47c-17-13-36-19-57-19-22 0-41 6-59 19z" fill="#241915"/>
-            <path d="M133 76h42l-8 22h-25l-9-22z" fill="#b3843f"/>
-            <path d="M65 319c30-21 55-26 75-15" fill="none" stroke="#184c45" stroke-width="18" stroke-linecap="round"/>
-            <path d="M245 319c-31-21-55-26-75-15" fill="none" stroke="#184c45" stroke-width="18" stroke-linecap="round"/>
-            <path d="M115 360h82l20 52H94l21-52z" fill="#143d38"/>
-          </svg>
+          <div class="hero-actions">
+            <a class="hero-link primary" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
+            <a class="hero-link" href="#free-preview">Free preview</a>
+          </div>
+          <div class="speech">Overseas births need the recorded local time checked before interpretation.</div>
         </div>
       </section>
 
@@ -163,6 +161,13 @@
       <section class="panel compact gold">
         <p class="kicker">Why this is different</p>
         <h2>A Korean-style reading, rebuilt for global buyers.</h2>
+        <div class="story-feature">
+          <img src="assets/seohyang-seated.png" alt="Korean hanbok guide in a traditional room">
+          <div class="caption">
+            <b>Traditional structure, online delivery.</b>
+            <p>The report keeps the Korean Four Pillars order while making payment, intake, and PDF delivery simple for English-speaking clients.</p>
+          </div>
+        </div>
         <div class="story">
           <div class="story-card"><b>1. Local birth time first</b><p>The chart starts from the recorded time and place of birth, not a Korea-only assumption.</p></div>
           <div class="story-card"><b>2. Region variables checked</b><p>Timezone, DST, longitude, and true-solar preference are reviewed when they can affect the hour pillar.</p></div>
@@ -173,6 +178,9 @@
       <section class="panel compact">
         <p class="kicker">Sample report flow</p>
         <h2>Your chart is read in order.</h2>
+        <div class="guide-strip">
+          <img src="assets/seohyang-overhead.png" alt="Korean hanbok guide in warm indoor light">
+        </div>
         <div class="report-box">
           <div class="report-head"><div><b>Premium Report</b><p style="margin:2px 0 0;font-size:13px">Region-aware Saju reading</p></div><div class="stamp">Timezone checked</div></div>
           <div class="pillars">
@@ -237,7 +245,7 @@
         <div class="faq">
           <article><h3>I was born outside Korea. Is that okay?</h3><p>Yes. The form asks for birth country and city so the hour pillar can be checked against regional time variables.</p></article>
           <article><h3>Do you always use true solar time?</h3><p>No. Local civil time is the default. True solar time is checked only when the birth location makes it relevant or when you request it.</p></article>
-          <article><h3>What if I do not know my birth time?</h3><p>A reading is possible, but the hour pillar will be uncertain. Contact us before ordering if your birth time is unknown.</p></article>
+          <article><h3>What if I do not know my birth time?</h3><p>A reading is possible, but the hour pillar will be uncertain. <a href="saju-without-birth-time.html">Read the unknown birth time guide</a> before ordering.</p></article>
           <article><h3>Can I get a refund?</h3><p>Because each report is personalized, completed reports are not refundable. Input errors can be corrected once before delivery.</p></article>
         </div>
       </section>
@@ -251,7 +259,7 @@
       </div>
       <a class="bottom-form-link" href="intake.html?tier=basic">Already paid? Send birth details</a>
     </div>
-    <footer>Cheonglim Saem. 청림샘 Korean Four Pillars reading. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="korean-saju-reading-online.html">Online Saju reading</a> · <a href="basic-korean-saju-report.html">Basic report</a> · <a href="intake.html?tier=premium">Birth details form</a> · <a href="overseas-birth-saju.html">Overseas birth guide</a> · <a href="true-solar-time-saju.html">True solar time guide</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
+    <footer>Cheonglim Saem. 청림샘 Korean Four Pillars reading. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="korean-saju-reading-online.html">Online Saju reading</a> · <a href="basic-korean-saju-report.html">Basic report</a> · <a href="saju-without-birth-time.html">Unknown birth time</a> · <a href="intake.html?tier=premium">Birth details form</a> · <a href="overseas-birth-saju.html">Overseas birth guide</a> · <a href="true-solar-time-saju.html">True solar time guide</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
   </div>
   <script>
     const heavenlyStems = [
