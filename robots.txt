@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://holly-sheep.github.io/cheonglim-saem-saju/sitemap.xml
+Sitemap: https://cheonglimsaju.com/sitemap.xml
