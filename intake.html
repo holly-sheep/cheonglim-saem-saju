@@ -49,7 +49,7 @@
   <main>
     <div class="top"><a class="home" href="index.html">Cheonglim Saem</a><a class="home" href="mailto:aideseobot@gmail.com">aideseobot@gmail.com</a></div>
     <h1>Send your K-fortune birth details after PayPal checkout.</h1>
-    <p>This form creates the order email used by the automated delivery worker. Send it after PayPal checkout. For overseas births, country, city, timezone, longitude, and daylight saving context can affect the hour pillar.</p>
+    <p>This form creates the order email used by the automated delivery worker. Send it after PayPal checkout. For overseas births, country, city, timezone, birthplace longitude, and daylight saving context can affect the hour pillar.</p>
     <div class="note"><b>Before you submit:</b> copy the PayPal transaction or order ID from your receipt, and enter the same email address you used in PayPal checkout. These two fields are required for automatic matching.</div>
     <form id="intakeForm">
       <div class="grid">
@@ -78,7 +78,7 @@
         <label>Birth country<input name="birthCountry" placeholder="United States / Canada / Korea / ..." required></label>
         <label>Birth city or region<input name="birthCity" placeholder="Los Angeles, CA / London / Seoul" required></label>
         <label>IANA timezone<input name="timezone" placeholder="America/Los_Angeles / Europe/London / Asia/Seoul"></label>
-        <label>Longitude<input name="longitude" placeholder="West is negative. Example: -118.2437"></label>
+        <label>Birthplace longitude (optional)<input name="longitude" placeholder="Los Angeles: -118.2437 / Seoul: 126.9780"><span class="help">This is the east-west coordinate of the birth city. West is negative; leave it blank if you only know the city and timezone.</span></label>
         <label>Time policy<select name="timePolicy"><option value="local-civil">local-civil</option><option value="true-solar">true-solar</option></select></label>
         <label class="full">Notes<textarea name="memo" placeholder="If the birth time is approximate, or the birthplace is a small town, write the nearest major city here."></textarea></label>
       </div>
