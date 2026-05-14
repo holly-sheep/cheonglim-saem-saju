@@ -7,5 +7,6 @@ This is a static website for GitHub Pages.
 - PayPal payment links are public checkout links only.
 - The intake page does not submit personal data to a server. It creates a local message for copy/email.
 - HTML includes a restrictive Content Security Policy and no-referrer policy.
+- GitHub Pages deploys a built public artifact, not the repository root, so repo notes and helper scripts are not published as site files.
 
 Do not commit private customer birth details, PayPal account settings, access tokens, or fulfillment notes to this repository.
