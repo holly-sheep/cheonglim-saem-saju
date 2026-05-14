@@ -40,6 +40,7 @@
     .actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
     button, a.button { min-height:46px; border-radius:7px; border:1px solid var(--accent); background:var(--accent); color:white; font-weight:900; padding:0 16px; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
     button.secondary { background:transparent; color:var(--accent); }
+    .send-guide { margin-top:8px; color:var(--muted); font-size:13px; font-weight:750; line-height:1.4; }
     .quick-choice { display:grid; gap:10px; margin:20px 0 8px; padding:14px; border:1px solid rgba(22,95,85,.24); border-radius:9px; background:#edf7f4; }
     .quick-choice p { margin:0; }
     .quick-links { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; }
@@ -101,6 +102,7 @@
         <button type="button" id="copyButton">Copy order details</button>
         <button type="button" class="secondary" id="mailButton">Send by email</button>
       </div>
+      <div class="send-guide">After filling: copy the details, tap Send by email, then press Send in your email app. No mail app? Paste the copied details into Gmail or Outlook.</div>
     </form>
     <div class="note">After payment, send this information to aideseobot@gmail.com. The PayPal receipt ID gives the fastest match; the same PayPal email is required. New order emails are checked every few hours and answered with the generated PDF when processing is complete.</div>
     <h2>Generated order message</h2>
