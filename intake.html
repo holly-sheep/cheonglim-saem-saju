@@ -49,13 +49,14 @@
   <main>
     <div class="top"><a class="home" href="index.html">Cheonglim Saem</a><a class="home" href="mailto:aideseobot@gmail.com">aideseobot@gmail.com</a></div>
     <h1>Send your K-fortune birth details after PayPal checkout.</h1>
-    <p>This form creates the order email used by the automated delivery worker. Send it after PayPal checkout, and the inbox processor will calculate the chart, generate the PDF, and reply by email. For overseas births, country, city, timezone, longitude, and daylight saving context can affect the hour pillar.</p>
+    <p>This form creates the order email used by the automated delivery worker. Send it after PayPal checkout. For overseas births, country, city, timezone, longitude, and daylight saving context can affect the hour pillar.</p>
+    <div class="note"><b>Before you submit:</b> copy the PayPal transaction or order ID from your receipt, and enter the same email address you used in PayPal checkout. These two fields are required for automatic matching.</div>
     <form id="intakeForm">
       <div class="grid">
-        <label>PayPal transaction/order ID<input name="orderId" placeholder="Example: 1AB23456CD789012E" required><span class="help">Use the same ID shown in your PayPal receipt so the payment email can be matched.</span></label>
+        <label>PayPal transaction/order ID<input name="orderId" placeholder="Example: 1AB23456CD789012E" required><span class="help">Copy this from your PayPal receipt. The worker uses it to match your payment to this form.</span></label>
         <label>Package<select name="tier" required><option>basic</option><option selected>premium</option><option>vip</option></select></label>
         <label>Full name<input name="name" required></label>
-        <label>Email<input name="email" type="email" required></label>
+        <label>Email<input name="email" type="email" required><span class="help">Use the same email address used for PayPal checkout. Different emails can delay automatic matching.</span></label>
         <label>Birth date<input name="birthDate" placeholder="YYYY-MM-DD" required><span class="help">Use the date recorded at your birthplace.</span></label>
         <div>
           <label>Birth time</label>
@@ -86,7 +87,7 @@
         <button type="button" class="secondary" id="mailButton">Send by email</button>
       </div>
     </form>
-    <div class="note">After payment, send this information to aideseobot@gmail.com. New order emails are matched against PayPal payment notifications, checked every few hours, and answered with the generated PDF when processing is complete.</div>
+    <div class="note">After payment, send this information to aideseobot@gmail.com. The PayPal transaction/order ID and matching PayPal email are required for automatic matching. New order emails are checked every few hours and answered with the generated PDF when processing is complete.</div>
     <h2>Generated order message</h2>
     <pre id="output"></pre>
   </main>
