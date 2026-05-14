@@ -25,7 +25,7 @@
     p { color:var(--muted); max-width:760px; }
     form { display:grid; gap:16px; margin-top:28px; }
     .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
-    label { display:grid; gap:6px; font-weight:800; }
+    label { display:grid; gap:6px; align-content:start; font-weight:800; }
     span.help { color:var(--muted); font-weight:600; font-size:13px; }
     input, select, textarea { width:100%; min-height:46px; padding:10px 12px; border:1px solid var(--line); border-radius:7px; background:white; color:var(--ink); font:inherit; }
     textarea { min-height:118px; resize:vertical; }
@@ -78,7 +78,6 @@
         <label>Birth country<input name="birthCountry" placeholder="United States / Canada / Korea / ..." required></label>
         <label>Birth city or region<input name="birthCity" placeholder="Los Angeles, CA / London / Seoul" required></label>
         <label>Timezone (if known)<input name="timezone" placeholder="Pacific Time / Asia/Seoul / Europe/London"><span class="help">If you do not know the timezone name, the country and city above are enough to submit.</span></label>
-        <label>Time handling<select name="timePolicy"><option value="local-civil">Use recorded local birth time</option><option value="true-solar">Adjust by exact solar time (advanced)</option></select><span class="help">Leave this as recorded local birth time unless you were specifically told otherwise.</span></label>
         <label class="full">Notes<textarea name="memo" placeholder="If the birth time is approximate, or the birthplace is a small town, write the nearest major city here."></textarea></label>
       </div>
       <div class="actions">
@@ -115,7 +114,7 @@
       const memo = data.unknownBirthTime
         ? `Birth time unknown.\n${data.memo || ''}`.trim()
         : data.memo;
-      const timePolicy = data.unknownBirthTime ? 'unknown-time' : data.timePolicy;
+      const timePolicy = data.unknownBirthTime ? 'unknown-time' : 'local-civil';
       return `order_id: ${data.orderId}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${data.birthDate}\nbirth_time: ${birthTimeValue(data)}\ngender: ${data.gender}\nbirth_country: ${data.birthCountry}\nbirth_city: ${data.birthCity}\ntimezone: ${data.timezone}\ntime_policy: ${timePolicy}\nmemo: ${memo}`;
     }
     function refresh() { output.textContent = buildText(); }
