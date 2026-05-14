@@ -41,6 +41,7 @@
     .cta { margin-top:34px; padding:18px; border-radius:8px; background:var(--deep); color:#fff8ea; }
     .cta p { color:#eadfcd; }
     .cta .button { margin-top:12px; }
+    .cta-actions { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
     @media (max-width:720px){ .top, .offers { grid-template-columns:1fr; flex-direction:column; } }
   </style>
 </head>
@@ -58,25 +59,28 @@
         <h3>Basic</h3>
         <div class="price">$9</div>
         <ul><li>Original Four Pillars chart</li><li>Climate balance</li><li>Current luck cycle and annual flow</li><li>Automated PDF reply</li></ul>
-        <a class="button" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU">Order Basic</a>
+        <a class="button" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU" target="_blank" rel="noopener">Order Basic</a>
       </article>
       <article class="offer">
         <h3>Premium</h3>
         <div class="price">$19</div>
         <ul><li>Everything in Basic</li><li>Birth country and city context</li><li>Timezone and daylight-saving review</li><li>Career and money activity pattern</li></ul>
-        <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86">Order Premium</a>
+        <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86" target="_blank" rel="noopener">Order Premium</a>
       </article>
     </div>
     <h2>How online delivery works</h2>
     <div class="flow">
       <article class="step"><b>1. Pay through PayPal</b><p>Use Basic to start small, or Premium when the birth time context needs a careful check.</p></article>
-      <article class="step"><b>2. Send birth details</b><p>Submit the PayPal transaction ID, email, birth date, birth time, country, and city through the intake page.</p></article>
+      <article class="step"><b>2. Send birth details</b><p>Submit the PayPal receipt ID when available, the same PayPal email, birth date, birth time, country, and city through the intake page.</p></article>
       <article class="step"><b>3. Receive the report</b><p>The inbox worker matches paid orders, generates the PDF, and replies by email when processing is complete.</p></article>
     </div>
     <div class="cta">
       <b>Already paid?</b>
-      <p>Open the intake form and send the details with the same PayPal transaction or order ID.</p>
-      <a class="button" href="intake.html?tier=basic">Send birth details</a>
+      <p>Open the intake form for the package you paid for. If you cannot find the PayPal receipt ID, check the missing-ID option and use the same PayPal email.</p>
+      <div class="cta-actions">
+        <a class="button" href="intake.html?tier=basic">Basic form</a>
+        <a class="button primary" href="intake.html?tier=premium">Premium form</a>
+      </div>
     </div>
   </main>
 </body>

@@ -40,7 +40,13 @@
     .actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
     button, a.button { min-height:46px; border-radius:7px; border:1px solid var(--accent); background:var(--accent); color:white; font-weight:900; padding:0 16px; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
     button.secondary { background:transparent; color:var(--accent); }
+    .quick-choice { display:grid; gap:10px; margin:20px 0 8px; padding:14px; border:1px solid rgba(22,95,85,.24); border-radius:9px; background:#edf7f4; }
+    .quick-choice p { margin:0; }
+    .quick-links { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; }
+    .quick-links a { min-height:42px; border-radius:7px; border:1px solid var(--accent); display:flex; align-items:center; justify-content:center; color:var(--accent); font-weight:900; text-decoration:none; background:white; }
+    .quick-links a.is-active { background:var(--accent); color:white; }
     .note { border:1px solid var(--line); background:var(--panel); padding:14px; border-radius:9px; margin-top:20px; color:var(--muted); }
+    .privacy-note { border-color:rgba(22,95,85,.26); background:#edf7f4; color:#194b44; }
     pre { white-space:pre-wrap; word-break:break-word; border:1px solid var(--line); background:white; padding:14px; border-radius:9px; min-height:132px; }
     @media (max-width:720px){ .grid { grid-template-columns:1fr; } .full { grid-column:auto; } .top { align-items:flex-start; flex-direction:column; } }
   </style>
@@ -50,14 +56,23 @@
     <div class="top"><a class="home" href="index.html">Cheonglim Saem</a><a class="home" href="mailto:aideseobot@gmail.com">aideseobot@gmail.com</a></div>
     <h1>Send your K-fortune birth details after PayPal checkout.</h1>
     <p>This form creates the order email used by the automated delivery worker. Send it after PayPal checkout. For overseas births, country, city, timezone, and daylight saving context can affect the hour pillar.</p>
-    <div class="note"><b>Before you submit:</b> copy the PayPal transaction or order ID from your receipt, and enter the same email address you used in PayPal checkout. These two fields are required for automatic matching.</div>
+    <div class="note privacy-note"><b>Privacy:</b> this page does not upload your birth data. It only creates an email draft on your device. Preview details may be temporarily stored in this browser tab to prefill this form. The details you send by email and the delivered PDF can remain in email history; contact aideseobot@gmail.com for correction or deletion requests.</div>
+    <div class="quick-choice">
+      <p><b>Choose the package you paid for.</b> The selected package is written into the order email.</p>
+      <div class="quick-links">
+        <a href="intake.html?tier=basic" data-tier-link="basic">Basic</a>
+        <a href="intake.html?tier=premium" data-tier-link="premium">Premium</a>
+        <a href="intake.html?tier=vip" data-tier-link="vip">VIP</a>
+      </div>
+    </div>
+    <div class="note"><b>Before you submit:</b> enter the same email address you used in PayPal checkout. The form creates an order reference automatically. If you can find a PayPal transaction or order ID in your receipt, add it; if not, you can still send the form.</div>
     <form id="intakeForm">
       <div class="grid">
-        <label>PayPal transaction/order ID<input name="orderId" placeholder="Example: 1AB23456CD789012E" required><span class="help">Copy this from your PayPal receipt. The worker uses it to match your payment to this form.</span></label>
+        <label>PayPal receipt ID<input name="orderId" placeholder="Example: 1AB23456CD789012E"><span class="help">Best for fast matching. Copy Transaction ID or Order ID from the PayPal receipt email.</span></label>
         <label>Package<select name="tier" required><option>basic</option><option selected>premium</option><option>vip</option></select></label>
         <label>Full name<input name="name" required></label>
         <label>Email<input name="email" type="email" required><span class="help">Use the same email address used for PayPal checkout. Different emails can delay automatic matching.</span></label>
-        <label>Birth date<input name="birthDate" placeholder="YYYY-MM-DD" required><span class="help">Use the date recorded at your birthplace.</span></label>
+        <label>Birth date<input name="birthDate" type="date" required><span class="help">Use the date recorded at your birthplace.</span></label>
         <div>
           <label>Birth time</label>
           <div class="time-grid">
@@ -77,7 +92,9 @@
         </div>
         <label>Birth country<input name="birthCountry" placeholder="United States / Canada / Korea / ..." required></label>
         <label>Birth city or region<input name="birthCity" placeholder="Los Angeles, CA / London / Seoul" required></label>
+        <label class="check-row"><input name="missingOrderId" type="checkbox"> I cannot find the PayPal receipt ID</label>
         <label>Timezone (if known)<input name="timezone" placeholder="Pacific Time / Asia/Seoul / Europe/London"><span class="help">If you do not know the timezone name, the country and city above are enough to submit.</span></label>
+        <label class="check-row"><input name="unknownTimezone" type="checkbox"> I do not know the timezone</label>
         <label class="full">Notes<textarea name="memo" placeholder="If the birth time is approximate, or the birthplace is a small town, write the nearest major city here."></textarea></label>
       </div>
       <div class="actions">
@@ -85,17 +102,21 @@
         <button type="button" class="secondary" id="mailButton">Send by email</button>
       </div>
     </form>
-    <div class="note">After payment, send this information to aideseobot@gmail.com. The PayPal transaction/order ID and matching PayPal email are required for automatic matching. New order emails are checked every few hours and answered with the generated PDF when processing is complete.</div>
+    <div class="note">After payment, send this information to aideseobot@gmail.com. The PayPal receipt ID gives the fastest match; the same PayPal email is required. New order emails are checked every few hours and answered with the generated PDF when processing is complete.</div>
     <h2>Generated order message</h2>
     <pre id="output"></pre>
   </main>
   <script>
     const form = document.getElementById('intakeForm');
     const output = document.getElementById('output');
-    const tier = new URLSearchParams(window.location.search).get('tier');
+    const params = new URLSearchParams(window.location.search);
+    const tier = params.get('tier');
     if (tier === 'basic' || tier === 'premium' || tier === 'vip') {
       form.elements.tier.value = tier;
     }
+    document.querySelectorAll('[data-tier-link]').forEach((link) => {
+      link.classList.toggle('is-active', link.dataset.tierLink === form.elements.tier.value);
+    });
     for (let hour = 1; hour <= 12; hour += 1) {
       form.elements.birthHour.add(new Option(String(hour).padStart(2, '0'), String(hour)));
     }
@@ -109,22 +130,66 @@
       if (data.birthPeriod === 'PM' && hour !== 12) hour += 12;
       return `${String(hour).padStart(2, '0')}:${String(data.birthMinute).padStart(2, '0')}`;
     }
+    function referenceId() {
+      const existing = form.elements.orderId.value.trim();
+      if (existing) return existing;
+      if (!form.elements.missingOrderId.checked) return '';
+      let stored = null;
+      try {
+        stored = JSON.parse(sessionStorage.getItem('cheonglimFallbackOrderReference') || 'null');
+      } catch (error) {
+        sessionStorage.removeItem('cheonglimFallbackOrderReference');
+      }
+      if (stored && stored.tier === form.elements.tier.value && stored.reference) return stored.reference;
+      const seed = [
+        form.elements.tier.value,
+        form.elements.email.value.trim().toLowerCase(),
+        form.elements.birthDate.value,
+        Date.now().toString(36),
+      ].join('|');
+      let hash = 0;
+      for (let index = 0; index < seed.length; index += 1) {
+        hash = ((hash << 5) - hash + seed.charCodeAt(index)) >>> 0;
+      }
+      const bytes = new Uint8Array(4);
+      crypto.getRandomValues(bytes);
+      const nonce = Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('').toUpperCase();
+      const reference = `CS-${form.elements.tier.value.toUpperCase()}-${hash.toString(36).toUpperCase().padStart(6, '0')}-${nonce}`;
+      sessionStorage.setItem('cheonglimFallbackOrderReference', JSON.stringify({ tier: form.elements.tier.value, reference }));
+      return reference;
+    }
     function buildText() {
       const data = Object.fromEntries(new FormData(form).entries());
-      const memo = data.unknownBirthTime
-        ? `Birth time unknown.\n${data.memo || ''}`.trim()
-        : data.memo;
+      const memoLines = [];
+      if (data.unknownBirthTime) memoLines.push('Birth time unknown.');
+      if (data.unknownTimezone) memoLines.push('Timezone unknown; please infer from country/city if possible.');
+      if (!form.elements.orderId.value.trim() && form.elements.missingOrderId.checked) memoLines.push('PayPal receipt ID not provided; customer checked the missing-ID option. Please match by payer email and package.');
+      if (data.memo) memoLines.push(data.memo);
+      const memo = memoLines.join('\n').trim();
       const timePolicy = data.unknownBirthTime ? 'unknown-time' : 'local-civil';
-      return `order_id: ${data.orderId}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${data.birthDate}\nbirth_time: ${birthTimeValue(data)}\ngender: ${data.gender}\nbirth_country: ${data.birthCountry}\nbirth_city: ${data.birthCity}\ntimezone: ${data.timezone}\ntime_policy: ${timePolicy}\nmemo: ${memo}`;
+      const timezone = data.unknownTimezone ? '' : data.timezone;
+      return `order_id: ${referenceId()}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${data.birthDate}\nbirth_time: ${birthTimeValue(data)}\ngender: ${data.gender}\nbirth_country: ${data.birthCountry}\nbirth_city: ${data.birthCity}\ntimezone: ${timezone}\ntime_policy: ${timePolicy}\nmemo: ${memo}`;
     }
     function refresh() { output.textContent = buildText(); }
     form.addEventListener('input', refresh);
+    function canUseFallbackReference() {
+      if (form.elements.orderId.value.trim()) return true;
+      if (form.elements.missingOrderId.checked) return true;
+      form.elements.orderId.setCustomValidity('Enter the PayPal receipt ID, or check "I cannot find the PayPal receipt ID".');
+      form.elements.orderId.reportValidity();
+      form.elements.orderId.setCustomValidity('');
+      return false;
+    }
     document.getElementById('copyButton').addEventListener('click', async () => {
+      if (!form.reportValidity()) return;
+      if (!canUseFallbackReference()) return;
       refresh();
       await navigator.clipboard.writeText(output.textContent);
       alert('Order details copied.');
     });
     document.getElementById('mailButton').addEventListener('click', () => {
+      if (!form.reportValidity()) return;
+      if (!canUseFallbackReference()) return;
       refresh();
       const subject = encodeURIComponent('Saju report birth details');
       const body = encodeURIComponent(output.textContent);
@@ -137,6 +202,28 @@
       form.elements.birthPeriod.disabled = disabled;
       refresh();
     });
+    form.elements.unknownTimezone.addEventListener('change', (event) => {
+      form.elements.timezone.disabled = event.target.checked;
+      refresh();
+    });
+    form.elements.missingOrderId.addEventListener('change', refresh);
+    try {
+      const saved = JSON.parse(sessionStorage.getItem('cheonglimPreviewBirthDetails') || '{}');
+      ['birthDate', 'birthHour', 'birthMinute', 'birthPeriod', 'birthCountry', 'birthCity'].forEach((name) => {
+        if (saved[name] && form.elements[name]) form.elements[name].value = saved[name];
+      });
+      if (saved.gender && form.elements.gender.value !== saved.gender) {
+        form.querySelector(`input[name="gender"][value="${saved.gender}"]`).checked = true;
+      }
+      if (saved.unknownBirthTime) {
+        form.elements.unknownBirthTime.checked = true;
+        form.elements.birthHour.disabled = true;
+        form.elements.birthMinute.disabled = true;
+        form.elements.birthPeriod.disabled = true;
+      }
+    } catch (error) {
+      sessionStorage.removeItem('cheonglimPreviewBirthDetails');
+    }
     refresh();
   </script>
 </body>
