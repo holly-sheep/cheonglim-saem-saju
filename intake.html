@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cheonglim Saem">
   <meta property="og:title" content="K-fortune Birth Details Form | Cheonglim Saem">
-  <meta property="og:description" content="Submit birth date, time, country, city, timezone, and longitude details for a K-fortune report after PayPal checkout.">
+  <meta property="og:description" content="Submit birth date, time, country, city, and timezone details for a K-fortune report after PayPal checkout.">
   <meta property="og:url" content="https://cheonglimsaju.com/intake.html">
   <style>
     :root { --ink:#15120f; --muted:#665e55; --line:#ded6cc; --paper:#fbf5ec; --panel:#fffdfa; --accent:#165f55; --accent2:#9c3d23; }
@@ -49,7 +49,7 @@
   <main>
     <div class="top"><a class="home" href="index.html">Cheonglim Saem</a><a class="home" href="mailto:aideseobot@gmail.com">aideseobot@gmail.com</a></div>
     <h1>Send your K-fortune birth details after PayPal checkout.</h1>
-    <p>This form creates the order email used by the automated delivery worker. Send it after PayPal checkout. For overseas births, country, city, timezone, birthplace longitude, and daylight saving context can affect the hour pillar.</p>
+    <p>This form creates the order email used by the automated delivery worker. Send it after PayPal checkout. For overseas births, country, city, timezone, and daylight saving context can affect the hour pillar.</p>
     <div class="note"><b>Before you submit:</b> copy the PayPal transaction or order ID from your receipt, and enter the same email address you used in PayPal checkout. These two fields are required for automatic matching.</div>
     <form id="intakeForm">
       <div class="grid">
@@ -77,9 +77,8 @@
         </div>
         <label>Birth country<input name="birthCountry" placeholder="United States / Canada / Korea / ..." required></label>
         <label>Birth city or region<input name="birthCity" placeholder="Los Angeles, CA / London / Seoul" required></label>
-        <label>IANA timezone<input name="timezone" placeholder="America/Los_Angeles / Europe/London / Asia/Seoul"></label>
-        <label>Birthplace longitude (optional)<input name="longitude" placeholder="Los Angeles: -118.2437 / Seoul: 126.9780"><span class="help">This is the east-west coordinate of the birth city. West is negative; leave it blank if you only know the city and timezone.</span></label>
-        <label>Time policy<select name="timePolicy"><option value="local-civil">local-civil</option><option value="true-solar">true-solar</option></select></label>
+        <label>Timezone (if known)<input name="timezone" placeholder="Pacific Time / Asia/Seoul / Europe/London"><span class="help">If you do not know the timezone name, the country and city above are enough to submit.</span></label>
+        <label>Time handling<select name="timePolicy"><option value="local-civil">Use recorded local birth time</option><option value="true-solar">Adjust by exact solar time (advanced)</option></select><span class="help">Leave this as recorded local birth time unless you were specifically told otherwise.</span></label>
         <label class="full">Notes<textarea name="memo" placeholder="If the birth time is approximate, or the birthplace is a small town, write the nearest major city here."></textarea></label>
       </div>
       <div class="actions">
@@ -117,7 +116,7 @@
         ? `Birth time unknown.\n${data.memo || ''}`.trim()
         : data.memo;
       const timePolicy = data.unknownBirthTime ? 'unknown-time' : data.timePolicy;
-      return `order_id: ${data.orderId}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${data.birthDate}\nbirth_time: ${birthTimeValue(data)}\ngender: ${data.gender}\nbirth_country: ${data.birthCountry}\nbirth_city: ${data.birthCity}\ntimezone: ${data.timezone}\nlongitude: ${data.longitude}\ntime_policy: ${timePolicy}\nmemo: ${memo}`;
+      return `order_id: ${data.orderId}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${data.birthDate}\nbirth_time: ${birthTimeValue(data)}\ngender: ${data.gender}\nbirth_country: ${data.birthCountry}\nbirth_city: ${data.birthCity}\ntimezone: ${data.timezone}\ntime_policy: ${timePolicy}\nmemo: ${memo}`;
     }
     function refresh() { output.textContent = buildText(); }
     form.addEventListener('input', refresh);
