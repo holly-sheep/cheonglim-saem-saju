@@ -33,26 +33,30 @@
     .menu { border:0; background:transparent; color:var(--ink); font-size:24px; font-weight:900; }
     .panel { position:relative; min-height:640px; padding:36px 24px; overflow:hidden; border-bottom:1px solid var(--line); background:var(--panel); }
     .panel.dark { color:#fff8ea; background:var(--deep); }
-    .panel.hero { min-height:min(700px, calc(100svh - 64px)); padding:0; display:grid; align-items:end; background:#100e0c; }
+    .panel.hero { min-height:560px; padding:0; display:grid; align-items:end; background:#100e0c; }
     .panel.gold { background:#f8ead2; }
     .panel.compact { min-height:auto; padding:42px 24px; }
     .kicker { margin:0 0 12px; color:var(--red); font-size:12px; font-weight:950; letter-spacing:.09em; text-transform:uppercase; }
     .dark .kicker { color:#f0c982; }
     h1, h2 { margin:0; letter-spacing:0; line-height:1.08; }
-    h1 { font-size:clamp(38px, 10vw, 42px); max-width:350px; }
+    h1 { font-size:clamp(34px, 8.4vw, 40px); max-width:360px; }
     h2 { font-size:31px; }
     p { margin:16px 0 0; color:var(--muted); }
     .dark p { color:#eadfcd; }
     .hero-visual { position:absolute; inset:0; }
     .hero-visual img { width:100%; height:100%; object-fit:cover; object-position:58% center; display:block; }
     .hero-visual::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(13,12,10,.14), rgba(13,12,10,.08) 34%, rgba(13,12,10,.72) 100%), linear-gradient(90deg, rgba(13,12,10,.46), rgba(13,12,10,.02) 62%); }
-    .hero-copy { position:relative; z-index:2; padding:64px 24px 96px; }
+    .hero-visual.product-proof img { object-position:58% center; filter:brightness(.82) saturate(.95) contrast(1.03); transform:none; }
+    .hero-visual.product-proof::after { background:linear-gradient(180deg, rgba(13,12,10,.16), rgba(13,12,10,.18) 34%, rgba(13,12,10,.72) 100%), linear-gradient(90deg, rgba(13,12,10,.56), rgba(13,12,10,.08) 62%); }
+    .hero-copy { position:relative; z-index:2; padding:44px 24px 72px; }
     .hero-copy p { max-width:270px; font-size:16px; line-height:1.5; }
     .hero-copy h1 { text-shadow:0 2px 16px rgba(0,0,0,.3); }
     .speech { position:relative; z-index:2; margin-top:24px; padding:18px; border:1px solid rgba(255,255,255,.28); border-radius:8px; background:rgba(18,37,34,.72); color:#fff6e4; font-size:16px; backdrop-filter:blur(10px); }
     .hero-actions { position:relative; z-index:2; display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:18px; }
     .hero-link { display:inline-flex; min-height:48px; align-items:center; justify-content:center; padding:0 14px; border-radius:8px; background:#fff7e8; color:var(--deep); font-weight:950; text-align:center; }
     .hero-link.primary { background:#f0c982; color:#1f1713; }
+    .flow-strip { display:grid; gap:8px; padding:16px 24px; border-bottom:1px solid var(--line); background:#fff7e8; }
+    .flow-strip span { min-height:38px; display:flex; align-items:center; justify-content:center; padding:8px 10px; border:1px solid rgba(36,102,92,.22); border-radius:8px; background:#eef6f3; color:var(--deep); font-size:13px; font-weight:950; line-height:1.25; text-align:center; }
     .story { display:grid; gap:18px; margin-top:26px; }
     .story-card { border:1px solid var(--line); border-radius:8px; padding:18px; background:#fffdf8; }
     .story-card b { display:block; margin-bottom:6px; font-size:18px; }
@@ -74,6 +78,8 @@
     .value-card p { margin:7px 0 0; font-size:15px; line-height:1.5; }
     .proof-bar { display:grid; gap:10px; margin-top:18px; }
     .proof-item { padding:14px 15px; border-left:4px solid var(--jade); background:#edf5f1; color:var(--deep); font-size:15px; font-weight:850; line-height:1.45; }
+    .trust-proof { display:grid; gap:8px; margin-top:18px; }
+    .trust-proof a, .trust-proof span { min-height:42px; display:flex; align-items:center; justify-content:center; padding:8px 10px; border:1px solid rgba(36,102,92,.22); border-radius:8px; background:#fffdf8; color:var(--deep); font-size:13px; font-weight:950; line-height:1.25; text-align:center; }
     .sample-pages { display:grid; gap:12px; margin-top:22px; }
     .sample-page { border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fffdf8; }
     .sample-page img { width:100%; display:block; border-bottom:1px solid var(--line); background:#f4eadc; }
@@ -81,6 +87,8 @@
     .sample-page b { display:block; font-size:16px; line-height:1.25; }
     .sample-page p { margin:5px 0 0; font-size:14px; line-height:1.5; }
     .sample-link { display:inline-flex; margin-top:11px; color:var(--jade); font-size:14px; font-weight:950; line-height:1.35; text-decoration:underline; text-underline-offset:3px; }
+    .sample-actions { display:grid; grid-template-columns:1fr; gap:8px; margin-top:12px; }
+    .sample-actions .sample-link { min-height:42px; align-items:center; justify-content:center; margin:0; border:1px solid var(--line); border-radius:8px; background:#fff7e8; text-decoration:none; }
     .trust-grid { display:grid; gap:12px; margin-top:24px; }
     .trust-card { border:1px solid rgba(255,255,255,.18); border-radius:8px; padding:16px; background:rgba(255,255,255,.08); }
     .trust-card b { display:block; color:#fff7e8; font-size:17px; }
@@ -112,6 +120,9 @@
     .checkout-helper p { margin:0; font-size:15px; line-height:1.48; }
     .checkout-helper .button-row { margin-top:4px; }
     .preview-form { display:grid; gap:12px; margin-top:24px; }
+    .preview-details { margin-top:20px; border:1px solid var(--line); border-radius:8px; background:#fffdf8; overflow:hidden; }
+    .preview-details summary { min-height:54px; display:flex; align-items:center; justify-content:center; padding:0 16px; color:var(--deep); cursor:pointer; font-weight:950; }
+    .preview-details .preview-form { margin:0; padding:18px; border-top:1px solid var(--line); }
     .field { display:grid; gap:6px; font-weight:850; }
     input, select, textarea { width:100%; min-height:46px; border:1px solid var(--line); border-radius:10px; padding:10px 12px; background:#fffdf8; color:var(--ink); font:inherit; }
     textarea { min-height:130px; resize:vertical; line-height:1.5; }
@@ -160,7 +171,7 @@
     .locked-item { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px; border-radius:8px; background:#f7efe2; color:#1d2734; font-weight:900; }
     .locked-item small { color:#8a4a36; font-weight:950; text-transform:uppercase; }
     .urgency-note { margin-top:14px; padding:12px; border-left:4px solid #f0c982; background:rgba(240,201,130,.12); color:#fff4dc; font-weight:850; }
-    .package { position:relative; border:1px solid var(--line); border-radius:8px; padding:18px; background:#fffdf8; }
+    .package { position:relative; border:1px solid var(--line); border-radius:8px; padding:20px; background:#fffdf8; }
     .package.featured { border-color:var(--jade); box-shadow:0 10px 28px rgba(36,102,92,.14); }
     .package h3 { margin:0; font-size:21px; }
     .price { margin:6px 0 10px; font-size:28px; font-weight:950; }
@@ -186,6 +197,9 @@
     .faq h3 { margin:0 0 6px; font-size:17px; }
     .faq p { margin:0; font-size:15px; line-height:1.5; }
     .review-panel { margin-top:24px; border:1px solid var(--line); border-radius:8px; padding:18px; background:#fffdf8; }
+    .review-panel, .review-panel h2, .review-panel .field { color:var(--ink); }
+    .review-panel p, .review-panel .check-row { color:var(--muted); }
+    .review-panel .kicker { color:var(--red); }
     .review-highlights { display:grid; gap:10px; margin-top:22px; }
     .review-card { border:1px solid var(--line); border-radius:8px; padding:16px; background:#fffdf8; }
     .review-card b { display:block; color:var(--ink); font-size:18px; line-height:1.28; }
@@ -199,6 +213,9 @@
     .review-status.is-visible { display:block; }
     .review-panel .check-row { align-items:flex-start; }
     .review-panel .check-row input { flex:0 0 auto; margin-top:2px; }
+    .review-details { margin-top:20px; border:1px solid rgba(255,255,255,.22); border-radius:8px; background:rgba(255,255,255,.08); }
+    .review-details summary { min-height:52px; display:flex; align-items:center; padding:0 16px; color:#fff7e8; cursor:pointer; font-weight:950; }
+    .review-details .review-panel { margin:0; border:0; border-top:1px solid rgba(255,255,255,.18); border-radius:0 0 8px 8px; }
     .bottom-cta { position:relative; z-index:30; border-top:1px solid var(--line); background:rgba(255,250,242,.98); padding:10px 14px calc(10px + env(safe-area-inset-bottom)); }
     .bottom-cta p { margin:0 0 9px; color:var(--ink); font-size:14px; line-height:1.35; text-align:center; }
     .bottom-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
@@ -213,15 +230,18 @@
       .phone { width:min(100%, 720px); border-radius:24px; overflow:hidden; }
       .panel { padding:48px 40px; }
       .panel.compact { padding:50px 40px; }
-      .panel.hero { min-height:640px; }
-      .hero-copy { padding:88px 40px 112px; }
+      .panel.hero { min-height:560px; }
+      .hero-copy { padding:76px 40px 94px; }
       .hero-copy p { max-width:360px; }
-      h1 { max-width:460px; font-size:52px; }
+      h1 { max-width:520px; font-size:48px; }
       h2 { max-width:600px; font-size:36px; }
+      .flow-strip { grid-template-columns:repeat(3, 1fr); padding:16px 40px; }
       .preview-form { max-width:720px; }
+      .sample-actions { grid-template-columns:repeat(3, 1fr); }
       .story, .difference-list, .value-grid, .sample-pages, .trust-grid, .packages, .review-highlights { grid-template-columns:repeat(2, minmax(0, 1fr)); }
       .trust-card.operator-card { grid-column:1 / -1; }
       .proof-bar { grid-template-columns:repeat(3, minmax(0, 1fr)); }
+      .trust-proof { grid-template-columns:repeat(3, minmax(0, 1fr)); }
       .comparison-row { grid-template-columns:1fr 1fr; }
       .report-box { max-width:640px; }
       .review-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
@@ -230,25 +250,27 @@
       .bottom-cta { max-width:720px; margin:0 auto; }
     }
     @media (min-width:900px) {
-      .phone { width:min(100%, 960px); }
+      .phone { width:min(100%, 1120px); }
       nav { grid-template-columns:52px 1fr 52px; padding:0 24px; }
       .panel { padding:50px 42px; }
       .panel.compact { padding:52px 42px; }
-      .panel.hero { min-height:680px; }
-      .hero-copy { padding:96px 48px 110px; }
+      .panel.hero { min-height:660px; }
+      .hero-visual.product-proof img { object-position:68% 20%; }
+      .hero-copy { padding:108px 56px 118px; }
       .hero-copy p { max-width:390px; }
-      h1 { max-width:470px; font-size:54px; }
+      h1 { max-width:540px; font-size:54px; }
       h2 { max-width:620px; font-size:38px; }
       .story, .difference-list, .value-grid, .review-highlights { grid-template-columns:repeat(3, minmax(0, 1fr)); }
       .packages { grid-template-columns:repeat(2, minmax(0, 1fr)); }
       .trust-card.operator-card { grid-column:1 / -1; }
       .proof-bar { grid-template-columns:repeat(3, minmax(0, 1fr)); }
+      .trust-proof { grid-template-columns:repeat(3, minmax(0, 1fr)); }
       .comparison { grid-template-columns:1fr 1fr; }
       .report-box { max-width:640px; }
       .review-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
       .review-grid .field.review-text { grid-column:1 / -1; }
       .review-actions { grid-template-columns:1fr 1fr; }
-      .bottom-cta { max-width:960px; margin:0 auto; }
+      .bottom-cta { max-width:1120px; margin:0 auto; }
     }
     @media (min-width:1100px) { .sample-pages, .trust-grid, .packages { grid-template-columns:repeat(3, minmax(0, 1fr)); } }
   </style>
@@ -265,222 +287,150 @@
 
     <main id="top">
       <section class="panel dark hero">
-        <div class="hero-visual" aria-hidden="true">
+        <div class="hero-visual product-proof" aria-hidden="true">
           <img src="assets/seoseonsaeng-writing.png" alt="">
         </div>
         <div class="hero-copy">
           <p class="kicker">K-fortune for global clients</p>
-          <h1>K-fortune from your real birthplace.</h1>
-          <p>True-solar Korean Four Pillars. Starts at $9.</p>
+          <h1>Understand your timing and life patterns.</h1>
+          <p>A Korean Saju PDF adjusted for your real birthplace, timezone, and solar-time context.</p>
           <div class="hero-actions">
-            <a class="hero-link primary" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU" target="_blank" rel="noopener">Order Basic</a>
+            <a class="hero-link primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86" target="_blank" rel="noopener">Premium - $19</a>
             <a class="hero-link" href="#free-preview">Free preview</a>
           </div>
         </div>
       </section>
+      <div class="flow-strip" aria-label="Order flow">
+        <span>1. Pay with PayPal</span>
+        <span>2. Send birth details</span>
+        <span>3. Receive PDF by email</span>
+      </div>
 
       <section class="panel compact" id="free-preview">
         <p class="kicker">Free mini preview</p>
-        <h2>Enter your birth basics first.</h2>
-        <p>Get one real clue for free. The paid report unlocks corrected birth time, full chart structure, timing, and practical guidance.</p>
-        <form class="preview-form" id="previewForm">
-          <label class="field">Birth date<input id="birthDate" type="date" required></label>
-          <div class="field" id="birthTimeGroup">
-            <span>Birth time</span>
-            <div class="time-grid">
-              <select id="birthHour" aria-label="Birth hour"></select>
-              <select id="birthMinute" aria-label="Birth minute"></select>
-              <select id="birthPeriod" aria-label="AM or PM"><option>AM</option><option>PM</option></select>
+        <h2>Try one real clue first.</h2>
+        <p>Enter birth basics, then unlock the full PDF when the preview feels useful.</p>
+        <details class="preview-details">
+          <summary>Open free preview form</summary>
+          <form class="preview-form" id="previewForm">
+            <label class="field">Birth date<input id="birthDate" type="date" required></label>
+            <div class="field" id="birthTimeGroup">
+              <span>Birth time</span>
+              <div class="time-grid">
+                <select id="birthHour" aria-label="Birth hour"></select>
+                <select id="birthMinute" aria-label="Birth minute"></select>
+                <select id="birthPeriod" aria-label="AM or PM"><option>AM</option><option>PM</option></select>
+              </div>
+              <label class="check-row"><input id="unknownBirthTime" type="checkbox"> I don't know my birth time</label>
             </div>
-            <label class="check-row"><input id="unknownBirthTime" type="checkbox"> I don't know my birth time</label>
-          </div>
-          <div class="field">
-            <span>Gender marker</span>
-            <div class="segment">
-              <label><input type="radio" name="gender" value="male" checked> Male</label>
-              <label><input type="radio" name="gender" value="female"> Female</label>
+            <div class="field">
+              <span>Gender marker</span>
+              <div class="segment">
+                <label><input type="radio" name="gender" value="male" checked> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+              </div>
             </div>
-          </div>
-          <label class="field">Birth country<input id="birthCountry" placeholder="United States / Canada / Korea / ..." required></label>
-          <label class="field">Birth city or region<input id="birthCity" placeholder="Los Angeles, CA / London / Seoul"></label>
-          <button class="button primary" type="submit">View my overview</button>
-        </form>
+            <label class="field">Birth country<input id="birthCountry" placeholder="United States / Canada / Korea / ..." required></label>
+            <label class="field">Birth city or region<input id="birthCity" placeholder="Los Angeles, CA / London / Seoul"></label>
+            <button class="button primary" type="submit">View my overview</button>
+          </form>
+        </details>
         <div class="preview-result" id="previewResult" aria-live="polite"></div>
       </section>
 
-      <section class="panel compact gold">
-        <p class="kicker">Built for global buyers</p>
-        <h2>K-fortune, rebuilt for global buyers.</h2>
-        <div class="story-feature">
-          <img src="assets/seohyang-seated.png" alt="Korean hanbok guide in a traditional room">
-          <div class="caption">
-            <b>Korean tradition, online delivery.</b>
-            <p>The report keeps the Korean Four Pillars structure while making payment, intake, and PDF delivery simple for English-speaking K-fortune clients.</p>
-          </div>
-        </div>
-        <div class="story">
-          <div class="story-card"><b>1. Local birth time first</b><p>The chart starts from the recorded time and place of birth, not a Korea-only assumption.</p></div>
-          <div class="story-card"><b>2. Region variables checked</b><p>Timezone, daylight saving, and birthplace position are reviewed when they can affect the hour pillar.</p></div>
-          <div class="story-card"><b>3. Structure before comfort</b><p>The report follows climate balance, structure, self-support, missing links, luck cycle, and annual flow.</p></div>
-        </div>
-      </section>
-
       <section class="panel compact">
-        <p class="kicker">Why this is special</p>
-        <h2>Not a generic Saju template.</h2>
-        <p>Most quick readings start from a simple birth date and give a polished answer. Cheonglim Saem starts by checking whether the chart itself is being calculated from the right place, clock, and solar time.</p>
-        <div class="difference-list">
-          <article class="difference-item"><span class="difference-mark">1</span><div><b>Your birthplace is treated as part of the chart.</b><p>Country, city, timezone, daylight saving, and birthplace position are not side notes. They can change the hour pillar.</p></div></article>
-          <article class="difference-item"><span class="difference-mark">2</span><div><b>It does not fake certainty.</b><p>If the birth time is unknown, approximate, or near a boundary, the report says what is uncertain instead of forcing a confident answer.</p></div></article>
-          <article class="difference-item"><span class="difference-mark">3</span><div><b>It teaches K-fortune in plain English.</b><p>The report explains Saju terms before using them, so first-time English-speaking clients can actually understand the reading.</p></div></article>
-          <article class="difference-item"><span class="difference-mark">4</span><div><b>It reads structure before comfort.</b><p>The chart is organized by climate balance, self-support, missing links, timing, money pattern, and relationship rhythm.</p></div></article>
-        </div>
-        <div class="comparison">
-          <div class="comparison-row">
-            <div class="comparison-cell"><strong>Typical quick Saju</strong>Birth date in, generic personality answer out.</div>
-            <div class="comparison-cell highlight"><strong>Cheonglim Saem</strong>Birthplace, timezone, daylight saving, and time context checked before interpretation.</div>
-          </div>
-          <div class="comparison-row">
-            <div class="comparison-cell"><strong>Typical quick Saju</strong>Assumes the reader already knows Saju vocabulary.</div>
-            <div class="comparison-cell highlight"><strong>Cheonglim Saem</strong>Explains K-fortune concepts in English before applying them to your chart.</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel compact">
-        <p class="kicker">Report preview</p>
-        <h2>What the paid PDF actually contains.</h2>
-        <p>Each report is a finished English PDF, not a short teaser. The tiers differ by depth and planning range, but every paid tier includes a calculated chart, plain-English interpretation, practical guidance, and visual pages.</p>
-        <div class="guide-strip">
-          <img src="assets/seohyang-overhead.png" alt="Korean hanbok guide in warm indoor light">
-        </div>
+        <p class="kicker">Sample result</p>
+        <h2>Know what you receive.</h2>
+        <p>Premium includes timing, work, money, relationship flow, and the birthplace/time basis.</p>
         <div class="report-box">
-          <div class="report-head"><div><b>Premium Report</b><p style="margin:3px 0 0;font-size:14px">Region-aware Saju reading</p></div><div class="stamp">Timezone checked</div></div>
+          <div class="report-head"><div><b>Premium PDF</b><p style="margin:3px 0 0;font-size:14px">Recommended for most buyers</p></div><div class="stamp">Sample ready</div></div>
           <div class="pillars">
-            <div class="pillar"><span><small>Year</small>Roots</span></div>
-            <div class="pillar"><span><small>Month</small>Society</span></div>
-            <div class="pillar"><span><small>Day</small>Self</span></div>
-            <div class="pillar"><span><small>Hour</small>Future</span></div>
+            <div class="pillar"><span><small>Birth</small>Basis</span></div>
+            <div class="pillar"><span><small>Life</small>Areas</span></div>
+            <div class="pillar"><span><small>Work</small>Money</span></div>
+            <div class="pillar"><span><small>Time</small>Flow</span></div>
           </div>
           <div class="bars">
-            <div class="bar"><span>Climate</span><div class="track"><div class="fill" style="width:78%"></div></div></div>
-            <div class="bar"><span>Structure</span><div class="track"><div class="fill" style="width:68%"></div></div></div>
-            <div class="bar"><span>Self-support</span><div class="track"><div class="fill" style="width:55%"></div></div></div>
-            <div class="bar"><span>Missing links</span><div class="track"><div class="fill" style="width:72%"></div></div></div>
+            <div class="bar"><span>Timing</span><div class="track"><div class="fill" style="width:78%"></div></div></div>
+            <div class="bar"><span>Work</span><div class="track"><div class="fill" style="width:68%"></div></div></div>
+            <div class="bar"><span>Money</span><div class="track"><div class="fill" style="width:56%"></div></div></div>
+            <div class="bar"><span>Relationship</span><div class="track"><div class="fill" style="width:72%"></div></div></div>
           </div>
         </div>
-        <div class="value-grid">
-          <article class="value-card"><b>Calculation basis first</b><p>Birth country, city, timezone, daylight saving, and time context are shown before interpretation, so overseas buyers can see what was used.</p></article>
-          <article class="value-card"><b>Mid-report visuals</b><p>Five-element cycle, annual energy map, and long-cycle visuals appear inside the PDF where they help the reading, not only on the cover.</p></article>
-          <article class="value-card"><b>Actionable close</b><p>The report ends with practical review steps, habits, and decision filters so the PDF remains useful after the first read.</p></article>
-        </div>
-        <div class="sample-pages" aria-label="Sample PDF pages">
-          <article class="sample-page"><img src="assets/sample-basic-page.png" alt="Sample Basic PDF page showing five elements explanation"><div><b>Basic sample page</b><p>Element balance is shown with more space between visual pages, so the report reads like a guided explanation.</p><a class="sample-link" href="assets/sample-basic.pdf" download>Download full Basic sample PDF</a></div></article>
-          <article class="sample-page"><img src="assets/sample-premium-page.png" alt="Sample Premium PDF page showing annual energy map"><div><b>Premium sample page</b><p>Timing pages combine text, tables, and occasional visuals without repeating the same image.</p><a class="sample-link" href="assets/sample-premium.pdf" download>Download full Premium sample PDF</a></div></article>
-          <article class="sample-page"><img src="assets/sample-vip-page.png" alt="Sample VIP PDF page showing long-cycle roadmap"><div><b>VIP sample page</b><p>Longer planning pages add roadmap and review guidance while keeping images separated by text.</p><a class="sample-link" href="assets/sample-vip.pdf" download>Download full VIP sample PDF</a></div></article>
+        <div class="sample-actions">
+          <a class="sample-link" href="assets/sample-basic.pdf" download>Basic sample PDF</a>
+          <a class="sample-link" href="assets/sample-premium.pdf" download>Premium sample PDF</a>
+          <a class="sample-link" href="assets/sample-vip.pdf" download>VIP sample PDF</a>
         </div>
       </section>
 
       <section class="panel compact" id="packages">
         <p class="kicker">Packages</p>
-        <h2>Choose your report depth.</h2>
-        <p>Start with a compact Korean Saju reading, or choose a longer report when you want timing, career, money behavior, relationship pattern, and long-cycle planning connected in one PDF.</p>
+        <h2>Premium is the best place to start.</h2>
+        <p>Choose the depth you want. PayPal opens in a new tab; the birth form comes next.</p>
+        <div class="proof-bar">
+          <div class="proof-item">Sample PDFs are visible before payment.</div>
+          <div class="proof-item">PayPal checkout; no card details are collected on this site.</div>
+          <div class="proof-item">Support, correction, and deletion requests: aideseobot@gmail.com.</div>
+        </div>
+        <div class="trust-proof" aria-label="External trust signals">
+          <a href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86" target="_blank" rel="noopener">PayPal-hosted checkout</a>
+          <a href="assets/sample-premium.pdf" download>Download sample first</a>
+          <a href="https://www.instagram.com/cheonglim_lab?igsh=MjMxMnh1Z255eWtm&amp;utm_source=qr" rel="noopener">Instagram contact</a>
+        </div>
         <div class="packages">
           <article class="package">
             <h3>Basic</h3><div class="price">$9</div>
-            <div class="package-meta"><span>Expected length: about 16 pages</span><span>Delivery: PDF email after processing</span></div>
-            <div class="tier-for"><b>Best for</b>first-time buyers who want a real K-fortune reading without a large commitment.</div>
-            <ul class="list"><li>Calculated Four Pillars chart</li><li>Timezone and true-solar basis shown</li><li>Five Elements and chart weather</li><li>Day Master, work/money pattern, current timing</li><li>Thirty-day starter plan and re-reading guide</li></ul>
-            <div class="tier-for"><b>Before PayPal</b>Use the same email in PayPal and the birth form. PayPal opens in a new tab so you can return here.</div>
+            <div class="package-meta"><span>About 16 pages</span><span>PDF by email</span></div>
+            <div class="tier-for"><b>Best for</b>a first K-fortune reading without a large commitment.</div>
+            <ul class="list"><li>Calculated Four Pillars chart</li><li>Five Elements and chart weather</li><li>Current timing and starter plan</li></ul>
             <a class="button" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU" target="_blank" rel="noopener">Pay Basic in PayPal</a>
             <a class="afterpay" href="intake.html?tier=basic">Step 2: send Basic birth details</a>
           </article>
           <article class="package featured">
             <span class="badge">Recommended</span><h3>Premium</h3><div class="price">$19</div>
-            <div class="package-meta"><span>Expected length: about 25 pages</span><span>Delivery: PDF email after processing</span></div>
-            <div class="tier-for"><b>Best for</b>buyers who want the most balanced report: timing, life areas, work, and money behavior.</div>
-            <ul class="list"><li>Everything in Basic</li><li>Palace reading for life areas</li><li>Deficiency and repeated desire pattern</li><li>Quarterly flow and regional time review</li><li>Career fit, economic activity pattern, action priorities</li></ul>
-            <div class="tier-for"><b>Before PayPal</b>Use the same email in PayPal and the birth form. PayPal opens in a new tab so you can return here.</div>
+            <div class="package-meta"><span>About 25 pages</span><span>PDF by email</span></div>
+            <div class="tier-for"><b>Best for</b>timing, work, money behavior, and relationship rhythm in one report.</div>
+            <ul class="list"><li>Everything in Basic</li><li>Life-area and desire pattern reading</li><li>Quarterly flow and action priorities</li></ul>
             <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86" target="_blank" rel="noopener">Pay Premium in PayPal</a>
             <a class="afterpay" href="intake.html?tier=premium">Step 2: send Premium birth details</a>
           </article>
           <article class="package">
             <h3>VIP</h3><div class="price">$39</div>
-            <div class="package-meta"><span>Expected length: about 36 pages</span><span>Delivery: PDF email after processing</span></div>
-            <div class="tier-for"><b>Best for</b>buyers who want a longer planning document they can revisit across the year.</div>
-            <ul class="list"><li>Everything in Premium</li><li>Five-element constitution and relationship pattern</li><li>Ten-year luck roadmap</li><li>Next three-to-five-year timing outlook</li><li>Decision framework, annual review, risk register, dashboard</li></ul>
-            <div class="tier-for"><b>Before PayPal</b>Use the same email in PayPal and the birth form. PayPal opens in a new tab so you can return here.</div>
+            <div class="package-meta"><span>About 36 pages</span><span>PDF by email</span></div>
+            <div class="tier-for"><b>Best for</b>a longer planning document to revisit across the year.</div>
+            <ul class="list"><li>Everything in Premium</li><li>Ten-year luck roadmap</li><li>Three-to-five-year timing outlook</li></ul>
             <a class="button" href="https://www.paypal.com/ncp/payment/4BY7WQZQV55SC" target="_blank" rel="noopener">Pay VIP in PayPal</a>
             <a class="afterpay" href="intake.html?tier=vip">Step 2: send VIP birth details</a>
           </article>
         </div>
         <div class="checkout-helper">
-          <b>Simple checkout flow</b>
-          <p>1. Open PayPal in a new tab and pay. 2. Come back to this page. 3. Send the birth form with the same PayPal email. Paste the PayPal receipt ID when available for the fastest match.</p>
+          <b>How it works</b>
+          <p>Pay with PayPal, send the birth form with the same email, then receive the PDF after payment and details are matched.</p>
           <div class="button-row">
             <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86" target="_blank" rel="noopener">Pay Premium</a>
             <a class="button secondary" href="intake.html?tier=premium">Send details</a>
           </div>
         </div>
         <div class="proof-bar">
-          <div class="proof-item">Delivery: automated PDF reply by email after your payment and birth form are matched.</div>
-          <div class="proof-item">Language: English buyer-facing report with Korean Saju concepts explained in plain terms.</div>
-          <div class="proof-item">Use: educational self-reflection and decision support, not medical, legal, financial, or therapeutic advice.</div>
-        </div>
-        <div class="conversion-strip">
-          <p><b>Why the price is low:</b> the report is generated by an automated email worker from the birth details you submit after PayPal checkout. That keeps the service affordable.</p>
-          <p><b>What is still checked:</b> chart calculation, birth-region variables, tier-specific sections, PDF formatting, and email delivery. PayPal shows the final currency conversion and platform fees before you pay.</p>
-          <p><b>Important:</b> use the same email address in PayPal checkout and in the birth details form. Add the PayPal receipt ID if you can find it; if not, the form clearly marks the order for email-and-package matching.</p>
+          <div class="proof-item">English report with Korean Saju concepts explained plainly. Educational self-reflection only.</div>
         </div>
       </section>
 
-      <section class="panel compact gold">
-        <p class="kicker">After checkout</p>
-        <h2>Send details once. Delivery is automated.</h2>
-        <div class="steps">
-          <div class="step"><div class="num">1</div><div><b>Pay with PayPal</b><p>Choose Basic, Premium, or VIP. PayPal opens in a new tab. Use the email address you will also enter in the birth form.</p></div></div>
-          <div class="step"><div class="num">2</div><div><b>Send the birth form</b><p>The form creates an order reference automatically. Enter your PayPal email, birth date, birth time, country, city, and timezone if known.</p></div></div>
-          <div class="step"><div class="num">3</div><div><b>Receive the PDF reply</b><p>The email worker matches your PayPal payment and birth form by order reference or by PayPal email and package. Most matched orders are processed within 24 hours.</p></div></div>
-        </div>
-      </section>
-
-      <section class="panel compact dark">
-        <p class="kicker">Trust and privacy</p>
-        <h2>How your birth data is handled.</h2>
+      <section class="panel compact dark" id="confidence">
+        <p class="kicker">Buyer confidence</p>
+        <h2>Simple proof before you pay.</h2>
         <div class="trust-grid">
-          <article class="trust-card operator-card"><b>Who prepares this report</b><p>Cheonglim Saem combines Korean Four Pillars structure with automated report generation for overseas clients. The report is generated from the birth details you submit, then delivered by email as an English PDF. For corrections, delivery issues, or deletion requests, contact aideseobot@gmail.com. Instagram: <a href="https://www.instagram.com/cheonglim_lab?igsh=MjMxMnh1Z255eWtm&amp;utm_source=qr" rel="noopener">cheonglim_lab</a>.</p></article>
-          <article class="trust-card"><b>Method</b><p>Cheonglim Saem reads Korean Four Pillars, known as saju-palja. The report starts from Heavenly Stems, Earthly Branches, Day Master, Five Elements, ten-year cycles, and yearly flow.</p></article>
-          <article class="trust-card"><b>Automation boundary</b><p>The worker calculates the chart, assembles the tier-specific report, formats the PDF, and sends it by email. The report is educational decision-support, not medical, legal, financial, therapeutic, or investment advice.</p></article>
-          <article class="trust-card"><b>Data handling</b><p>Your order ID, email, birth details, country/city, and timezone details are used only to generate and deliver the report. The static site does not upload form data; preview details may be temporarily stored in this browser tab to prefill the intake form. The details are sent by email and the PDF is delivered as an email attachment. Data is not sold. For correction or deletion requests, contact aideseobot@gmail.com.</p></article>
+          <article class="trust-card operator-card"><b>Who prepares this report</b><p>Cheonglim Saem creates English Korean Four Pillars PDFs for overseas clients. Support: aideseobot@gmail.com. Instagram: <a href="https://www.instagram.com/cheonglim_lab?igsh=MjMxMnh1Z255eWtm&amp;utm_source=qr" rel="noopener">cheonglim_lab</a>.</p></article>
+          <article class="trust-card"><b>Global birth check</b><p>Country, city, timezone, daylight saving, and uncertainty are handled before interpretation.</p></article>
+          <article class="trust-card"><b>Data handling</b><p>Your details are used to generate and deliver the PDF. Data is not sold. Correction or deletion requests go to support.</p></article>
         </div>
-      </section>
-
-      <section class="panel compact gold" id="reviews">
-        <p class="kicker">Client reviews</p>
-        <h2>What makes buyers feel confident.</h2>
-        <p>Approved customer quotes can appear here after buyers opt in. Until then, these are the three things the paid report is built to prove.</p>
-        <div class="review-highlights" aria-label="Review highlights">
-          <article class="review-card">
-            <b>Clear enough for a first-time Saju buyer.</b>
-            <p>Korean Saju terms are translated into plain English before the personal reading starts.</p>
-            <small>Clarity</small>
-          </article>
-          <article class="review-card">
-            <b>Serious about overseas birth details.</b>
-            <p>Country, city, timezone, daylight saving, and time uncertainty are treated as part of the reading.</p>
-            <small>Global birth check</small>
-          </article>
-          <article class="review-card">
-            <b>A finished PDF, not a short teaser.</b>
-            <p>The report connects timing, work, money, relationship, and review prompts in one place.</p>
-            <small>Useful report</small>
-          </article>
-        </div>
-        <p class="review-disclaimer">Public customer quotes should replace these highlights only after the buyer gives explicit permission.</p>
-        <div class="review-panel">
-          <p class="kicker">Write a review</p>
+        <details class="review-details" id="reviews">
+          <summary>Already bought a report? Write a review</summary>
+          <div class="review-panel">
+          <p class="kicker">Review</p>
           <h2>Help the next buyer decide.</h2>
-          <p>Share what was useful, what felt accurate, and whether the PDF was easy to use. The static site creates an email draft, so your review is not published unless you allow it.</p>
+          <p>The site creates an email draft. Nothing is published unless you allow it.</p>
           <form id="reviewForm">
             <div class="review-grid">
               <label class="field">Name to show<input id="reviewName" placeholder="Initials or first name" required></label>
@@ -497,37 +447,21 @@
           </form>
           <div class="review-status" id="reviewStatus" aria-live="polite"></div>
           <p class="review-note">The review is sent to aideseobot@gmail.com. Birth details are not requested here; include only what you are comfortable sharing.</p>
-        </div>
+          </div>
+        </details>
       </section>
 
       <section class="panel compact">
         <p class="kicker">FAQ</p>
         <h2>Before you order.</h2>
         <div class="faq">
-          <article><h3>I was born outside Korea. Is that okay?</h3><p>Yes. The form asks for birth country and city so the hour pillar can be checked against regional time variables.</p></article>
-          <article><h3>Do you always use true solar time?</h3><p>No. Local civil time is the default. True solar time is checked only when the birth location makes it relevant or when you request it.</p></article>
           <article><h3>What if I do not know my birth time?</h3><p>A reading is possible, but the hour pillar will be uncertain. <a href="saju-without-birth-time.html">Read the unknown birth time guide</a> before ordering.</p></article>
           <article><h3>When will I receive the PDF?</h3><p>Most matched orders are processed within 24 hours. If the PayPal notification and birth form do not match, support may ask for the order ID again.</p></article>
-          <article><h3>Can I correct my details?</h3><p>Input errors can be corrected once before delivery. After delivery, a changed birth time, city, or timezone may require regeneration.</p></article>
-          <article><h3>Can I get a refund?</h3><p>Because each report is personalized, completed reports are not refundable. Input errors can be corrected once before delivery.</p></article>
         </div>
       </section>
     </main>
 
-    <div class="bottom-cta">
-      <p><b>Start small:</b> Basic $9 · <b>Recommended:</b> Premium $19</p>
-      <div class="bottom-actions">
-        <a class="button secondary" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU" target="_blank" rel="noopener">Pay Basic</a>
-        <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86" target="_blank" rel="noopener">Pay Premium</a>
-      </div>
-      <a class="bottom-form-link" href="#packages">Step 2 after payment: choose your birth form</a>
-      <div class="bottom-intake-links" aria-label="Birth details forms by package">
-        <a href="intake.html?tier=basic">Basic form</a>
-        <a href="intake.html?tier=premium">Premium form</a>
-        <a href="intake.html?tier=vip">VIP form</a>
-      </div>
-    </div>
-    <footer>Cheonglim Saem. K-fortune Korean Four Pillars reading. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="korean-saju-reading-online.html">Online Saju reading</a> · <a href="basic-korean-saju-report.html">Basic report</a> · <a href="saju-without-birth-time.html">Unknown birth time</a> · <a href="intake.html?tier=premium">Birth details form</a> · <a href="#reviews">Write a review</a> · <a href="overseas-birth-saju.html">Overseas birth guide</a> · <a href="true-solar-time-saju.html">True solar time guide</a> · <a href="https://www.instagram.com/cheonglim_lab?igsh=MjMxMnh1Z255eWtm&amp;utm_source=qr" rel="noopener">Instagram</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
+    <footer>Cheonglim Saem. Educational self-reflection only, not financial, legal, medical, therapeutic, or investment advice. <a href="intake.html?tier=premium">Birth details form</a> · <a href="#reviews">Write a review</a> · <a href="https://www.instagram.com/cheonglim_lab?igsh=MjMxMnh1Z255eWtm&amp;utm_source=qr" rel="noopener">Instagram</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
   </div>
   <script>
     const heavenlyStems = [
@@ -732,6 +666,12 @@
       document.getElementById('birthMinute').disabled = disabled;
       document.getElementById('birthPeriod').disabled = disabled;
     });
+    function openAnchoredDetails() {
+      const target = document.querySelector(window.location.hash);
+      if (target && target.tagName === 'DETAILS') target.open = true;
+    }
+    window.addEventListener('hashchange', openAnchoredDetails);
+    openAnchoredDetails();
   </script>
 </body>
 </html>
