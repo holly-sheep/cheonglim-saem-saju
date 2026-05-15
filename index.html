@@ -132,19 +132,49 @@
     .segment label { min-height:46px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:10px; background:#fffdf8; font-weight:900; }
     .segment input { position:absolute; width:1px; height:1px; min-height:0; margin:0; padding:0; overflow:hidden; opacity:0; pointer-events:none; clip-path:inset(50%); }
     .segment label:has(input:checked) { border-color:var(--jade); background:var(--jade); color:white; }
-    .preview-result { display:none; margin-top:18px; border:1px solid rgba(36,102,92,.28); border-radius:8px; padding:18px; background:#fffaf0; color:var(--ink); box-shadow:0 16px 34px rgba(36,102,92,.12); }
+    .preview-result { position:relative; display:none; max-width:720px; margin:18px auto 0; border:1px solid rgba(36,102,92,.28); border-radius:8px; padding:16px; background:#fffaf0; color:var(--ink); box-shadow:0 16px 34px rgba(36,102,92,.12); }
     .preview-result.is-visible { display:block; }
     .preview-details .preview-result { margin:0 18px 18px; }
-    .preview-result h3 { margin:0; font-size:21px; line-height:1.12; }
-    .preview-result p { margin:10px 0 0; color:var(--muted); font-size:15px; line-height:1.5; }
+    .preview-result h3 { margin:0; font-size:36px; line-height:1; letter-spacing:0; }
+    .preview-result p { margin:0; color:#51483d; font-size:15px; font-weight:850; line-height:1.35; }
     .preview-result .button { margin-top:16px; }
-    .result-stamp { display:inline-flex; width:max-content; margin-bottom:9px; padding:5px 8px; border:1px solid rgba(169,63,42,.32); border-radius:999px; color:#a93f2a; font-size:10px; font-weight:950; letter-spacing:.08em; text-transform:uppercase; }
-    .result-proof { margin:-1px 0 10px; color:#777064; font-size:12px; font-weight:850; line-height:1.35; }
-    .result-method { display:block; margin-top:2px; color:#8c8579; font-size:11px; }
-    .result-lead { margin-top:11px; padding:11px 12px; border-left:4px solid var(--jade); background:#eef6f3; color:var(--deep); font-size:16px; font-weight:900; line-height:1.38; }
-    .result-tease { margin:10px 0 0; color:#4c4439; font-size:14px; font-weight:850; line-height:1.42; }
+    .result-stamp { display:inline-flex; width:max-content; padding:5px 8px; border:1px solid rgba(169,63,42,.32); border-radius:999px; color:#a93f2a; font-size:10px; font-weight:950; letter-spacing:.08em; text-transform:uppercase; }
+    .result-proof { margin:0 0 12px; color:#7c746a; font-size:12px; font-weight:850; line-height:1.35; text-align:center; }
+    .result-proof span { display:block; margin-top:2px; color:#978c80; font-size:10px; }
+    .result-method { display:none; }
+    .result-photo { position:relative; min-height:280px; border-radius:8px; overflow:hidden; background:#102f2b; }
+    .result-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:56% 24%; filter:saturate(.9); }
+    .result-photo::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(8,32,44,.88), rgba(8,32,44,.48) 54%, rgba(8,32,44,.1)); }
+    .result-photo-copy { position:relative; z-index:1; min-height:280px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:28px; color:#fffaf0; }
+    .result-photo-copy .result-stamp { border-color:rgba(255,243,212,.46); color:#fff3d4; background:rgba(9,42,38,.34); }
+    .result-photo-copy h3 { max-width:420px; margin-top:12px; color:#fffaf0; text-shadow:0 2px 14px rgba(0,0,0,.28); }
+    .result-photo-copy p { max-width:360px; margin-top:9px; color:#f5e8d2; font-size:16px; }
+    .locked-preview { display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; margin-top:12px; }
+    .locked-preview span { min-height:68px; display:grid; align-content:center; gap:5px; padding:9px 8px; border:1px solid var(--line); border-radius:8px; background:#fffdf8; color:var(--deep); font-size:13px; font-weight:950; line-height:1.15; text-align:center; }
+    .locked-preview small { color:#a93f2a; font-size:9px; font-weight:950; letter-spacing:.06em; line-height:1; text-transform:uppercase; }
+    .unlock-note { margin:12px 0 0; color:#5d554b; font-size:13px; font-weight:850; line-height:1.35; text-align:center; }
+    .trust-line { margin-top:8px; color:#7c746a; font-size:11px; font-weight:850; line-height:1.35; text-align:center; }
+    .result-hero { display:grid; grid-template-columns:252px minmax(0,1fr); gap:20px; align-items:center; }
+    .result-visual { position:relative; min-height:198px; overflow:visible; }
+    .signal-orb { --strong:#d8ae18; --weak:#17999a; --strong-stop:32%; --weak-stop:83%; width:178px; aspect-ratio:1; border-radius:50%; display:grid; place-items:center; background:radial-gradient(circle at center, #fffaf0 0 42%, transparent 43%), conic-gradient(var(--strong) 0 var(--strong-stop), #e8dece 0 70%, var(--weak) 70% var(--weak-stop), #e8dece 0); box-shadow:inset 0 0 0 1px #dfd2bf, 0 16px 30px rgba(36,102,92,.14); }
+    .signal-orb span { width:82px; height:82px; border-radius:50%; display:grid; place-items:center; background:var(--deep); color:#fffaf0; font-size:40px; font-weight:950; line-height:1; }
+    .mini-report { position:absolute; right:0; bottom:2px; width:124px; min-height:142px; padding:13px 11px; border:1px solid var(--line); border-radius:8px; background:#fffdf8; box-shadow:0 12px 24px rgba(29,39,52,.12); transform:rotate(1.5deg); }
+    .mini-report b { display:block; color:#a93f2a; font-size:10px; font-weight:950; letter-spacing:.08em; line-height:1; text-transform:uppercase; }
+    .mini-report i { display:block; height:8px; margin-top:10px; border-radius:999px; background:#e6dece; }
+    .mini-report i:nth-child(2) { width:78%; background:var(--jade); }
+    .mini-report i:nth-child(3) { width:58%; }
+    .mini-report i:nth-child(4) { width:88%; }
+    .mini-report i:nth-child(5) { width:44%; background:#d8ae18; }
+    .mini-report span { display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-top:13px; }
+    .mini-report span em { min-height:28px; border:1px solid #e4d8c8; border-radius:7px; background:#f8f2e8; }
+    .result-title { display:grid; gap:8px; min-width:0; }
+    .visual-legend { display:flex; flex-wrap:wrap; gap:8px; margin-top:2px; }
+    .visual-legend span { display:inline-flex; align-items:center; gap:6px; color:#51483d; font-size:13px; font-weight:950; line-height:1; }
+    .visual-legend span::before { content:""; width:9px; height:9px; border-radius:50%; background:currentColor; }
+    .result-lead { display:none; }
+    .result-tease { display:none; }
     .preview-more { margin-top:12px; border-top:1px solid var(--line); }
-    .preview-more summary { min-height:42px; display:flex; align-items:center; color:var(--jade); cursor:pointer; font-size:14px; font-weight:950; list-style:none; }
+    .preview-more summary { min-height:38px; display:flex; align-items:center; color:var(--jade); cursor:pointer; font-size:13px; font-weight:950; list-style:none; }
     .preview-more summary::-webkit-details-marker { display:none; }
     .preview-more summary::after { content:"+"; margin-left:auto; color:#a93f2a; font-size:20px; line-height:1; }
     .preview-more[open] summary::after { content:"-"; }
@@ -152,11 +182,11 @@
     .trait-item { padding:10px 0; border-top:1px solid var(--line); }
     .trait-item b { display:block; color:var(--ink); font-size:15px; line-height:1.2; }
     .trait-item span { display:block; margin-top:4px; color:#51483d; font-size:15px; line-height:1.48; }
-    .signal-pair { display:grid; gap:8px; margin-top:12px; }
-    .signal-chip { display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fffdf8; }
+    .signal-pair { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; }
+    .signal-chip { display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; min-height:58px; padding:9px 10px; border:1px solid var(--line); border-radius:8px; background:#fffdf8; }
     .signal-chip small { display:block; margin-bottom:3px; color:#777064; font-size:11px; font-weight:950; letter-spacing:.06em; text-transform:uppercase; }
-    .signal-chip b { display:block; font-size:17px; line-height:1.1; }
-    .signal-chip strong { color:#766e63; font-size:15px; line-height:1; }
+    .signal-chip b { display:block; font-size:14px; line-height:1.15; }
+    .signal-chip strong { color:#766e63; font-size:17px; line-height:1; }
     .overview-card { margin-top:16px; border:1px solid rgba(36,102,92,.24); border-radius:10px; background:#f8f5ec; color:#1d2734; overflow:hidden; }
     .overview-head { padding:15px 16px; background:var(--deep); color:white; }
     .overview-head b { display:block; font-size:20px; line-height:1.1; }
@@ -183,9 +213,9 @@
     .strength-labels span:nth-child(2) { text-align:center; }
     .strength-labels span:nth-child(3) { color:#17120d; font-weight:950; text-align:right; }
     .locked-list { display:grid; gap:8px; margin-top:8px; }
-    .locked-item { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:11px 12px; border:1px solid rgba(169,63,42,.18); border-radius:8px; background:#f7efe2; color:#1d2734; font-weight:900; }
+    .locked-item { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:9px 10px; border:1px solid rgba(169,63,42,.18); border-radius:8px; background:#f7efe2; color:#1d2734; font-size:13px; font-weight:900; }
     .locked-item small { color:#8a4a36; font-weight:950; text-transform:uppercase; }
-    .urgency-note { margin-top:12px; padding:10px 12px; border-left:4px solid #f0c982; background:#fbf1dc; color:#40372c; font-size:13px; font-weight:850; line-height:1.42; }
+    .urgency-note { margin-top:10px; padding:9px 10px; border-left:4px solid #f0c982; background:#fbf1dc; color:#40372c; font-size:12px; font-weight:850; line-height:1.35; }
     .package { position:relative; border:1px solid var(--line); border-radius:8px; padding:20px; background:#fffdf8; }
     .package.featured { border-color:var(--jade); box-shadow:0 10px 28px rgba(36,102,92,.14); }
     .package h3 { margin:0; font-size:21px; }
@@ -240,6 +270,47 @@
     .bottom-intake-links a { min-height:38px; display:flex; align-items:center; justify-content:center; padding:6px; border:1px solid var(--line); border-radius:8px; color:var(--jade); font-size:13px; font-weight:950; line-height:1.2; text-align:center; background:#fffdf8; }
     footer { padding:30px 24px 96px; color:var(--muted); font-size:14px; line-height:1.5; background:var(--paper); }
     @media (max-width:430px) { .bottom-intake-links { grid-template-columns:1fr; } }
+    @media (max-width:759px) {
+      .preview-result { padding-bottom:50px; }
+      .result-proof { text-align:left; }
+      .result-photo { min-height:330px; }
+      .result-photo img { object-position:58% 20%; }
+      .result-photo::after { background:linear-gradient(180deg, rgba(8,32,44,.08), rgba(8,32,44,.68) 58%, rgba(8,32,44,.9)); }
+      .result-photo-copy { min-height:330px; justify-content:flex-end; align-items:center; padding:22px 18px 24px; text-align:center; }
+      .result-photo-copy h3 { font-size:34px; }
+      .result-photo-copy p { font-size:15px; }
+      .locked-preview { grid-template-columns:repeat(2, 1fr); }
+      .result-hero { grid-template-columns:1fr; justify-items:center; gap:12px; text-align:center; }
+      .result-visual { width:min(100%, 266px); min-height:178px; }
+      .signal-orb { width:150px; }
+      .signal-orb span { width:74px; height:74px; font-size:36px; }
+      .mini-report { right:4px; width:110px; min-height:130px; }
+      .result-title { justify-items:center; }
+      .button-row { grid-template-columns:1fr 1fr; }
+      .preview-result .button.primary { order:-1; }
+      .preview-result .preview-more { position:absolute; right:12px; bottom:8px; margin:0; border-top:0; }
+      .preview-result .preview-more summary { width:34px; min-height:34px; justify-content:center; font-size:0; }
+      .preview-result .preview-more summary::after { margin-left:0; font-size:20px; }
+      .preview-result .preview-more[open] { position:static; width:100%; border-top:1px solid var(--line); }
+      .preview-result .preview-more[open] summary { width:100%; font-size:13px; justify-content:flex-start; }
+      .preview-result .preview-more[open] summary::after { margin-left:auto; }
+      .preview-result h3 { font-size:34px; }
+    }
+    @media (max-width:360px) {
+      .result-proof { display:block; margin-bottom:8px; font-size:10px; line-height:1.25; }
+      .result-proof span { display:none; }
+      .result-photo { min-height:310px; }
+      .result-photo-copy { min-height:310px; }
+      .preview-result .button { min-height:44px; padding:8px 6px; font-size:13px; }
+      .button-row { grid-template-columns:1fr; }
+      .locked-preview { gap:6px; }
+      .locked-preview span { min-height:54px; padding:8px 5px; font-size:11px; }
+      .unlock-note { font-size:12px; }
+      .result-visual { width:min(100%, 218px); min-height:168px; }
+      .signal-orb { width:118px; }
+      .signal-orb span { width:66px; height:66px; font-size:32px; }
+      .mini-report { right:0; bottom:18px; width:96px; min-height:124px; padding:12px 10px; }
+    }
     @media (min-width:760px) {
       body { padding:24px 0; }
       .phone { width:min(100%, 720px); border-radius:24px; overflow:hidden; }
@@ -305,7 +376,7 @@
     <main id="top">
       <section class="panel dark hero">
         <div class="hero-visual product-proof" aria-hidden="true">
-          <img src="assets/seoseonsaeng-writing.png" alt="">
+          <img src="assets/sample-premium-page.png" alt="">
         </div>
         <div class="hero-copy">
           <p class="kicker">K-fortune reading</p>
@@ -496,7 +567,9 @@
     const elementInsights = {
       Wood: {
         signal: 'growth drive',
+        visualLabel: 'Your chart opens with growth',
         hook: 'You may feel most alive when something is becoming better, clearer, or more possible.',
+        short: 'You may feel most alive when something becomes clearer or more possible.',
         reading: 'a growth instinct, forward momentum, and sensitivity to whether a path can keep expanding',
         decision: 'You decide faster when there is a path for growth, but delays can make you restless.',
         drain: 'People or places that block movement may feel heavier than they look from the outside.',
@@ -507,7 +580,9 @@
       },
       Fire: {
         signal: 'visibility drive',
+        visualLabel: 'Your chart opens with visibility',
         hook: 'You may move quickly once the mood, timing, or audience feels alive.',
+        short: 'You may move quickly when timing, mood, or audience feels alive.',
         reading: 'visibility, momentum, and a strong response to whether the room feels alive',
         decision: 'You decide faster when there is momentum, but unclear feedback can make you impatient.',
         drain: 'Cold or vague environments may drain you because nothing reflects your signal back.',
@@ -518,7 +593,9 @@
       },
       Earth: {
         signal: 'stability drive',
+        visualLabel: 'Your chart opens with stability',
         hook: 'You may look steady, but inside you are often checking whether something is safe enough to trust.',
+        short: 'You may trust life more when the ground feels real and steady.',
         reading: 'stability, trust, practical judgment, and a need to know the ground is real',
         decision: 'You decide better when the ground feels real: facts, routines, money, and dependable people matter.',
         drain: 'Sudden shifts can drain you because you need time to rebuild the internal ground.',
@@ -529,7 +606,9 @@
       },
       Metal: {
         signal: 'refinement drive',
+        visualLabel: 'Your chart opens with precision',
         hook: 'You may be the person who spots what is slightly off before others can explain why.',
+        short: 'You may notice what feels off before others can explain it.',
         reading: 'high standards, firm boundaries, and sharp judgment about what feels reliable',
         decision: 'You decide better when standards are clear; vague rules can make you sharper than you mean to be.',
         drain: 'Messy expectations may drain you because your mind keeps refining what should have been clear.',
@@ -540,7 +619,9 @@
       },
       Water: {
         signal: 'depth drive',
+        visualLabel: 'Your chart opens with depth',
         hook: 'You may process more than you show, waiting until the hidden pattern finally makes sense.',
+        short: 'You may sense hidden patterns before they become obvious.',
         reading: 'depth, observation, timing sensitivity, and a habit of reading what is not being said',
         decision: 'You decide better after observing the undercurrent; pressure to answer too soon can distort your judgment.',
         drain: 'Noise and constant visibility may drain you because your best thinking needs depth.',
@@ -694,38 +775,27 @@
         : `${document.getElementById('birthHour').selectedOptions[0].textContent}:${document.getElementById('birthMinute').selectedOptions[0].textContent} ${document.getElementById('birthPeriod').value}`;
       const result = document.getElementById('previewResult');
       result.innerHTML = `
-        <span class="result-stamp">Your first Saju clue</span>
-        <div class="result-proof">${dateValue} · ${proofTime} · ${safePlace}<span class="result-method">Preview based on birth date, time, and place.</span></div>
-        <h3>${firstInsight.hook}</h3>
-        <div class="result-lead">Your preview points to ${firstInsight.reading}.</div>
-        <div class="signal-pair" aria-label="Preview element signals">
-          <div class="signal-chip">
-            <div><small>Strong pull</small><b style="color:${strongest.color}">${strongInsight.chip}</b></div>
-            <strong>${strongest.percent}%</strong>
-          </div>
-          <div class="signal-chip">
-            <div><small>Needs support</small><b style="color:${weakest.color}">${weakInsight.chip}</b></div>
-            <strong>${weakest.percent}%</strong>
+        <div class="result-proof">Preview based on: ${dateValue} · ${proofTime} · ${safePlace}<span>Birthplace and time context are checked in the full PDF.</span></div>
+        <div class="result-photo">
+          <img src="assets/seoseonsaeng-writing.png" alt="">
+          <div class="result-photo-copy">
+            <span class="result-stamp">Saju · Four Pillars</span>
+            <h3>${firstInsight.visualLabel}</h3>
+            <p>${firstInsight.short}</p>
           </div>
         </div>
-        <div class="result-tease">The full reading shows where this helps, where it backfires, and when timing matters most.</div>
+        <div class="locked-preview">
+          <span>Career direction<small>Locked in PDF</small></span>
+          <span>Relationship rhythm<small>Locked in PDF</small></span>
+          <span>Money pattern<small>Locked in PDF</small></span>
+          <span>Timing windows<small>Locked in PDF</small></span>
+        </div>
+        <p class="unlock-note">The full PDF expands this first clue into career, love, money, and timing.</p>
         <div class="button-row">
-          <a class="button secondary" href="#free-preview">Edit birth details</a>
-          <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86" target="_blank" rel="noopener">Unlock my full Saju pattern - $19</a>
+          <a class="button secondary" href="#free-preview">Edit details</a>
+          <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86" target="_blank" rel="noopener">Unlock my full PDF · $19</a>
         </div>
-        <details class="preview-more">
-          <summary>Show what the full reading checks</summary>
-          <div class="trait-grid">
-            <div class="trait-item"><b>How you decide</b><span>${firstInsight.decision}</span></div>
-            <div class="trait-item"><b>The hidden tension</b><span>${weakInsight.tension}</span></div>
-          </div>
-          <div class="locked-list">
-            <div class="locked-item"><span>When timing feels easier or risky</span><small>Premium</small></div>
-            <div class="locked-item"><span>Where this helps or blocks work</span><small>Premium</small></div>
-            <div class="locked-item"><span>What steadies relationships</span><small>VIP</small></div>
-          </div>
-          <div class="urgency-note">Full PDF checks all eight characters, season/month context, corrected time, and element interactions.</div>
-        </details>
+        <div class="trust-line">PayPal checkout · PDF by email · sample available before payment</div>
         `;
       result.classList.add('is-visible');
       result.scrollIntoView({ behavior: 'smooth', block: 'start' });
