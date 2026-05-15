@@ -46,11 +46,11 @@
     .hero-visual { position:absolute; inset:0; }
     .hero-visual img { width:100%; height:100%; object-fit:cover; object-position:58% center; display:block; }
     .hero-visual::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(13,12,10,.14), rgba(13,12,10,.08) 34%, rgba(13,12,10,.72) 100%), linear-gradient(90deg, rgba(13,12,10,.46), rgba(13,12,10,.02) 62%); }
-    .hero-visual.product-proof img { object-position:58% center; filter:brightness(.82) saturate(.95) contrast(1.03); transform:none; }
+    .hero-visual.product-proof img { object-position:72% center; filter:brightness(.82) saturate(.95) contrast(1.03); transform:none; }
     .hero-visual.product-proof::after { background:linear-gradient(180deg, rgba(13,12,10,.16), rgba(13,12,10,.18) 34%, rgba(13,12,10,.72) 100%), linear-gradient(90deg, rgba(13,12,10,.56), rgba(13,12,10,.08) 62%); }
-    .hero-copy { position:relative; z-index:2; padding:44px 24px 72px; }
-    .hero-copy p { max-width:270px; font-size:16px; line-height:1.5; }
-    .hero-copy h1 { text-shadow:0 2px 16px rgba(0,0,0,.3); }
+    .hero-copy { position:relative; z-index:2; max-width:350px; padding:42px 24px 68px; }
+    .hero-copy p { max-width:255px; font-size:15px; line-height:1.48; }
+    .hero-copy h1 { max-width:310px; font-size:clamp(30px, 7.4vw, 35px); text-shadow:0 2px 16px rgba(0,0,0,.3); }
     .speech { position:relative; z-index:2; margin-top:24px; padding:18px; border:1px solid rgba(255,255,255,.28); border-radius:8px; background:rgba(18,37,34,.72); color:#fff6e4; font-size:16px; backdrop-filter:blur(10px); }
     .hero-actions { position:relative; z-index:2; display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:18px; }
     .hero-link { display:inline-flex; min-height:48px; align-items:center; justify-content:center; padding:0 14px; border-radius:8px; background:#fff7e8; color:var(--deep); font-weight:950; text-align:center; }
@@ -231,8 +231,9 @@
       .panel { padding:48px 40px; }
       .panel.compact { padding:50px 40px; }
       .panel.hero { min-height:560px; }
-      .hero-copy { padding:76px 40px 94px; }
-      .hero-copy p { max-width:360px; }
+      .hero-copy { max-width:440px; padding:76px 40px 94px; }
+      .hero-copy p { max-width:330px; font-size:16px; }
+      .hero-copy h1 { max-width:400px; font-size:42px; }
       h1 { max-width:520px; font-size:48px; }
       h2 { max-width:600px; font-size:36px; }
       .flow-strip { grid-template-columns:repeat(3, 1fr); padding:16px 40px; }
@@ -255,9 +256,10 @@
       .panel { padding:50px 42px; }
       .panel.compact { padding:52px 42px; }
       .panel.hero { min-height:660px; }
-      .hero-visual.product-proof img { object-position:68% 20%; }
-      .hero-copy { padding:108px 56px 118px; }
-      .hero-copy p { max-width:390px; }
+      .hero-visual.product-proof img { object-position:72% 22%; }
+      .hero-copy { max-width:500px; padding:108px 56px 118px; }
+      .hero-copy p { max-width:360px; }
+      .hero-copy h1 { max-width:440px; font-size:46px; }
       h1 { max-width:540px; font-size:54px; }
       h2 { max-width:620px; font-size:38px; }
       .story, .difference-list, .value-grid, .review-highlights { grid-template-columns:repeat(3, minmax(0, 1fr)); }
@@ -291,11 +293,11 @@
           <img src="assets/seoseonsaeng-writing.png" alt="">
         </div>
         <div class="hero-copy">
-          <p class="kicker">K-fortune for global clients</p>
-          <h1>Understand your timing and life patterns.</h1>
+          <p class="kicker">K-fortune reading</p>
+          <h1>K-fortune for your timing and life patterns.</h1>
           <p>A Korean Saju PDF adjusted for your real birthplace, timezone, and solar-time context.</p>
           <div class="hero-actions">
-            <a class="hero-link primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86" target="_blank" rel="noopener">Premium - $19</a>
+            <a class="hero-link primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86" target="_blank" rel="noopener">Premium $19</a>
             <a class="hero-link" href="#free-preview">Free preview</a>
           </div>
         </div>
