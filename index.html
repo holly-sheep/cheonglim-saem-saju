@@ -315,7 +315,7 @@
         <details class="preview-details">
           <summary>Open free preview form</summary>
           <form class="preview-form" id="previewForm">
-            <label class="field">Birth date<input id="birthDate" type="date" required></label>
+            <label class="field">Birth date (MM / DD / YYYY)<input id="birthDate" type="text" inputmode="numeric" autocomplete="bday" placeholder="MM / DD / YYYY" required></label>
             <div class="field" id="birthTimeGroup">
               <span>Birth time</span>
               <div class="time-grid">
@@ -492,6 +492,20 @@
       const branch = earthlyBranches[index];
       return { name: branch[0], animal: branch[1], element: branch[2] };
     }
+    function normalizeBirthDate(value) {
+      const raw = value.trim();
+      const usMatch = raw.match(/^(\d{1,2})[\/\-. ](\d{1,2})[\/\-. ](\d{4})$/);
+      const isoMatch = raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+      const parts = usMatch
+        ? { month: Number(usMatch[1]), day: Number(usMatch[2]), year: Number(usMatch[3]) }
+        : isoMatch
+          ? { month: Number(isoMatch[2]), day: Number(isoMatch[3]), year: Number(isoMatch[1]) }
+          : null;
+      if (!parts) return '';
+      const date = new Date(Date.UTC(parts.year, parts.month - 1, parts.day));
+      if (date.getUTCFullYear() !== parts.year || date.getUTCMonth() !== parts.month - 1 || date.getUTCDate() !== parts.day) return '';
+      return `${String(parts.year).padStart(4, '0')}-${String(parts.month).padStart(2, '0')}-${String(parts.day).padStart(2, '0')}`;
+    }
     const hourSelect = document.getElementById('birthHour');
     const minuteSelect = document.getElementById('birthMinute');
     for (let hour = 1; hour <= 12; hour += 1) {
@@ -536,7 +550,13 @@
     }
     document.getElementById('previewForm').addEventListener('submit', (event) => {
       event.preventDefault();
-      const dateValue = document.getElementById('birthDate').value;
+      const birthDateInput = document.getElementById('birthDate');
+      const dateValue = normalizeBirthDate(birthDateInput.value);
+      birthDateInput.setCustomValidity(dateValue ? '' : 'Enter the birth date as MM / DD / YYYY.');
+      if (!dateValue) {
+        birthDateInput.reportValidity();
+        return;
+      }
       const unknownTime = document.getElementById('unknownBirthTime').checked;
       const country = document.getElementById('birthCountry').value.trim();
       const city = document.getElementById('birthCity').value.trim();

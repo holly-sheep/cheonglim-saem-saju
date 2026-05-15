@@ -73,7 +73,7 @@
         <label>Package<select name="tier" required><option>basic</option><option selected>premium</option><option>vip</option></select></label>
         <label>Full name<input name="name" required></label>
         <label>Email<input name="email" type="email" required><span class="help">Use the same email address used for PayPal checkout. Different emails can delay automatic matching.</span></label>
-        <label>Birth date<input name="birthDate" type="date" required><span class="help">Use the date recorded at your birthplace.</span></label>
+        <label>Birth date (MM / DD / YYYY)<input name="birthDate" type="text" inputmode="numeric" autocomplete="bday" placeholder="MM / DD / YYYY" required><span class="help">Use the date recorded at your birthplace.</span></label>
         <div>
           <label>Birth time</label>
           <div class="time-grid">
@@ -126,6 +126,35 @@
     for (let minute = 0; minute < 60; minute += 5) {
       form.elements.birthMinute.add(new Option(String(minute).padStart(2, '0'), String(minute)));
     }
+    function normalizeBirthDate(value) {
+      const raw = value.trim();
+      const usMatch = raw.match(/^(\d{1,2})[\/\-. ](\d{1,2})[\/\-. ](\d{4})$/);
+      const isoMatch = raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+      const parts = usMatch
+        ? { month: Number(usMatch[1]), day: Number(usMatch[2]), year: Number(usMatch[3]) }
+        : isoMatch
+          ? { month: Number(isoMatch[2]), day: Number(isoMatch[3]), year: Number(isoMatch[1]) }
+          : null;
+      if (!parts) return '';
+      const date = new Date(Date.UTC(parts.year, parts.month - 1, parts.day));
+      if (date.getUTCFullYear() !== parts.year || date.getUTCMonth() !== parts.month - 1 || date.getUTCDate() !== parts.day) return '';
+      return `${String(parts.year).padStart(4, '0')}-${String(parts.month).padStart(2, '0')}-${String(parts.day).padStart(2, '0')}`;
+    }
+    function displayBirthDate(value) {
+      const normalized = normalizeBirthDate(value);
+      if (!normalized) return value;
+      const [year, month, day] = normalized.split('-');
+      return `${month}/${day}/${year}`;
+    }
+    function validateBirthDate() {
+      const normalized = normalizeBirthDate(form.elements.birthDate.value);
+      form.elements.birthDate.setCustomValidity(normalized ? '' : 'Enter the birth date as MM / DD / YYYY.');
+      if (!normalized) {
+        form.elements.birthDate.reportValidity();
+        return false;
+      }
+      return true;
+    }
     function birthTimeValue(data) {
       if (data.unknownBirthTime) return 'unknown';
       let hour = Number(data.birthHour);
@@ -147,7 +176,7 @@
       const seed = [
         form.elements.tier.value,
         form.elements.email.value.trim().toLowerCase(),
-        form.elements.birthDate.value,
+        normalizeBirthDate(form.elements.birthDate.value) || form.elements.birthDate.value,
         Date.now().toString(36),
       ].join('|');
       let hash = 0;
@@ -163,6 +192,7 @@
     }
     function buildText() {
       const data = Object.fromEntries(new FormData(form).entries());
+      const birthDate = normalizeBirthDate(data.birthDate) || data.birthDate;
       const memoLines = [];
       if (data.unknownBirthTime) memoLines.push('Birth time unknown.');
       if (data.unknownTimezone) memoLines.push('Timezone unknown; please infer from country/city if possible.');
@@ -171,7 +201,7 @@
       const memo = memoLines.join('\n').trim();
       const timePolicy = data.unknownBirthTime ? 'unknown-time' : 'local-civil';
       const timezone = data.unknownTimezone ? '' : data.timezone;
-      return `order_id: ${referenceId()}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${data.birthDate}\nbirth_time: ${birthTimeValue(data)}\ngender: ${data.gender}\nbirth_country: ${data.birthCountry}\nbirth_city: ${data.birthCity}\ntimezone: ${timezone}\ntime_policy: ${timePolicy}\nmemo: ${memo}`;
+      return `order_id: ${referenceId()}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${birthDate}\nbirth_time: ${birthTimeValue(data)}\ngender: ${data.gender}\nbirth_country: ${data.birthCountry}\nbirth_city: ${data.birthCity}\ntimezone: ${timezone}\ntime_policy: ${timePolicy}\nmemo: ${memo}`;
     }
     function refresh() { output.textContent = buildText(); }
     form.addEventListener('input', refresh);
@@ -185,6 +215,7 @@
     }
     document.getElementById('copyButton').addEventListener('click', async () => {
       if (!form.reportValidity()) return;
+      if (!validateBirthDate()) return;
       if (!canUseFallbackReference()) return;
       refresh();
       await navigator.clipboard.writeText(output.textContent);
@@ -192,6 +223,7 @@
     });
     document.getElementById('mailButton').addEventListener('click', () => {
       if (!form.reportValidity()) return;
+      if (!validateBirthDate()) return;
       if (!canUseFallbackReference()) return;
       refresh();
       const subject = encodeURIComponent('Saju report birth details');
@@ -213,7 +245,7 @@
     try {
       const saved = JSON.parse(sessionStorage.getItem('cheonglimPreviewBirthDetails') || '{}');
       ['birthDate', 'birthHour', 'birthMinute', 'birthPeriod', 'birthCountry', 'birthCity'].forEach((name) => {
-        if (saved[name] && form.elements[name]) form.elements[name].value = saved[name];
+        if (saved[name] && form.elements[name]) form.elements[name].value = name === 'birthDate' ? displayBirthDate(saved[name]) : saved[name];
       });
       if (saved.gender && form.elements.gender.value !== saved.gender) {
         form.querySelector(`input[name="gender"][value="${saved.gender}"]`).checked = true;
