@@ -489,8 +489,8 @@
     }
     function normalizeBirthDate(value) {
       const raw = value.trim();
-      const usMatch = raw.match(/^(\d{1,2})[\/\-. ](\d{1,2})[\/\-. ](\d{4})$/);
-      const isoMatch = raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+      const usMatch = raw.match(/^(\d{1,2})\s*[\/\-. ]\s*(\d{1,2})\s*[\/\-. ]\s*(\d{4})$/);
+      const isoMatch = raw.match(/^(\d{4})\s*-\s*(\d{1,2})\s*-\s*(\d{1,2})$/);
       const parts = usMatch
         ? { month: Number(usMatch[1]), day: Number(usMatch[2]), year: Number(usMatch[3]) }
         : isoMatch
@@ -501,6 +501,10 @@
       if (date.getUTCFullYear() !== parts.year || date.getUTCMonth() !== parts.month - 1 || date.getUTCDate() !== parts.day) return '';
       return `${String(parts.year).padStart(4, '0')}-${String(parts.month).padStart(2, '0')}-${String(parts.day).padStart(2, '0')}`;
     }
+    const birthDateInput = document.getElementById('birthDate');
+    birthDateInput.addEventListener('input', () => {
+      birthDateInput.setCustomValidity('');
+    });
     const hourSelect = document.getElementById('birthHour');
     const minuteSelect = document.getElementById('birthMinute');
     for (let hour = 1; hour <= 12; hour += 1) {
@@ -545,7 +549,6 @@
     }
     document.getElementById('previewForm').addEventListener('submit', (event) => {
       event.preventDefault();
-      const birthDateInput = document.getElementById('birthDate');
       const dateValue = normalizeBirthDate(birthDateInput.value);
       birthDateInput.setCustomValidity(dateValue ? '' : 'Enter the birth date as MM / DD / YYYY.');
       if (!dateValue) {
