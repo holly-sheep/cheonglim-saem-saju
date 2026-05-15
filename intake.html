@@ -6,12 +6,12 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="no-referrer">
   <title>K-fortune Birth Details Form | Cheonglim Saem</title>
-  <meta name="description" content="Submit birth details for a K-fortune Korean Saju report after PayPal checkout.">
+  <meta name="description" content="Submit birth details for a K-fortune Korean Saju report after checkout.">
   <link rel="canonical" href="https://cheonglimsaju.com/intake.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cheonglim Saem">
   <meta property="og:title" content="K-fortune Birth Details Form | Cheonglim Saem">
-  <meta property="og:description" content="Submit birth date, time, country, city, and timezone details for a K-fortune report after PayPal checkout.">
+  <meta property="og:description" content="Submit birth date, time, country, city, and timezone details for a K-fortune report after checkout.">
   <meta property="og:url" content="https://cheonglimsaju.com/intake.html">
   <style>
     :root { --ink:#15120f; --muted:#665e55; --line:#ded6cc; --paper:#fbf5ec; --panel:#fffdfa; --accent:#165f55; --accent2:#9c3d23; }
@@ -56,8 +56,8 @@
 <body>
   <main>
     <div class="top"><a class="home" href="index.html">Cheonglim Saem</a><a class="home" href="mailto:aideseobot@gmail.com">aideseobot@gmail.com</a></div>
-    <h1>Send your K-fortune birth details after PayPal checkout.</h1>
-    <p>This form creates the order email used by the automated delivery worker. Send it after PayPal checkout. For overseas births, country, city, timezone, and daylight saving context can affect the hour pillar.</p>
+    <h1>Send your K-fortune birth details after checkout.</h1>
+    <p>This form creates the order email used by the automated delivery worker. Send it after checkout. For overseas births, country, city, timezone, and daylight saving context can affect the hour pillar.</p>
     <div class="quick-choice">
       <p><b>Choose the package you paid for.</b> The selected package is written into the order email.</p>
       <div class="quick-links">
@@ -66,13 +66,13 @@
         <a href="intake.html?tier=vip" data-tier-link="vip">VIP</a>
       </div>
     </div>
-    <div class="note"><b>Before you submit:</b> enter the same email address you used in PayPal checkout. The form creates an order reference automatically. If you can find a PayPal transaction or order ID in your receipt, add it; if not, you can still send the form.</div>
+    <div class="note"><b>Before you submit:</b> enter the same email address you used at checkout. The form creates an order reference automatically. If you can find the USDT transaction hash, crypto checkout code, or invoice ID in your receipt, add it; if not, you can still send the form.</div>
     <form id="intakeForm">
       <div class="grid">
-        <label>PayPal receipt ID<input name="orderId" placeholder="Example: 1AB23456CD789012E"><span class="help">Best for fast matching. Copy Transaction ID or Order ID from the PayPal receipt email.</span></label>
+        <label>Payment receipt ID<input name="orderId" placeholder="Example: 5F8A... or checkout code"><span class="help">Best for fast matching. Copy the USDT transaction hash, crypto checkout code, or invoice ID from the receipt.</span></label>
         <label>Package<select name="tier" required><option>basic</option><option selected>premium</option><option>vip</option></select></label>
         <label>Full name<input name="name" required></label>
-        <label>Email<input name="email" type="email" required><span class="help">Use the same email address used for PayPal checkout. Different emails can delay automatic matching.</span></label>
+        <label>Email<input name="email" type="email" required><span class="help">Use the same email address used for checkout. Different emails can delay automatic matching.</span></label>
         <label>Birth date (MM / DD / YYYY)<input name="birthDate" type="text" inputmode="numeric" autocomplete="bday" placeholder="MM / DD / YYYY" required><span class="help">Use the date recorded at your birthplace.</span></label>
         <div>
           <label>Birth time</label>
@@ -93,7 +93,7 @@
         </div>
         <label>Birth country<input name="birthCountry" placeholder="United States / UK / Korea / ..." required></label>
         <label>Birth city or region<input name="birthCity" placeholder="Los Angeles, CA / London / Seoul" required></label>
-        <label class="check-row"><input name="missingOrderId" type="checkbox"> I cannot find the PayPal receipt ID</label>
+        <label class="check-row"><input name="missingOrderId" type="checkbox"> I cannot find the payment receipt ID</label>
         <label>Timezone (if known)<input name="timezone" placeholder="Pacific Time / Asia/Seoul / Europe/London"><span class="help">If you do not know the timezone name, the country and city above are enough to submit.</span></label>
         <label class="check-row"><input name="unknownTimezone" type="checkbox"> I do not know the timezone</label>
         <label class="full">Notes<textarea name="memo" placeholder="If the birth time is approximate, or the birthplace is a small town, write the nearest major city here."></textarea></label>
@@ -105,7 +105,7 @@
       </div>
     </form>
     <div class="note privacy-note"><b>Privacy:</b> this page does not upload your birth data. It only creates an email draft on your device. Preview details may be temporarily stored in this browser tab to prefill this form. The details you send by email and the delivered PDF can remain in email history; contact aideseobot@gmail.com for correction or deletion requests.</div>
-    <div class="note">After payment, send this information to aideseobot@gmail.com. The PayPal receipt ID gives the fastest match; the same PayPal email is required. New order emails are checked every few hours and answered with the generated PDF when processing is complete.</div>
+    <div class="note">After payment, send this information to aideseobot@gmail.com. The payment receipt ID gives the fastest match; the same checkout email is required. New order emails are checked every few hours and answered with the generated PDF when processing is complete.</div>
     <h2>Generated order message</h2>
     <pre id="output"></pre>
   </main>
@@ -224,7 +224,7 @@
       const memoLines = [];
       if (data.unknownBirthTime) memoLines.push('Birth time unknown.');
       if (data.unknownTimezone) memoLines.push('Timezone unknown; please infer from country/city if possible.');
-      if (!form.elements.orderId.value.trim() && form.elements.missingOrderId.checked) memoLines.push('PayPal receipt ID not provided; customer checked the missing-ID option. Please match by payer email and package.');
+      if (!form.elements.orderId.value.trim() && form.elements.missingOrderId.checked) memoLines.push('Payment receipt ID not provided; customer checked the missing-ID option. Please match by payer email and package.');
       if (data.memo) memoLines.push(data.memo);
       const memo = memoLines.join('\n').trim();
       const timePolicy = data.unknownBirthTime ? 'unknown-time' : 'local-civil';
@@ -236,7 +236,7 @@
     function canUseFallbackReference() {
       if (form.elements.orderId.value.trim()) return true;
       if (form.elements.missingOrderId.checked) return true;
-      form.elements.orderId.setCustomValidity('Enter the PayPal receipt ID, or check "I cannot find the PayPal receipt ID".');
+      form.elements.orderId.setCustomValidity('Enter the payment receipt ID, or check "I cannot find the payment receipt ID".');
       form.elements.orderId.reportValidity();
       form.elements.orderId.setCustomValidity('');
       return false;
