@@ -134,6 +134,7 @@
     .segment label:has(input:checked) { border-color:var(--jade); background:var(--jade); color:white; }
     .preview-result { display:none; margin-top:18px; border:1px solid #123c77; border-radius:8px; padding:18px; background:#081526; color:white; }
     .preview-result.is-visible { display:block; }
+    .preview-details .preview-result { margin:0 18px 18px; }
     .preview-result h3 { margin:0 0 10px; font-size:21px; }
     .preview-result p { margin:10px 0 0; color:#d9e4f2; font-size:15px; }
     .preview-result .button { margin-top:16px; }
@@ -335,8 +336,8 @@
             <label class="field">Birth city or region<input id="birthCity" placeholder="Los Angeles, CA / London / Seoul"></label>
             <button class="button primary" type="submit">View my overview</button>
           </form>
+          <div class="preview-result" id="previewResult" aria-live="polite" tabindex="-1"></div>
         </details>
-        <div class="preview-result" id="previewResult" aria-live="polite"></div>
       </section>
 
       <section class="panel compact">
@@ -630,7 +631,8 @@
           <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86" target="_blank" rel="noopener">Check timing $19</a>
         </div>`;
       result.classList.add('is-visible');
-      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      result.focus({ preventScroll: true });
     });
     const reviewForm = document.getElementById('reviewForm');
     const reviewStatus = document.getElementById('reviewStatus');
