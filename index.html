@@ -152,6 +152,11 @@
     .locked-preview { display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; margin-top:12px; }
     .locked-preview span { min-height:68px; display:grid; align-content:center; gap:5px; padding:9px 8px; border:1px solid var(--line); border-radius:8px; background:#fffdf8; color:var(--deep); font-size:13px; font-weight:950; line-height:1.15; text-align:center; }
     .locked-preview small { color:#a93f2a; font-size:9px; font-weight:950; letter-spacing:.06em; line-height:1; text-transform:uppercase; }
+    .revealed-insights { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-top:12px; }
+    .insight-card { min-width:0; padding:12px; border:1px solid rgba(36,102,92,.24); border-radius:8px; background:#fffdf8; color:var(--ink); }
+    .insight-card small { display:block; color:#a93f2a; font-size:10px; font-weight:950; letter-spacing:.06em; line-height:1.1; text-transform:uppercase; }
+    .insight-card b { display:block; margin-top:6px; color:var(--deep); font-size:15px; line-height:1.18; }
+    .insight-card span { display:block; margin-top:6px; color:#51483d; font-size:13px; font-weight:800; line-height:1.35; }
     .unlock-note { margin:12px 0 0; color:#5d554b; font-size:13px; font-weight:850; line-height:1.35; text-align:center; }
     .trust-line { margin-top:8px; color:#7c746a; font-size:11px; font-weight:850; line-height:1.35; text-align:center; }
     .result-hero { display:grid; grid-template-columns:252px minmax(0,1fr); gap:20px; align-items:center; }
@@ -279,6 +284,8 @@
       .result-photo-copy { min-height:330px; justify-content:flex-end; align-items:center; padding:22px 18px 24px; text-align:center; }
       .result-photo-copy h3 { font-size:34px; }
       .result-photo-copy p { font-size:15px; }
+      .revealed-insights { grid-template-columns:1fr; }
+      .insight-card { padding:11px 12px; }
       .locked-preview { grid-template-columns:repeat(2, 1fr); }
       .result-hero { grid-template-columns:1fr; justify-items:center; gap:12px; text-align:center; }
       .result-visual { width:min(100%, 266px); min-height:178px; }
@@ -305,6 +312,8 @@
       .button-row { grid-template-columns:1fr; }
       .locked-preview { gap:6px; }
       .locked-preview span { min-height:54px; padding:8px 5px; font-size:11px; }
+      .insight-card b { font-size:14px; }
+      .insight-card span { font-size:12px; }
       .unlock-note { font-size:12px; }
       .result-visual { width:min(100%, 218px); min-height:168px; }
       .signal-orb { width:118px; }
@@ -509,9 +518,7 @@
           <article class="trust-card"><b>Global birth check</b><p>Country, city, timezone, daylight saving, and uncertainty are handled before interpretation.</p></article>
           <article class="trust-card"><b>Data handling</b><p>Your details are used to generate and deliver the PDF. Data is not sold. Correction or deletion requests go to support.</p></article>
         </div>
-        <details class="review-details" id="reviews">
-          <summary>Already bought a report? Write a review</summary>
-          <div class="review-panel">
+        <div class="review-panel" id="reviews">
           <p class="kicker">Review</p>
           <h2>Help the next buyer decide.</h2>
           <p>The site creates an email draft. Nothing is published unless you allow it.</p>
@@ -531,8 +538,7 @@
           </form>
           <div class="review-status" id="reviewStatus" aria-live="polite"></div>
           <p class="review-note">The review is sent to aideseobot@gmail.com. Birth details are not requested here; include only what you are comfortable sharing.</p>
-          </div>
-        </details>
+        </div>
       </section>
 
       <section class="panel compact">
@@ -782,6 +788,23 @@
             <span class="result-stamp">Saju · Four Pillars</span>
             <h3>${firstInsight.visualLabel}</h3>
             <p>${firstInsight.short}</p>
+          </div>
+        </div>
+        <div class="revealed-insights" aria-label="Free personalized preview clues">
+          <div class="insight-card">
+            <small>Your first clue</small>
+            <b>${pillar.stemElement} leads your chart</b>
+            <span>Your preview points to ${firstInsight.reading}.</span>
+          </div>
+          <div class="insight-card">
+            <small>Strongest pull</small>
+            <b>${strongest.name} is most active at ${strongest.percent}%</b>
+            <span>${strongInsight.decision}</span>
+          </div>
+          <div class="insight-card">
+            <small>Needs support</small>
+            <b>${weakest.name} is quieter at ${weakest.percent}%</b>
+            <span>${weakInsight.tension}</span>
           </div>
         </div>
         <div class="locked-preview">
