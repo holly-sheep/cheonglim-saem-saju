@@ -113,7 +113,8 @@
     .checkout-helper .button-row { margin-top:4px; }
     .preview-form { display:grid; gap:12px; margin-top:24px; }
     .field { display:grid; gap:6px; font-weight:850; }
-    input, select { width:100%; min-height:46px; border:1px solid var(--line); border-radius:10px; padding:10px 12px; background:#fffdf8; color:var(--ink); font:inherit; }
+    input, select, textarea { width:100%; min-height:46px; border:1px solid var(--line); border-radius:10px; padding:10px 12px; background:#fffdf8; color:var(--ink); font:inherit; }
+    textarea { min-height:130px; resize:vertical; line-height:1.5; }
     .time-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
     .check-row { display:flex; align-items:center; gap:10px; color:var(--muted); font-size:15px; font-weight:800; line-height:1.35; }
     .check-row input { width:20px; min-height:20px; }
@@ -184,6 +185,14 @@
     .faq article { border-top:1px solid var(--line); padding-top:14px; }
     .faq h3 { margin:0 0 6px; font-size:17px; }
     .faq p { margin:0; font-size:15px; line-height:1.5; }
+    .review-panel { margin-top:24px; border:1px solid var(--line); border-radius:8px; padding:18px; background:#fffdf8; }
+    .review-grid { display:grid; gap:12px; margin-top:18px; }
+    .review-actions { display:grid; grid-template-columns:1fr; gap:8px; margin-top:14px; }
+    .review-note { margin-top:12px; color:var(--muted); font-size:14px; line-height:1.45; }
+    .review-status { display:none; margin-top:12px; padding:12px; border-left:4px solid var(--jade); background:#edf5f1; color:var(--deep); font-size:14px; font-weight:850; line-height:1.45; white-space:pre-wrap; }
+    .review-status.is-visible { display:block; }
+    .review-panel .check-row { align-items:flex-start; }
+    .review-panel .check-row input { flex:0 0 auto; margin-top:2px; }
     .bottom-cta { position:relative; z-index:30; border-top:1px solid var(--line); background:rgba(255,250,242,.98); padding:10px 14px calc(10px + env(safe-area-inset-bottom)); }
     .bottom-cta p { margin:0 0 9px; color:var(--ink); font-size:14px; line-height:1.35; text-align:center; }
     .bottom-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
@@ -209,6 +218,9 @@
       .proof-bar { grid-template-columns:repeat(3, minmax(0, 1fr)); }
       .comparison-row { grid-template-columns:1fr 1fr; }
       .report-box { max-width:640px; }
+      .review-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .review-grid .field.review-text { grid-column:1 / -1; }
+      .review-actions { grid-template-columns:1fr 1fr; }
       .bottom-cta { max-width:720px; margin:0 auto; }
     }
     @media (min-width:900px) {
@@ -227,6 +239,9 @@
       .proof-bar { grid-template-columns:repeat(3, minmax(0, 1fr)); }
       .comparison { grid-template-columns:1fr 1fr; }
       .report-box { max-width:640px; }
+      .review-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .review-grid .field.review-text { grid-column:1 / -1; }
+      .review-actions { grid-template-columns:1fr 1fr; }
       .bottom-cta { max-width:960px; margin:0 auto; }
     }
     @media (min-width:1100px) { .sample-pages, .trust-grid, .packages { grid-template-columns:repeat(3, minmax(0, 1fr)); } }
@@ -434,6 +449,30 @@
         </div>
       </section>
 
+      <section class="panel compact gold" id="reviews">
+        <p class="kicker">Client reviews</p>
+        <h2>Write a review after your report arrives.</h2>
+        <p>Share what was useful, what felt accurate, and whether the PDF was easy to use. The static site creates an email draft, so your review is not published unless you allow it.</p>
+        <div class="review-panel">
+          <form id="reviewForm">
+            <div class="review-grid">
+              <label class="field">Name to show<input id="reviewName" placeholder="Initials or first name" required></label>
+              <label class="field">Report tier<select id="reviewTier"><option>Basic</option><option selected>Premium</option><option>VIP</option></select></label>
+              <label class="field">Order ID, optional<input id="reviewOrderId" placeholder="CS-... or PayPal receipt ID"></label>
+              <label class="field">Rating<select id="reviewRating"><option>5 - Excellent</option><option>4 - Good</option><option>3 - Okay</option><option>2 - Needs work</option><option>1 - Poor</option></select></label>
+              <label class="field review-text">Your review<textarea id="reviewText" maxlength="900" placeholder="What did the report help you understand?" required></textarea></label>
+            </div>
+            <label class="check-row"><input id="reviewPermission" type="checkbox"> Cheonglim Saem may quote this review publicly with my display name and tier.</label>
+            <div class="review-actions">
+              <button class="button primary" type="submit">Send review by email</button>
+              <button class="button secondary" type="button" id="copyReviewButton">Copy review</button>
+            </div>
+          </form>
+          <div class="review-status" id="reviewStatus" aria-live="polite"></div>
+          <p class="review-note">The review is sent to aideseobot@gmail.com. Birth details are not requested here; include only what you are comfortable sharing.</p>
+        </div>
+      </section>
+
       <section class="panel compact">
         <p class="kicker">FAQ</p>
         <h2>Before you order.</h2>
@@ -461,7 +500,7 @@
         <a href="intake.html?tier=vip">VIP form</a>
       </div>
     </div>
-    <footer>Cheonglim Saem. K-fortune Korean Four Pillars reading. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="korean-saju-reading-online.html">Online Saju reading</a> · <a href="basic-korean-saju-report.html">Basic report</a> · <a href="saju-without-birth-time.html">Unknown birth time</a> · <a href="intake.html?tier=premium">Birth details form</a> · <a href="overseas-birth-saju.html">Overseas birth guide</a> · <a href="true-solar-time-saju.html">True solar time guide</a> · <a href="https://www.instagram.com/cheonglim_lab?igsh=MjMxMnh1Z255eWtm&amp;utm_source=qr" rel="noopener">Instagram</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
+    <footer>Cheonglim Saem. K-fortune Korean Four Pillars reading. Educational and self-reflection content only. This is not financial, legal, medical, therapeutic, or investment advice. <a href="korean-saju-reading-online.html">Online Saju reading</a> · <a href="basic-korean-saju-report.html">Basic report</a> · <a href="saju-without-birth-time.html">Unknown birth time</a> · <a href="intake.html?tier=premium">Birth details form</a> · <a href="#reviews">Write a review</a> · <a href="overseas-birth-saju.html">Overseas birth guide</a> · <a href="true-solar-time-saju.html">True solar time guide</a> · <a href="https://www.instagram.com/cheonglim_lab?igsh=MjMxMnh1Z255eWtm&amp;utm_source=qr" rel="noopener">Instagram</a> · <a href="mailto:aideseobot@gmail.com">Email support</a></footer>
   </div>
   <script>
     const heavenlyStems = [
@@ -611,6 +650,54 @@
         </div>`;
       result.classList.add('is-visible');
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+    const reviewForm = document.getElementById('reviewForm');
+    const reviewStatus = document.getElementById('reviewStatus');
+    function reviewBody() {
+      const displayName = document.getElementById('reviewName').value.trim();
+      const tier = document.getElementById('reviewTier').value;
+      const orderId = document.getElementById('reviewOrderId').value.trim() || 'not provided';
+      const rating = document.getElementById('reviewRating').value;
+      const text = document.getElementById('reviewText').value.trim();
+      const permission = document.getElementById('reviewPermission').checked
+        ? 'yes, public quote allowed'
+        : 'no, private feedback only';
+      return [
+        `display_name: ${displayName}`,
+        `tier: ${tier}`,
+        `order_id: ${orderId}`,
+        `rating: ${rating}`,
+        `public_quote_permission: ${permission}`,
+        '',
+        'review:',
+        text,
+      ].join('\n');
+    }
+    function showReviewStatus(message) {
+      reviewStatus.textContent = message;
+      reviewStatus.classList.add('is-visible');
+    }
+    reviewForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!reviewForm.reportValidity()) return;
+      const subject = encodeURIComponent('Cheonglim Saem customer review');
+      const body = encodeURIComponent(reviewBody());
+      window.location.href = `mailto:aideseobot@gmail.com?subject=${subject}&body=${body}`;
+      showReviewStatus('Your email app should open with the review draft. Press Send there to submit it.');
+    });
+    document.getElementById('copyReviewButton').addEventListener('click', async () => {
+      if (!reviewForm.reportValidity()) return;
+      const text = reviewBody();
+      try {
+        if (!navigator.clipboard) throw new Error('Clipboard unavailable');
+        await Promise.race([
+          navigator.clipboard.writeText(text),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('Clipboard timeout')), 900)),
+        ]);
+        showReviewStatus('Review copied. Paste it into your email if the mail button does not open.');
+      } catch (error) {
+        showReviewStatus(`Copy did not complete in this browser. Email this review text to aideseobot@gmail.com:\n\n${text}`);
+      }
     });
     document.getElementById('unknownBirthTime').addEventListener('change', (event) => {
       const disabled = event.target.checked;
