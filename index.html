@@ -132,14 +132,28 @@
     .segment label { min-height:46px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:10px; background:#fffdf8; font-weight:900; }
     .segment input { position:absolute; width:1px; height:1px; min-height:0; margin:0; padding:0; overflow:hidden; opacity:0; pointer-events:none; clip-path:inset(50%); }
     .segment label:has(input:checked) { border-color:var(--jade); background:var(--jade); color:white; }
-    .preview-result { display:none; margin-top:18px; border:1px solid #123c77; border-radius:8px; padding:18px; background:#081526; color:white; }
+    .preview-result { display:none; margin-top:18px; border:1px solid rgba(36,102,92,.28); border-radius:8px; padding:18px; background:#fffaf0; color:var(--ink); box-shadow:0 16px 34px rgba(36,102,92,.12); }
     .preview-result.is-visible { display:block; }
     .preview-details .preview-result { margin:0 18px 18px; }
-    .preview-result h3 { margin:0 0 10px; font-size:21px; }
-    .preview-result p { margin:10px 0 0; color:#d9e4f2; font-size:15px; }
+    .preview-result h3 { margin:0; font-size:21px; line-height:1.12; }
+    .preview-result p { margin:10px 0 0; color:var(--muted); font-size:15px; line-height:1.5; }
     .preview-result .button { margin-top:16px; }
-    .overview-card { margin-top:16px; border:1px solid rgba(255,255,255,.22); border-radius:10px; background:#f8f5ec; color:#1d2734; overflow:hidden; box-shadow:0 12px 28px rgba(0,0,0,.18); }
-    .overview-head { padding:15px 16px; background:#16447d; color:white; }
+    .result-stamp { display:inline-flex; width:max-content; margin-bottom:9px; padding:5px 8px; border:1px solid rgba(169,63,42,.32); border-radius:999px; color:#a93f2a; font-size:10px; font-weight:950; letter-spacing:.08em; text-transform:uppercase; }
+    .result-proof { margin:-1px 0 10px; color:#777064; font-size:12px; font-weight:850; line-height:1.35; }
+    .result-method { display:block; margin-top:2px; color:#8c8579; font-size:11px; }
+    .result-lead { margin-top:11px; padding:11px 12px; border-left:4px solid var(--jade); background:#eef6f3; color:var(--deep); font-size:16px; font-weight:900; line-height:1.38; }
+    .result-tease { margin:10px 0 0; color:#4c4439; font-size:14px; font-weight:850; line-height:1.42; }
+    .trait-grid { display:grid; gap:0; margin-top:12px; }
+    .trait-item { padding:10px 0; border-top:1px solid var(--line); }
+    .trait-item b { display:block; color:var(--ink); font-size:15px; line-height:1.2; }
+    .trait-item span { display:block; margin-top:4px; color:#51483d; font-size:15px; line-height:1.48; }
+    .signal-pair { display:grid; gap:8px; margin-top:12px; }
+    .signal-chip { display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fffdf8; }
+    .signal-chip small { display:block; margin-bottom:3px; color:#777064; font-size:11px; font-weight:950; letter-spacing:.06em; text-transform:uppercase; }
+    .signal-chip b { display:block; font-size:17px; line-height:1.1; }
+    .signal-chip strong { color:#766e63; font-size:15px; line-height:1; }
+    .overview-card { margin-top:16px; border:1px solid rgba(36,102,92,.24); border-radius:10px; background:#f8f5ec; color:#1d2734; overflow:hidden; }
+    .overview-head { padding:15px 16px; background:var(--deep); color:white; }
     .overview-head b { display:block; font-size:20px; line-height:1.1; }
     .overview-head span { display:block; margin-top:4px; color:#d8e5f7; font-size:14px; line-height:1.35; }
     .overview-body { padding:14px 14px 16px; }
@@ -163,14 +177,10 @@
     .strength-labels { display:grid; grid-template-columns:1fr 1fr 1fr; margin-top:6px; color:#8f949a; font-size:11px; font-weight:850; line-height:1.1; }
     .strength-labels span:nth-child(2) { text-align:center; }
     .strength-labels span:nth-child(3) { color:#17120d; font-weight:950; text-align:right; }
-    .teaser-grid { display:grid; gap:8px; margin-top:14px; }
-    .teaser-item { padding:12px; border:1px solid rgba(255,255,255,.2); border-radius:8px; background:rgba(255,255,255,.08); }
-    .teaser-item b { display:block; color:#fffaf2; }
-    .teaser-item span { display:block; margin-top:4px; color:#d9e4f2; font-size:15px; line-height:1.45; }
-    .locked-list { display:grid; gap:8px; margin-top:14px; }
-    .locked-item { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px; border-radius:8px; background:#f7efe2; color:#1d2734; font-weight:900; }
+    .locked-list { display:grid; gap:8px; margin-top:12px; }
+    .locked-item { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:11px 12px; border:1px solid rgba(169,63,42,.18); border-radius:8px; background:#f7efe2; color:#1d2734; font-weight:900; }
     .locked-item small { color:#8a4a36; font-weight:950; text-transform:uppercase; }
-    .urgency-note { margin-top:14px; padding:12px; border-left:4px solid #f0c982; background:rgba(240,201,130,.12); color:#fff4dc; font-weight:850; }
+    .urgency-note { margin-top:12px; padding:10px 12px; border-left:4px solid #f0c982; background:#fbf1dc; color:#40372c; font-size:13px; font-weight:850; line-height:1.42; }
     .package { position:relative; border:1px solid var(--line); border-radius:8px; padding:20px; background:#fffdf8; }
     .package.featured { border-color:var(--jade); box-shadow:0 10px 28px rgba(36,102,92,.14); }
     .package h3 { margin:0; font-size:21px; }
@@ -478,6 +488,63 @@
       Metal: 'standards, refinement, boundaries, and sharp judgment',
       Water: 'reflection, strategy, sensitivity, and hidden movement'
     };
+    const elementInsights = {
+      Wood: {
+        signal: 'growth drive',
+        hook: 'You may feel most alive when something is becoming better, clearer, or more possible.',
+        reading: 'a growth instinct, forward momentum, and sensitivity to whether a path can keep expanding',
+        decision: 'You decide faster when there is a path for growth, but delays can make you restless.',
+        drain: 'People or places that block movement may feel heavier than they look from the outside.',
+        tension: 'Growth support looks thin, so starting may feel harder than planning unless the right people, place, or rhythm is present.',
+        excess: 'A strong growth signal can become overextension when there is no pruning or clear priority.',
+        chip: 'Growth, flexibility, forward momentum',
+        question: 'where your growth actually pays off',
+      },
+      Fire: {
+        signal: 'visibility drive',
+        hook: 'You may move quickly once the mood, timing, or audience feels alive.',
+        reading: 'visibility, momentum, and a strong response to whether the room feels alive',
+        decision: 'You decide faster when there is momentum, but unclear feedback can make you impatient.',
+        drain: 'Cold or vague environments may drain you because nothing reflects your signal back.',
+        tension: 'Visibility support looks thin, so others may miss your intention unless you make the signal clearer.',
+        excess: 'A strong visibility signal can become urgency when there is no cooling space.',
+        chip: 'Expression, attention, timing',
+        question: 'when to show yourself',
+      },
+      Earth: {
+        signal: 'stability drive',
+        hook: 'You may look steady, but inside you are often checking whether something is safe enough to trust.',
+        reading: 'stability, trust, practical judgment, and a need to know the ground is real',
+        decision: 'You decide better when the ground feels real: facts, routines, money, and dependable people matter.',
+        drain: 'Sudden shifts can drain you because you need time to rebuild the internal ground.',
+        tension: 'Stability support looks thin, so routines, money, or trust may feel like things you must build deliberately.',
+        excess: 'A strong stability signal can turn into holding on too long after the situation has already changed.',
+        chip: 'Stability, trust, practical judgment',
+        question: 'what gives you real stability',
+      },
+      Metal: {
+        signal: 'refinement drive',
+        hook: 'You may be the person who spots what is slightly off before others can explain why.',
+        reading: 'high standards, firm boundaries, and sharp judgment about what feels reliable',
+        decision: 'You decide better when standards are clear; vague rules can make you sharper than you mean to be.',
+        drain: 'Messy expectations may drain you because your mind keeps refining what should have been clear.',
+        tension: 'Boundary support looks thin, so saying yes too long can blur what you actually want.',
+        excess: 'A strong refinement signal can become self-critique or sharp judgment when expectations stay vague.',
+        chip: 'Quality radar, boundaries, refinement',
+        question: 'where your standards create value',
+      },
+      Water: {
+        signal: 'depth drive',
+        hook: 'You may process more than you show, waiting until the hidden pattern finally makes sense.',
+        reading: 'depth, observation, timing sensitivity, and a habit of reading what is not being said',
+        decision: 'You decide better after observing the undercurrent; pressure to answer too soon can distort your judgment.',
+        drain: 'Noise and constant visibility may drain you because your best thinking needs depth.',
+        tension: 'Recovery support looks thin, so decisions can become reactive when you do not get quiet space.',
+        excess: 'A strong depth signal can become delay or secrecy if it does not find a channel.',
+        chip: 'Observation, strategy, recovery space',
+        question: 'when waiting is strategy',
+      },
+    };
     function yearPillar(year) {
       const stem = heavenlyStems[(year - 4) % 10];
       const branch = earthlyBranches[(year - 4) % 12];
@@ -553,6 +620,9 @@
       const raw = value.trim().replace(/\s+/g, ' ');
       return countryAliases[raw.toLowerCase()] || raw;
     }
+    function displayPlaceName(value) {
+      return value.trim().replace(/\b[a-z]/g, (char) => char.toUpperCase());
+    }
     function elementOverview(year, hour, unknownTime) {
       const pillar = yearPillar(year);
       const hourInfo = unknownTime ? { name: 'Unknown', animal: 'unknown', element: 'Water' } : hourBranch(hour);
@@ -584,6 +654,7 @@
       const country = normalizeBirthCountry(countryInput.value);
       countryInput.value = country;
       const city = document.getElementById('birthCity').value.trim();
+      const displayCity = displayPlaceName(city);
       const gender = document.querySelector('input[name="gender"]:checked').value;
       sessionStorage.setItem('cheonglimPreviewBirthDetails', JSON.stringify({
         birthDate: dateValue,
@@ -600,61 +671,54 @@
       const overview = elementOverview(year, hour, unknownTime);
       const pillar = overview.pillar;
       const hourInfo = overview.hourInfo;
-      const place = city ? `${city}, ${country}` : country;
+      const place = displayCity ? `${displayCity}, ${country}` : country;
       const safePlace = escapeHtml(place);
       const regionNote = /korea|south korea|republic of korea/i.test(country)
         ? 'For Korea births, local civil time is usually the starting point.'
         : 'Because this birth is outside Korea, timezone, DST, and birthplace location may change the hour reading.';
       const hourCopy = unknownTime
-        ? 'Birth time is marked unknown, so the hour pillar stays uncertain until you provide a reliable range.'
-        : `Your local birth hour falls near the ${hourInfo.animal} hour, which colors private rhythm and long-term planning.`;
+        ? 'Birth time is marked unknown, so the hour pillar stays open until the full reading has a reliable range.'
+        : `Your submitted time places the hour near the ${hourInfo.animal} hour, so private rhythm and long-term planning need a time correction check.`;
       const strongest = overview.rows.reduce((best, row) => row.percent > best.percent ? row : best, overview.rows[0]);
       const weakest = overview.rows.reduce((low, row) => row.percent < low.percent ? row : low, overview.rows[0]);
-      const buyerHook = unknownTime
-        ? 'Your missing birth time is not a small detail. The paid report marks the hour pillar as uncertain instead of pretending it is fixed.'
-        : `Your ${hourInfo.animal} hour may change after timezone, DST, and birthplace-location checks. Premium handles that before interpretation.`;
-      const elementRows = overview.rows.map((row) => `
-          <div class="element-row">
-            <div class="element-label" style="color:${row.color}"><strong>${row.name}</strong><small>${row.hanja}</small></div>
-            <div class="barline"><span style="width:${row.percent}%;background:${row.color}"></span></div>
-            <strong class="overview-percent">${row.percent}%</strong>
-          </div>`).join('');
+      const firstInsight = elementInsights[pillar.stemElement];
+      const strongInsight = elementInsights[strongest.name];
+      const weakInsight = elementInsights[weakest.name];
+      const proofTime = unknownTime
+        ? 'time unknown'
+        : `${document.getElementById('birthHour').selectedOptions[0].textContent}:${document.getElementById('birthMinute').selectedOptions[0].textContent} ${document.getElementById('birthPeriod').value}`;
       const result = document.getElementById('previewResult');
       result.innerHTML = `
-        <h3>Your K-fortune teaser: one strong clue, three locked answers.</h3>
-        <p>Your free preview shows the first signal only: <b>${pillar.stemElement}</b> themes often mean ${elementCopy[pillar.stemElement]}.</p>
-        <div class="teaser-grid">
-          <div class="teaser-item"><b>Visible pattern</b><span>${strongest.name} is strongest in this sample. The paid report explains where that repeats in decisions, work style, and relationships.</span></div>
-          <div class="teaser-item"><b>Missing support</b><span>${weakest.name} is the area to inspect. The paid report turns it into a practical habit and timing strategy.</span></div>
-          <div class="teaser-item"><b>Birthplace risk</b><span>${buyerHook}</span></div>
-        </div>
-        <p><b>Birthplace check:</b> ${safePlace}. ${regionNote}</p>
-        <div class="overview-card">
-          <div class="overview-head"><b>Five-element overview</b><span>Sample balance from the submitted basics</span></div>
-          <div class="overview-body">
-            ${elementRows}
-            <div class="overview-gods">
-              <div class="god" style="color:#d8ae18"><small>Resource</small><span>E</span><b>Earth</b></div>
-              <div class="god" style="color:#e2393f"><small>Output</small><span>F</span><b>Fire</b></div>
-              <div class="god" style="color:#17999a"><small>Useful</small><span>W</span><b>Wood</b></div>
-            </div>
-            <div class="strength">
-              <b>Day-master strength</b>
-              <div class="strength-line" aria-label="Day-master strength scale"><span></span><span></span><span></span><span></span><span></span><span class="is-active"></span><span></span></div>
-              <div class="strength-labels"><span>Weak</span><span>Balanced</span><span>Very strong</span></div>
-            </div>
+        <span class="result-stamp">Your first Saju clue</span>
+        <div class="result-proof">${dateValue} · ${proofTime} · ${safePlace}<span class="result-method">Preview based on birth date, time, and place.</span></div>
+        <h3>${firstInsight.hook}</h3>
+        <div class="result-lead">Your preview points to ${firstInsight.reading}.</div>
+        <div class="signal-pair" aria-label="Preview element signals">
+          <div class="signal-chip">
+            <div><small>Strong pull</small><b style="color:${strongest.color}">${strongInsight.chip}</b></div>
+            <strong>${strongest.percent}%</strong>
+          </div>
+          <div class="signal-chip">
+            <div><small>Needs support</small><b style="color:${weakest.color}">${weakInsight.chip}</b></div>
+            <strong>${weakest.percent}%</strong>
           </div>
         </div>
-        <div class="locked-list">
-          <div class="locked-item"><span>Why this pattern repeats in work and money</span><small>Basic</small></div>
-          <div class="locked-item"><span>Whether true solar time changes your hour pillar</span><small>Premium</small></div>
-          <div class="locked-item"><span>Relationship pattern and 3-5 year timing plan</span><small>VIP</small></div>
-        </div>
-        <div class="urgency-note">The free preview is intentionally incomplete. The paid report checks the full chart order, corrected birth time, climate balance, self-support, missing links, 10-year cycle, and annual flow.</div>
+        <div class="result-tease">The full reading shows where this helps, where it backfires, and when timing matters most.</div>
         <div class="button-row">
-          <a class="button secondary" href="https://www.paypal.com/ncp/payment/4MAPBL2JSJGVU" target="_blank" rel="noopener">Unlock Basic $9</a>
-          <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86" target="_blank" rel="noopener">Check timing $19</a>
-        </div>`;
+          <a class="button secondary" href="#free-preview">Edit birth details</a>
+          <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86" target="_blank" rel="noopener">Unlock my full Saju pattern - $19</a>
+        </div>
+        <div class="trait-grid">
+          <div class="trait-item"><b>How you decide</b><span>${firstInsight.decision}</span></div>
+          <div class="trait-item"><b>The hidden tension</b><span>${weakInsight.tension}</span></div>
+        </div>
+        <div class="locked-list">
+          <div class="locked-item"><span>When timing feels easier, heavier, or risky</span><small>Premium</small></div>
+          <div class="locked-item"><span>Where this pattern helps or blocks career decisions</span><small>Premium</small></div>
+          <div class="locked-item"><span>What relationship dynamic steadies you</span><small>VIP</small></div>
+        </div>
+        <div class="urgency-note">This preview uses your birth inputs and Saju reference patterns. The full PDF checks all eight characters, season/month context, corrected time, and element interactions.</div>
+        `;
       result.classList.add('is-visible');
       result.scrollIntoView({ behavior: 'smooth', block: 'start' });
       result.focus({ preventScroll: true });
