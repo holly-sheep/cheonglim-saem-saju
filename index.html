@@ -332,7 +332,7 @@
                 <label><input type="radio" name="gender" value="female"> Female</label>
               </div>
             </div>
-            <label class="field">Birth country<input id="birthCountry" placeholder="United States / Canada / Korea / ..." required></label>
+            <label class="field">Birth country<input id="birthCountry" placeholder="United States / UK / Korea / ..." required></label>
             <label class="field">Birth city or region<input id="birthCity" placeholder="Los Angeles, CA / London / Seoul"></label>
             <button class="button primary" type="submit">View my overview</button>
           </form>
@@ -530,6 +530,29 @@
         "'": '&#39;',
       })[char]);
     }
+    const countryAliases = {
+      usa: 'United States',
+      us: 'United States',
+      'u.s.': 'United States',
+      'u.s.a.': 'United States',
+      uk: 'United Kingdom',
+      'u.k.': 'United Kingdom',
+      gb: 'United Kingdom',
+      'great britain': 'United Kingdom',
+      england: 'United Kingdom',
+      scotland: 'United Kingdom',
+      wales: 'United Kingdom',
+      korea: 'South Korea',
+      kr: 'South Korea',
+      rok: 'South Korea',
+      'south korea': 'South Korea',
+      uae: 'United Arab Emirates',
+      'u.a.e.': 'United Arab Emirates',
+    };
+    function normalizeBirthCountry(value) {
+      const raw = value.trim().replace(/\s+/g, ' ');
+      return countryAliases[raw.toLowerCase()] || raw;
+    }
     function elementOverview(year, hour, unknownTime) {
       const pillar = yearPillar(year);
       const hourInfo = unknownTime ? { name: 'Unknown', animal: 'unknown', element: 'Water' } : hourBranch(hour);
@@ -557,7 +580,9 @@
         return;
       }
       const unknownTime = document.getElementById('unknownBirthTime').checked;
-      const country = document.getElementById('birthCountry').value.trim();
+      const countryInput = document.getElementById('birthCountry');
+      const country = normalizeBirthCountry(countryInput.value);
+      countryInput.value = country;
       const city = document.getElementById('birthCity').value.trim();
       const gender = document.querySelector('input[name="gender"]:checked').value;
       sessionStorage.setItem('cheonglimPreviewBirthDetails', JSON.stringify({

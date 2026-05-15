@@ -91,7 +91,7 @@
             <label><input type="radio" name="gender" value="female"> Female</label>
           </div>
         </div>
-        <label>Birth country<input name="birthCountry" placeholder="United States / Canada / Korea / ..." required></label>
+        <label>Birth country<input name="birthCountry" placeholder="United States / UK / Korea / ..." required></label>
         <label>Birth city or region<input name="birthCity" placeholder="Los Angeles, CA / London / Seoul" required></label>
         <label class="check-row"><input name="missingOrderId" type="checkbox"> I cannot find the PayPal receipt ID</label>
         <label>Timezone (if known)<input name="timezone" placeholder="Pacific Time / Asia/Seoul / Europe/London"><span class="help">If you do not know the timezone name, the country and city above are enough to submit.</span></label>
@@ -158,6 +158,29 @@
     form.elements.birthDate.addEventListener('input', () => {
       form.elements.birthDate.setCustomValidity('');
     });
+    const countryAliases = {
+      usa: 'United States',
+      us: 'United States',
+      'u.s.': 'United States',
+      'u.s.a.': 'United States',
+      uk: 'United Kingdom',
+      'u.k.': 'United Kingdom',
+      gb: 'United Kingdom',
+      'great britain': 'United Kingdom',
+      england: 'United Kingdom',
+      scotland: 'United Kingdom',
+      wales: 'United Kingdom',
+      korea: 'South Korea',
+      kr: 'South Korea',
+      rok: 'South Korea',
+      'south korea': 'South Korea',
+      uae: 'United Arab Emirates',
+      'u.a.e.': 'United Arab Emirates',
+    };
+    function normalizeBirthCountry(value) {
+      const raw = value.trim().replace(/\s+/g, ' ');
+      return countryAliases[raw.toLowerCase()] || raw;
+    }
     function birthTimeValue(data) {
       if (data.unknownBirthTime) return 'unknown';
       let hour = Number(data.birthHour);
@@ -196,6 +219,8 @@
     function buildText() {
       const data = Object.fromEntries(new FormData(form).entries());
       const birthDate = normalizeBirthDate(data.birthDate) || data.birthDate;
+      const birthCountry = normalizeBirthCountry(data.birthCountry);
+      form.elements.birthCountry.value = birthCountry;
       const memoLines = [];
       if (data.unknownBirthTime) memoLines.push('Birth time unknown.');
       if (data.unknownTimezone) memoLines.push('Timezone unknown; please infer from country/city if possible.');
@@ -204,7 +229,7 @@
       const memo = memoLines.join('\n').trim();
       const timePolicy = data.unknownBirthTime ? 'unknown-time' : 'local-civil';
       const timezone = data.unknownTimezone ? '' : data.timezone;
-      return `order_id: ${referenceId()}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${birthDate}\nbirth_time: ${birthTimeValue(data)}\ngender: ${data.gender}\nbirth_country: ${data.birthCountry}\nbirth_city: ${data.birthCity}\ntimezone: ${timezone}\ntime_policy: ${timePolicy}\nmemo: ${memo}`;
+      return `order_id: ${referenceId()}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${birthDate}\nbirth_time: ${birthTimeValue(data)}\ngender: ${data.gender}\nbirth_country: ${birthCountry}\nbirth_city: ${data.birthCity}\ntimezone: ${timezone}\ntime_policy: ${timePolicy}\nmemo: ${memo}`;
     }
     function refresh() { output.textContent = buildText(); }
     form.addEventListener('input', refresh);
