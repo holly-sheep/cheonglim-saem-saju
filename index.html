@@ -143,7 +143,12 @@
     .result-method { display:block; margin-top:2px; color:#8c8579; font-size:11px; }
     .result-lead { margin-top:11px; padding:11px 12px; border-left:4px solid var(--jade); background:#eef6f3; color:var(--deep); font-size:16px; font-weight:900; line-height:1.38; }
     .result-tease { margin:10px 0 0; color:#4c4439; font-size:14px; font-weight:850; line-height:1.42; }
-    .trait-grid { display:grid; gap:0; margin-top:12px; }
+    .preview-more { margin-top:12px; border-top:1px solid var(--line); }
+    .preview-more summary { min-height:42px; display:flex; align-items:center; color:var(--jade); cursor:pointer; font-size:14px; font-weight:950; list-style:none; }
+    .preview-more summary::-webkit-details-marker { display:none; }
+    .preview-more summary::after { content:"+"; margin-left:auto; color:#a93f2a; font-size:20px; line-height:1; }
+    .preview-more[open] summary::after { content:"-"; }
+    .trait-grid { display:grid; gap:0; }
     .trait-item { padding:10px 0; border-top:1px solid var(--line); }
     .trait-item b { display:block; color:var(--ink); font-size:15px; line-height:1.2; }
     .trait-item span { display:block; margin-top:4px; color:#51483d; font-size:15px; line-height:1.48; }
@@ -177,7 +182,7 @@
     .strength-labels { display:grid; grid-template-columns:1fr 1fr 1fr; margin-top:6px; color:#8f949a; font-size:11px; font-weight:850; line-height:1.1; }
     .strength-labels span:nth-child(2) { text-align:center; }
     .strength-labels span:nth-child(3) { color:#17120d; font-weight:950; text-align:right; }
-    .locked-list { display:grid; gap:8px; margin-top:12px; }
+    .locked-list { display:grid; gap:8px; margin-top:8px; }
     .locked-item { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:11px 12px; border:1px solid rgba(169,63,42,.18); border-radius:8px; background:#f7efe2; color:#1d2734; font-weight:900; }
     .locked-item small { color:#8a4a36; font-weight:950; text-transform:uppercase; }
     .urgency-note { margin-top:12px; padding:10px 12px; border-left:4px solid #f0c982; background:#fbf1dc; color:#40372c; font-size:13px; font-weight:850; line-height:1.42; }
@@ -708,16 +713,19 @@
           <a class="button secondary" href="#free-preview">Edit birth details</a>
           <a class="button primary" href="https://www.paypal.com/ncp/payment/3CF8HLMDFEG86" target="_blank" rel="noopener">Unlock my full Saju pattern - $19</a>
         </div>
-        <div class="trait-grid">
-          <div class="trait-item"><b>How you decide</b><span>${firstInsight.decision}</span></div>
-          <div class="trait-item"><b>The hidden tension</b><span>${weakInsight.tension}</span></div>
-        </div>
-        <div class="locked-list">
-          <div class="locked-item"><span>When timing feels easier, heavier, or risky</span><small>Premium</small></div>
-          <div class="locked-item"><span>Where this pattern helps or blocks career decisions</span><small>Premium</small></div>
-          <div class="locked-item"><span>What relationship dynamic steadies you</span><small>VIP</small></div>
-        </div>
-        <div class="urgency-note">This preview uses your birth inputs and Saju reference patterns. The full PDF checks all eight characters, season/month context, corrected time, and element interactions.</div>
+        <details class="preview-more">
+          <summary>Show what the full reading checks</summary>
+          <div class="trait-grid">
+            <div class="trait-item"><b>How you decide</b><span>${firstInsight.decision}</span></div>
+            <div class="trait-item"><b>The hidden tension</b><span>${weakInsight.tension}</span></div>
+          </div>
+          <div class="locked-list">
+            <div class="locked-item"><span>When timing feels easier or risky</span><small>Premium</small></div>
+            <div class="locked-item"><span>Where this helps or blocks work</span><small>Premium</small></div>
+            <div class="locked-item"><span>What steadies relationships</span><small>VIP</small></div>
+          </div>
+          <div class="urgency-note">Full PDF checks all eight characters, season/month context, corrected time, and element interactions.</div>
+        </details>
         `;
       result.classList.add('is-visible');
       result.scrollIntoView({ behavior: 'smooth', block: 'start' });
