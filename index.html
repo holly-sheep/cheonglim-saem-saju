@@ -186,6 +186,12 @@
     .faq h3 { margin:0 0 6px; font-size:17px; }
     .faq p { margin:0; font-size:15px; line-height:1.5; }
     .review-panel { margin-top:24px; border:1px solid var(--line); border-radius:8px; padding:18px; background:#fffdf8; }
+    .review-highlights { display:grid; gap:10px; margin-top:22px; }
+    .review-card { border:1px solid var(--line); border-radius:8px; padding:16px; background:#fffdf8; }
+    .review-card b { display:block; color:var(--ink); font-size:18px; line-height:1.28; }
+    .review-card p { margin:9px 0 0; font-size:14px; line-height:1.48; }
+    .review-card small { display:block; margin-top:12px; color:var(--jade); font-size:12px; font-weight:950; letter-spacing:.04em; text-transform:uppercase; }
+    .review-disclaimer { margin-top:12px; color:var(--muted); font-size:13px; line-height:1.45; }
     .review-grid { display:grid; gap:12px; margin-top:18px; }
     .review-actions { display:grid; grid-template-columns:1fr; gap:8px; margin-top:14px; }
     .review-note { margin-top:12px; color:var(--muted); font-size:14px; line-height:1.45; }
@@ -213,7 +219,7 @@
       h1 { max-width:460px; font-size:52px; }
       h2 { max-width:600px; font-size:36px; }
       .preview-form { max-width:720px; }
-      .story, .difference-list, .value-grid, .sample-pages, .trust-grid, .packages { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .story, .difference-list, .value-grid, .sample-pages, .trust-grid, .packages, .review-highlights { grid-template-columns:repeat(2, minmax(0, 1fr)); }
       .trust-card.operator-card { grid-column:1 / -1; }
       .proof-bar { grid-template-columns:repeat(3, minmax(0, 1fr)); }
       .comparison-row { grid-template-columns:1fr 1fr; }
@@ -233,7 +239,7 @@
       .hero-copy p { max-width:390px; }
       h1 { max-width:470px; font-size:54px; }
       h2 { max-width:620px; font-size:38px; }
-      .story, .difference-list, .value-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); }
+      .story, .difference-list, .value-grid, .review-highlights { grid-template-columns:repeat(3, minmax(0, 1fr)); }
       .packages { grid-template-columns:repeat(2, minmax(0, 1fr)); }
       .trust-card.operator-card { grid-column:1 / -1; }
       .proof-bar { grid-template-columns:repeat(3, minmax(0, 1fr)); }
@@ -451,9 +457,30 @@
 
       <section class="panel compact gold" id="reviews">
         <p class="kicker">Client reviews</p>
-        <h2>Write a review after your report arrives.</h2>
-        <p>Share what was useful, what felt accurate, and whether the PDF was easy to use. The static site creates an email draft, so your review is not published unless you allow it.</p>
+        <h2>What makes buyers feel confident.</h2>
+        <p>Approved customer quotes can appear here after buyers opt in. Until then, these are the three things the paid report is built to prove.</p>
+        <div class="review-highlights" aria-label="Review highlights">
+          <article class="review-card">
+            <b>Clear enough for a first-time Saju buyer.</b>
+            <p>Korean Saju terms are translated into plain English before the personal reading starts.</p>
+            <small>Clarity</small>
+          </article>
+          <article class="review-card">
+            <b>Serious about overseas birth details.</b>
+            <p>Country, city, timezone, daylight saving, and time uncertainty are treated as part of the reading.</p>
+            <small>Global birth check</small>
+          </article>
+          <article class="review-card">
+            <b>A finished PDF, not a short teaser.</b>
+            <p>The report connects timing, work, money, relationship, and review prompts in one place.</p>
+            <small>Useful report</small>
+          </article>
+        </div>
+        <p class="review-disclaimer">Public customer quotes should replace these highlights only after the buyer gives explicit permission.</p>
         <div class="review-panel">
+          <p class="kicker">Write a review</p>
+          <h2>Help the next buyer decide.</h2>
+          <p>Share what was useful, what felt accurate, and whether the PDF was easy to use. The static site creates an email draft, so your review is not published unless you allow it.</p>
           <form id="reviewForm">
             <div class="review-grid">
               <label class="field">Name to show<input id="reviewName" placeholder="Initials or first name" required></label>
