@@ -119,6 +119,21 @@ def update_logs(sent_at: str) -> None:
                 row["next_action"] = "Do not contact again unless owner explicitly approves"
 
     existing_ids = {row.get("identifier") for row in evidence_rows}
+    sent_suffix = sent_at.replace("-", "").replace(":", "").replace("+", "-").replace("T", "-")
+    resend_identifier = f"accidental-outreach-retraction-resend-{sent_suffix}"
+    if resend_identifier not in existing_ids:
+        evidence_rows.append(
+            {
+                "timestamp": sent_at,
+                "type": "outreach_retraction_resend_sent",
+                "source": "smtp",
+                "identifier": resend_identifier,
+                "evidence": "resent disregard notice to "
+                + "; ".join(item.to_email for item in RETRACTIONS),
+                "notes": "owner explicitly requested another correction email saying the previous message was sent by AI and should be ignored",
+            }
+        )
+
     for item in RETRACTIONS:
         identifier = f"{item.identifier}-retraction"
         if identifier in existing_ids:
