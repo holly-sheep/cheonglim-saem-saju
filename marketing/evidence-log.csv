@@ -1,2 +1,4 @@
 timestamp,type,source,identifier,evidence,notes
 ,,,,,
+2026-05-16T00:00:00+09:00,setup,local,send-ready-outreach-001,marketing/send-ready-outreach.md created,"First outreach wave prepared; not sent yet"
+2026-05-16T00:00:00+09:00,setup,web-verified,send-ready-outreach-002,public contact sources checked,"Talie Tarot Linktree; hbbtarot Linktree; piecesofminty Carrd; KDRAMADIARY about page; Kpop Kollective contact page; KDramaStars contact page; BB Soto site"
