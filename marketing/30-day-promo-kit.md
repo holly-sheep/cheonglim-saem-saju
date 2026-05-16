@@ -98,9 +98,9 @@ Tracked link: https://cheonglimsaju.com/start.html?utm_source=instagram&utm_medi
 
 ## Reddit Value Posts
 
-Use these as explanation posts, not direct sales posts. Add the link only if the subreddit allows it or in comments when asked.
+Use these as owner-edited explanation posts, not direct sales posts. Pick the subreddit only after checking current rules. Add the link only if the subreddit allows it or in comments when asked. Do not post AI-looking text verbatim in communities that discourage AI-generated posts.
 
-### Post 1: r/Korean or K-culture-adjacent
+### Post 1: K-culture-adjacent
 
 Title: Why Korean Saju readings need the real birth city and clock context
 
