@@ -28,6 +28,8 @@ Rechecked on 2026-05-16T16:22:06+09:00 with TronGrid TRC20 transaction API for t
 
 Rechecked on 2026-05-16T16:34:46+09:00 after the checkout Gmail fallback deployment. The latest 20 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match.
 
+Rechecked on 2026-05-16T16:58:59+09:00 after the SEO/social angle page live checks and IndexNow resubmission. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. The latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
+
 ## Evidence Rules
 
 - Qualified visit evidence: platform analytics screenshot, GitHub Pages/custom domain analytics if available, or a UTM-tagged lead/order email that proves the visitor came from a campaign URL.
