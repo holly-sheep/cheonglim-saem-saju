@@ -32,7 +32,9 @@ payload=$(cat <<JSON
     "https://${HOST}/basic-korean-saju-report.html",
     "https://${HOST}/free-vip-review.html",
     "https://${HOST}/trust-policies.html",
-    "https://${HOST}/promo-assets.html"
+    "https://${HOST}/promo-assets.html",
+    "https://${HOST}/feed.xml",
+    "https://${HOST}/llms.txt"
   ]
 }
 JSON

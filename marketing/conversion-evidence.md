@@ -148,6 +148,8 @@ Rechecked on 2026-05-16T19:48:31+09:00 after adding the Korean Four Pillars core
 
 Live-verified on 2026-05-16T19:50:45+09:00 after the Pages deployment for commit `ff93a71`. A cache-busted live request to `korean-four-pillars-reading.html` returned `Korean Four Pillars in English`, `four_pillars_free_preview`, `four_pillars_premium`, `true solar time`, and `sample-premium.pdf`. The IndexNow batch including the new page was submitted; the first sandboxed run failed DNS resolution for `api.indexnow.org`, and the escalated retry returned HTTP/2 200. This is a live acquisition and search-submission artifact only, not a qualified visit, lead, or paid order.
 
+Updated locally on 2026-05-16T19:53:02+09:00 to add account-free discovery assets. Added `feed.xml` with key Cheonglim Saju landing pages and `llms.txt` summarizing the Korean Four Pillars offer, audiences, trust framing, and package structure for LLM/search readers. Updated `robots.txt`, homepage RSS alternate link, build artifact copying, IndexNow URL batch, campaign tracker, and evidence log. This improves public discovery but is not itself a qualified visit, lead, or payment.
+
 ## Evidence Rules
 
 - Qualified visit evidence: platform analytics screenshot, GitHub Pages/custom domain analytics if available, or a UTM-tagged lead/order email that proves the visitor came from a campaign URL.

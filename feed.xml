@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cheonglim Saem Korean Saju Readings</title>
+    <link>https://cheonglimsaju.com/</link>
+    <description>Korean Saju and Four Pillars readings in English, adjusted for birthplace, timezone, DST, and true solar time context.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 16 May 2026 10:53:02 GMT</lastBuildDate>
+    <atom:link href="https://cheonglimsaju.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Korean Four Pillars Reading in English</title>
+      <link>https://cheonglimsaju.com/korean-four-pillars-reading.html</link>
+      <guid isPermaLink="true">https://cheonglimsaju.com/korean-four-pillars-reading.html</guid>
+      <pubDate>Sat, 16 May 2026 10:53:02 GMT</pubDate>
+      <description>Korean Four Pillars reading in English for people born anywhere in the world, with birthplace, timezone, DST, and true solar time context checked before the full PDF interpretation.</description>
+    </item>
+    <item>
+      <title>Free Korean Saju Mini Preview</title>
+      <link>https://cheonglimsaju.com/free-korean-saju-reading.html</link>
+      <guid isPermaLink="true">https://cheonglimsaju.com/free-korean-saju-reading.html</guid>
+      <pubDate>Sat, 16 May 2026 10:53:02 GMT</pubDate>
+      <description>Try one Korean Four Pillars clue before ordering. The full Premium PDF is optional and checks birthplace, timezone, daylight saving, and true solar time context.</description>
+    </item>
+    <item>
+      <title>Premium Korean Saju Reading for 19 USDT</title>
+      <link>https://cheonglimsaju.com/premium-korean-saju-reading.html</link>
+      <guid isPermaLink="true">https://cheonglimsaju.com/premium-korean-saju-reading.html</guid>
+      <pubDate>Sat, 16 May 2026 10:53:02 GMT</pubDate>
+      <description>The main Cheonglim Saem PDF: a full Korean Saju reading in English with real birthplace, timezone, DST, and true solar time context checked.</description>
+    </item>
+    <item>
+      <title>Korean Saju for Diaspora, Adoptees, and K-culture Readers</title>
+      <link>https://cheonglimsaju.com/korean-saju-for-diaspora.html</link>
+      <guid isPermaLink="true">https://cheonglimsaju.com/korean-saju-for-diaspora.html</guid>
+      <pubDate>Sat, 16 May 2026 10:53:02 GMT</pubDate>
+      <description>A Korean Saju / Four Pillars reading in English for culture, self-reflection, and global birth-record handling. This is not ancestry or identity proof.</description>
+    </item>
+    <item>
+      <title>Korean Compatibility Reading in English</title>
+      <link>https://cheonglimsaju.com/korean-compatibility-reading.html</link>
+      <guid isPermaLink="true">https://cheonglimsaju.com/korean-compatibility-reading.html</guid>
+      <pubDate>Sat, 16 May 2026 10:53:02 GMT</pubDate>
+      <description>A Korean Four Pillars compatibility angle for international couples, curious friends, and relationship-rhythm self-reflection.</description>
+    </item>
+  </channel>
+</rss>

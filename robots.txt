@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://cheonglimsaju.com/sitemap.xml
+Sitemap: https://cheonglimsaju.com/feed.xml
