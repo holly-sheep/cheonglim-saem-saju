@@ -50,6 +50,8 @@ Rechecked on 2026-05-16T17:41:38+09:00 after deploying `post-now-shorts.html`. T
 
 Rechecked on 2026-05-16T17:44:36+09:00 after adding the 30-minute launch push section. The local HTML includes copy/composer actions for `launch_push_x_birth_city`, `launch_push_pin_free_preview`, `launch_push_bio`, and a link-free Reddit value reply. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match.
 
+Rechecked on 2026-05-16T17:45:47+09:00 with a cache-busted live request to `post-now-shorts.html`. The live HTML included `30-Minute Launch Push`, `launch_push_x_birth_city`, `launch_push_pin_free_preview`, `launch_push_bio`, and `Reddit value reply`. This proves the launch-push posting board is live, but it is still only an owner posting tool and not a public post, lead, or paid-order event.
+
 ## Evidence Rules
 
 - Qualified visit evidence: platform analytics screenshot, GitHub Pages/custom domain analytics if available, or a UTM-tagged lead/order email that proves the visitor came from a campaign URL.
