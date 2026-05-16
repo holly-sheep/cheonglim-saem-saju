@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T19:16:08+09:00
+Last updated: 2026-05-16T19:17:53+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -117,6 +117,8 @@ Live-verified on 2026-05-16T19:11:30+09:00 after the Pages deployment for commit
 Updated locally on 2026-05-16T19:14:46+09:00 to make the next public promotion step faster. Added `post-next-10-minutes.html`, a noindex owner-only board with four immediate actions: X post, Pinterest pin, link-free Reddit value reply, and r/Tarot promotion-thread reply, each with copy/open/record buttons. Linked it from `post-now-shorts.html` and `post-now-community.html`. This is an execution aid only; no public post or social action was submitted by automation.
 
 Rechecked on 2026-05-16T19:16:08+09:00 after adding the 10-minute posting board. The static Pages artifact built successfully to `/tmp/cheonglim-site-next-10-board-check` with 25 root HTML files. The rendered board includes `noindex,nofollow`, `ten_min_x_birth_city`, `ten_min_pin_free_preview`, `ten_min_rtarot_promo`, `Open X composer`, `Open Pinterest`, and `Open megathread`. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match; the latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
+
+Live-verified on 2026-05-16T19:17:53+09:00 after the Pages deployment for commit `e151bd8`. A cache-busted request to `post-next-10-minutes.html` returned `noindex,nofollow`, `Post these in the next 10 minutes`, `ten_min_x_birth_city`, `ten_min_pin_free_preview`, `ten_min_rtarot_promo`, `Open X composer`, `Open Pinterest`, and `Open megathread`. This proves the posting board is live, but it is not a public post, qualified visit, free-preview lead, reservation email, or paid order.
 
 ## Evidence Rules
 
