@@ -21,6 +21,7 @@ payload=$(cat <<JSON
     "https://${HOST}/overseas-birth-saju.html",
     "https://${HOST}/saju-in-english.html",
     "https://${HOST}/korean-saju-reading-online.html",
+    "https://${HOST}/premium-korean-saju-reading.html",
     "https://${HOST}/true-solar-time-saju.html",
     "https://${HOST}/saju-without-birth-time.html",
     "https://${HOST}/korean-birthday-reading.html",
