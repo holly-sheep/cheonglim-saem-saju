@@ -993,6 +993,8 @@
         `first_clue: ${pillar.stemElement} leads your chart`,
         `strongest_pull: ${strongest.name} ${strongest.percent}%`,
         `needs_support: ${weakest.name} ${weakest.percent}%`,
+        'interested_tier: Premium 19 USDT',
+        'source_page: free_preview_result',
         '',
         ...trackingLines(),
         '',
@@ -1001,6 +1003,7 @@
       ].join('\n');
       const previewLeadBody = encodeURIComponent(previewLeadText);
       const previewLeadSubject = encodeURIComponent('Cheonglim Saem free mini preview follow-up');
+      const previewLeadGmail = `https://mail.google.com/mail/?view=cm&fs=1&to=aideseobot@gmail.com&su=${previewLeadSubject}&body=${previewLeadBody}`;
       const result = document.getElementById('previewResult');
       result.innerHTML = `
         <div class="result-proof">Preview based on: ${dateValue} · ${proofTime} · ${safePlace}<span>Birthplace and time context are checked in the full PDF.</span></div>
@@ -1040,6 +1043,7 @@
         <div class="button-row">
           <a class="button primary" href="mailto:aideseobot@gmail.com?subject=${previewLeadSubject}&body=${previewLeadBody}">Send my preview clue</a>
           <button class="button secondary copy-preview-lead" type="button">Copy email text</button>
+          <a class="button secondary" href="${previewLeadGmail}" target="_blank" rel="noopener">Open Gmail draft</a>
           <a class="button secondary" href="#usdt-tron">Unlock full PDF · 19 USDT</a>
         </div>
         <div class="lead-copy-status" aria-live="polite"></div>
