@@ -62,11 +62,11 @@
           <option value="launch_push_pin_free_preview">Pinterest: free-preview pin</option>
           <option value="launch_push_bio">Instagram: bio link update</option>
           <option value="batch2_reddit_promo_preview">Batch 2: Reddit promotion thread</option>
-          <option value="batch2_astrology_forum_preview">Batch 2: astrology forum services post</option>
-          <option value="batch2_kculture_preview">Batch 2: K-culture forum post</option>
+          <option value="batch2_astrology_forum_preview_form">Batch 2: astrology forum services post</option>
+          <option value="batch2_kculture_preview_form">Batch 2: K-culture forum post</option>
           <option value="batch2_diaspora_preview">Batch 2: diaspora forum post</option>
-          <option value="batch2_x_thread_preview">Batch 2: X thread</option>
-          <option value="batch2_pinterest_preview">Batch 2: Pinterest pin</option>
+          <option value="batch2_x_thread_preview_form">Batch 2: X thread</option>
+          <option value="batch2_pinterest_preview_form">Batch 2: Pinterest pin</option>
         </select></label>
         <label>Platform<select id="platform"><option>Instagram</option><option>X</option><option>Pinterest</option><option>Reddit</option><option>TikTok</option><option>Forum</option></select></label>
         <label>Post status<select id="status"><option>post_published</option><option>metrics_snapshot</option><option>lead_received</option><option>payment_recheck</option></select></label>
@@ -85,6 +85,21 @@
 
     <h2>Copy-ready output</h2>
     <pre id="output">Fill the form, then build rows.</pre>
+
+    <h2>Lead/order email evidence row builder</h2>
+    <form id="leadForm">
+      <div class="form-grid">
+        <label class="span-2">Paste sent email body<textarea id="emailBody" placeholder="Paste the email body containing lead_type, source_page, utm_source, utm_campaign, utm_content, order_id, amount_usdt, etc."></textarea></label>
+        <label>Evidence URL or file<input id="emailEvidenceUrl" placeholder="Gmail URL, screenshot path, or inbox export path"></label>
+        <label>Payment reconciliation<select id="paymentReconciled"><option value="not_checked">Not checked</option><option value="no_match">No matching 9/19/39 USDT found</option><option value="matched">Matched to wallet transaction</option></select></label>
+      </div>
+      <button class="button" id="buildLeadRows" type="button">Build lead/order rows</button>
+      <button class="button secondary" id="copyLeadRows" type="button">Copy lead rows</button>
+      <div class="status" id="leadCopyStatus" aria-live="polite"></div>
+    </form>
+
+    <h2>Lead/order output</h2>
+    <pre id="leadOutput">Paste a sent email body, then build rows.</pre>
   </main>
   <script>
     const form = document.getElementById('evidenceForm');
@@ -163,16 +178,16 @@
         campaignUrl: 'https://cheonglimsaju.com/reddit-saju-preview.html?utm_source=reddit&utm_medium=promotion_thread&utm_campaign=kfortune_launch&utm_content=batch2_reddit_promo_preview',
         notes: 'Written Batch 2B posted only in a clearly allowed Reddit promotion or services thread; record public comment URL, replies, and matching lead emails.',
       },
-      batch2_astrology_forum_preview: {
+      batch2_astrology_forum_preview_form: {
         platform: 'Forum',
         status: 'post_published',
-        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=services_board&utm_campaign=kfortune_launch&utm_content=batch2_astrology_forum_preview',
+        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=services_board&utm_campaign=kfortune_launch&utm_content=batch2_astrology_forum_preview_form#mini-preview-form',
         notes: 'Written Batch 2C posted only in a services, sponsor, recommendation, or advertisement section; record public thread URL, section name, views, and replies.',
       },
-      batch2_kculture_preview: {
+      batch2_kculture_preview_form: {
         platform: 'Forum',
         status: 'post_published',
-        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=kculture_board&utm_campaign=kfortune_launch&utm_content=batch2_kculture_preview',
+        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=kculture_board&utm_campaign=kfortune_launch&utm_content=batch2_kculture_preview_form#mini-preview-form',
         notes: 'Written Batch 2D for K-culture communities where Korean culture posts and links are allowed; record public URL, section, metrics, and matching leads.',
       },
       batch2_diaspora_preview: {
@@ -181,16 +196,16 @@
         campaignUrl: 'https://cheonglimsaju.com/korean-saju-for-diaspora.html?utm_source=forum&utm_medium=diaspora_board&utm_campaign=kfortune_launch&utm_content=batch2_diaspora_preview',
         notes: 'Written Batch 2E for diaspora or heritage contexts with sensitive framing; record public URL, replies, and any free-preview or Premium-intent emails.',
       },
-      batch2_x_thread_preview: {
+      batch2_x_thread_preview_form: {
         platform: 'X',
         status: 'post_published',
-        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=x&utm_medium=social&utm_campaign=kfortune_launch&utm_content=batch2_x_thread_preview',
+        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=x&utm_medium=social&utm_campaign=kfortune_launch&utm_content=batch2_x_thread_preview_form#mini-preview-form',
         notes: 'Written Batch 2F X thread; record public thread URL, impressions, clicks, replies, and any matching lead emails.',
       },
-      batch2_pinterest_preview: {
+      batch2_pinterest_preview_form: {
         platform: 'Pinterest',
         status: 'post_published',
-        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=pinterest&utm_medium=social&utm_campaign=kfortune_launch&utm_content=batch2_pinterest_preview',
+        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=pinterest&utm_medium=social&utm_campaign=kfortune_launch&utm_content=batch2_pinterest_preview_form#mini-preview-form',
         notes: 'Written Batch 2G Pinterest pin; record public pin URL, impressions, saves, outbound clicks, and any matching lead emails.',
       },
     };
@@ -280,6 +295,120 @@
         copyStatus.textContent = 'Copy failed. Select the output manually.';
       }
       copyStatus.classList.add('is-visible');
+    });
+
+    function parseEmailBody(body) {
+      const data = {};
+      body.split(/\r?\n/).forEach((line) => {
+        const match = line.match(/^([A-Za-z0-9_ -]+):\s*(.*)$/);
+        if (!match) return;
+        const key = match[1].trim().toLowerCase().replaceAll(/[\s-]+/g, '_');
+        if (!data[key]) data[key] = match[2].trim();
+      });
+      return data;
+    }
+
+    function sourcePath(sourcePage) {
+      const map = {
+        bio: 'bio.html',
+        start: 'start.html',
+        free_korean_saju_reading: 'free-korean-saju-reading.html',
+        free_korean_saju_reading_form: 'free-korean-saju-reading.html#mini-preview-form',
+        reddit_saju_preview: 'reddit-saju-preview.html',
+        premium_korean_saju_reading: 'premium-korean-saju-reading.html',
+        premium_quick_order_form: 'premium-korean-saju-reading.html#premium-order-form',
+        free_preview_result: '#free-preview',
+      };
+      return map[sourcePage] || '';
+    }
+
+    function buildCampaignUrlFromEmail(data) {
+      const path = sourcePath(data.source_page || '') || 'launch-evidence-dashboard.html';
+      const url = new URL(path, 'https://cheonglimsaju.com/');
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach((key) => {
+        if (data[key]) url.searchParams.set(key, data[key]);
+      });
+      return url.toString();
+    }
+
+    function buildLeadRowsFromEmail() {
+      const timestamp = todayLocal();
+      const body = document.getElementById('emailBody').value.trim();
+      const data = parseEmailBody(body);
+      const leadType = data.lead_type || (data.order_id ? 'paid_order_candidate' : 'unknown_lead');
+      const sourcePage = data.source_page || 'unknown_source_page';
+      const utmSource = data.utm_source || 'unknown';
+      const utmContent = data.utm_content || 'none';
+      const evidenceUrl = document.getElementById('emailEvidenceUrl').value.trim();
+      const reconciliation = document.getElementById('paymentReconciled').value;
+      const hasPaymentHash = Boolean(data.order_id || data.payment_receipt_id || data.transaction_hash || data.tx_hash);
+      const isFreeLead = leadType.includes('free_mini_preview');
+      const isIntentLead = leadType.includes('order_reservation') || leadType.includes('payment_question');
+      const isPaidCandidate = sourcePage === 'premium_quick_order_form' || hasPaymentHash;
+      const isPaidOrder = isPaidCandidate && reconciliation === 'matched';
+      const status = isPaidOrder ? 'paid_order_verified' : isPaidCandidate ? 'paid_order_candidate' : isIntentLead ? 'payment_intent_lead' : 'lead_received';
+      const platform = utmSource === 'x' ? 'X' : utmSource ? utmSource : 'email';
+      const id = `email-${status}-${timestamp.replaceAll(/[^0-9]/g, '').slice(0, 14)}`;
+      const previewLeads = isFreeLead ? '1' : '0';
+      const paidOrders = isPaidOrder ? '1' : '0';
+      const campaignUrl = buildCampaignUrlFromEmail(data);
+      const amount = data.amount_usdt || data.amount || '';
+      const noteParts = [
+        `lead_type=${leadType}`,
+        `source_page=${sourcePage}`,
+        `utm_content=${utmContent}`,
+        amount ? `amount=${amount}` : '',
+        hasPaymentHash ? 'payment_hash_present=yes' : 'payment_hash_present=no',
+        `payment_reconciliation=${reconciliation}`,
+      ].filter(Boolean);
+      if (isPaidCandidate && !isPaidOrder) noteParts.push('do not count as paid order until wallet transaction is matched');
+      const tracker = [
+        'campaign-tracker.csv append/update:',
+        [
+          '',
+          timestamp.slice(0, 10),
+          platform,
+          status,
+          sourcePage,
+          campaignUrl,
+          status,
+          evidenceUrl || `marketing/evidence-log.csv#${id}`,
+          '',
+          '',
+          previewLeads,
+          paidOrders,
+          noteParts.join('; '),
+        ].map(csv).join(','),
+      ].join('\n');
+      const evidence = [
+        'evidence-log.csv append:',
+        [
+          timestamp,
+          status,
+          'email',
+          id,
+          evidenceUrl || campaignUrl,
+          noteParts.join('; '),
+        ].map(csv).join(','),
+      ].join('\n');
+      return `${tracker}\n\n${evidence}`;
+    }
+
+    document.getElementById('buildLeadRows').addEventListener('click', () => {
+      document.getElementById('leadOutput').textContent = buildLeadRowsFromEmail();
+    });
+
+    document.getElementById('copyLeadRows').addEventListener('click', async () => {
+      const leadOutput = document.getElementById('leadOutput');
+      const leadCopyStatus = document.getElementById('leadCopyStatus');
+      try {
+        if (!navigator.clipboard) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(leadOutput.textContent);
+        leadCopyStatus.textContent = 'Lead rows copied.';
+      } catch (error) {
+        leadCopyStatus.textContent = 'Copy failed. Select the lead output manually.';
+      }
+      leadCopyStatus.classList.add('is-visible');
     });
   </script>
 </body>
