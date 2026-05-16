@@ -34,6 +34,12 @@
     .asset div { padding:16px; }
     .asset b { display:block; font-size:18px; line-height:1.2; }
     .asset p { margin-top:6px; font-size:14px; line-height:1.48; }
+    .queue { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:14px; margin-top:18px; }
+    .queue article { display:grid; gap:12px; border:1px solid var(--line); border-radius:8px; padding:18px; background:var(--panel); }
+    .queue small { color:var(--red); font-size:12px; font-weight:950; letter-spacing:.08em; text-transform:uppercase; }
+    .queue h3 { margin:0; font-size:20px; line-height:1.2; }
+    .queue pre { padding:14px; border-radius:8px; background:#f8efe1; }
+    .track-link { display:block; padding:12px 14px; border:1px solid rgba(36,102,92,.28); border-radius:8px; background:#edf7f4; color:var(--deep); font-size:14px; font-weight:950; line-height:1.4; overflow-wrap:anywhere; text-decoration:none; }
     .copy { display:grid; gap:12px; margin-top:18px; }
     .copy article { border:1px solid var(--line); border-radius:8px; padding:18px; background:var(--panel); }
     .copy h3 { margin:0 0 8px; font-size:19px; line-height:1.22; }
@@ -41,7 +47,7 @@
     .links { display:grid; gap:10px; margin-top:18px; }
     .links a { display:block; padding:14px 16px; border:1px solid rgba(36,102,92,.24); border-radius:8px; background:#edf7f4; color:var(--deep); font-weight:900; overflow-wrap:anywhere; }
     footer { margin-top:50px; color:var(--muted); font-size:14px; }
-    @media (max-width:760px) { .top { flex-direction:column; } .grid { grid-template-columns:1fr; } .buttons { display:grid; grid-template-columns:1fr; } }
+    @media (max-width:760px) { .top { flex-direction:column; } .grid, .queue { grid-template-columns:1fr; } .buttons { display:grid; grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -58,6 +64,53 @@
         <a class="button" href="free-vip-review.html?utm_source=sharekit&amp;utm_medium=promo&amp;utm_campaign=kfortune_launch">Free VIP review copy</a>
       </div>
     </section>
+
+    <h2>7-Day Launch Queue</h2>
+    <p>Post these in order when you want clean campaign evidence. Each CTA has a different <strong>utm_content</strong> value so free-preview emails and orders can be matched back to the hook.</p>
+    <div class="queue">
+      <article>
+        <small>Day 1 · Reel</small>
+        <h3>Time-context hook</h3>
+        <pre>Born anywhere in the world? A Korean Four Pillars reading should start from your real birth city, timezone, DST context, and true solar time when it matters. Try the free mini preview first.</pre>
+        <a class="track-link" href="index.html?utm_source=instagram&amp;utm_medium=social&amp;utm_campaign=kfortune_launch&amp;utm_content=day1_time_context#free-preview">https://cheonglimsaju.com/?utm_source=instagram&amp;utm_medium=social&amp;utm_campaign=kfortune_launch&amp;utm_content=day1_time_context#free-preview</a>
+      </article>
+      <article>
+        <small>Day 2 · Carousel</small>
+        <h3>Not just the birthday</h3>
+        <pre>In Korean Saju, the birth date is only the start. Country, city, local clock time, timezone, DST, and hour-pillar uncertainty can all change how the chart should be explained.</pre>
+        <a class="track-link" href="index.html?utm_source=instagram&amp;utm_medium=social&amp;utm_campaign=kfortune_launch&amp;utm_content=day2_city_timezone#free-preview">https://cheonglimsaju.com/?utm_source=instagram&amp;utm_medium=social&amp;utm_campaign=kfortune_launch&amp;utm_content=day2_city_timezone#free-preview</a>
+      </article>
+      <article>
+        <small>Day 3 · Short explainer</small>
+        <h3>What is Saju?</h3>
+        <pre>Saju is the Korean Four Pillars reading of year, month, day, and hour. I frame it as K-culture self-reflection, not a promise of prediction.</pre>
+        <a class="track-link" href="overseas-birth-saju.html?utm_source=tiktok&amp;utm_medium=social&amp;utm_campaign=kfortune_launch&amp;utm_content=day3_what_is_saju">https://cheonglimsaju.com/overseas-birth-saju.html?utm_source=tiktok&amp;utm_medium=social&amp;utm_campaign=kfortune_launch&amp;utm_content=day3_what_is_saju</a>
+      </article>
+      <article>
+        <small>Day 4 · Trust post</small>
+        <h3>Sample PDF first</h3>
+        <pre>Before ordering the full K-fortune PDF, you can inspect sample pages and try the free mini preview. Premium is the main full reading for birthplace and time-context checks.</pre>
+        <a class="track-link" href="index.html?utm_source=pinterest&amp;utm_medium=social&amp;utm_campaign=kfortune_launch&amp;utm_content=day4_sample_pdf#samples">https://cheonglimsaju.com/?utm_source=pinterest&amp;utm_medium=social&amp;utm_campaign=kfortune_launch&amp;utm_content=day4_sample_pdf#samples</a>
+      </article>
+      <article>
+        <small>Day 5 · Unknown time</small>
+        <h3>Do not fake the hour pillar</h3>
+        <pre>If your birth time is unknown, the reading should say that clearly. A Korean Four Pillars report can still be useful, but the hour pillar should stay marked as uncertain.</pre>
+        <a class="track-link" href="saju-without-birth-time.html?utm_source=x&amp;utm_medium=social&amp;utm_campaign=kfortune_launch&amp;utm_content=day5_unknown_time">https://cheonglimsaju.com/saju-without-birth-time.html?utm_source=x&amp;utm_medium=social&amp;utm_campaign=kfortune_launch&amp;utm_content=day5_unknown_time</a>
+      </article>
+      <article>
+        <small>Day 6 · Offer post</small>
+        <h3>Premium as default</h3>
+        <pre>Basic is the small first step. Premium is the recommended full English Korean Four Pillars PDF when birthplace, timezone, DST, and true solar time context matter.</pre>
+        <a class="track-link" href="index.html?utm_source=instagram&amp;utm_medium=social&amp;utm_campaign=kfortune_launch&amp;utm_content=day6_premium_offer#packages">https://cheonglimsaju.com/?utm_source=instagram&amp;utm_medium=social&amp;utm_campaign=kfortune_launch&amp;utm_content=day6_premium_offer#packages</a>
+      </article>
+      <article>
+        <small>Day 7 · Creator review</small>
+        <h3>Honest feedback copy</h3>
+        <pre>K-culture, astrology, tarot, MBTI, and self-reflection creators can apply for a free VIP PDF review copy. Honest feedback is more useful than scripted praise.</pre>
+        <a class="track-link" href="free-vip-review.html?utm_source=instagram&amp;utm_medium=social&amp;utm_campaign=kfortune_launch&amp;utm_content=day7_creator_review">https://cheonglimsaju.com/free-vip-review.html?utm_source=instagram&amp;utm_medium=social&amp;utm_campaign=kfortune_launch&amp;utm_content=day7_creator_review</a>
+      </article>
+    </div>
 
     <h2>Downloadable Cards</h2>
     <p>Square and vertical platforms can use these 1080 x 1350 cards directly. The public image URLs are stable after deployment.</p>
