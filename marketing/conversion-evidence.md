@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T19:05:03+09:00
+Last updated: 2026-05-16T19:09:39+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -105,6 +105,12 @@ Updated locally on 2026-05-16T19:01:45+09:00 after continuing toward the active 
 Rechecked on 2026-05-16T19:02:44+09:00 after the Premium link routing update. The static Pages artifact built successfully to `/tmp/cheonglim-site-premium-link-routing-check` with 24 root HTML files, and the rendered files include the Premium UTM routes for `bio_premium`, `start_premium`, `launch_premium`, `reddit_followup_premium_intent`, `short_premium_default`, and `day6_premium_offer`. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match; the latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
 
 Live-verified on 2026-05-16T19:05:03+09:00 after the Pages deployment for commit `67067b2`. The workflow completed successfully. Cache-busted live checks showed `post-now-community.html` and `launch-evidence-dashboard.html` route `reddit_followup_premium_intent` to `premium-korean-saju-reading.html`, `promo-assets.html` routes `day6_premium_offer` to the same Premium page, and `bio.html` routes `bio_premium` to the Premium page. This proves the routing change is live, but it is still not a public post, qualified visit, free-preview lead, reservation email, or paid order.
+
+Updated locally on 2026-05-16T19:07:59+09:00 to reduce the payment friction on the Premium landing page. `premium-korean-saju-reading.html` now includes a direct Premium payment panel with the USDT-TRC20 QR, exact `19 USDT` amount, TRON/TRC20 network, wallet `TPinvSovyuBHTVK1Kd6bUYYESMoSBxjgjJ`, a copy button for payment details, and a Premium intake link. This is still only a conversion artifact; paid-order evidence requires a matching transaction hash or sent intake/order email.
+
+Rechecked on 2026-05-16T19:08:46+09:00 after the direct payment panel update. The static Pages artifact built successfully to `/tmp/cheonglim-site-premium-payment-panel-check` with 24 root HTML files, and the rendered Premium page includes `Premium payment details`, `19 USDT`, wallet `TPinvSovyuBHTVK1Kd6bUYYESMoSBxjgjJ`, `copyPremiumPayment`, `wallet_address`, and `intake.html?tier=premium`. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match; the latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
+
+Visual-checked on 2026-05-16T19:09:39+09:00 with a full-page mobile Playwright screenshot saved at `/tmp/cheonglim-premium-payment-panel-mobile-full.png`. The rendered Premium page shows the payment panel with QR, `19 USDT`, TRON/TRC20 network, wallet, copy button, and Premium intake link without obvious mobile overlap.
 
 ## Evidence Rules
 

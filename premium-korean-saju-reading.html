@@ -69,13 +69,18 @@
     .step { border-left:4px solid var(--jade); padding:12px 0 12px 16px; background:rgba(255,255,255,.45); }
     .step b { display:block; }
     .step p { margin:5px 0 0; }
+    .payment-panel { display:grid; grid-template-columns:190px minmax(0,1fr); gap:18px; align-items:start; margin-top:22px; border:1px solid var(--line); border-radius:8px; padding:16px; background:var(--panel); }
+    .payment-panel img { width:100%; border:1px solid var(--line); border-radius:8px; display:block; background:white; }
+    .payment-facts { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .payment-fact { border:1px solid var(--line); border-radius:8px; padding:10px 12px; background:#fff8ed; color:var(--ink); font-weight:900; overflow-wrap:anywhere; }
+    .payment-fact small { display:block; color:var(--muted); font-size:11px; font-weight:950; text-transform:uppercase; letter-spacing:.05em; }
     .reserve { margin-top:34px; padding:20px; border-radius:8px; background:var(--deep); color:#fff8ea; }
     .reserve p { color:#eadfcd; }
     .note { margin-top:22px; padding:16px; border:1px solid rgba(169,63,42,.24); border-radius:8px; background:#fff7e8; color:#43382c; font-size:15px; line-height:1.5; }
     .status { display:none; margin-top:10px; padding:10px 12px; border-radius:8px; background:#fff7e8; color:#43382c; font-size:13px; font-weight:850; line-height:1.4; white-space:pre-wrap; overflow-wrap:anywhere; }
     .status.is-visible { display:block; }
     footer { margin-top:40px; color:var(--muted); font-size:14px; }
-    @media (max-width:760px){ .top, .hero, .sample { grid-template-columns:1fr; } .hero img, .sample img { max-width:360px; } .grid, .buttons, .actions { grid-template-columns:1fr; } }
+    @media (max-width:760px){ .top, .hero, .sample, .payment-panel { grid-template-columns:1fr; } .hero img, .sample img, .payment-panel img { max-width:360px; } .grid, .buttons, .actions, .payment-facts { grid-template-columns:1fr; } }
     @media (min-width:900px){ main { padding:52px 28px 88px; } }
   </style>
 </head>
@@ -119,9 +124,29 @@
     <h2>Order flow</h2>
     <div class="steps">
       <article class="step"><b>1. Reserve first if unsure</b><p>Send a Premium reservation email so support can confirm the next payment step before you send USDT.</p></article>
-      <article class="step"><b>2. Pay 19 USDT on TRON/TRC20</b><p>Use only the USDT-TRC20 network and keep the transaction hash. The current receiving wallet is shown on the checkout section.</p></article>
+      <article class="step"><b>2. Pay 19 USDT on TRON/TRC20</b><p>Use only the USDT-TRC20 network and keep the transaction hash. The Premium payment details are shown below.</p></article>
       <article class="step"><b>3. Send birth details</b><p>Open the Premium intake form and include birth date, local birth time, country, city, and payment receipt ID.</p></article>
       <article class="step"><b>4. Receive the PDF by email</b><p>Most matched orders are delivered within 24 hours after payment and birth details are reconciled.</p></article>
+    </div>
+
+    <h2>Premium payment details</h2>
+    <div class="payment-panel" id="premium-payment">
+      <img src="assets/usdt-tron-qr.png" alt="USDT TRON receiving address QR code">
+      <div>
+        <h3>Send exactly 19 USDT on TRON / TRC20.</h3>
+        <p>This QR is the receiving address only. Do not send TRX, Ethereum, Base, or another token. After payment, paste the transaction hash into the Premium intake form.</p>
+        <div class="payment-facts" aria-label="Premium payment facts">
+          <div class="payment-fact"><small>Amount</small>19 USDT</div>
+          <div class="payment-fact"><small>Network</small>TRON / TRC20</div>
+          <div class="payment-fact"><small>Token</small>USDT</div>
+          <div class="payment-fact" id="premiumWallet"><small>Wallet</small>TPinvSovyuBHTVK1Kd6bUYYESMoSBxjgjJ</div>
+        </div>
+        <div class="actions">
+          <button class="button primary" id="copyPremiumPayment" type="button">Copy Premium payment details</button>
+          <a class="button" href="intake.html?tier=premium">Open Premium intake</a>
+        </div>
+        <div class="status" id="paymentStatus" aria-live="polite"></div>
+      </div>
     </div>
 
     <section class="reserve" id="reserve">
@@ -154,6 +179,7 @@
         'selected_tier: Premium',
         'amount_usdt: 19',
         'network: TRON / TRC20',
+        `wallet_address: ${premiumWalletAddress()}`,
         'payment_status: not_paid_yet',
         '',
         ...trackingLines(),
@@ -165,6 +191,21 @@
         '',
         'message:',
         'I want to reserve the Premium Korean Saju PDF before sending USDT.',
+      ].join('\n');
+    }
+    function premiumWalletAddress() {
+      return document.getElementById('premiumWallet').textContent.replace('Wallet', '').trim();
+    }
+    function premiumPaymentText() {
+      return [
+        'tier: Premium',
+        'amount: 19 USDT',
+        'network: TRON / TRC20',
+        'token: USDT',
+        `wallet_address: ${premiumWalletAddress()}`,
+        `birth_details_form: ${new URL('intake.html?tier=premium', window.location.href).href}`,
+        '',
+        'After payment, copy the USDT transaction hash and paste it into the Premium intake form as the payment receipt ID.',
       ].join('\n');
     }
     function refreshReservationLinks() {
@@ -187,6 +228,18 @@
         status.textContent = 'Reservation text copied. Paste it into email and send it to aideseobot@gmail.com.';
       } catch (error) {
         status.textContent = `Copy did not complete in this browser. Email this text to aideseobot@gmail.com:\n\n${text}`;
+      }
+      status.classList.add('is-visible');
+    });
+    document.getElementById('copyPremiumPayment').addEventListener('click', async () => {
+      const status = document.getElementById('paymentStatus');
+      const text = premiumPaymentText();
+      try {
+        if (!navigator.clipboard) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(text);
+        status.textContent = 'Premium payment details copied. Send exactly 19 USDT on TRON / TRC20, then paste the transaction hash into the Premium intake form.';
+      } catch (error) {
+        status.textContent = `Copy did not complete in this browser. Copy these Premium payment details manually:\n\n${text}`;
       }
       status.classList.add('is-visible');
     });
