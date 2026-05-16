@@ -121,6 +121,80 @@ Evidence after posting:
 - screenshot
 - forum views/replies if visible
 
+## Batch 1D: r/Tarot May Promotion Megathread
+
+Target:
+https://www.reddit.com/r/tarot/comments/1t0ihbc/rtarot_promotion_megathread_may_2026/
+
+Use only if:
+
+- The owner account has normal non-promotional participation.
+- The post is placed inside the monthly promotion megathread, not as a standalone post.
+- The owner is comfortable posting a Korean Four Pillars service to a tarot-adjacent promotional thread.
+
+Rule notes:
+
+- The May 2026 thread says promotional and self-promotional content belongs there.
+- It says paid reading offers and social media links are included.
+- It warns to follow the 10% self-promotion guideline.
+
+Exact comment:
+
+```text
+I am testing a small Korean Saju / Four Pillars reading project for English readers.
+
+It is not tarot and not Western astrology. It is a Korean-style Four Pillars reading based on year, month, day, and hour pillars, framed as Korean culture plus self-reflection.
+
+The part I am focusing on is overseas birth-record handling. For someone born outside Korea, the full PDF checks birth city, historical timezone, daylight saving time, and true solar time context before interpretation.
+
+Free mini preview first:
+https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=reddit&utm_medium=promotion_thread&utm_campaign=kfortune_launch&utm_content=rtarot_may_promo
+```
+
+Evidence after posting:
+
+- public comment URL
+- screenshot if URL is blocked
+- visible replies or clicks if available
+- sent emails with `utm_content: rtarot_may_promo`
+
+## Batch 1E: Weekly Divination Services Thread
+
+Target:
+https://www.reddit.com/r/SpiritWork_Witchcraft/comments/1tasnwf/weekly_divination_requests_services_thread/
+
+Use only if:
+
+- The owner keeps the first offer free or preview-first.
+- The post clearly says this is Korean Four Pillars / Saju, not spirit communication.
+- The owner is prepared to remove the comment if moderators consider it off-topic.
+
+Rule notes:
+
+- The thread says divination services belong there.
+- It recommends free-of-charge offerings, while allowing a site link after a reading for people who want to support or purchase future readings.
+- It asks readers to provide proof of doing the reading.
+
+Exact comment:
+
+```text
+I can offer a short free Korean Saju / Four Pillars mini preview for people curious about East Asian birth-chart style readings.
+
+Clear scope: this is not spirit communication and not Western astrology. It is a Korean-style Four Pillars reading based on birth year, month, day, and hour, framed as culture plus self-reflection.
+
+For people born outside Korea, the full reading checks birth city, historical timezone, daylight saving time, and true solar time context before interpretation. The free preview is one short clue first.
+
+Free mini preview:
+https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=reddit&utm_medium=services_thread&utm_campaign=kfortune_launch&utm_content=spiritwork_divination_weekly
+```
+
+Evidence after posting:
+
+- public comment URL
+- screenshot if URL is blocked
+- visible replies or clicks if available
+- sent emails with `utm_content: spiritwork_divination_weekly`
+
 ## Owner Approval Phrase
 
 To authorize this exact batch, say:
@@ -133,6 +207,12 @@ or:
 
 ```text
 승인: Batch 1A, 1B, 1C 이 본문 그대로 올려
+```
+
+or:
+
+```text
+승인: Batch 1D만 올려
 ```
 
 If any wording changes are needed, edit this file first and approve the revised exact text.
