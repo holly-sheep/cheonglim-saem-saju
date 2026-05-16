@@ -88,7 +88,9 @@
         <h1>Try one Korean Four Pillars clue before ordering.</h1>
         <p class="lead">The free mini preview gives a first English K-fortune signal from your birth basics. The full Premium PDF is optional and checks birthplace, timezone, daylight saving, and true solar time context before interpretation.</p>
         <div class="buttons">
-          <a class="button primary" href="index.html?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=kfortune_launch&amp;utm_content=free_korean_saju_reading#free-preview">Start free preview</a>
+          <a class="button primary preview-request-mail" href="mailto:aideseobot@gmail.com">Request free preview by email</a>
+          <a class="button preview-request-gmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=aideseobot@gmail.com" target="_blank" rel="noopener">Open Gmail draft</a>
+          <a class="button" href="index.html?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=kfortune_launch&amp;utm_content=free_korean_saju_reading#free-preview">Try browser preview</a>
           <a class="button" href="assets/sample-premium.pdf">See sample PDF</a>
         </div>
       </div>
@@ -115,8 +117,8 @@
       <h2>Prefer email?</h2>
       <p>Open a draft that asks for the free mini preview. You can send the quick request first and add exact birth details in a follow-up.</p>
       <div class="buttons">
-        <a class="button primary" id="previewRequestMail" href="mailto:aideseobot@gmail.com">Request by email</a>
-        <a class="button" id="previewRequestGmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=aideseobot@gmail.com" target="_blank" rel="noopener">Open Gmail draft</a>
+        <a class="button primary preview-request-mail" href="mailto:aideseobot@gmail.com">Request by email</a>
+        <a class="button preview-request-gmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=aideseobot@gmail.com" target="_blank" rel="noopener">Open Gmail draft</a>
       </div>
       <button class="button" id="copyPreviewRequest" type="button">Copy request text</button>
       <div class="request-status" id="requestStatus" aria-live="polite"></div>
@@ -150,8 +152,12 @@
     function refreshPreviewRequestLinks() {
       const subject = encodeURIComponent('Cheonglim Saem free Korean Saju preview request');
       const body = encodeURIComponent(previewRequestText());
-      document.getElementById('previewRequestMail').href = `mailto:aideseobot@gmail.com?subject=${subject}&body=${body}`;
-      document.getElementById('previewRequestGmail').href = `https://mail.google.com/mail/?view=cm&fs=1&to=aideseobot@gmail.com&su=${subject}&body=${body}`;
+      document.querySelectorAll('.preview-request-mail').forEach((link) => {
+        link.href = `mailto:aideseobot@gmail.com?subject=${subject}&body=${body}`;
+      });
+      document.querySelectorAll('.preview-request-gmail').forEach((link) => {
+        link.href = `https://mail.google.com/mail/?view=cm&fs=1&to=aideseobot@gmail.com&su=${subject}&body=${body}`;
+      });
     }
     refreshPreviewRequestLinks();
     document.getElementById('copyPreviewRequest').addEventListener('click', async () => {
