@@ -113,7 +113,7 @@
     <section class="request" id="request-preview">
       <p class="kicker">Email request</p>
       <h2>Prefer email?</h2>
-      <p>Open a draft that asks for the free mini preview. Add your birth date, local birth time if known, country, and city before sending.</p>
+      <p>Open a draft that asks for the free mini preview. You can send the quick request first and add exact birth details in a follow-up.</p>
       <div class="buttons">
         <a class="button primary" id="previewRequestMail" href="mailto:aideseobot@gmail.com">Request by email</a>
         <a class="button" id="previewRequestGmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=aideseobot@gmail.com" target="_blank" rel="noopener">Open Gmail draft</a>
@@ -136,10 +136,12 @@
         '',
         ...trackingLines(),
         '',
-        'birth_date:',
-        'birth_time:',
-        'birth_country:',
-        'birth_city:',
+        'quick_reply: yes, I want the free mini preview. I can send exact birth details in a follow-up if needed.',
+        '',
+        'birth_date_optional:',
+        'birth_time_optional:',
+        'birth_country_optional:',
+        'birth_city_optional:',
         '',
         'question:',
         'I want to try the free Korean Saju mini preview before ordering the full PDF.',
