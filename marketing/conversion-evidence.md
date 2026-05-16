@@ -44,6 +44,8 @@ Rechecked on 2026-05-16T17:27:13+09:00 after deploying the one-tap preview reque
 
 Rechecked on 2026-05-16T17:28:59+09:00 while looking for current traffic or payment evidence. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match.
 
+Rechecked on 2026-05-16T17:37:01+09:00 after adding the Reddit/forum post-now pack and short-form scripts. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. The latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
+
 ## Evidence Rules
 
 - Qualified visit evidence: platform analytics screenshot, GitHub Pages/custom domain analytics if available, or a UTM-tagged lead/order email that proves the visitor came from a campaign URL.
