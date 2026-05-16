@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T20:43:06+09:00
+Last updated: 2026-05-16T20:46:15+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -181,6 +181,8 @@ Live-verified on 2026-05-16T20:37:01+09:00 after the Pages deployment for commit
 Updated locally on 2026-05-16T20:40:35+09:00 to reduce drop-off from the `birthday`, `compatibility`, and `2026/2027 timing` SEO angle pages. Their CTAs now route directly to `free-korean-saju-reading.html#mini-preview-form`, `premium-korean-saju-reading.html#premium-order-form`, the correction-proof example, and relevant sample PDFs instead of the generic homepage package section. The static Pages artifact built successfully to `/tmp/cheonglim-site-angle-fast-cta-check`; mobile screenshots were saved at `/tmp/cheonglim-birthday-fast-cta-mobile.png`, `/tmp/cheonglim-compatibility-fast-cta-mobile.png`, and `/tmp/cheonglim-timing-fast-cta-mobile.png`. This is a conversion routing artifact only; it is not a qualified visit, sent lead, or paid order.
 
 Live-verified on 2026-05-16T20:43:06+09:00 after the Pages deployment for commit `7ebf8b0`. Cache-busted live checks showed `korean-birthday-reading.html`, `korean-compatibility-reading.html`, and `kfortune-2026-2027-timing.html` include the new fast-form UTM routes to `#mini-preview-form`, `#premium-order-form`, correction proof, and sample PDFs. The IndexNow batch was submitted; the first sandboxed run failed DNS resolution for `api.indexnow.org`, and the escalated retry returned HTTP/2 200. GitHub repo traffic remained `28` views and `1` unique. The latest 5 TronGrid TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match.
+
+Updated locally on 2026-05-16T20:46:15+09:00 to reduce drop-off from the core SEO pages most aligned with the product promise. `saju-without-birth-time.html`, `overseas-birth-saju.html`, `true-solar-time-saju.html`, and `korean-saju-reading-online.html` now route to the free preview form, Premium order form, correction-proof example, sample PDF, or Basic detail page instead of generic homepage checkout anchors. The static Pages artifact built successfully to `/tmp/cheonglim-site-core-seo-fast-cta-check`; mobile screenshots were saved at `/tmp/cheonglim-unknown-time-fast-cta-mobile.png`, `/tmp/cheonglim-overseas-birth-fast-cta-mobile.png`, `/tmp/cheonglim-true-solar-fast-cta-mobile.png`, and `/tmp/cheonglim-online-reading-fast-cta-mobile.png`. This is a conversion routing artifact only; it is not a qualified visit, sent lead, or paid order.
 
 ## Evidence Rules
 

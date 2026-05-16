@@ -38,8 +38,10 @@
     .box p { margin:0; font-size:16px; line-height:1.55; }
     .cta { margin-top:36px; padding:20px; border-radius:8px; background:var(--deep); color:#fff8ea; }
     .cta p { color:#eadfcd; }
-    .button { display:inline-flex; min-height:50px; align-items:center; justify-content:center; margin-top:12px; padding:10px 18px; border-radius:8px; background:white; color:var(--deep); font-weight:950; line-height:1.2; text-align:center; text-decoration:none; }
-    @media (max-width:720px){ .top { flex-direction:column; } .grid { grid-template-columns:1fr; } }
+    .actions { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
+    .button { display:inline-flex; min-height:50px; align-items:center; justify-content:center; padding:10px 18px; border-radius:8px; background:white; color:var(--deep); font-weight:950; line-height:1.2; text-align:center; text-decoration:none; }
+    .button.primary { background:#f0c982; color:#17120d; }
+    @media (max-width:720px){ .top { flex-direction:column; } .grid, .actions { grid-template-columns:1fr; } }
     @media (min-width:900px){ main { padding:52px 28px 88px; } .grid { gap:16px; } }
   </style>
 </head>
@@ -63,7 +65,12 @@
     <div class="cta">
       <b>Start with Basic, then choose Premium if the time-context check matters for you.</b>
       <p>After USDT-TRC20 payment, send the birth details through the intake form with the same checkout email and the receipt ID when available.</p>
-      <a class="button" href="basic-korean-saju-report.html">View Basic report</a>
+      <div class="actions">
+        <a class="button primary" href="premium-korean-saju-reading.html?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=kfortune_launch&amp;utm_content=overseas_birth_premium_order#premium-order-form">Order Premium</a>
+        <a class="button" href="free-korean-saju-reading.html?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=kfortune_launch&amp;utm_content=overseas_birth_preview_form#mini-preview-form">Try free preview</a>
+        <a class="button" href="trust-policies.html#correction-proof-example">See correction proof</a>
+        <a class="button" href="assets/sample-premium.pdf">See sample PDF</a>
+      </div>
     </div>
   </main>
 </body>
