@@ -37,7 +37,7 @@ Rechecked on 2026-05-16T17:04:32+09:00 after adding the trust and policies page.
 - Qualified visit evidence: platform analytics screenshot, GitHub Pages/custom domain analytics if available, or a UTM-tagged lead/order email that proves the visitor came from a campaign URL.
 - Free preview lead evidence: an email body containing `lead_type: free_mini_preview_followup` or `lead_type: free_mini_preview_request` plus `utm_source`, `utm_campaign`, and ideally `utm_content`. The preview result and free preview page offer mailto, copy text, and Gmail draft fallback; only a sent email counts as a lead.
 - Creator review lead evidence: an email body containing `lead_type: free_vip_review_application` plus source fields.
-- Payment-intent lead evidence: an email body containing `lead_type: payment_question_or_intent`, selected `tier`, `amount`, and UTM fields. Count this separately from paid orders because it proves checkout intent, not completed payment.
+- Payment-intent lead evidence: an email body containing `lead_type: payment_question_or_intent` or `lead_type: order_reservation_intent`, selected `tier`, `amount`, and UTM fields. Count this separately from paid orders because it proves checkout or reservation intent, not completed payment.
 - Paid order evidence: USDT-TRC20 payment receipt, wallet transaction hash, or order email body from `intake.html` that can be matched to a payment.
 - Test clicks, local screenshots, curl requests, and repo views do not count as qualified visits unless a real external user or platform analytics source is attached.
 
@@ -46,7 +46,7 @@ Rechecked on 2026-05-16T17:04:32+09:00 after adding the trust and policies page.
 1. Open the posted platform and capture the post URL or screenshot.
 2. Update `marketing/campaign-tracker.csv` with `date`, `status`, and `evidence_url_or_file`.
 3. Check email for `lead_type:` lines and copy the UTM source fields into the tracker.
-4. Count `payment_question_or_intent` as payment-intent lead only, then follow up manually before counting a paid order.
+4. Count `payment_question_or_intent` or `order_reservation_intent` as payment-intent lead only, then follow up manually before counting a paid order.
 5. Check the USDT wallet for matching payment receipts before counting paid orders.
 6. Append hard evidence to `marketing/evidence-log.csv`.
 

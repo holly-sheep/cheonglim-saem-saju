@@ -656,6 +656,7 @@
             <div class="tier-for"><b>Best for</b>a first K-fortune reading without a large commitment.</div>
             <ul class="list"><li>Calculated Four Pillars chart</li><li>Five Elements and chart weather</li><li>Current timing and starter plan</li></ul>
             <a class="button payment-jump" href="#usdt-tron" data-payment-tier="Basic">Pay Basic with USDT</a>
+            <a class="afterpay reserve-intent" href="mailto:aideseobot@gmail.com" data-reserve-tier="Basic" data-reserve-amount="9">Reserve Basic by email first</a>
             <a class="afterpay" href="intake.html?tier=basic">Step 2: send Basic birth details</a>
           </article>
           <article class="package featured">
@@ -664,6 +665,7 @@
             <div class="tier-for"><b>Best for</b>most buyers who want timing, work, money behavior, relationship rhythm, and the overseas birth-time check in one report.</div>
             <ul class="list"><li>Everything in Basic</li><li>Life-area and desire pattern reading</li><li>Quarterly flow and action priorities</li></ul>
             <a class="button primary payment-jump" href="#usdt-tron" data-payment-tier="Premium">Pay Premium with USDT</a>
+            <a class="afterpay reserve-intent" href="mailto:aideseobot@gmail.com" data-reserve-tier="Premium" data-reserve-amount="19">Reserve Premium by email first</a>
             <a class="afterpay" href="intake.html?tier=premium">Step 2: send Premium birth details</a>
           </article>
           <article class="package">
@@ -672,6 +674,7 @@
             <div class="tier-for"><b>Best for</b>a longer planning document to revisit across the year, without turning the product into live consulting.</div>
             <ul class="list"><li>Everything in Premium</li><li>Ten-year luck roadmap</li><li>Priority delivery and one optional follow-up question</li></ul>
             <a class="button payment-jump" href="#usdt-tron" data-payment-tier="VIP">Pay VIP with USDT</a>
+            <a class="afterpay reserve-intent" href="mailto:aideseobot@gmail.com" data-reserve-tier="VIP" data-reserve-amount="39">Reserve VIP by email first</a>
             <a class="afterpay" href="intake.html?tier=vip">Step 2: send VIP birth details</a>
           </article>
         </div>
@@ -1154,11 +1157,37 @@
         'I am interested in ordering but have a question before sending USDT.',
       ].join('\n');
     }
+    function reserveOrderText(tier, amount) {
+      return [
+        'lead_type: order_reservation_intent',
+        `tier: ${tier}`,
+        `amount: ${amount} USDT`,
+        'network: TRON / TRC20',
+        'payment_status: not_paid_yet',
+        '',
+        ...trackingLines(),
+        '',
+        'birth_date:',
+        'birth_time:',
+        'birth_country:',
+        'birth_city:',
+        '',
+        'message:',
+        'I want to reserve this Korean Saju PDF first and confirm the next payment step before sending USDT.',
+      ].join('\n');
+    }
     function refreshPaymentQuestionLink() {
       const subject = encodeURIComponent('Cheonglim Saem payment question');
       const body = encodeURIComponent(paymentQuestionText());
       document.getElementById('paymentQuestionMail').href = `mailto:aideseobot@gmail.com?subject=${subject}&body=${body}`;
       document.getElementById('paymentQuestionGmail').href = `https://mail.google.com/mail/?view=cm&fs=1&to=aideseobot@gmail.com&su=${subject}&body=${body}`;
+    }
+    function refreshReserveIntentLinks() {
+      document.querySelectorAll('.reserve-intent').forEach((link) => {
+        const subject = encodeURIComponent(`Cheonglim Saem ${link.dataset.reserveTier} reservation`);
+        const body = encodeURIComponent(reserveOrderText(link.dataset.reserveTier, link.dataset.reserveAmount));
+        link.href = `mailto:aideseobot@gmail.com?subject=${subject}&body=${body}`;
+      });
     }
     document.getElementById('copyWalletButton').addEventListener('click', async () => {
       const address = walletAddress.textContent.trim();
@@ -1193,6 +1222,9 @@
       });
     });
     document.getElementById('paymentQuestionMail').addEventListener('click', refreshPaymentQuestionLink);
+    document.querySelectorAll('.reserve-intent').forEach((link) => {
+      link.addEventListener('click', refreshReserveIntentLinks);
+    });
     document.getElementById('copyPaymentQuestion').addEventListener('click', async () => {
       const text = paymentQuestionText();
       try {
@@ -1205,6 +1237,7 @@
       walletCopyStatus.classList.add('is-visible');
     });
     refreshPaymentQuestionLink();
+    refreshReserveIntentLinks();
     document.getElementById('unknownBirthTime').addEventListener('change', (event) => {
       const disabled = event.target.checked;
       document.getElementById('birthHour').disabled = disabled;
