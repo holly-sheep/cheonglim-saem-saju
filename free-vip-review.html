@@ -91,6 +91,16 @@
   <script>
     const form = document.getElementById('reviewApplyForm');
     const status = document.getElementById('status');
+    function trackingLines() {
+      const params = new URLSearchParams(window.location.search);
+      return [
+        `landing_path: ${window.location.pathname || '/free-vip-review.html'}`,
+        `utm_source: ${params.get('utm_source') || 'direct_or_unknown'}`,
+        `utm_medium: ${params.get('utm_medium') || 'direct_or_unknown'}`,
+        `utm_campaign: ${params.get('utm_campaign') || 'none'}`,
+        `utm_content: ${params.get('utm_content') || 'none'}`,
+      ];
+    }
     function applicationBody() {
       return [
         'lead_type: free_vip_review_application',
@@ -99,6 +109,8 @@
         `audience_angle: ${document.getElementById('audience').value.trim()}`,
         `public_link: ${document.getElementById('publicLink').value.trim()}`,
         `delivery_email: ${document.getElementById('deliveryEmail').value.trim()}`,
+        '',
+        ...trackingLines(),
         '',
         'birth_details:',
         document.getElementById('birthDetails').value.trim(),

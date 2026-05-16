@@ -196,6 +196,16 @@
       const region = (data.birthRegion || '').trim();
       return region ? `${city}, ${region}` : city;
     }
+    function trackingLines() {
+      const params = new URLSearchParams(window.location.search);
+      return [
+        `landing_path: ${window.location.pathname || '/intake.html'}`,
+        `utm_source: ${params.get('utm_source') || 'direct_or_unknown'}`,
+        `utm_medium: ${params.get('utm_medium') || 'direct_or_unknown'}`,
+        `utm_campaign: ${params.get('utm_campaign') || 'none'}`,
+        `utm_content: ${params.get('utm_content') || 'none'}`,
+      ];
+    }
     function isValidTimezone(value) {
       const timezone = value.trim();
       if (!timezone) return true;
@@ -271,7 +281,7 @@
       const timezone = data.unknownTimezone ? '' : data.timezone;
       const timezoneStatus = timezone ? 'provided' : data.unknownTimezone ? 'unknown' : 'not_provided';
       const longitudeStatus = data.longitude ? 'provided' : 'not_provided';
-      return `order_id: ${referenceId()}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${birthDate}\nbirth_time: ${birthTimeValue(data)}\ngender: ${data.gender}\nbirth_country: ${birthCountry}\nbirth_city: ${birthCity}\nbirth_region: ${data.birthRegion || ''}\ntimezone: ${timezone}\ntimezone_status: ${timezoneStatus}\nlongitude: ${data.longitude || ''}\nlongitude_status: ${longitudeStatus}\ndst_basis: ${data.dstBasis || 'recorded-civil-time'}\ntime_policy: ${timePolicy}\nmemo: ${memo}`;
+      return `order_id: ${referenceId()}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${birthDate}\nbirth_time: ${birthTimeValue(data)}\ngender: ${data.gender}\nbirth_country: ${birthCountry}\nbirth_city: ${birthCity}\nbirth_region: ${data.birthRegion || ''}\ntimezone: ${timezone}\ntimezone_status: ${timezoneStatus}\nlongitude: ${data.longitude || ''}\nlongitude_status: ${longitudeStatus}\ndst_basis: ${data.dstBasis || 'recorded-civil-time'}\ntime_policy: ${timePolicy}\n${trackingLines().join('\n')}\nmemo: ${memo}`;
     }
     function refresh() { output.textContent = buildText(); }
     form.addEventListener('input', refresh);

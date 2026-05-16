@@ -762,6 +762,16 @@
     function displayPlaceName(value) {
       return value.trim().replace(/\b[a-z]/g, (char) => char.toUpperCase());
     }
+    function trackingLines() {
+      const params = new URLSearchParams(window.location.search);
+      return [
+        `landing_path: ${window.location.pathname || '/'}`,
+        `utm_source: ${params.get('utm_source') || 'direct_or_unknown'}`,
+        `utm_medium: ${params.get('utm_medium') || 'direct_or_unknown'}`,
+        `utm_campaign: ${params.get('utm_campaign') || 'none'}`,
+        `utm_content: ${params.get('utm_content') || 'none'}`,
+      ];
+    }
     function elementOverview(year, hour, unknownTime) {
       const pillar = yearPillar(year);
       const hourInfo = unknownTime ? { name: 'Unknown', animal: 'unknown', element: 'Water' } : hourBranch(hour);
@@ -836,6 +846,8 @@
         `first_clue: ${pillar.stemElement} leads your chart`,
         `strongest_pull: ${strongest.name} ${strongest.percent}%`,
         `needs_support: ${weakest.name} ${weakest.percent}%`,
+        '',
+        ...trackingLines(),
         '',
         'question:',
         'I tried the free mini preview and want to ask about the full report.',
