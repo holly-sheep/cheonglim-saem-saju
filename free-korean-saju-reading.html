@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="no-referrer">
   <title>Free Korean Saju Reading Preview in English | Cheonglim Saem</title>
   <meta name="description" content="Try a free Korean Saju mini preview in English before ordering the full Four Pillars PDF. Birth city, timezone, DST, and true solar time are checked in the full reading.">
@@ -70,6 +70,10 @@
     .step b { display:block; color:var(--ink); }
     .step p { margin:5px 0 0; }
     .note { margin-top:22px; padding:16px; border:1px solid rgba(36,102,92,.22); border-radius:8px; background:#edf7f4; color:var(--deep); font-weight:850; }
+    .request { margin-top:28px; padding:20px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .request p { margin:8px 0 0; }
+    .request-status { display:none; margin-top:10px; padding:10px 12px; border-radius:8px; background:#f8efe1; color:#5d554b; font-size:13px; font-weight:850; line-height:1.4; white-space:pre-wrap; overflow-wrap:anywhere; }
+    .request-status.is-visible { display:block; }
     footer { margin-top:40px; color:var(--muted); font-size:14px; }
     @media (max-width:760px){ .top, .hero { grid-template-columns:1fr; flex-direction:column; } .hero img { max-width:360px; } .buttons, .grid { grid-template-columns:1fr; } }
     @media (min-width:900px){ main { padding:52px 28px 88px; } }
@@ -106,7 +110,60 @@
     </div>
 
     <div class="note">This is for entertainment, Korean culture, and self-reflection. It is not financial, legal, medical, therapeutic, or investment advice.</div>
+    <section class="request" id="request-preview">
+      <p class="kicker">Email request</p>
+      <h2>Prefer email?</h2>
+      <p>Open a draft that asks for the free mini preview. Add your birth date, local birth time if known, country, and city before sending.</p>
+      <div class="buttons">
+        <a class="button primary" id="previewRequestMail" href="mailto:aideseobot@gmail.com">Request by email</a>
+        <a class="button" id="previewRequestGmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=aideseobot@gmail.com" target="_blank" rel="noopener">Open Gmail draft</a>
+      </div>
+      <button class="button" id="copyPreviewRequest" type="button">Copy request text</button>
+      <div class="request-status" id="requestStatus" aria-live="polite"></div>
+    </section>
     <footer><a href="index.html#packages">View Basic, Premium, and VIP packages</a> · <a href="saju-without-birth-time.html">Unknown birth time guide</a></footer>
   </main>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const trackingKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
+    function trackingLines() {
+      return trackingKeys.map((key) => `${key}: ${params.get(key) || 'direct'}`);
+    }
+    function previewRequestText() {
+      return [
+        'lead_type: free_mini_preview_request',
+        'source_page: free_korean_saju_reading',
+        '',
+        ...trackingLines(),
+        '',
+        'birth_date:',
+        'birth_time:',
+        'birth_country:',
+        'birth_city:',
+        '',
+        'question:',
+        'I want to try the free Korean Saju mini preview before ordering the full PDF.',
+      ].join('\n');
+    }
+    function refreshPreviewRequestLinks() {
+      const subject = encodeURIComponent('Cheonglim Saem free Korean Saju preview request');
+      const body = encodeURIComponent(previewRequestText());
+      document.getElementById('previewRequestMail').href = `mailto:aideseobot@gmail.com?subject=${subject}&body=${body}`;
+      document.getElementById('previewRequestGmail').href = `https://mail.google.com/mail/?view=cm&fs=1&to=aideseobot@gmail.com&su=${subject}&body=${body}`;
+    }
+    refreshPreviewRequestLinks();
+    document.getElementById('copyPreviewRequest').addEventListener('click', async () => {
+      const status = document.getElementById('requestStatus');
+      const text = previewRequestText();
+      try {
+        if (!navigator.clipboard) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(text);
+        status.textContent = 'Request text copied. Paste it into email and send it to aideseobot@gmail.com.';
+      } catch (error) {
+        status.textContent = `Copy did not complete in this browser. Email this text to aideseobot@gmail.com:\n\n${text}`;
+      }
+      status.classList.add('is-visible');
+    });
+  </script>
 </body>
 </html>

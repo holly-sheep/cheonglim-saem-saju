@@ -31,7 +31,7 @@ Rechecked on 2026-05-16T16:34:46+09:00 after the checkout Gmail fallback deploym
 ## Evidence Rules
 
 - Qualified visit evidence: platform analytics screenshot, GitHub Pages/custom domain analytics if available, or a UTM-tagged lead/order email that proves the visitor came from a campaign URL.
-- Free preview lead evidence: an email body containing `lead_type: free_mini_preview_followup` plus `utm_source`, `utm_campaign`, and ideally `utm_content`. The preview result offers mailto, copy text, and Gmail draft fallback; only a sent email counts as a lead.
+- Free preview lead evidence: an email body containing `lead_type: free_mini_preview_followup` or `lead_type: free_mini_preview_request` plus `utm_source`, `utm_campaign`, and ideally `utm_content`. The preview result and free preview page offer mailto, copy text, and Gmail draft fallback; only a sent email counts as a lead.
 - Creator review lead evidence: an email body containing `lead_type: free_vip_review_application` plus source fields.
 - Payment-intent lead evidence: an email body containing `lead_type: payment_question_or_intent`, selected `tier`, `amount`, and UTM fields. Count this separately from paid orders because it proves checkout intent, not completed payment.
 - Paid order evidence: USDT-TRC20 payment receipt, wallet transaction hash, or order email body from `intake.html` that can be matched to a payment.
