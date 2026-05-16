@@ -814,7 +814,7 @@
       const safePlace = escapeHtml(place);
       const regionNote = /korea|south korea|republic of korea/i.test(country)
         ? 'For Korea births, local civil time is usually the starting point.'
-        : 'Because this birth is outside Korea, timezone, DST, and birthplace location may change the hour reading.';
+        : 'For this birthplace, timezone, DST, and city location may change the hour reading.';
       const hourCopy = unknownTime
         ? 'Birth time is marked unknown, so the hour pillar stays open until the full reading has a reliable range.'
         : `Your submitted time places the hour near the ${hourInfo.animal} hour, so private rhythm and long-term planning need a time correction check.`;
