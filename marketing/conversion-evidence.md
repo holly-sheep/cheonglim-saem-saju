@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T19:24:17+09:00
+Last updated: 2026-05-16T19:30:06+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -127,6 +127,12 @@ Rechecked on 2026-05-16T19:21:49+09:00 after the Reddit landing payment panel up
 Visual-checked on 2026-05-16T19:22:28+09:00 with a full-page mobile Playwright screenshot saved at `/tmp/cheonglim-reddit-payment-panel-mobile-full.png`. The rendered Reddit landing shows the package cards, Premium payment panel, QR, wallet, `19 USDT`, copy button, and Premium intake link without obvious mobile overlap.
 
 Live-verified on 2026-05-16T19:24:17+09:00 after the Pages deployment for commit `3bf3a3e`. A cache-busted request to `reddit-saju-preview.html` returned `Premium payment details`, `19 USDT`, wallet `TPinvSovyuBHTVK1Kd6bUYYESMoSBxjgjJ`, `copyPremiumPayment`, `source_page: reddit_saju_preview`, and `intake.html?tier=premium`. This proves the Reddit landing payment panel is live, but it is still not a public post, qualified visit, sent lead, reservation email, or paid order.
+
+Updated locally on 2026-05-16T19:28:16+09:00 to cover the diaspora/adoptee/heritage Korean target. Added `korean-saju-for-diaspora.html`, a public SEO landing page for Korean diaspora, adoptees, heritage Koreans, and K-culture readers. The page frames Saju as Korean culture and self-reflection, explicitly avoids identity-proof claims, explains birth city/timezone/DST/true-solar-time handling, and links to the free mini preview, Premium full PDF, sample PDF, and trust policies. Also added the page to `sitemap.xml` and `scripts/submit-indexnow.sh`.
+
+Rechecked on 2026-05-16T19:29:20+09:00 after adding the diaspora page. The static Pages artifact built successfully to `/tmp/cheonglim-site-diaspora-page-check` with 26 root HTML files, and the rendered page plus sitemap/IndexNow script include `korean-saju-for-diaspora.html`, `Korean diaspora`, `Korean adoptees`, `Heritage Korean and K-culture readers`, `diaspora_free_preview`, `diaspora_premium`, and `sample-premium.pdf`. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match; the latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
+
+Visual-checked on 2026-05-16T19:30:06+09:00 with a full-page mobile Playwright screenshot saved at `/tmp/cheonglim-diaspora-page-mobile-full.png`. The rendered diaspora page shows the hero, audience boxes, birthplace/timezone section, sample PDF block, and free preview/Premium CTAs without obvious mobile overlap.
 
 ## Evidence Rules
 
