@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T18:52:59+09:00
+Last updated: 2026-05-16T18:54:58+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -97,6 +97,8 @@ Live-verified on 2026-05-16T18:47:52+09:00 after the Pages deployment for commit
 Updated locally on 2026-05-16T18:51:52+09:00 to create a high-intent Premium landing path. Added `premium-korean-saju-reading.html` with the Premium 19 USDT offer, sample PDF proof, trust policy link, USDT order flow, and reservation email/Gmail CTAs containing `lead_type: order_reservation_intent`, `source_page: premium_korean_saju_reading`, `selected_tier: Premium`, and `amount_usdt: 19`. Also linked it from the homepage Premium package, sitemap, and IndexNow batch. This is a conversion artifact only until a sent email or payment evidence exists.
 
 Rechecked on 2026-05-16T18:52:59+09:00 after creating the Premium landing page. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. The latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
+
+Live-verified on 2026-05-16T18:54:58+09:00 after the Pages deployment for commit `ccefbde`. A cache-busted request to `premium-korean-saju-reading.html` returned `Premium Korean Saju Reading`, `Reserve Premium by email`, `Open Gmail draft`, `source_page: premium_korean_saju_reading`, and `amount_usdt: 19`. A cache-busted sitemap request returned `premium-korean-saju-reading.html`, and the homepage returned the `Premium details page` link. The IndexNow batch including the Premium page was submitted; the first sandboxed run failed DNS resolution for `api.indexnow.org`, and the escalated retry returned HTTP/2 200. This proves the Premium reservation landing is live and submitted to IndexNow, but it is not a qualified visit, sent lead, or paid order.
 
 ## Evidence Rules
 
