@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T19:30:06+09:00
+Last updated: 2026-05-16T19:33:16+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -133,6 +133,8 @@ Updated locally on 2026-05-16T19:28:16+09:00 to cover the diaspora/adoptee/herit
 Rechecked on 2026-05-16T19:29:20+09:00 after adding the diaspora page. The static Pages artifact built successfully to `/tmp/cheonglim-site-diaspora-page-check` with 26 root HTML files, and the rendered page plus sitemap/IndexNow script include `korean-saju-for-diaspora.html`, `Korean diaspora`, `Korean adoptees`, `Heritage Korean and K-culture readers`, `diaspora_free_preview`, `diaspora_premium`, and `sample-premium.pdf`. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match; the latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
 
 Visual-checked on 2026-05-16T19:30:06+09:00 with a full-page mobile Playwright screenshot saved at `/tmp/cheonglim-diaspora-page-mobile-full.png`. The rendered diaspora page shows the hero, audience boxes, birthplace/timezone section, sample PDF block, and free preview/Premium CTAs without obvious mobile overlap.
+
+Live-verified on 2026-05-16T19:33:16+09:00 after the Pages deployment for commit `ed6aaf7`. Cache-busted live requests returned `korean-saju-for-diaspora.html` with diaspora, adoptee, heritage Korean, `diaspora_free_preview`, `diaspora_premium`, and `sample-premium.pdf` content, and the live sitemap includes the new page. The public URL batch including the diaspora page was submitted to IndexNow; the first sandboxed run failed DNS resolution for `api.indexnow.org`, and the escalated retry returned HTTP/2 200. This is a live acquisition and search-submission artifact only, not a qualified visit, lead, or paid order.
 
 ## Evidence Rules
 
