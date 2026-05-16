@@ -61,6 +61,12 @@
           <option value="launch_push_x_birth_city">X: launch birth-city hook</option>
           <option value="launch_push_pin_free_preview">Pinterest: free-preview pin</option>
           <option value="launch_push_bio">Instagram: bio link update</option>
+          <option value="batch2_reddit_promo_preview">Batch 2: Reddit promotion thread</option>
+          <option value="batch2_astrology_forum_preview">Batch 2: astrology forum services post</option>
+          <option value="batch2_kculture_preview">Batch 2: K-culture forum post</option>
+          <option value="batch2_diaspora_preview">Batch 2: diaspora forum post</option>
+          <option value="batch2_x_thread_preview">Batch 2: X thread</option>
+          <option value="batch2_pinterest_preview">Batch 2: Pinterest pin</option>
         </select></label>
         <label>Platform<select id="platform"><option>Instagram</option><option>X</option><option>Pinterest</option><option>Reddit</option><option>TikTok</option><option>Forum</option></select></label>
         <label>Post status<select id="status"><option>post_published</option><option>metrics_snapshot</option><option>lead_received</option><option>payment_recheck</option></select></label>
@@ -150,6 +156,42 @@
         status: 'post_published',
         campaignUrl: 'https://cheonglimsaju.com/bio.html?utm_source=instagram&utm_medium=bio&utm_campaign=kfortune_launch&utm_content=launch_push_bio',
         notes: 'Instagram cheonglim_lab bio update; record screenshot or profile URL plus profile visits and website taps if available.',
+      },
+      batch2_reddit_promo_preview: {
+        platform: 'Reddit',
+        status: 'post_published',
+        campaignUrl: 'https://cheonglimsaju.com/reddit-saju-preview.html?utm_source=reddit&utm_medium=promotion_thread&utm_campaign=kfortune_launch&utm_content=batch2_reddit_promo_preview',
+        notes: 'Written Batch 2B posted only in a clearly allowed Reddit promotion or services thread; record public comment URL, replies, and matching lead emails.',
+      },
+      batch2_astrology_forum_preview: {
+        platform: 'Forum',
+        status: 'post_published',
+        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=services_board&utm_campaign=kfortune_launch&utm_content=batch2_astrology_forum_preview',
+        notes: 'Written Batch 2C posted only in a services, sponsor, recommendation, or advertisement section; record public thread URL, section name, views, and replies.',
+      },
+      batch2_kculture_preview: {
+        platform: 'Forum',
+        status: 'post_published',
+        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=kculture_board&utm_campaign=kfortune_launch&utm_content=batch2_kculture_preview',
+        notes: 'Written Batch 2D for K-culture communities where Korean culture posts and links are allowed; record public URL, section, metrics, and matching leads.',
+      },
+      batch2_diaspora_preview: {
+        platform: 'Forum',
+        status: 'post_published',
+        campaignUrl: 'https://cheonglimsaju.com/korean-saju-for-diaspora.html?utm_source=forum&utm_medium=diaspora_board&utm_campaign=kfortune_launch&utm_content=batch2_diaspora_preview',
+        notes: 'Written Batch 2E for diaspora or heritage contexts with sensitive framing; record public URL, replies, and any free-preview or Premium-intent emails.',
+      },
+      batch2_x_thread_preview: {
+        platform: 'X',
+        status: 'post_published',
+        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=x&utm_medium=social&utm_campaign=kfortune_launch&utm_content=batch2_x_thread_preview',
+        notes: 'Written Batch 2F X thread; record public thread URL, impressions, clicks, replies, and any matching lead emails.',
+      },
+      batch2_pinterest_preview: {
+        platform: 'Pinterest',
+        status: 'post_published',
+        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=pinterest&utm_medium=social&utm_campaign=kfortune_launch&utm_content=batch2_pinterest_preview',
+        notes: 'Written Batch 2G Pinterest pin; record public pin URL, impressions, saves, outbound clicks, and any matching lead emails.',
       },
     };
 
