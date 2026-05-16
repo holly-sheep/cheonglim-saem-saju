@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T14:22:52+09:00
+Last updated: 2026-05-16T15:00:38+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -13,6 +13,14 @@ GitHub repo traffic snapshot, checked with `gh api repos/holly-sheep/cheonglim-s
 - 14-day total at check time: 27 views, 1 unique
 
 This is weak evidence because it is repository traffic, not confirmed customer site traffic. Treat it as a baseline only, not as qualified visits.
+
+TRON USDT wallet snapshot, checked with Tronscan token transfer API for `TPinvSovyuBHTVK1Kd6bUYYESMoSBxjgjJ`:
+
+- Latest USDT transfer involving the wallet: 2025-10-31T01:06:06Z, outbound 201.411351 USDT, tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`
+- Latest inbound USDT transfer: 2025-10-31T00:55:42Z, inbound 201.411351 USDT, tx `9cd3f43612033afcb46655003494cd78ea1b287e83e452f37b9a40e0f10bb70e`
+- No inbound transfers in the checked latest 20 token transfers matched the package prices `9`, `19`, or `39` USDT.
+
+This proves no current paid-order evidence was found in the public wallet check. It does not prove there were no payments to a different address or unreconciled checkout path.
 
 ## Evidence Rules
 
