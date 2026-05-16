@@ -101,6 +101,22 @@
         `utm_content: ${params.get('utm_content') || 'none'}`,
       ];
     }
+    function preserveCampaignParams(root = document) {
+      const params = new URLSearchParams(window.location.search);
+      const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
+      const entries = keys.map((key) => [key, params.get(key)]).filter(([, value]) => value);
+      if (!entries.length) return;
+      root.querySelectorAll('a[href]').forEach((link) => {
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('mailto:')) return;
+        const url = new URL(href, window.location.href);
+        if (url.origin !== window.location.origin) return;
+        entries.forEach(([key, value]) => {
+          if (!url.searchParams.has(key)) url.searchParams.set(key, value);
+        });
+        link.setAttribute('href', `${url.pathname}${url.search}${url.hash}`);
+      });
+    }
     function applicationBody() {
       return [
         'lead_type: free_vip_review_application',
@@ -141,6 +157,7 @@
         showStatus(`Copy did not complete in this browser. Email this text to aideseobot@gmail.com:\n\n${text}`);
       }
     });
+    preserveCampaignParams();
   </script>
 </body>
 </html>
