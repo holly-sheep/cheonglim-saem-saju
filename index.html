@@ -615,6 +615,10 @@
               </div>
               <div class="wallet-copy-status" id="walletCopyStatus" aria-live="polite"></div>
               <div class="button-row">
+                <a class="button primary" id="paymentQuestionMail" href="mailto:aideseobot@gmail.com">Ask before paying</a>
+                <button class="button secondary" type="button" id="copyPaymentQuestion">Copy payment question</button>
+              </div>
+              <div class="button-row">
                 <a class="button secondary" href="intake.html?tier=basic">Basic form</a>
                 <a class="button secondary" href="intake.html?tier=premium">Premium form</a>
               </div>
@@ -1097,6 +1101,9 @@
       buttons.forEach((button) => button.classList.toggle('is-selected', button.dataset.paymentTier === tier));
       return [...buttons].find((button) => button.dataset.paymentTier === tier);
     }
+    function currentPaymentButton() {
+      return document.querySelector('[data-payment-amount].is-selected') || selectedPaymentButton('Premium');
+    }
     function paymentInstruction(button) {
       const address = walletAddress.textContent.trim();
       const formUrl = new URL(button.dataset.paymentForm, window.location.href).href;
@@ -1110,6 +1117,25 @@
         '',
         'After payment, copy the USDT transaction hash and paste it into the birth details form as the payment receipt ID.',
       ].join('\n');
+    }
+    function paymentQuestionText() {
+      const button = currentPaymentButton();
+      return [
+        'lead_type: payment_question_or_intent',
+        `tier: ${button.dataset.paymentTier}`,
+        `amount: ${button.dataset.paymentAmount} USDT`,
+        'network: TRON / TRC20',
+        '',
+        ...trackingLines(),
+        '',
+        'question:',
+        'I am interested in ordering but have a question before sending USDT.',
+      ].join('\n');
+    }
+    function refreshPaymentQuestionLink() {
+      const subject = encodeURIComponent('Cheonglim Saem payment question');
+      const body = encodeURIComponent(paymentQuestionText());
+      document.getElementById('paymentQuestionMail').href = `mailto:aideseobot@gmail.com?subject=${subject}&body=${body}`;
     }
     document.getElementById('copyWalletButton').addEventListener('click', async () => {
       const address = walletAddress.textContent.trim();
@@ -1125,6 +1151,7 @@
     document.querySelectorAll('[data-payment-amount]').forEach((button) => {
       button.addEventListener('click', async () => {
         selectedPaymentButton(button.dataset.paymentTier);
+        refreshPaymentQuestionLink();
         const instruction = paymentInstruction(button);
         try {
           if (!navigator.clipboard) throw new Error('Clipboard unavailable');
@@ -1139,8 +1166,22 @@
     document.querySelectorAll('.payment-jump').forEach((link) => {
       link.addEventListener('click', () => {
         selectedPaymentButton(link.dataset.paymentTier);
+        refreshPaymentQuestionLink();
       });
     });
+    document.getElementById('paymentQuestionMail').addEventListener('click', refreshPaymentQuestionLink);
+    document.getElementById('copyPaymentQuestion').addEventListener('click', async () => {
+      const text = paymentQuestionText();
+      try {
+        if (!navigator.clipboard) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(text);
+        walletCopyStatus.textContent = 'Payment question copied. Paste it into Gmail, Outlook, or any email app and send it to aideseobot@gmail.com.';
+      } catch (error) {
+        walletCopyStatus.textContent = `Copy did not complete in this browser. Email this text to aideseobot@gmail.com:\n\n${text}`;
+      }
+      walletCopyStatus.classList.add('is-visible');
+    });
+    refreshPaymentQuestionLink();
     document.getElementById('unknownBirthTime').addEventListener('change', (event) => {
       const disabled = event.target.checked;
       document.getElementById('birthHour').disabled = disabled;
