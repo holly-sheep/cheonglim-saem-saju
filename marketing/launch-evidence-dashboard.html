@@ -47,6 +47,15 @@
     <h2>Post evidence row builder</h2>
     <form id="evidenceForm">
       <div class="form-grid">
+        <label class="span-2">Campaign preset<select id="preset">
+          <option value="">Custom evidence row</option>
+          <option value="reddit_advanced_birth_time_reply">Reddit: r/Advancedastrology birth-time reply</option>
+          <option value="astrologyweekly_ad_section">Forum: Astrology Weekly ad/recommendations</option>
+          <option value="astrolearn_services_forum">Forum: Astrolearn services post</option>
+          <option value="launch_push_x_birth_city">X: launch birth-city hook</option>
+          <option value="launch_push_pin_free_preview">Pinterest: free-preview pin</option>
+          <option value="launch_push_bio">Instagram: bio link update</option>
+        </select></label>
         <label>Platform<select id="platform"><option>Instagram</option><option>X</option><option>Pinterest</option><option>Reddit</option><option>TikTok</option><option>Forum</option></select></label>
         <label>Post status<select id="status"><option>post_published</option><option>metrics_snapshot</option><option>lead_received</option><option>payment_recheck</option></select></label>
         <label>Public post or screenshot URL<input id="publicUrl" placeholder="https://..."></label>
@@ -69,6 +78,44 @@
     const form = document.getElementById('evidenceForm');
     const output = document.getElementById('output');
     const copyStatus = document.getElementById('copyStatus');
+    const presets = {
+      reddit_advanced_birth_time_reply: {
+        platform: 'Reddit',
+        status: 'post_published',
+        campaignUrl: 'https://www.reddit.com/r/Advancedastrology/comments/1qwmn7e/birth_time_conflict_are_there_administrative/',
+        notes: 'Batch 1A link-free value reply; record public comment URL and any replies asking about Saju or Four Pillars.',
+      },
+      astrologyweekly_ad_section: {
+        platform: 'Forum',
+        status: 'post_published',
+        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=community&utm_campaign=kfortune_launch&utm_content=astrologyweekly_ad_section',
+        notes: 'Batch 1B posted only in Astrology Weekly Sponsor Market or a clearly allowed recommendations area; record public thread URL, section, views, and replies.',
+      },
+      astrolearn_services_forum: {
+        platform: 'Forum',
+        status: 'post_published',
+        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=community&utm_campaign=kfortune_launch&utm_content=astrolearn_services_forum',
+        notes: 'Batch 1C posted only in Astrolearn Astrology News and Services Forum; one advertisement per month; record public thread URL, views, and replies.',
+      },
+      launch_push_x_birth_city: {
+        platform: 'X',
+        status: 'post_published',
+        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=x&utm_medium=social&utm_campaign=kfortune_launch&utm_content=launch_push_x_birth_city',
+        notes: '30-minute launch X post; record public post URL, impressions, clicks, replies, and any lead email with matching UTM fields.',
+      },
+      launch_push_pin_free_preview: {
+        platform: 'Pinterest',
+        status: 'post_published',
+        campaignUrl: 'https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=pinterest&utm_medium=social&utm_campaign=kfortune_launch&utm_content=launch_push_pin_free_preview',
+        notes: '30-minute launch Pinterest pin; record public pin URL, impressions, saves, outbound clicks, and any matching lead email.',
+      },
+      launch_push_bio: {
+        platform: 'Instagram',
+        status: 'post_published',
+        campaignUrl: 'https://cheonglimsaju.com/bio.html?utm_source=instagram&utm_medium=bio&utm_campaign=kfortune_launch&utm_content=launch_push_bio',
+        notes: 'Instagram cheonglim_lab bio update; record screenshot or profile URL plus profile visits and website taps if available.',
+      },
+    };
 
     function csv(value) {
       const text = String(value || '');
@@ -129,6 +176,16 @@
       ].join('\n');
       return `${tracker}\n\n${evidence}`;
     }
+
+    document.getElementById('preset').addEventListener('change', (event) => {
+      const preset = presets[event.target.value];
+      if (!preset) return;
+      document.getElementById('platform').value = preset.platform;
+      document.getElementById('status').value = preset.status;
+      document.getElementById('campaignUrl').value = preset.campaignUrl;
+      document.getElementById('notes').value = preset.notes;
+      output.textContent = buildRows();
+    });
 
     form.addEventListener('submit', (event) => {
       event.preventDefault();
