@@ -175,6 +175,7 @@
     .insight-card b { display:block; margin-top:6px; color:var(--deep); font-size:15px; line-height:1.18; }
     .insight-card span { display:block; margin-top:6px; color:#51483d; font-size:13px; font-weight:800; line-height:1.35; }
     .unlock-note { margin:12px 0 0; color:#5d554b; font-size:13px; font-weight:850; line-height:1.35; text-align:center; }
+    .lead-note { margin:10px 0 0; padding:10px 12px; border:1px solid rgba(36,102,92,.24); border-radius:8px; background:#edf5f1; color:var(--deep); font-size:12px; font-weight:850; line-height:1.35; text-align:center; }
     .trust-line { margin-top:8px; color:#7c746a; font-size:11px; font-weight:850; line-height:1.35; text-align:center; }
     .result-hero { display:grid; grid-template-columns:252px minmax(0,1fr); gap:20px; align-items:center; }
     .result-visual { position:relative; min-height:198px; overflow:visible; }
@@ -313,7 +314,7 @@
       .mini-report { right:4px; width:110px; min-height:130px; }
       .result-title { justify-items:center; }
       .button-row { grid-template-columns:1fr 1fr; }
-      .preview-result .button.primary { order:-1; }
+      .preview-result .button.primary { order:0; }
       .preview-result .preview-more { position:absolute; right:12px; bottom:8px; margin:0; border-top:0; }
       .preview-result .preview-more summary { width:34px; min-height:34px; justify-content:center; font-size:0; }
       .preview-result .preview-more summary::after { margin-left:0; font-size:20px; }
@@ -917,9 +918,10 @@
           <span>Timing windows<small>Locked in PDF</small></span>
         </div>
         <p class="unlock-note">The full PDF expands this first clue into career, love, money, and timing.</p>
+        <p class="lead-note">Want a human-readable next step? Send this preview clue by email first. It includes your campaign source so support can see where you came from.</p>
         <div class="button-row">
-          <a class="button secondary" href="mailto:aideseobot@gmail.com?subject=${previewLeadSubject}&body=${previewLeadBody}">Email my preview clue</a>
-          <a class="button primary" href="#usdt-tron">Unlock my full PDF · 19 USDT</a>
+          <a class="button primary" href="mailto:aideseobot@gmail.com?subject=${previewLeadSubject}&body=${previewLeadBody}">Send my preview clue</a>
+          <a class="button secondary" href="#usdt-tron">Unlock full PDF · 19 USDT</a>
         </div>
         <a class="afterpay" href="intake.html?tier=premium">Continue to Premium birth form</a>
         <div class="trust-line">USDT-TRC20 payment · PDF by email · sample available before payment</div>
