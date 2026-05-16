@@ -92,10 +92,13 @@
           </div>
         </div>
         <label>Birth country<input name="birthCountry" placeholder="United States / UK / Korea / ..." required></label>
-        <label>Birth city or region<input name="birthCity" placeholder="Los Angeles, CA / London / Seoul" required></label>
+        <label>Birth city<input name="birthCity" placeholder="Los Angeles / London / Seoul" required></label>
+        <label>Birth state, province, or region<input name="birthRegion" placeholder="CA / Ontario / New South Wales"></label>
         <label class="check-row"><input name="missingOrderId" type="checkbox"> I cannot find the payment receipt ID</label>
-        <label>Timezone (if known)<input name="timezone" placeholder="Pacific Time / Asia/Seoul / Europe/London"><span class="help">If you do not know the timezone name, the country and city above are enough to submit.</span></label>
-        <label class="check-row"><input name="unknownTimezone" type="checkbox"> I do not know the timezone</label>
+        <label>Timezone<input name="timezone" autocomplete="off" spellcheck="false" placeholder="America/Los_Angeles / Asia/Seoul / Europe/London"><span class="help">Required when birth time is known. Use an IANA timezone such as America/Los_Angeles, not Pacific Time.</span></label>
+        <label class="check-row"><input name="unknownTimezone" type="checkbox" disabled> I do not know the timezone</label>
+        <label>Birth longitude<input name="longitude" inputmode="decimal" autocomplete="off" placeholder="-118.2437 for Los Angeles"><span class="help">Required when birth time is known. Use decimal longitude. West is negative.</span></label>
+        <label>DST / clock note<select name="dstBasis"><option value="recorded-civil-time" selected>Birth record time as written</option><option value="daylight-time">Record says daylight time</option><option value="standard-time">Record says standard time</option><option value="not-observed">Birthplace did not observe DST</option><option value="unknown">Not sure</option></select><span class="help">Use this when the birth happened near a daylight-saving change.</span></label>
         <label class="full">Notes<textarea name="memo" placeholder="If the birth time is approximate, or the birthplace is a small town, write the nearest major city here."></textarea></label>
       </div>
       <div class="send-guide">After filling: copy the details, tap Send by email, then press Send in your email app. No mail app? Paste the copied details into Gmail or Outlook.</div>
@@ -188,6 +191,41 @@
       if (data.birthPeriod === 'PM' && hour !== 12) hour += 12;
       return `${String(hour).padStart(2, '0')}:${String(data.birthMinute).padStart(2, '0')}`;
     }
+    function birthPlaceValue(data) {
+      const city = (data.birthCity || '').trim();
+      const region = (data.birthRegion || '').trim();
+      return region ? `${city}, ${region}` : city;
+    }
+    function isValidTimezone(value) {
+      const timezone = value.trim();
+      if (!timezone) return true;
+      try {
+        new Intl.DateTimeFormat('en-US', { timeZone: timezone }).format(new Date(0));
+        return true;
+      } catch (error) {
+        return false;
+      }
+    }
+    function validateTimezone() {
+      const field = form.elements.timezone;
+      const timezone = field.value.trim();
+      const unknown = form.elements.unknownTimezone.checked;
+      const knownBirthTime = !form.elements.unknownBirthTime.checked;
+      const valid = knownBirthTime ? Boolean(timezone) && !unknown && isValidTimezone(timezone) : Boolean(unknown || !timezone || isValidTimezone(timezone));
+      field.setCustomValidity(valid ? '' : 'Enter an IANA timezone like America/Los_Angeles when birth time is known.');
+      if (!valid) field.reportValidity();
+      return valid;
+    }
+    function validateLongitude() {
+      const field = form.elements.longitude;
+      const raw = field.value.trim();
+      const longitude = Number(raw);
+      const knownBirthTime = !form.elements.unknownBirthTime.checked;
+      const valid = (!knownBirthTime && !raw) || Boolean(raw && Number.isFinite(longitude) && longitude >= -180 && longitude <= 180);
+      field.setCustomValidity(valid ? '' : 'Enter decimal longitude between -180 and 180 when birth time is known. West is negative.');
+      if (!valid) field.reportValidity();
+      return valid;
+    }
     function referenceId() {
       const existing = form.elements.orderId.value.trim();
       if (existing) return existing;
@@ -220,19 +258,35 @@
       const data = Object.fromEntries(new FormData(form).entries());
       const birthDate = normalizeBirthDate(data.birthDate) || data.birthDate;
       const birthCountry = normalizeBirthCountry(data.birthCountry);
+      const birthCity = birthPlaceValue(data);
       form.elements.birthCountry.value = birthCountry;
       const memoLines = [];
       if (data.unknownBirthTime) memoLines.push('Birth time unknown.');
-      if (data.unknownTimezone) memoLines.push('Timezone unknown; please infer from country/city if possible.');
+      if (data.unknownTimezone) memoLines.push('Timezone unknown.');
+      if (data.dstBasis && data.dstBasis !== 'recorded-civil-time') memoLines.push(`DST / clock note: ${data.dstBasis}.`);
       if (!form.elements.orderId.value.trim() && form.elements.missingOrderId.checked) memoLines.push('Payment receipt ID not provided; customer checked the missing-ID option. Please match by payer email and package.');
       if (data.memo) memoLines.push(data.memo);
       const memo = memoLines.join('\n').trim();
       const timePolicy = data.unknownBirthTime ? 'unknown-time' : 'local-civil';
       const timezone = data.unknownTimezone ? '' : data.timezone;
-      return `order_id: ${referenceId()}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${birthDate}\nbirth_time: ${birthTimeValue(data)}\ngender: ${data.gender}\nbirth_country: ${birthCountry}\nbirth_city: ${data.birthCity}\ntimezone: ${timezone}\ntime_policy: ${timePolicy}\nmemo: ${memo}`;
+      const timezoneStatus = timezone ? 'provided' : data.unknownTimezone ? 'unknown' : 'not_provided';
+      const longitudeStatus = data.longitude ? 'provided' : 'not_provided';
+      return `order_id: ${referenceId()}\ncustomer_name: ${data.name}\nemail: ${data.email}\ntier: ${data.tier}\nbirth_date: ${birthDate}\nbirth_time: ${birthTimeValue(data)}\ngender: ${data.gender}\nbirth_country: ${birthCountry}\nbirth_city: ${birthCity}\nbirth_region: ${data.birthRegion || ''}\ntimezone: ${timezone}\ntimezone_status: ${timezoneStatus}\nlongitude: ${data.longitude || ''}\nlongitude_status: ${longitudeStatus}\ndst_basis: ${data.dstBasis || 'recorded-civil-time'}\ntime_policy: ${timePolicy}\nmemo: ${memo}`;
     }
     function refresh() { output.textContent = buildText(); }
     form.addEventListener('input', refresh);
+    form.elements.timezone.addEventListener('input', () => {
+      form.elements.timezone.setCustomValidity('');
+    });
+    form.elements.longitude.addEventListener('input', () => {
+      form.elements.longitude.setCustomValidity('');
+    });
+    function syncTimezoneDisabled() {
+      const unknownBirthTime = form.elements.unknownBirthTime.checked;
+      form.elements.unknownTimezone.disabled = !unknownBirthTime;
+      if (!unknownBirthTime) form.elements.unknownTimezone.checked = false;
+      form.elements.timezone.disabled = unknownBirthTime && form.elements.unknownTimezone.checked;
+    }
     function canUseFallbackReference() {
       if (form.elements.orderId.value.trim()) return true;
       if (form.elements.missingOrderId.checked) return true;
@@ -244,6 +298,8 @@
     document.getElementById('copyButton').addEventListener('click', async () => {
       if (!form.reportValidity()) return;
       if (!validateBirthDate()) return;
+      if (!validateTimezone()) return;
+      if (!validateLongitude()) return;
       if (!canUseFallbackReference()) return;
       refresh();
       await navigator.clipboard.writeText(output.textContent);
@@ -252,6 +308,8 @@
     document.getElementById('mailButton').addEventListener('click', () => {
       if (!form.reportValidity()) return;
       if (!validateBirthDate()) return;
+      if (!validateTimezone()) return;
+      if (!validateLongitude()) return;
       if (!canUseFallbackReference()) return;
       refresh();
       const subject = encodeURIComponent('Saju report birth details');
@@ -263,10 +321,14 @@
       form.elements.birthHour.disabled = disabled;
       form.elements.birthMinute.disabled = disabled;
       form.elements.birthPeriod.disabled = disabled;
+      form.elements.timezone.setCustomValidity('');
+      form.elements.longitude.setCustomValidity('');
+      syncTimezoneDisabled();
       refresh();
     });
     form.elements.unknownTimezone.addEventListener('change', (event) => {
-      form.elements.timezone.disabled = event.target.checked;
+      syncTimezoneDisabled();
+      if (event.target.checked) form.elements.timezone.setCustomValidity('');
       refresh();
     });
     form.elements.missingOrderId.addEventListener('change', refresh);
