@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T20:20:42+09:00
+Last updated: 2026-05-16T20:22:10+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -167,6 +167,8 @@ Live-verified on 2026-05-16T20:15:02+09:00 after the Pages deployment for commit
 Updated locally on 2026-05-16T20:20:00+09:00 to point external CTAs at the highest-intent form locations. Bio/start links, launch page Premium CTA, written community post copy, 10-minute posting board, promo assets, and short-form scripts now route free-preview traffic directly to `free-korean-saju-reading.html#mini-preview-form` and Premium traffic to `premium-korean-saju-reading.html#premium-order-form` with form-specific `utm_content` values. This is conversion routing only; it is not a public post, qualified visit, lead, or payment.
 
 Verified locally on 2026-05-16T20:20:42+09:00. The static Pages artifact built successfully to `/tmp/cheonglim-site-fast-form-routing-check`, `rg` confirmed the form-specific UTM routes in the rendered files, and a full-page mobile screenshot of `bio.html` was saved at `/tmp/cheonglim-bio-fast-form-routing-mobile.png`. This remains a conversion-routing artifact only until an external user visits or sends a UTM-tagged lead/order email.
+
+Live-verified on 2026-05-16T20:22:10+09:00 after the Pages deployment for commit `c9770a6`. Cache-busted live requests showed `bio.html` routing to `bio_free_preview_form#mini-preview-form` and `bio_premium_quick_order#premium-order-form`, and `post-written-community-batch.html` routing forum, X, and Pinterest preview CTAs to `#mini-preview-form`. The public URL batch was submitted to IndexNow; the first sandboxed run failed DNS resolution for `api.indexnow.org`, and the escalated retry returned HTTP/2 200. GitHub repo traffic remained `27` views and `1` unique. The latest 5 TronGrid TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match.
 
 ## Evidence Rules
 
