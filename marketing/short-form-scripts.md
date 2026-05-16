@@ -31,12 +31,12 @@ True solar time can matter near hour boundaries.
 
 Voiceover:
 ```text
-If you were born outside Korea, a Korean Saju reading should not treat your birthday as a simple date. The reader should check your birth city, timezone, daylight saving time, and true solar time when it can affect the hour pillar. That is why Cheonglim Saem starts with a free mini preview before the full English PDF.
+For global birth records, a Korean Saju reading should not treat your birthday as a simple date. The reader should check your birth city, timezone, daylight saving time, and true solar time when it can affect the hour pillar. That is why Cheonglim Saem starts with a free mini preview before the full English PDF.
 ```
 
 Caption:
 ```text
-Born outside Korea? Your Korean Saju / Four Pillars reading should start from your real birth record: city, timezone, DST, and true solar time when it matters. Free mini preview first.
+Korean Saju starts with your real birth city. A Four Pillars reading should check city, timezone, DST, and true solar time when it matters. Free mini preview first.
 ```
 
 ## Script 2: What Is Saju?

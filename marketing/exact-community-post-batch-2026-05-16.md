@@ -68,7 +68,7 @@ Title: Korean Saju / Four Pillars mini preview in English for overseas birth rec
 
 I am testing a small Korean Saju / Four Pillars reading project for English readers.
 
-The focus is birth-record handling. If someone was born outside Korea, the reading should check the actual birth city, historical timezone, daylight saving time, and true solar time context before interpreting the pillars.
+The focus is birth-record handling. The reading should check the actual birth city, historical timezone, daylight saving time, and true solar time context before interpreting the pillars.
 
 Saju is not Western astrology. It does not use planets, signs, houses, or aspects. It reads year, month, day, and hour pillars through stems, branches, five elements, seasonal balance, and timing flow.
 
@@ -103,7 +103,7 @@ Exact post:
 ```text
 Title: Korean Saju / Four Pillars mini preview in English
 
-I am testing a small Korean Saju / Four Pillars reading project for English readers, especially people born outside Korea.
+I am testing a small Korean Saju / Four Pillars reading project for English readers with global birth records.
 
 The main point is birth-record handling. The reading checks birth city, historical timezone, daylight saving time, and true solar time context before interpreting the pillars.
 
@@ -145,7 +145,7 @@ I am testing a small Korean Saju / Four Pillars reading project for English read
 
 It is not tarot and not Western astrology. It is a Korean-style Four Pillars reading based on year, month, day, and hour pillars, framed as Korean culture plus self-reflection.
 
-The part I am focusing on is overseas birth-record handling. For someone born outside Korea, the full PDF checks birth city, historical timezone, daylight saving time, and true solar time context before interpretation.
+The part I am focusing on is global birth-record handling. The full PDF checks birth city, historical timezone, daylight saving time, and true solar time context before interpretation.
 
 Free mini preview first:
 https://cheonglimsaju.com/reddit-saju-preview.html?utm_source=reddit&utm_medium=promotion_thread&utm_campaign=kfortune_launch&utm_content=rtarot_may_promo
@@ -182,7 +182,7 @@ I can offer a short free Korean Saju / Four Pillars mini preview for people curi
 
 Clear scope: this is not spirit communication and not Western astrology. It is a Korean-style Four Pillars reading based on birth year, month, day, and hour, framed as culture plus self-reflection.
 
-For people born outside Korea, the full reading checks birth city, historical timezone, daylight saving time, and true solar time context before interpretation. The free preview is one short clue first.
+For global birth records, the full reading checks birth city, historical timezone, daylight saving time, and true solar time context before interpretation. The free preview is one short clue first.
 
 Free mini preview:
 https://cheonglimsaju.com/reddit-saju-preview.html?utm_source=reddit&utm_medium=services_thread&utm_campaign=kfortune_launch&utm_content=spiritwork_divination_weekly

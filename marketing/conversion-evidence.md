@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T18:34:39+09:00
+Last updated: 2026-05-16T18:39:39+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -81,6 +81,10 @@ Rechecked on 2026-05-16T18:28:59+09:00 after adding Reddit follow-up reply draft
 Fixed on 2026-05-16T18:31:59+09:00 after live checking the owner posting page. The public `post-now-community.html` follow-up section was live, but `/marketing/launch-evidence-dashboard.html` returned GitHub Pages 404 because the Pages build only publishes root HTML files. Added root `launch-evidence-dashboard.html` and updated `post-now-community.html` and `post-now-shorts.html` to link to it. This fixes the evidence-recording path only; it is not a public post, lead, or paid-order event.
 
 Live-verified on 2026-05-16T18:34:39+09:00 after the Pages deployment for commit `b1839fa`. A cache-busted request to `post-now-community.html` returned `If someone replies`, `launch-evidence-dashboard.html`, `reddit_followup_preview_request`, and `reddit_followup_premium_intent`. A cache-busted request to `launch-evidence-dashboard.html` returned `Launch evidence dashboard`, `reddit_followup_preview_request`, `reddit_followup_trust`, and `reddit_followup_premium_intent`. This proves the owner posting and evidence tools are live, but it is not a public post, qualified visit, sent lead, or paid order.
+
+Updated locally on 2026-05-16T18:38:55+09:00 after scanning the public post-now HTML and marketing posting drafts for the rejected `Born outside Korea` phrasing. Replaced that framing with `Korean Saju starts with your real birth city`, `global birth records`, and `birthplace and timezone checked` copy across the posting assets. This is copy cleanup for future owner posting; it is not a public post, qualified visit, sent lead, or paid order.
+
+Rechecked on 2026-05-16T18:39:39+09:00 after the copy cleanup and noindex update. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. The latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
 
 ## Evidence Rules
 

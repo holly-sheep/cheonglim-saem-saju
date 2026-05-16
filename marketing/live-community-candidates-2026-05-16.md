@@ -84,7 +84,7 @@ Title: Korean Saju / Four Pillars mini preview in English for overseas birth rec
 
 I am testing a small Korean Saju / Four Pillars reading project for English readers.
 
-The focus is birth-record handling. If someone was born outside Korea, the reading should check the actual birth city, historical timezone, daylight saving time, and true solar time context before interpreting the pillars.
+The focus is birth-record handling. The reading should check the actual birth city, historical timezone, daylight saving time, and true solar time context before interpreting the pillars.
 
 Saju is not Western astrology. It does not use planets, signs, houses, or aspects. It reads year, month, day, and hour pillars through stems, branches, five elements, seasonal balance, and timing flow.
 
@@ -130,7 +130,7 @@ Title: Birth city and timezone handling in Korean Four Pillars
 
 Korean Saju / Four Pillars does not use houses, signs, planets, or aspects. It starts from year, month, day, and hour pillars, then reads stems, branches, five elements, seasonal balance, and timing rhythm.
 
-For people born outside Korea, I think the underrated issue is the time basis before interpretation starts: recorded local civil time, birth city, historical timezone, daylight saving time, and whether true solar time can affect the hour block.
+For global birth records, I think the underrated issue is the time basis before interpretation starts: recorded local civil time, birth city, historical timezone, daylight saving time, and whether true solar time can affect the hour block.
 
 The useful principle is simple: if the birth time is uncertain, the reading should say what was checked and what remains uncertain.
 ```
