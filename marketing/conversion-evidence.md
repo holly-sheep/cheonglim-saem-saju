@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T15:27:52+09:00
+Last updated: 2026-05-16T15:35:36+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -21,6 +21,8 @@ TRON USDT wallet snapshot, checked with Tronscan token transfer API for `TPinvSo
 - No inbound transfers in the checked latest 20 token transfers matched the package prices `9`, `19`, or `39` USDT.
 
 This proves no current paid-order evidence was found in the public wallet check. It does not prove there were no payments to a different address or unreconciled checkout path.
+
+Rechecked on 2026-05-16T15:35:36+09:00 after the homepage deployment. The latest 20 USDT transfer rows still showed no inbound `9`, `19`, or `39` USDT package-price match.
 
 ## Evidence Rules
 
