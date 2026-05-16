@@ -262,6 +262,8 @@
     .insight-card span { display:block; margin-top:6px; color:#51483d; font-size:13px; font-weight:800; line-height:1.35; }
     .unlock-note { margin:12px 0 0; color:#5d554b; font-size:13px; font-weight:850; line-height:1.35; text-align:center; }
     .lead-note { margin:10px 0 0; padding:10px 12px; border:1px solid rgba(36,102,92,.24); border-radius:8px; background:#edf5f1; color:var(--deep); font-size:12px; font-weight:850; line-height:1.35; text-align:center; }
+    .lead-copy-status { display:none; margin-top:8px; padding:9px 10px; border-radius:8px; background:#f8efe1; color:#5d554b; font-size:12px; font-weight:850; line-height:1.35; text-align:center; white-space:pre-wrap; overflow-wrap:anywhere; }
+    .lead-copy-status.is-visible { display:block; }
     .trust-line { margin-top:8px; color:#7c746a; font-size:11px; font-weight:850; line-height:1.35; text-align:center; }
     .result-hero { display:grid; grid-template-columns:252px minmax(0,1fr); gap:20px; align-items:center; }
     .result-visual { position:relative; min-height:198px; overflow:visible; }
@@ -339,7 +341,7 @@
     .button { display:inline-flex; width:100%; min-height:50px; align-items:center; justify-content:center; padding:10px 16px; border-radius:10px; border:1px solid var(--ink); background:#fff; font-weight:950; line-height:1.2; text-align:center; }
     .button.primary { border-color:var(--jade); background:var(--jade); color:white; }
     .button.secondary { border-color:var(--deep); background:#fffdf8; color:var(--deep); }
-    .button-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:16px; }
+    .button-row { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:8px; margin-top:16px; }
     .afterpay { display:block; margin-top:11px; color:var(--jade); font-size:14px; font-weight:950; line-height:1.35; text-align:center; text-decoration:underline; text-underline-offset:3px; }
     .steps { display:grid; gap:14px; margin-top:24px; }
     .step { display:grid; grid-template-columns:36px 1fr; gap:12px; align-items:start; }
@@ -952,7 +954,7 @@
       const proofTime = unknownTime
         ? 'time unknown'
         : `${document.getElementById('birthHour').selectedOptions[0].textContent}:${document.getElementById('birthMinute').selectedOptions[0].textContent} ${document.getElementById('birthPeriod').value}`;
-      const previewLeadBody = encodeURIComponent([
+      const previewLeadText = [
         'lead_type: free_mini_preview_followup',
         `birth_date: ${dateValue}`,
         `birth_time: ${proofTime}`,
@@ -967,7 +969,8 @@
         '',
         'question:',
         'I tried the free mini preview and want to ask about the full report.',
-      ].join('\n'));
+      ].join('\n');
+      const previewLeadBody = encodeURIComponent(previewLeadText);
       const previewLeadSubject = encodeURIComponent('Cheonglim Saem free mini preview follow-up');
       const result = document.getElementById('previewResult');
       result.innerHTML = `
@@ -1007,11 +1010,24 @@
         <p class="lead-note">Want a human-readable next step? Send this preview clue by email first. It includes your campaign source so support can see where you came from.</p>
         <div class="button-row">
           <a class="button primary" href="mailto:aideseobot@gmail.com?subject=${previewLeadSubject}&body=${previewLeadBody}">Send my preview clue</a>
+          <button class="button secondary copy-preview-lead" type="button">Copy email text</button>
           <a class="button secondary" href="#usdt-tron">Unlock full PDF · 19 USDT</a>
         </div>
+        <div class="lead-copy-status" aria-live="polite"></div>
         <a class="afterpay" href="intake.html?tier=premium">Continue to Premium birth form</a>
         <div class="trust-line">USDT-TRC20 payment · PDF by email · sample available before payment</div>
         `;
+      const leadCopyStatus = result.querySelector('.lead-copy-status');
+      result.querySelector('.copy-preview-lead').addEventListener('click', async () => {
+        try {
+          if (!navigator.clipboard) throw new Error('Clipboard unavailable');
+          await navigator.clipboard.writeText(previewLeadText);
+          leadCopyStatus.textContent = 'Preview email text copied. Paste it into Gmail, Outlook, or any email app and send it to aideseobot@gmail.com.';
+        } catch (error) {
+          leadCopyStatus.textContent = `Copy did not complete in this browser. Email this text to aideseobot@gmail.com:\n\n${previewLeadText}`;
+        }
+        leadCopyStatus.classList.add('is-visible');
+      });
       preserveCampaignParams(result);
       result.classList.add('is-visible');
       result.scrollIntoView({ behavior: 'smooth', block: 'start' });
