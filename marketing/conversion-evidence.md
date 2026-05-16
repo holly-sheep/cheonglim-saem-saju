@@ -140,6 +140,8 @@ Updated locally on 2026-05-16T19:36:56+09:00 after the owner allowed writing com
 
 Rechecked on 2026-05-16T19:41:33+09:00 after the owner clarified that actual registration was intended. The static Pages artifact built successfully to `/tmp/cheonglim-site-written-batch-check`, and the rendered `post-written-community-batch.html` includes `noindex,nofollow`, `batch2_reddit_promo_preview`, and `batch2_diaspora_preview`; `launch-evidence-dashboard.html` includes the corresponding Batch 2 evidence presets. The local written-post board and r/Tarot promotion thread were opened in the browser, but Chrome active-tab inspection for authenticated posting was rejected for privacy risk. No public Reddit/forum/social post URL or screenshot was produced, so there is still no qualified visit, free-preview lead, reservation lead, or paid order.
 
+Live-verified on 2026-05-16T19:43:16+09:00 after the Pages deployment for commit `7bd478f`. A cache-busted live request to `post-written-community-batch.html` returned `noindex,nofollow`, `Community posts ready`, `batch2_reddit_promo_preview`, and `batch2_diaspora_preview`. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window. The latest 5 TronGrid TRC20 transaction rows still showed no inbound `9`, `19`, or `39` USDT package-price match; the latest row remained outbound `201.411351` USDT, tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, at 2025-10-31T01:06:06Z.
+
 ## Evidence Rules
 
 - Qualified visit evidence: platform analytics screenshot, GitHub Pages/custom domain analytics if available, or a UTM-tagged lead/order email that proves the visitor came from a campaign URL.
