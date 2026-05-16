@@ -4,6 +4,8 @@ Last checked: 2026-05-16
 
 Use this file to send the first outreach wave. After sending, update `marketing/outreach-send-queue.csv`, `marketing/campaign-tracker.csv`, and `marketing/evidence-log.csv`.
 
+Outbound rule: do not send additional emails, DMs, contact-form messages, or follow-ups unless the owner explicitly says to send. The helper script blocks real outbound email unless both `--confirm-send` and `--approval-note USER_APPROVED_OUTBOUND_EMAIL` are present.
+
 ## 1. piecesofminty
 
 Source: https://piecesofminty.carrd.co/
@@ -336,6 +338,7 @@ Recheck public contact before sending. Do not send from stale search snippets.
 ## Daily Send Rule
 
 - Send only 3 personalized messages per day until replies begin.
+- Do not send anything until the owner explicitly approves that exact outbound batch.
 - Do not send repeated follow-ups sooner than 5 days.
 - If a creator replies no, mark `declined` and do not contact again.
 - If a creator applies, log `lead_type: free_vip_review_application` in `marketing/evidence-log.csv`.

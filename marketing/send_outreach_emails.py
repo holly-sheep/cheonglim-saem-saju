@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Send the first Cheonglim Saem outreach emails and update campaign evidence."""
+"""Send Cheonglim Saem outreach emails after explicit owner approval."""
 
 from __future__ import annotations
 
@@ -230,6 +230,12 @@ def main() -> int:
     parser.add_argument("--campaign", action="append", choices=sorted(CAMPAIGNS), dest="campaigns")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--force", action="store_true")
+    parser.add_argument("--confirm-send", action="store_true", help="Required for real outbound email.")
+    parser.add_argument(
+        "--approval-note",
+        default="",
+        help='Required for real send; use the exact owner approval note, e.g. "USER_APPROVED_OUTBOUND_EMAIL".',
+    )
     args = parser.parse_args()
 
     selected = args.campaigns or ["kdramadiary-001", "kpop-kollective-001", "kdramastars-001"]
@@ -240,6 +246,13 @@ def main() -> int:
     if not campaigns:
         print("no campaigns to send")
         return 0
+
+    if not args.dry_run and (not args.confirm_send or args.approval_note != "USER_APPROVED_OUTBOUND_EMAIL"):
+        print(
+            "blocked: real outbound email requires --confirm-send "
+            "--approval-note USER_APPROVED_OUTBOUND_EMAIL",
+        )
+        return 2
 
     env = os.environ | load_env(args.env_file)
     send_campaigns(campaigns, env, args.dry_run)
