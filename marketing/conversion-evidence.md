@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T20:00:42+09:00
+Last updated: 2026-05-16T20:03:14+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -153,6 +153,8 @@ Updated locally on 2026-05-16T19:53:02+09:00 to add account-free discovery asset
 Live-verified on 2026-05-16T19:56:19+09:00 after the Pages deployment for commit `efdb184`. The static Pages artifact built successfully to `/tmp/cheonglim-site-discovery-files-check` and included `feed.xml` plus `llms.txt`. Cache-busted live requests returned the RSS feed with `Korean Four Pillars Reading in English`, `Premium Korean Saju Reading for 19 USDT`, and the free preview URL; `llms.txt` returned Cheonglim Saem positioning, Premium 19 USDT, audiences, and support email; `robots.txt` returned both the sitemap and feed sitemap lines. The IndexNow batch including `feed.xml` and `llms.txt` was submitted; the first sandboxed run failed DNS resolution for `api.indexnow.org`, and the escalated retry returned HTTP/2 200. GitHub repo traffic remained `27` views and `1` unique. The latest 5 TronGrid TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match.
 
 Updated locally on 2026-05-16T20:00:42+09:00 after the owner asked again to register posts. No authenticated Reddit/forum/social posting tool is available in this workspace, so no external platform post can honestly be marked as submitted. As an account-free acquisition step, `robots.txt` now explicitly allows documented search and AI crawler tokens for OpenAI, Anthropic, Perplexity, Google, and Bing where applicable, and the IndexNow batch now includes `sitemap.xml` plus `robots.txt`. This is search/AI discovery registration only; it is not a Reddit/forum/social post, qualified visit, lead, or paid order.
+
+Live-verified on 2026-05-16T20:03:14+09:00 after the Pages deployment for commit `e6af61a`. A cache-busted live request to `robots.txt` returned `OAI-SearchBot`, `GPTBot`, `ChatGPT-User`, `ClaudeBot`, `Claude-SearchBot`, `Claude-User`, `PerplexityBot`, `Perplexity-User`, `Googlebot`, `Google-Extended`, `Bingbot`, and both sitemap lines. The public URL batch including `sitemap.xml` and `robots.txt` was submitted to IndexNow; the first sandboxed run failed DNS resolution for `api.indexnow.org`, and the escalated retry returned HTTP/2 200. GitHub repo traffic remained `27` views and `1` unique. The latest 5 TronGrid TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match.
 
 ## Evidence Rules
 
