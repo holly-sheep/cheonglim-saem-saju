@@ -25,7 +25,7 @@ Do not lead with USDT. Mention USDT only after the user is ready to order.
 Korean Saju/Four Pillars readings in English.  
 Timezone, DST & true solar time checked.  
 Free mini preview before full PDF.  
-cheonglimsaju.com
+cheonglimsaju.com/start.html
 
 Short version:
 
@@ -53,6 +53,7 @@ Hook: Born outside Korea? Your Saju chart can change if timezone or DST is wrong
 Visual: sample Premium page screenshot.
 Caption: Korean Four Pillars uses birth date and time, but overseas births need a cleaner time check. City, timezone, DST, and true solar time can matter. Try the free mini preview before ordering.
 CTA: Free preview at cheonglimsaju.com.
+Tracked link: https://cheonglimsaju.com/start.html?utm_source=instagram&utm_medium=social&utm_campaign=kfortune_launch&utm_content=day1_time_context
 
 Day 2 Carousel:
 Slides:
@@ -68,6 +69,7 @@ Day 3 Reel:
 Hook: What is Saju?
 Caption: Saju is the Korean reading of the Four Pillars: year, month, day, and hour. Cheonglim Saem explains it in English for self-reflection, culture, and personality patterns.
 CTA: Try the free mini preview.
+Tracked link: https://cheonglimsaju.com/start.html?utm_source=instagram&utm_medium=social&utm_campaign=kfortune_launch&utm_content=day3_what_is_saju
 
 Day 4 Static Post:
 Hook: Sample PDF before payment.
@@ -87,10 +89,12 @@ Slides:
 4. Premium is best for most buyers
 5. Free preview first
 CTA: Start with the free preview.
+Tracked link: https://cheonglimsaju.com/start.html?utm_source=instagram&utm_medium=social&utm_campaign=kfortune_launch&utm_content=day6_premium_offer
 
 Day 7 Story Q&A:
 Prompt: Were you born outside Korea? Drop your country/city and I will explain what time-context detail matters for Saju.
 CTA: Free mini preview link.
+Tracked link: https://cheonglimsaju.com/start.html?utm_source=instagram&utm_medium=story&utm_campaign=kfortune_launch&utm_content=day7_story_qa
 
 ## Reddit Value Posts
 
@@ -195,7 +199,7 @@ I am offering a free VIP PDF to a small number of K-culture / astrology / self-r
 No scripted praise needed. If it is useful, you can share your honest reaction; if not, private feedback is fine.
 
 Sample PDF and free preview are here:
-https://cheonglimsaju.com/
+https://cheonglimsaju.com/start.html?utm_source=outreach&utm_medium=manual&utm_campaign=kfortune_launch&utm_content=review_offer
 
 If you are interested, send:
 - birth date
@@ -208,7 +212,7 @@ If you are interested, send:
 - Open the public share kit: https://cheonglimsaju.com/promo-assets.html
 - Update Instagram bio with the short positioning.
 - Post one Reel, carousel, or static asset daily for 7 days.
-- DM 3 micro-influencers per day until 20 are contacted.
+- Do not DM or email anyone unless the owner explicitly approves that exact outbound batch. If approved, log every contact before sending the next one.
 - Save every reply in a simple tracker: handle, niche, contacted date, response, comp PDF sent, testimonial permission.
 - Check site visits, preview usage, emails, and payment wallet daily.
 - Count emails with `lead_type: free_mini_preview_followup` as free-preview leads.
@@ -246,8 +250,8 @@ Social cards:
 
 Campaign URLs:
 
-- Instagram: https://cheonglimsaju.com/?utm_source=instagram&utm_medium=social&utm_campaign=kfortune_launch#free-preview
-- TikTok: https://cheonglimsaju.com/?utm_source=tiktok&utm_medium=social&utm_campaign=kfortune_launch#free-preview
+- Instagram: https://cheonglimsaju.com/start.html?utm_source=instagram&utm_medium=social&utm_campaign=kfortune_launch&utm_content=campaign_url_instagram
+- TikTok: https://cheonglimsaju.com/start.html?utm_source=tiktok&utm_medium=social&utm_campaign=kfortune_launch&utm_content=campaign_url_tiktok
 - Pinterest: https://cheonglimsaju.com/?utm_source=pinterest&utm_medium=social&utm_campaign=kfortune_launch#samples
-- X: https://cheonglimsaju.com/?utm_source=x&utm_medium=social&utm_campaign=kfortune_launch#free-preview
+- X: https://cheonglimsaju.com/start.html?utm_source=x&utm_medium=social&utm_campaign=kfortune_launch&utm_content=campaign_url_x
 - Reddit: https://cheonglimsaju.com/overseas-birth-saju.html?utm_source=reddit&utm_medium=community&utm_campaign=kfortune_launch

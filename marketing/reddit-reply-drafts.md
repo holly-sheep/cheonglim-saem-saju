@@ -12,9 +12,9 @@ The useful thing is not pretending the chart predicts everything. It is more lik
 
 ## If Links Are Allowed
 
-I built a small English K-fortune preview around that exact issue: birthplace, timezone, DST, and true solar time for people born anywhere in the world. The preview runs in the browser first, so you can test the angle before ordering anything:
+I built a small English K-fortune preview around that exact issue: birthplace, timezone, DST, and true solar time for people born anywhere in the world. Start from the short page, then use the free preview before ordering anything:
 
-https://cheonglimsaju.com/?utm_source=reddit&utm_medium=community&utm_campaign=kfortune_launch#free-preview
+https://cheonglimsaju.com/start.html?utm_source=reddit&utm_medium=community&utm_campaign=kfortune_launch&utm_content=reddit_value_comment
 
 ## If Someone Asks About Unknown Birth Time
 
