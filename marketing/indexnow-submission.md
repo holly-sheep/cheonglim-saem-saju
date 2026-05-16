@@ -18,6 +18,7 @@ URLs in the first batch:
 - https://cheonglimsaju.com/bio.html
 - https://cheonglimsaju.com/start.html
 - https://cheonglimsaju.com/overseas-birth-saju.html
+- https://cheonglimsaju.com/saju-in-english.html
 - https://cheonglimsaju.com/korean-saju-reading-online.html
 - https://cheonglimsaju.com/true-solar-time-saju.html
 - https://cheonglimsaju.com/saju-without-birth-time.html
