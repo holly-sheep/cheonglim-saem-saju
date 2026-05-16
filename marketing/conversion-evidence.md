@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T15:35:36+09:00
+Last updated: 2026-05-16T18:07:01+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -61,6 +61,8 @@ Resubmitted the public URL batch to IndexNow on 2026-05-16T17:55:39+09:00 after 
 Rechecked on 2026-05-16T18:00:23+09:00 after creating the exact community post batch. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. No Reddit, forum, social, modmail, DM, or email post was submitted by automation.
 
 Rechecked on 2026-05-16T18:03:35+09:00 after adding community evidence presets to the launch dashboard. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. No Reddit, forum, social, modmail, DM, or email post was submitted by automation.
+
+Rechecked on 2026-05-16T18:07:01+09:00 after adding the preview-to-Premium reservation CTA to `free-korean-saju-reading.html`. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. No outbound email was sent by automation.
 
 ## Evidence Rules
 
