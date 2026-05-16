@@ -37,3 +37,4 @@ Evidence rule: an HTTP 200 or 202 from the IndexNow endpoint proves URL submissi
 - 2026-05-16T16:18:30+09:00: `scripts/submit-indexnow.sh` returned `HTTP/2 202` from `https://api.indexnow.org/indexnow`.
 - Live key file check before submission: `https://cheonglimsaju.com/cheonglim-saju-indexnow-20260516-7ab7.txt` returned HTTP 200 and the expected key text.
 - 2026-05-16T16:28:50+09:00: after adding `saju-in-english.html`, `scripts/submit-indexnow.sh` returned `HTTP/2 200` from `https://api.indexnow.org/indexnow`.
+- 2026-05-16T16:41:54+09:00: after adding `free-korean-saju-reading.html`, `scripts/submit-indexnow.sh` returned `HTTP/2 200` from `https://api.indexnow.org/indexnow`.
