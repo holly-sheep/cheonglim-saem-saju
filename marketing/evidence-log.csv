@@ -14,3 +14,4 @@ timestamp,type,source,identifier,evidence,notes
 2026-05-16T15:07:18+09:00,conversion_artifact,local_playwright,preview-copy-lead-cta-001,free preview result now supports copying the lead email text when mailto is unavailable,screenshot saved at /private/tmp/cheonglim-preview-copy-mobile.png
 2026-05-16T15:10:07+09:00,conversion_artifact,site_sharekit,manual-share-composer-links-001,share kit post-today section now opens X Pinterest and Reddit manual share composer URLs,no outbound post was sent by automation
 2026-05-16T15:14:05+09:00,conversion_artifact,site_sharekit,sharekit-copy-buttons-001,share kit now adds copy buttons for post text captions and campaign URLs,no outbound post was sent by automation
+2026-05-16T15:18:45+09:00,conversion_artifact,site_checkout,package-payment-copy-buttons-001,USDT checkout now copies package-specific amount network wallet address and birth form next step,reduces payment mismatch risk before paid-order evidence exists

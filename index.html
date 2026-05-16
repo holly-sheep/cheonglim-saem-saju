@@ -221,6 +221,9 @@
     .crypto-prices { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; }
     .crypto-prices span { min-height:54px; display:flex; align-items:center; justify-content:center; padding:8px; border:1px solid rgba(36,102,92,.22); border-radius:8px; background:#fffdf8; font-weight:950; line-height:1.25; text-align:center; }
     .wallet-row { display:grid; grid-template-columns:1fr; gap:8px; margin-top:10px; }
+    .payment-copy-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-top:10px; }
+    .payment-copy-grid .button { min-height:46px; padding:8px; font-size:13px; }
+    .payment-copy-grid .button.is-selected { border-color:var(--jade); background:var(--jade); color:white; }
     .preview-form { display:grid; gap:12px; margin-top:24px; }
     .preview-details { margin-top:20px; border:1px solid var(--line); border-radius:8px; background:#fffdf8; overflow:hidden; }
     .preview-details summary { min-height:54px; display:flex; align-items:center; justify-content:center; padding:0 16px; color:var(--deep); cursor:pointer; font-weight:950; }
@@ -418,6 +421,7 @@
       .result-photo-copy { min-height:310px; }
       .preview-result .button { min-height:44px; padding:8px 6px; font-size:13px; }
       .button-row { grid-template-columns:1fr; }
+      .payment-copy-grid { grid-template-columns:1fr; }
       .locked-preview { gap:6px; }
       .locked-preview span { min-height:54px; padding:8px 5px; font-size:11px; }
       .insight-card b { font-size:14px; }
@@ -604,6 +608,11 @@
                 <div class="wallet-address" id="walletAddress">TPinvSovyuBHTVK1Kd6bUYYESMoSBxjgjJ</div>
                 <button class="button secondary" type="button" id="copyWalletButton">Copy address</button>
               </div>
+              <div class="payment-copy-grid" aria-label="Copy package payment details">
+                <button class="button secondary" type="button" data-payment-tier="Basic" data-payment-amount="9" data-payment-form="intake.html?tier=basic">Copy Basic payment</button>
+                <button class="button secondary is-selected" type="button" data-payment-tier="Premium" data-payment-amount="19" data-payment-form="intake.html?tier=premium">Copy Premium payment</button>
+                <button class="button secondary" type="button" data-payment-tier="VIP" data-payment-amount="39" data-payment-form="intake.html?tier=vip">Copy VIP payment</button>
+              </div>
               <div class="wallet-copy-status" id="walletCopyStatus" aria-live="polite"></div>
               <div class="button-row">
                 <a class="button secondary" href="intake.html?tier=basic">Basic form</a>
@@ -624,7 +633,7 @@
             <div class="package-meta"><span>About 16 pages</span><span>PDF by email</span></div>
             <div class="tier-for"><b>Best for</b>a first K-fortune reading without a large commitment.</div>
             <ul class="list"><li>Calculated Four Pillars chart</li><li>Five Elements and chart weather</li><li>Current timing and starter plan</li></ul>
-            <a class="button" href="#usdt-tron">Pay Basic with USDT</a>
+            <a class="button payment-jump" href="#usdt-tron" data-payment-tier="Basic">Pay Basic with USDT</a>
             <a class="afterpay" href="intake.html?tier=basic">Step 2: send Basic birth details</a>
           </article>
           <article class="package featured">
@@ -632,7 +641,7 @@
             <div class="package-meta"><span>About 25 pages</span><span>PDF by email</span></div>
             <div class="tier-for"><b>Best for</b>most buyers who want timing, work, money behavior, relationship rhythm, and the overseas birth-time check in one report.</div>
             <ul class="list"><li>Everything in Basic</li><li>Life-area and desire pattern reading</li><li>Quarterly flow and action priorities</li></ul>
-            <a class="button primary" href="#usdt-tron">Pay Premium with USDT</a>
+            <a class="button primary payment-jump" href="#usdt-tron" data-payment-tier="Premium">Pay Premium with USDT</a>
             <a class="afterpay" href="intake.html?tier=premium">Step 2: send Premium birth details</a>
           </article>
           <article class="package">
@@ -640,7 +649,7 @@
             <div class="package-meta"><span>About 36 pages</span><span>PDF by email</span></div>
             <div class="tier-for"><b>Best for</b>a longer planning document to revisit across the year, without turning the product into live consulting.</div>
             <ul class="list"><li>Everything in Premium</li><li>Ten-year luck roadmap</li><li>Priority delivery and one optional follow-up question</li></ul>
-            <a class="button" href="#usdt-tron">Pay VIP with USDT</a>
+            <a class="button payment-jump" href="#usdt-tron" data-payment-tier="VIP">Pay VIP with USDT</a>
             <a class="afterpay" href="intake.html?tier=vip">Step 2: send VIP birth details</a>
           </article>
         </div>
@@ -1083,6 +1092,25 @@
     });
     const walletAddress = document.getElementById('walletAddress');
     const walletCopyStatus = document.getElementById('walletCopyStatus');
+    function selectedPaymentButton(tier) {
+      const buttons = document.querySelectorAll('[data-payment-amount]');
+      buttons.forEach((button) => button.classList.toggle('is-selected', button.dataset.paymentTier === tier));
+      return [...buttons].find((button) => button.dataset.paymentTier === tier);
+    }
+    function paymentInstruction(button) {
+      const address = walletAddress.textContent.trim();
+      const formUrl = new URL(button.dataset.paymentForm, window.location.href).href;
+      return [
+        `tier: ${button.dataset.paymentTier}`,
+        `amount: ${button.dataset.paymentAmount} USDT`,
+        'network: TRON / TRC20',
+        `token: USDT`,
+        `wallet_address: ${address}`,
+        `birth_details_form: ${formUrl}`,
+        '',
+        'After payment, copy the USDT transaction hash and paste it into the birth details form as the payment receipt ID.',
+      ].join('\n');
+    }
     document.getElementById('copyWalletButton').addEventListener('click', async () => {
       const address = walletAddress.textContent.trim();
       try {
@@ -1093,6 +1121,25 @@
         walletCopyStatus.textContent = `Copy did not complete in this browser. Copy this TRON USDT address manually: ${address}`;
       }
       walletCopyStatus.classList.add('is-visible');
+    });
+    document.querySelectorAll('[data-payment-amount]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        selectedPaymentButton(button.dataset.paymentTier);
+        const instruction = paymentInstruction(button);
+        try {
+          if (!navigator.clipboard) throw new Error('Clipboard unavailable');
+          await navigator.clipboard.writeText(instruction);
+          walletCopyStatus.textContent = `${button.dataset.paymentTier} payment details copied. Send exactly ${button.dataset.paymentAmount} USDT on TRON / TRC20, then paste the transaction hash into the birth details form.`;
+        } catch (error) {
+          walletCopyStatus.textContent = `Copy did not complete in this browser. Copy these payment details manually:\n\n${instruction}`;
+        }
+        walletCopyStatus.classList.add('is-visible');
+      });
+    });
+    document.querySelectorAll('.payment-jump').forEach((link) => {
+      link.addEventListener('click', () => {
+        selectedPaymentButton(link.dataset.paymentTier);
+      });
     });
     document.getElementById('unknownBirthTime').addEventListener('change', (event) => {
       const disabled = event.target.checked;
