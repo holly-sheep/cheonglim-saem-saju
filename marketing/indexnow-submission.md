@@ -1,6 +1,6 @@
 # IndexNow Submission
 
-Status: prepared
+Status: submitted
 
 Use this only for Cheonglim-owned URLs. The key file is public at:
 
@@ -29,3 +29,8 @@ URLs in the first batch:
 - https://cheonglimsaju.com/promo-assets.html
 
 Evidence rule: an HTTP 200 or 202 from the IndexNow endpoint proves URL submission was received. It does not prove search ranking, qualified visits, preview leads, or paid orders.
+
+## Submission Evidence
+
+- 2026-05-16T16:18:30+09:00: `scripts/submit-indexnow.sh` returned `HTTP/2 202` from `https://api.indexnow.org/indexnow`.
+- Live key file check before submission: `https://cheonglimsaju.com/cheonglim-saju-indexnow-20260516-7ab7.txt` returned HTTP 200 and the expected key text.
