@@ -17,6 +17,12 @@ cp ./*.html "$site_out"/
 cp robots.txt sitemap.xml "$site_out"/
 cp -R assets "$site_out"/assets
 
+shopt -s nullglob
+for indexnow_key in ./*indexnow*.txt; do
+  cp "$indexnow_key" "$site_out"/
+done
+shopt -u nullglob
+
 if [[ -f CNAME ]]; then
   cp CNAME "$site_out"/CNAME
 fi
