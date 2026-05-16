@@ -4,7 +4,7 @@ Use these only where subreddit rules allow participation. Prefer a helpful answe
 
 ## General Saju Explanation
 
-Saju is the Korean reading of the Four Pillars: year, month, day, and hour. The part that often gets missed for people born outside Korea is the clock basis.
+Saju is the Korean reading of the Four Pillars: year, month, day, and hour. The part that often gets missed for overseas birth records is the clock basis.
 
 I would not treat a Los Angeles, London, Sydney, or Toronto birth as if it were recorded on a Korea-centered clock. A careful reading should start with the recorded local civil time, then check country/city, timezone, DST, and whether true solar time would meaningfully affect the hour pillar.
 
@@ -32,4 +32,4 @@ For a global audience, the practical issue is birth data handling. A Saju readin
 
 That is actually a good entry point. Saju is part of Korean everyday culture in a way many international fans only discover through variety shows, idol content, or drama references.
 
-For fans outside Korea, I think the best framing is not "fortune prediction." It is Korean culture + self-reflection + a birth-time framework that needs proper city/timezone handling.
+For global K-culture fans, I think the best framing is not "fortune prediction." It is Korean culture + self-reflection + a birth-time framework that needs proper city/timezone handling.

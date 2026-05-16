@@ -22,7 +22,7 @@ https://cheonglimsaju.com/assets/social/kfortune-card-02-time-context.png
 
 Caption:
 
-Born outside Korea? A Korean Four Pillars reading should not start from a vague birthday only.
+Korean Saju should not start from a vague birthday only.
 
 For overseas births, the clean basis is:
 
@@ -40,7 +40,7 @@ https://cheonglimsaju.com/start.html?utm_source=instagram&utm_medium=social&utm_
 
 ## X Post
 
-Born outside Korea? Your Korean Saju chart should start from the real birth record: city, timezone, DST, and true solar time when it matters.
+Korean Saju should start from the real birth record: city, timezone, DST, and true solar time when it matters.
 
 I made an English K-fortune mini preview for people born anywhere in the world:
 
@@ -58,7 +58,7 @@ Korean Saju Reading for Overseas Births
 
 Description:
 
-Born outside Korea? Learn why birthplace, timezone, DST, and true solar time can matter in a Korean Four Pillars reading. Try the free K-fortune mini preview before ordering the full English PDF.
+Learn why birthplace, timezone, DST, and true solar time can matter in a Korean Four Pillars reading. Try the free K-fortune mini preview before ordering the full English PDF.
 
 Destination:
 

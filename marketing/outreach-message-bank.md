@@ -31,7 +31,7 @@ Subject: Story idea: Korean Four Pillars readings for overseas-born K-culture fa
 
 Hi {{name}},
 
-I am building Cheonglim Saem, an English K-fortune project that explains Korean Saju/Four Pillars for people born outside Korea.
+I am building Cheonglim Saem, an English K-fortune project that explains Korean Saju/Four Pillars for global K-culture readers.
 
 The angle is not hard prediction. It is Korean culture + self-reflection + the practical issue that overseas birth records need city, timezone, DST, and sometimes true solar time checked before interpretation.
 

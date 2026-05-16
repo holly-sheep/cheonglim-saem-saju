@@ -35,7 +35,7 @@ Free mini preview.
 
 ## First 10 Hooks
 
-1. Born outside Korea? Your Saju chart can change if timezone or DST is wrong.
+1. Your birth city can change how a Korean Saju chart should be checked.
 2. Not just your birthday. Your city, timezone, and solar time matter.
 3. Try a Korean Saju mini preview before ordering the full English PDF.
 4. A Korean-style personality and life-pattern reading, adjusted for your real birthplace.
@@ -49,7 +49,7 @@ Free mini preview.
 ## 7-Day Posting Sprint
 
 Day 1 Reel:
-Hook: Born outside Korea? Your Saju chart can change if timezone or DST is wrong.
+Hook: Your birth city can change how a Korean Saju chart should be checked.
 Visual: sample Premium page screenshot.
 Caption: Korean Four Pillars uses birth date and time, but overseas births need a cleaner time check. City, timezone, DST, and true solar time can matter. Try the free mini preview before ordering.
 CTA: Free preview at cheonglimsaju.com.
@@ -63,7 +63,7 @@ Slides:
 4. DST can matter.
 5. True solar time can matter near boundaries.
 6. Try a Korean Saju mini preview.
-CTA: Save this if you were born outside Korea.
+CTA: Save this if you want a Korean Saju reading based on the real birth record.
 
 Day 3 Reel:
 Hook: What is Saju?
@@ -92,7 +92,7 @@ CTA: Start with the free preview.
 Tracked link: https://cheonglimsaju.com/start.html?utm_source=instagram&utm_medium=social&utm_campaign=kfortune_launch&utm_content=day6_premium_offer
 
 Day 7 Story Q&A:
-Prompt: Were you born outside Korea? Drop your country/city and I will explain what time-context detail matters for Saju.
+Prompt: Drop your birth country/city and I will explain what time-context detail matters for Saju.
 CTA: Free mini preview link.
 Tracked link: https://cheonglimsaju.com/start.html?utm_source=instagram&utm_medium=story&utm_campaign=kfortune_launch&utm_content=day7_story_qa
 
@@ -102,10 +102,10 @@ Use these as explanation posts, not direct sales posts. Add the link only if the
 
 ### Post 1: r/Korean or K-culture-adjacent
 
-Title: Why Korean Saju readings get tricky for people born outside Korea
+Title: Why Korean Saju readings need the real birth city and clock context
 
 Body:
-In Korean Saju, the chart is built from the year, month, day, and hour pillars. For people born outside Korea, I think the underrated issue is not the Korean terminology. It is the clock.
+In Korean Saju, the chart is built from the year, month, day, and hour pillars. For overseas birth records, I think the underrated issue is not the Korean terminology. It is the clock.
 
 A birth in Los Angeles, London, Sydney, or Toronto should not be treated like a Korea-centered time record. The recorded time is local civil time, and then timezone, daylight saving, and sometimes true solar time can matter, especially near hour boundaries.
 
@@ -126,7 +126,7 @@ Title: A Korean Four Pillars angle astrology fans may find interesting
 Body:
 Korean Saju is based on the Four Pillars: year, month, day, and hour. If you already like astrology, tarot, MBTI, or Human Design for self-reflection, Saju can feel familiar but has a different logic.
 
-The part I find most important for overseas births is time handling. For a person born outside Korea, the reading should account for birthplace, timezone, daylight saving, and whether true solar time could shift the hour context.
+The part I find most important for overseas birth records is time handling. The reading should account for birthplace, timezone, daylight saving, and whether true solar time could shift the hour context.
 
 I would frame it less as prediction and more as a Korean-style personality and life-pattern reading. The useful questions are:
 
@@ -148,7 +148,7 @@ The birth city and timezone are not small details. They are part of the chart ba
 
 ### Thread 1
 
-1. Born outside Korea? Your Saju chart can change if timezone or DST is wrong.
+1. Your birth city can change how a Korean Saju chart should be checked.
 2. Korean Saju uses the Four Pillars: year, month, day, hour.
 3. For overseas births, the recorded local time should not be treated as a Korea-centered clock.
 4. The clean check: birthplace, timezone, DST, and true solar time when relevant.
@@ -181,7 +181,7 @@ Pin titles:
 Pin descriptions:
 
 - Try a Korean Four Pillars reading in English, adjusted for birthplace, timezone, DST, and true solar time.
-- Born outside Korea? Learn why your city, timezone, and DST can matter in a Korean Saju reading.
+- Learn why your city, timezone, and DST can matter in a Korean Saju reading.
 - Free K-fortune mini preview before ordering the full English PDF.
 
 ## Micro-Influencer Outreach
@@ -194,7 +194,7 @@ DM:
 
 Hi, I run Cheonglim Saem, a Korean Four Pillars reading service in English.
 
-I am offering a free VIP PDF to a small number of K-culture / astrology / self-reflection creators in exchange for an honest review. The reading is adjusted for birthplace, timezone, DST, and true solar time, so it works for people born outside Korea too.
+I am offering a free VIP PDF to a small number of K-culture / astrology / self-reflection creators in exchange for an honest review. The reading is adjusted for birthplace, timezone, DST, and true solar time, so it works with overseas birth records too.
 
 No scripted praise needed. If it is useful, you can share your honest reaction; if not, private feedback is fine.
 
