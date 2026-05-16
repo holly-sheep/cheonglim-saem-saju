@@ -32,7 +32,7 @@
     "url": "https://cheonglimsaju.com/basic-korean-saju-report.html",
     "offers": {
       "@type": "Offer",
-      "url": "https://cheonglimsaju.com/#usdt-tron",
+      "url": "https://cheonglimsaju.com/basic-korean-saju-report.html#basic-payment",
       "price": "9",
       "priceCurrency": "USDT",
       "availability": "https://schema.org/InStock",
@@ -63,11 +63,16 @@
     .actions { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
     .button { display:inline-flex; min-height:50px; align-items:center; justify-content:center; padding:10px 18px; border-radius:8px; background:white; color:var(--deep); font-weight:950; line-height:1.2; text-align:center; text-decoration:none; }
     .button.primary { background:var(--jade); color:white; }
+    .payment-panel { display:grid; grid-template-columns:180px 1fr; gap:18px; align-items:center; margin-top:22px; border:1px solid var(--line); border-radius:8px; padding:16px; background:var(--panel); }
+    .payment-panel img { width:100%; border-radius:8px; border:1px solid var(--line); background:#fff; }
+    .payment-facts { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; margin-top:12px; }
+    .payment-fact { border:1px solid var(--line); border-radius:8px; padding:10px 12px; background:#fffdf8; color:#261d15; font-weight:900; overflow-wrap:anywhere; }
+    .payment-fact small { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.06em; }
     .steps { display:grid; gap:12px; margin-top:22px; }
     .step { border-left:4px solid var(--jade); padding:12px 0 12px 16px; background:rgba(255,255,255,.45); }
     .step b { display:block; }
     .step p { margin:5px 0 0; }
-    @media (max-width:720px){ .top { flex-direction:column; } .grid, .actions { grid-template-columns:1fr; } }
+    @media (max-width:720px){ .top { flex-direction:column; } .grid, .actions, .payment-panel, .payment-facts { grid-template-columns:1fr; } .payment-panel img { max-width:260px; } }
     @media (min-width:900px){ main { padding:52px 28px 88px; } .grid { gap:16px; } }
   </style>
 </head>
@@ -95,12 +100,26 @@
       <article class="step"><b>2. Send birth details</b><p>Open the Basic intake form, enter the same checkout email, add the payment receipt ID when available, and send the generated message by email.</p></article>
       <article class="step"><b>3. Receive the PDF</b><p>The inbox worker checks paid orders every few hours and replies with the generated PDF.</p></article>
     </div>
+    <h2 id="basic-payment">Basic payment details</h2>
+    <div class="payment-panel">
+      <img src="assets/usdt-tron-qr.png" alt="USDT TRON receiving address QR code">
+      <div>
+        <h3>Send exactly 9 USDT on TRON / TRC20.</h3>
+        <p>This QR is the receiving address only. Do not send TRX, Ethereum, Base, or another token. After payment, paste the transaction hash into the Basic intake form.</p>
+        <div class="payment-facts" aria-label="Basic payment facts">
+          <div class="payment-fact"><small>Amount</small>9 USDT</div>
+          <div class="payment-fact"><small>Network</small>TRON / TRC20</div>
+          <div class="payment-fact"><small>Token</small>USDT</div>
+          <div class="payment-fact"><small>Wallet</small>TPinvSovyuBHTVK1Kd6bUYYESMoSBxjgjJ</div>
+        </div>
+      </div>
+    </div>
     <div class="cta">
       <b>Order Basic when you want the first report without overthinking the package.</b>
       <p>Use the same email at checkout and in the intake form. After payment, paste the USDT transaction hash or receipt ID when available. If you cannot find it, the form can mark the order for email-and-package matching.</p>
       <div class="actions">
-        <a class="button" href="index.html#usdt-tron">Pay Basic with USDT</a>
-        <a class="button primary" href="intake.html?tier=basic">Open intake form</a>
+        <a class="button" href="#basic-payment">See 9 USDT payment details</a>
+        <a class="button primary" href="intake.html?tier=basic&amp;utm_source=basic_page&amp;utm_medium=site&amp;utm_campaign=kfortune_launch&amp;utm_content=basic_after_payment_form">Open Basic intake</a>
       </div>
     </div>
   </main>

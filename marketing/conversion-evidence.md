@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T20:49:02+09:00
+Last updated: 2026-05-16T20:53:21+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -185,6 +185,8 @@ Live-verified on 2026-05-16T20:43:06+09:00 after the Pages deployment for commit
 Updated locally on 2026-05-16T20:46:15+09:00 to reduce drop-off from the core SEO pages most aligned with the product promise. `saju-without-birth-time.html`, `overseas-birth-saju.html`, `true-solar-time-saju.html`, and `korean-saju-reading-online.html` now route to the free preview form, Premium order form, correction-proof example, sample PDF, or Basic detail page instead of generic homepage checkout anchors. The static Pages artifact built successfully to `/tmp/cheonglim-site-core-seo-fast-cta-check`; mobile screenshots were saved at `/tmp/cheonglim-unknown-time-fast-cta-mobile.png`, `/tmp/cheonglim-overseas-birth-fast-cta-mobile.png`, `/tmp/cheonglim-true-solar-fast-cta-mobile.png`, and `/tmp/cheonglim-online-reading-fast-cta-mobile.png`. This is a conversion routing artifact only; it is not a qualified visit, sent lead, or paid order.
 
 Live-verified on 2026-05-16T20:49:02+09:00 after the Pages deployment for commit `6da9a7a`. Cache-busted live checks showed the unknown-time, overseas-birth, true-solar-time, and online-reading pages include the fast-form UTM routes to `#mini-preview-form`, `#premium-order-form`, correction proof, samples, and the Basic detail page. The IndexNow batch was submitted; the first sandboxed run failed DNS resolution for `api.indexnow.org`, and the escalated retry returned HTTP/2 200. GitHub repo traffic remained `28` views and `1` unique. The latest 5 TronGrid TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match.
+
+Updated locally on 2026-05-16T20:53:21+09:00 to reduce purchase-path leakage on buyer-confidence pages. `basic-korean-saju-report.html` now has an on-page `basic-payment` section with exact 9 USDT TRON/TRC20 payment details and a tracked Basic intake link. `premium-korean-saju-reading.html`, `trust-policies.html`, `saju-in-english.html`, and `reddit-saju-preview.html` now route their relevant CTAs to fast preview or Premium order paths instead of generic homepage checkout or old intake links. The static Pages artifact built successfully to `/tmp/cheonglim-site-purchase-path-cleanup-check`; mobile screenshots were saved at `/tmp/cheonglim-basic-payment-mobile.png` and `/tmp/cheonglim-trust-fast-cta-mobile.png` after retrying the screenshot commands and confirming the PNG files exist. This is a conversion routing artifact only; it is not a qualified visit, sent lead, or paid order.
 
 ## Evidence Rules
 
