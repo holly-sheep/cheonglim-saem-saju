@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T18:08:56+09:00
+Last updated: 2026-05-16T18:12:12+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -65,6 +65,8 @@ Rechecked on 2026-05-16T18:03:35+09:00 after adding community evidence presets t
 Rechecked on 2026-05-16T18:07:01+09:00 after adding the preview-to-Premium reservation CTA to `free-korean-saju-reading.html`. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. No outbound email was sent by automation.
 
 Live-verified on 2026-05-16T18:08:56+09:00 after the Pages deployment for commit `30903d6`. The first live request immediately after deployment still showed stale HTML, then a cache-busted request with `Cache-Control: no-cache` returned `free-korean-saju-reading.html` containing `Choose after the preview`, `package-grid`, `Reserve Premium`, and `lead_type: order_reservation_intent`. This proves the preview-to-Premium reservation CTA is live. It is a conversion artifact only; it is not a sent lead or paid order.
+
+Rechecked on 2026-05-16T18:12:12+09:00 after creating `post-now-community.html`. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. No Reddit, forum, social, modmail, DM, or email post was submitted by automation.
 
 ## Evidence Rules
 
