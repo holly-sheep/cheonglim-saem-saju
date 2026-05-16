@@ -148,7 +148,7 @@ It is not tarot and not Western astrology. It is a Korean-style Four Pillars rea
 The part I am focusing on is overseas birth-record handling. For someone born outside Korea, the full PDF checks birth city, historical timezone, daylight saving time, and true solar time context before interpretation.
 
 Free mini preview first:
-https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=reddit&utm_medium=promotion_thread&utm_campaign=kfortune_launch&utm_content=rtarot_may_promo
+https://cheonglimsaju.com/reddit-saju-preview.html?utm_source=reddit&utm_medium=promotion_thread&utm_campaign=kfortune_launch&utm_content=rtarot_may_promo
 ```
 
 Evidence after posting:
@@ -185,7 +185,7 @@ Clear scope: this is not spirit communication and not Western astrology. It is a
 For people born outside Korea, the full reading checks birth city, historical timezone, daylight saving time, and true solar time context before interpretation. The free preview is one short clue first.
 
 Free mini preview:
-https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=reddit&utm_medium=services_thread&utm_campaign=kfortune_launch&utm_content=spiritwork_divination_weekly
+https://cheonglimsaju.com/reddit-saju-preview.html?utm_source=reddit&utm_medium=services_thread&utm_campaign=kfortune_launch&utm_content=spiritwork_divination_weekly
 ```
 
 Evidence after posting:

@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T18:16:38+09:00
+Last updated: 2026-05-16T18:21:24+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -69,6 +69,8 @@ Live-verified on 2026-05-16T18:08:56+09:00 after the Pages deployment for commit
 Rechecked on 2026-05-16T18:12:12+09:00 after creating `post-now-community.html`. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. No Reddit, forum, social, modmail, DM, or email post was submitted by automation.
 
 Rechecked on 2026-05-16T18:16:38+09:00 after adding current Reddit promotion/service thread candidates to the community posting pack. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. No Reddit, forum, social, modmail, DM, or email post was submitted by automation.
+
+Rechecked on 2026-05-16T18:21:24+09:00 after creating `reddit-saju-preview.html` and routing Reddit promotion/service thread links to it. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. No Reddit, forum, social, modmail, DM, or email post was submitted by automation.
 
 ## Evidence Rules
 
