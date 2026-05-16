@@ -58,6 +58,8 @@ Rechecked on 2026-05-16T17:53:28+09:00 after creating the live community candida
 
 Resubmitted the public URL batch to IndexNow on 2026-05-16T17:55:39+09:00 after the free-preview hero CTA and live community candidate updates. The first sandboxed run failed with DNS resolution for `api.indexnow.org`; escalated retry returned HTTP/2 200. This is external search submission only, not qualified visit, free-preview lead, or paid-order evidence.
 
+Rechecked on 2026-05-16T18:00:23+09:00 after creating the exact community post batch. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. No Reddit, forum, social, modmail, DM, or email post was submitted by automation.
+
 ## Evidence Rules
 
 - Qualified visit evidence: platform analytics screenshot, GitHub Pages/custom domain analytics if available, or a UTM-tagged lead/order email that proves the visitor came from a campaign URL.
