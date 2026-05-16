@@ -88,6 +88,8 @@
     </section>
     <div class="links">
       <a class="button primary tracked-link" href="index.html?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=kfortune_launch&amp;utm_content=bio_free_preview#free-preview">Free mini preview</a>
+      <a class="button tracked-link preview-request-mail" href="mailto:aideseobot@gmail.com">Request free preview by email</a>
+      <a class="button tracked-link preview-request-gmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=aideseobot@gmail.com" target="_blank" rel="noopener">Open Gmail preview draft</a>
       <a class="button tracked-link" href="assets/sample-premium.pdf">See Premium sample PDF</a>
       <a class="button gold tracked-link" href="index.html?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=kfortune_launch&amp;utm_content=bio_premium#packages">Premium full PDF · 19 USDT</a>
       <a class="button tracked-link" href="korean-compatibility-reading.html?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=kfortune_launch&amp;utm_content=bio_compatibility">Couple compatibility angle</a>
@@ -114,6 +116,36 @@
         link.setAttribute('href', `${url.pathname}${url.search}${url.hash}`);
       });
     }
+    function trackingLines() {
+      return keys.map((key) => `${key}: ${incoming.get(key) || 'instagram_bio_direct'}`);
+    }
+    function previewRequestText() {
+      return [
+        'lead_type: free_mini_preview_request',
+        'source_page: bio',
+        '',
+        ...trackingLines(),
+        '',
+        'birth_date:',
+        'birth_time:',
+        'birth_country:',
+        'birth_city:',
+        '',
+        'question:',
+        'I want to try the free Korean Saju mini preview before ordering the full PDF.',
+      ].join('\n');
+    }
+    function refreshPreviewRequestLinks() {
+      const subject = encodeURIComponent('Cheonglim Saem free Korean Saju preview request');
+      const body = encodeURIComponent(previewRequestText());
+      document.querySelectorAll('.preview-request-mail').forEach((link) => {
+        link.href = `mailto:aideseobot@gmail.com?subject=${subject}&body=${body}`;
+      });
+      document.querySelectorAll('.preview-request-gmail').forEach((link) => {
+        link.href = `https://mail.google.com/mail/?view=cm&fs=1&to=aideseobot@gmail.com&su=${subject}&body=${body}`;
+      });
+    }
+    refreshPreviewRequestLinks();
   </script>
 </body>
 </html>
