@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T20:03:14+09:00
+Last updated: 2026-05-16T20:07:31+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -155,6 +155,8 @@ Live-verified on 2026-05-16T19:56:19+09:00 after the Pages deployment for commit
 Updated locally on 2026-05-16T20:00:42+09:00 after the owner asked again to register posts. No authenticated Reddit/forum/social posting tool is available in this workspace, so no external platform post can honestly be marked as submitted. As an account-free acquisition step, `robots.txt` now explicitly allows documented search and AI crawler tokens for OpenAI, Anthropic, Perplexity, Google, and Bing where applicable, and the IndexNow batch now includes `sitemap.xml` plus `robots.txt`. This is search/AI discovery registration only; it is not a Reddit/forum/social post, qualified visit, lead, or paid order.
 
 Live-verified on 2026-05-16T20:03:14+09:00 after the Pages deployment for commit `e6af61a`. A cache-busted live request to `robots.txt` returned `OAI-SearchBot`, `GPTBot`, `ChatGPT-User`, `ClaudeBot`, `Claude-SearchBot`, `Claude-User`, `PerplexityBot`, `Perplexity-User`, `Googlebot`, `Google-Extended`, `Bingbot`, and both sitemap lines. The public URL batch including `sitemap.xml` and `robots.txt` was submitted to IndexNow; the first sandboxed run failed DNS resolution for `api.indexnow.org`, and the escalated retry returned HTTP/2 200. GitHub repo traffic remained `27` views and `1` unique. The latest 5 TronGrid TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match.
+
+Updated locally on 2026-05-16T20:07:31+09:00 to reduce the free-preview lead friction. `free-korean-saju-reading.html` now has a fast mini preview request form that creates a reviewable email/Gmail/copy draft with `lead_type: free_mini_preview_request`, `source_page: free_korean_saju_reading_form`, UTM fields, birth date, birth time or unknown-time, birth country, birth city, optional timezone, optional reply email, and question/context. The static Pages artifact built successfully to `/tmp/cheonglim-site-free-preview-form-check`, and a full-page mobile screenshot was saved at `/tmp/cheonglim-free-preview-mini-form-mobile.png`. This is a conversion artifact only; it becomes a real lead only when a sent email is received.
 
 ## Evidence Rules
 

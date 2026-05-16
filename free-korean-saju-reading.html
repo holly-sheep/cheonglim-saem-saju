@@ -80,10 +80,20 @@
     .note { margin-top:22px; padding:16px; border:1px solid rgba(36,102,92,.22); border-radius:8px; background:#edf7f4; color:var(--deep); font-weight:850; }
     .request { margin-top:28px; padding:20px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
     .request p { margin:8px 0 0; }
+    .mini-form { margin-top:28px; padding:20px; border:1px solid rgba(36,102,92,.28); border-radius:8px; background:#fffdfa; }
+    .mini-form form { display:grid; gap:14px; margin-top:18px; }
+    .form-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; }
+    label { display:grid; gap:6px; color:var(--ink); font-weight:900; }
+    label span { color:var(--muted); font-size:13px; font-weight:700; line-height:1.4; }
+    input, textarea { width:100%; min-height:48px; border:1px solid var(--line); border-radius:8px; background:white; color:var(--ink); padding:10px 12px; font:inherit; }
+    textarea { min-height:96px; resize:vertical; }
+    .full { grid-column:1 / -1; }
+    .check-row { display:flex; align-items:center; gap:10px; color:var(--muted); font-size:14px; font-weight:850; }
+    .check-row input { width:18px; min-height:18px; }
     .request-status { display:none; margin-top:10px; padding:10px 12px; border-radius:8px; background:#f8efe1; color:#5d554b; font-size:13px; font-weight:850; line-height:1.4; white-space:pre-wrap; overflow-wrap:anywhere; }
     .request-status.is-visible { display:block; }
     footer { margin-top:40px; color:var(--muted); font-size:14px; }
-    @media (max-width:760px){ .top, .hero { grid-template-columns:1fr; flex-direction:column; } .hero img { max-width:360px; } .buttons, .grid, .package-grid { grid-template-columns:1fr; } }
+    @media (max-width:760px){ .top, .hero { grid-template-columns:1fr; flex-direction:column; } .hero img { max-width:360px; } .buttons, .grid, .package-grid, .form-grid { grid-template-columns:1fr; } .full { grid-column:auto; } }
     @media (min-width:900px){ main { padding:52px 28px 88px; } }
   </style>
 </head>
@@ -111,6 +121,30 @@
       <article class="box"><b>No card required</b><p>The preview runs in the browser. You only email support if you want a follow-up or full PDF.</p></article>
       <article class="box"><b>Full report is optional</b><p>Premium is the recommended paid report when you want the birthplace and time-context check.</p></article>
     </div>
+
+    <section class="mini-form" id="mini-preview-form">
+      <p class="kicker">Fast request form</p>
+      <h2>Send enough details for a real preview.</h2>
+      <p>Fill this on your device, then open email or Gmail. The page does not upload your birth data; it only creates a draft you can review before sending.</p>
+      <form id="miniPreviewForm">
+        <div class="form-grid">
+          <label>Birth date<input name="birthDate" autocomplete="bday" placeholder="MM / DD / YYYY" required><span>Use the date written on the birth record.</span></label>
+          <label>Birth time<input name="birthTime" placeholder="14:35 or 2:35 PM"><span>Leave blank if unknown, then check the box below.</span></label>
+          <label class="check-row full"><input name="unknownBirthTime" type="checkbox"> I do not know the birth time</label>
+          <label>Birth country<input name="birthCountry" placeholder="United States / UK / Canada / ..." required></label>
+          <label>Birth city<input name="birthCity" placeholder="Los Angeles / London / Toronto" required></label>
+          <label>Timezone, if known<input name="timezone" placeholder="America/Los_Angeles"></label>
+          <label>Reply email, optional<input name="replyEmail" type="email" placeholder="name@example.com"><span>Optional because your email app already sends from your account.</span></label>
+          <label class="full">Question or context<textarea name="question" placeholder="Example: I want a quick personality-pattern preview before deciding on Premium."></textarea></label>
+        </div>
+        <div class="buttons">
+          <button class="button primary" id="sendMiniPreviewMail" type="button">Open email draft</button>
+          <button class="button" id="sendMiniPreviewGmail" type="button">Open Gmail draft</button>
+          <button class="button" id="copyMiniPreview" type="button">Copy request</button>
+        </div>
+        <div class="request-status" id="miniPreviewStatus" aria-live="polite"></div>
+      </form>
+    </section>
 
     <h2>How the full PDF differs</h2>
     <div class="flow">
@@ -165,8 +199,54 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const trackingKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
+    const miniPreviewForm = document.getElementById('miniPreviewForm');
+    const miniPreviewStatus = document.getElementById('miniPreviewStatus');
     function trackingLines() {
       return trackingKeys.map((key) => `${key}: ${params.get(key) || 'direct'}`);
+    }
+    function miniValue(name) {
+      return miniPreviewForm.elements[name].value.trim();
+    }
+    function miniPreviewFormText() {
+      const unknownTime = miniPreviewForm.elements.unknownBirthTime.checked;
+      return [
+        'lead_type: free_mini_preview_request',
+        'source_page: free_korean_saju_reading_form',
+        '',
+        ...trackingLines(),
+        '',
+        `birth_date: ${miniValue('birthDate')}`,
+        `birth_time: ${unknownTime ? 'unknown' : miniValue('birthTime')}`,
+        `birth_country: ${miniValue('birthCountry')}`,
+        `birth_city: ${miniValue('birthCity')}`,
+        `timezone_optional: ${miniValue('timezone') || 'unknown'}`,
+        `reply_email_optional: ${miniValue('replyEmail') || 'sent_from_email_account'}`,
+        '',
+        'question:',
+        miniValue('question') || 'I want a quick Korean Saju mini preview before deciding whether to order the Premium PDF.',
+      ].join('\n');
+    }
+    function validateMiniPreviewForm() {
+      const required = ['birthDate', 'birthCountry', 'birthCity'];
+      const missing = required.filter((name) => !miniValue(name));
+      const timeMissing = !miniPreviewForm.elements.unknownBirthTime.checked && !miniValue('birthTime');
+      if (missing.length || timeMissing) {
+        miniPreviewStatus.textContent = 'Add birth date, birth city, birth country, and either birth time or the unknown-time checkbox before creating the email draft.';
+        miniPreviewStatus.classList.add('is-visible');
+        return false;
+      }
+      if (miniValue('replyEmail') && !miniPreviewForm.elements.replyEmail.checkValidity()) {
+        miniPreviewStatus.textContent = 'The optional reply email is not formatted correctly.';
+        miniPreviewStatus.classList.add('is-visible');
+        return false;
+      }
+      return true;
+    }
+    function miniPreviewSubject() {
+      return encodeURIComponent('Cheonglim Saem free Korean Saju preview request');
+    }
+    function miniPreviewBody() {
+      return encodeURIComponent(miniPreviewFormText());
     }
     function previewRequestText() {
       return [
@@ -230,6 +310,26 @@
       });
     }
     refreshPreviewRequestLinks();
+    document.getElementById('sendMiniPreviewMail').addEventListener('click', () => {
+      if (!validateMiniPreviewForm()) return;
+      window.location.href = `mailto:aideseobot@gmail.com?subject=${miniPreviewSubject()}&body=${miniPreviewBody()}`;
+    });
+    document.getElementById('sendMiniPreviewGmail').addEventListener('click', () => {
+      if (!validateMiniPreviewForm()) return;
+      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=aideseobot@gmail.com&su=${miniPreviewSubject()}&body=${miniPreviewBody()}`, '_blank', 'noopener');
+    });
+    document.getElementById('copyMiniPreview').addEventListener('click', async () => {
+      if (!validateMiniPreviewForm()) return;
+      const text = miniPreviewFormText();
+      try {
+        if (!navigator.clipboard) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(text);
+        miniPreviewStatus.textContent = 'Request copied. Paste it into email and send it to aideseobot@gmail.com.';
+      } catch (error) {
+        miniPreviewStatus.textContent = `Copy did not complete in this browser. Email this text to aideseobot@gmail.com:\n\n${text}`;
+      }
+      miniPreviewStatus.classList.add('is-visible');
+    });
     document.getElementById('copyPreviewRequest').addEventListener('click', async () => {
       const status = document.getElementById('requestStatus');
       const text = previewRequestText();
