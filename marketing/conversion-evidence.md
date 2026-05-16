@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T20:15:02+09:00
+Last updated: 2026-05-16T20:20:42+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -163,6 +163,10 @@ Live-verified on 2026-05-16T20:09:48+09:00 after the Pages deployment for commit
 Updated locally on 2026-05-16T20:13:29+09:00 to reduce the Premium paid-order friction. `premium-korean-saju-reading.html` now includes an after-payment order form directly below the Premium payment panel. It creates an order email with `order_id`, `customer_name`, `email`, `tier: premium`, birth details, UTM fields, `source_page: premium_quick_order_form`, `amount_usdt: 19`, and the wallet address, so a buyer can send payment details without leaving the Premium page. The static Pages artifact built successfully to `/tmp/cheonglim-site-premium-quick-order-check`, and a full-page mobile screenshot was saved at `/tmp/cheonglim-premium-quick-order-mobile.png`. This is a conversion artifact only; it becomes a paid-order evidence item only when a sent order email includes a transaction hash that matches a 19 USDT TRON transfer.
 
 Live-verified on 2026-05-16T20:15:02+09:00 after the Pages deployment for commit `03b435b`. A cache-busted live request to `premium-korean-saju-reading.html` returned `premium-order-form`, `premiumOrderForm`, `order_id`, `customer_name`, `tier: premium`, `source_page: premium_quick_order_form`, `amount_usdt: 19`, and order email/Gmail/copy actions. The public URL batch was submitted to IndexNow; the first sandboxed run failed DNS resolution for `api.indexnow.org`, and the escalated retry returned HTTP/2 200. GitHub repo traffic remained `27` views and `1` unique. The latest 5 TronGrid TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match.
+
+Updated locally on 2026-05-16T20:20:00+09:00 to point external CTAs at the highest-intent form locations. Bio/start links, launch page Premium CTA, written community post copy, 10-minute posting board, promo assets, and short-form scripts now route free-preview traffic directly to `free-korean-saju-reading.html#mini-preview-form` and Premium traffic to `premium-korean-saju-reading.html#premium-order-form` with form-specific `utm_content` values. This is conversion routing only; it is not a public post, qualified visit, lead, or payment.
+
+Verified locally on 2026-05-16T20:20:42+09:00. The static Pages artifact built successfully to `/tmp/cheonglim-site-fast-form-routing-check`, `rg` confirmed the form-specific UTM routes in the rendered files, and a full-page mobile screenshot of `bio.html` was saved at `/tmp/cheonglim-bio-fast-form-routing-mobile.png`. This remains a conversion-routing artifact only until an external user visits or sends a UTM-tagged lead/order email.
 
 ## Evidence Rules
 

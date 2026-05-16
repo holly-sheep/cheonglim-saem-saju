@@ -60,7 +60,7 @@ Saju is not Western astrology. It does not use planets, signs, houses, or aspect
 The free version gives one short mini preview before anyone orders the full English PDF.
 
 Free mini preview:
-https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=services_board&utm_campaign=kfortune_launch&utm_content=batch2_astrology_forum_preview
+https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=services_board&utm_campaign=kfortune_launch&utm_content=batch2_astrology_forum_preview_form#mini-preview-form
 ```
 
 Evidence after posting: public thread URL, forum section name, views/replies screenshot if visible.
@@ -79,7 +79,7 @@ Saju is a traditional Korean Four Pillars reading based on year, month, day, and
 The free page gives a short mini preview first, so people can try the Korean Four Pillars angle before ordering a full English PDF.
 
 Free Korean Saju mini preview:
-https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=kculture_board&utm_campaign=kfortune_launch&utm_content=batch2_kculture_preview
+https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=kculture_board&utm_campaign=kfortune_launch&utm_content=batch2_kculture_preview_form#mini-preview-form
 
 This is mainly for people who like Korean culture, personality readings, astrology-style self-reflection, or Korean traditions explained in English.
 ```
@@ -123,7 +123,7 @@ It reads year, month, day, and hour pillars through stems, branches, five elemen
 Culture + self-reflection first. No prediction pressure.
 
 Free mini preview:
-https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=x&utm_medium=social&utm_campaign=kfortune_launch&utm_content=batch2_x_thread_preview
+https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=x&utm_medium=social&utm_campaign=kfortune_launch&utm_content=batch2_x_thread_preview_form#mini-preview-form
 ```
 
 Evidence after posting: public X URL, impressions/clicks screenshot if available, later UTM lead evidence.
@@ -138,7 +138,7 @@ Description:
 Try a Korean Saju / Four Pillars mini preview in English. The full PDF checks birth city, timezone, daylight saving time, and true solar time context before interpretation. For K-culture fans, astrology-style self-reflection readers, diaspora readers, and anyone curious about Korean Four Pillars.
 
 Destination:
-https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=pinterest&utm_medium=social&utm_campaign=kfortune_launch&utm_content=batch2_pinterest_preview
+https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=pinterest&utm_medium=social&utm_campaign=kfortune_launch&utm_content=batch2_pinterest_preview_form#mini-preview-form
 
 Image:
 https://cheonglimsaju.com/assets/social/kfortune-card-03-free-preview.png

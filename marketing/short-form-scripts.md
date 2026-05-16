@@ -18,7 +18,7 @@ Target: TikTok, Reels, Shorts
 Length: 18-22 seconds  
 Asset: `assets/social/kfortune-card-02-time-context.png`  
 CTA URL:
-`https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=tiktok&utm_medium=social&utm_campaign=kfortune_launch&utm_content=short_birth_city_hook`
+`https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=tiktok&utm_medium=social&utm_campaign=kfortune_launch&utm_content=short_birth_city_hook_form#mini-preview-form`
 
 On-screen text:
 ```text
@@ -125,7 +125,7 @@ Target: TikTok, Reels, Shorts
 Length: 15-20 seconds  
 Asset: `assets/social/kfortune-card-03-free-preview.png`  
 CTA URL:
-`https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=reels&utm_medium=social&utm_campaign=kfortune_launch&utm_content=short_free_preview_first`
+`https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=reels&utm_medium=social&utm_campaign=kfortune_launch&utm_content=short_free_preview_first_form#mini-preview-form`
 
 On-screen text:
 ```text
@@ -151,7 +151,7 @@ Target: TikTok, Reels, Shorts
 Length: 20-25 seconds  
 Asset: `assets/social/kfortune-card-05-premium.png`  
 CTA URL:
-`https://cheonglimsaju.com/premium-korean-saju-reading.html?utm_source=tiktok&utm_medium=social&utm_campaign=kfortune_launch&utm_content=short_premium_default`
+`https://cheonglimsaju.com/premium-korean-saju-reading.html?utm_source=tiktok&utm_medium=social&utm_campaign=kfortune_launch&utm_content=short_premium_quick_order#premium-order-form`
 
 On-screen text:
 ```text

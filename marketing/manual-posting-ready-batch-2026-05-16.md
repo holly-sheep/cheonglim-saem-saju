@@ -72,7 +72,7 @@ Saju is not Western astrology. It does not use planets, signs, houses, or aspect
 The free version gives one short mini preview before anyone orders a full English PDF.
 
 Free mini preview:
-https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=community&utm_campaign=kfortune_launch&utm_content=astrology_forum_ad_section
+https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=community&utm_campaign=kfortune_launch&utm_content=astrology_forum_ad_section_form#mini-preview-form
 ```
 
 ## 4. K-Culture Forum Soft Version
@@ -89,7 +89,7 @@ Saju is a traditional Korean Four Pillars reading based on year, month, day, and
 The free page gives a short mini preview first, so people can try the angle before ordering a full English PDF.
 
 Free Korean Saju mini preview:
-https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=community&utm_campaign=kfortune_launch&utm_content=kculture_soft_post
+https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=forum&utm_medium=community&utm_campaign=kfortune_launch&utm_content=kculture_soft_post_form#mini-preview-form
 ```
 
 ## 5. Moderator Permission Request
