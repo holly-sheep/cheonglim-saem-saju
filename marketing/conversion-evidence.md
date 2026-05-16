@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T20:28:23+09:00
+Last updated: 2026-05-16T20:34:04+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -173,6 +173,8 @@ Live-verified on 2026-05-16T20:22:10+09:00 after the Pages deployment for commit
 Updated locally on 2026-05-16T20:26:52+09:00 to improve conversion evidence capture. `launch-evidence-dashboard.html` and the `marketing/launch-evidence-dashboard.html` copy now include a lead/order email evidence row builder. It parses sent email bodies for `lead_type`, `source_page`, UTM fields, amount, order ID or payment hash, and payment reconciliation status, then produces copy-ready tracker and evidence rows without counting a paid order unless reconciliation is marked matched. The static Pages artifact built successfully to `/tmp/cheonglim-site-lead-evidence-parser-check`, dashboard scripts compile with Node, and a mobile screenshot was saved at `/tmp/cheonglim-lead-evidence-parser-mobile.png`. This is evidence tooling only; it does not create a public post, lead, or payment by itself.
 
 Live-verified on 2026-05-16T20:28:23+09:00 after the Pages deployment for commit `23af598`. A cache-busted live request to `launch-evidence-dashboard.html` returned the lead/order email parser, `emailBody`, `paymentReconciled`, `buildLeadRowsFromEmail`, `paid_order_candidate`, `paid_order_verified`, and `premium_quick_order_form`. The public URL batch was submitted to IndexNow; the first sandboxed run failed DNS resolution for `api.indexnow.org`, and the escalated retry returned HTTP/2 200. GitHub repo traffic changed to `28` views and `1` unique over the available 14-day window, adding one `2026-05-15` repo view, but this remains weak repository evidence only. The latest 5 TronGrid TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match.
+
+Updated locally on 2026-05-16T20:34:04+09:00 to strengthen the birthplace/timezone correction proof requested for buyer trust. `trust-policies.html` now has a `correction-proof-example` anchor with fictional PDF basis fields: `birth_city`, `recorded_time`, `timezone_basis`, `dst_basis`, `true_solar_time_note`, and `uncertainty_note`. `free-korean-saju-reading.html` and `premium-korean-saju-reading.html` now link directly to that proof example. The static Pages artifact built successfully to `/tmp/cheonglim-site-correction-proof-check`, and a mobile screenshot was saved at `/tmp/cheonglim-correction-proof-mobile.png`. This is a conversion trust artifact only; it is not a public post, qualified visit, sent lead, or paid-order event.
 
 ## Evidence Rules
 

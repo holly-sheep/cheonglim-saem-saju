@@ -39,6 +39,14 @@
     .proof { display:grid; gap:10px; margin-top:20px; }
     .proof div { display:grid; grid-template-columns:30px 1fr; gap:10px; align-items:start; padding:13px; border:1px solid var(--line); border-radius:8px; background:#fffdf8; color:#43382c; font-size:15px; line-height:1.46; }
     .proof b { display:grid; width:30px; height:30px; place-items:center; border-radius:50%; background:var(--jade); color:#fff7e8; font-size:13px; }
+    .example-proof { margin-top:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); overflow:hidden; }
+    .example-proof h3 { margin:0; padding:16px 16px 0; font-size:20px; line-height:1.2; }
+    .example-proof p { margin:6px 16px 12px; font-size:15px; line-height:1.5; }
+    .example-proof dl { display:grid; grid-template-columns:minmax(150px, .42fr) 1fr; margin:0; border-top:1px solid var(--line); }
+    .example-proof dt, .example-proof dd { margin:0; padding:12px 14px; border-bottom:1px solid var(--line); font-size:14px; line-height:1.45; }
+    .example-proof dt { color:#43382c; font-weight:900; background:#fff7e8; }
+    .example-proof dd { color:var(--muted); background:#fffdf8; }
+    .example-proof dl :nth-last-child(-n+2) { border-bottom:0; }
     .note { margin-top:24px; padding:16px; border:1px solid rgba(169,63,42,.24); border-radius:8px; background:#fff7e8; color:#43382c; font-size:15px; line-height:1.5; }
     .cta { margin-top:36px; padding:20px; border-radius:8px; background:var(--deep); color:#fff8ea; }
     .cta p { color:#eadfcd; }
@@ -46,7 +54,7 @@
     .button { display:inline-flex; min-height:50px; align-items:center; justify-content:center; padding:10px 18px; border-radius:8px; background:white; color:var(--deep); font-weight:950; line-height:1.2; text-align:center; text-decoration:none; }
     .button.primary { background:#f0c982; color:#17120d; }
     footer { margin-top:40px; color:var(--muted); font-size:14px; }
-    @media (max-width:720px){ .top, .grid, .buttons { grid-template-columns:1fr; flex-direction:column; } }
+    @media (max-width:720px){ .top, .grid, .buttons { grid-template-columns:1fr; flex-direction:column; } .example-proof dl { grid-template-columns:1fr; } .example-proof dt { padding-bottom:4px; } .example-proof dd { padding-top:4px; } }
     @media (min-width:900px){ main { padding:52px 28px 88px; } }
   </style>
 </head>
@@ -59,13 +67,25 @@
       <p class="lead">This page summarizes the practical buying terms for Cheonglim Saem Korean Saju readings in English. It is written for overseas-born buyers who want to know how birth data, timezone correction, USDT payment, PDF delivery, and support are handled before ordering.</p>
     </section>
 
-    <h2>Birthplace and time correction proof</h2>
+    <h2 id="correction-proof-example">Birthplace and time correction proof</h2>
     <div class="proof">
       <div><b>1</b><span>The reading starts from your recorded local civil birth time, country, and city. It does not treat every birth record as Korea-centered time.</span></div>
       <div><b>2</b><span>Timezone and daylight saving context are checked before the hour-pillar basis is used in the report.</span></div>
       <div><b>3</b><span>True solar time is treated as a context check when the city location or hour boundary may matter. The report should not pretend to be more exact than the birth record allows.</span></div>
       <div><b>4</b><span>If your birth time is approximate or unknown, that uncertainty is marked instead of hidden.</span></div>
     </div>
+    <section class="example-proof" aria-label="Example correction note shown in the PDF">
+      <h3>Example correction note shown in the PDF</h3>
+      <p>This is the kind of basis note a buyer can inspect before the interpretation. The example is fictional and does not use a real customer record.</p>
+      <dl>
+        <dt>birth_city</dt><dd>Los Angeles, CA, United States</dd>
+        <dt>recorded_time</dt><dd>2:35 PM local civil time, exactly as provided by the buyer</dd>
+        <dt>timezone_basis</dt><dd>America/Los_Angeles checked for the recorded date</dd>
+        <dt>dst_basis</dt><dd>Daylight saving status checked before using the hour-pillar basis</dd>
+        <dt>true_solar_time_note</dt><dd>Reviewed when longitude or an hour-boundary question could affect the reading context</dd>
+        <dt>uncertainty_note</dt><dd>If the time is rounded, approximate, or unknown, the report marks the limitation instead of hiding it</dd>
+      </dl>
+    </section>
 
     <h2>Privacy</h2>
     <div class="grid">
