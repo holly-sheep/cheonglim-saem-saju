@@ -826,6 +826,21 @@
       const proofTime = unknownTime
         ? 'time unknown'
         : `${document.getElementById('birthHour').selectedOptions[0].textContent}:${document.getElementById('birthMinute').selectedOptions[0].textContent} ${document.getElementById('birthPeriod').value}`;
+      const previewLeadBody = encodeURIComponent([
+        'lead_type: free_mini_preview_followup',
+        `birth_date: ${dateValue}`,
+        `birth_time: ${proofTime}`,
+        `gender: ${gender}`,
+        `birth_country: ${country}`,
+        `birth_city: ${city || 'not provided'}`,
+        `first_clue: ${pillar.stemElement} leads your chart`,
+        `strongest_pull: ${strongest.name} ${strongest.percent}%`,
+        `needs_support: ${weakest.name} ${weakest.percent}%`,
+        '',
+        'question:',
+        'I tried the free mini preview and want to ask about the full report.',
+      ].join('\n'));
+      const previewLeadSubject = encodeURIComponent('Cheonglim Saem free mini preview follow-up');
       const result = document.getElementById('previewResult');
       result.innerHTML = `
         <div class="result-proof">Preview based on: ${dateValue} · ${proofTime} · ${safePlace}<span>Birthplace and time context are checked in the full PDF.</span></div>
@@ -862,9 +877,10 @@
         </div>
         <p class="unlock-note">The full PDF expands this first clue into career, love, money, and timing.</p>
         <div class="button-row">
-          <a class="button secondary" href="#free-preview">Edit details</a>
+          <a class="button secondary" href="mailto:aideseobot@gmail.com?subject=${previewLeadSubject}&body=${previewLeadBody}">Email my preview clue</a>
           <a class="button primary" href="#usdt-tron">Unlock my full PDF · 19 USDT</a>
         </div>
+        <a class="afterpay" href="intake.html?tier=premium">Continue to Premium birth form</a>
         <div class="trust-line">USDT-TRC20 payment · PDF by email · sample available before payment</div>
         `;
       result.classList.add('is-visible');

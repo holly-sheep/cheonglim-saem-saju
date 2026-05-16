@@ -211,6 +211,7 @@ If you are interested, send:
 - DM 3 micro-influencers per day until 20 are contacted.
 - Save every reply in a simple tracker: handle, niche, contacted date, response, comp PDF sent, testimonial permission.
 - Check site visits, preview usage, emails, and payment wallet daily.
+- Count emails with `lead_type: free_mini_preview_followup` as free-preview leads.
 - Reuse the best-performing hook as Reel, carousel, static post, X thread, and Pinterest pin.
 
 ## Success Evidence To Collect
@@ -218,7 +219,7 @@ If you are interested, send:
 - Screenshot of Instagram bio after update.
 - Links or screenshots for every post.
 - Outreach tracker with 20 contacted accounts.
-- Free preview count or at least support-email inquiries.
+- Free preview count or support emails containing `lead_type: free_mini_preview_followup`.
 - Paid order transaction hash or payment receipt.
 - Delivered PDF record.
 - Testimonial text with explicit permission.
