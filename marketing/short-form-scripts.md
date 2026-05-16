@@ -151,7 +151,7 @@ Target: TikTok, Reels, Shorts
 Length: 20-25 seconds  
 Asset: `assets/social/kfortune-card-05-premium.png`  
 CTA URL:
-`https://cheonglimsaju.com/?utm_source=tiktok&utm_medium=social&utm_campaign=kfortune_launch&utm_content=short_premium_default#packages`
+`https://cheonglimsaju.com/premium-korean-saju-reading.html?utm_source=tiktok&utm_medium=social&utm_campaign=kfortune_launch&utm_content=short_premium_default`
 
 On-screen text:
 ```text

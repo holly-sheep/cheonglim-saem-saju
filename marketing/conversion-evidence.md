@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T18:54:58+09:00
+Last updated: 2026-05-16T19:02:44+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -99,6 +99,10 @@ Updated locally on 2026-05-16T18:51:52+09:00 to create a high-intent Premium lan
 Rechecked on 2026-05-16T18:52:59+09:00 after creating the Premium landing page. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. The latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
 
 Live-verified on 2026-05-16T18:54:58+09:00 after the Pages deployment for commit `ccefbde`. A cache-busted request to `premium-korean-saju-reading.html` returned `Premium Korean Saju Reading`, `Reserve Premium by email`, `Open Gmail draft`, `source_page: premium_korean_saju_reading`, and `amount_usdt: 19`. A cache-busted sitemap request returned `premium-korean-saju-reading.html`, and the homepage returned the `Premium details page` link. The IndexNow batch including the Premium page was submitted; the first sandboxed run failed DNS resolution for `api.indexnow.org`, and the escalated retry returned HTTP/2 200. This proves the Premium reservation landing is live and submitted to IndexNow, but it is not a qualified visit, sent lead, or paid order.
+
+Updated locally on 2026-05-16T19:01:45+09:00 after continuing toward the active goal. High-intent Premium CTAs in `bio.html`, `start.html`, `kfortune-launch.html`, `post-now-community.html`, both launch evidence dashboards, JSON-LD offers, the Day 6 Instagram offer in `promo-assets.html`, Script 6 in `marketing/short-form-scripts.md`, and the campaign tracker now route to `premium-korean-saju-reading.html` instead of the generic homepage packages anchor. Also added `marketing/manual-posting-ready-batch-2026-05-16.md` with owner-approval-gated Reddit/forum copy. This is a conversion and posting artifact update only; no Reddit, forum, social, modmail, DM, email, free-preview request, reservation email, or payment action was submitted by automation.
+
+Rechecked on 2026-05-16T19:02:44+09:00 after the Premium link routing update. The static Pages artifact built successfully to `/tmp/cheonglim-site-premium-link-routing-check` with 24 root HTML files, and the rendered files include the Premium UTM routes for `bio_premium`, `start_premium`, `launch_premium`, `reddit_followup_premium_intent`, `short_premium_default`, and `day6_premium_offer`. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match; the latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
 
 ## Evidence Rules
 
