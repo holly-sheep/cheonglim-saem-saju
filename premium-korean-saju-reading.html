@@ -74,13 +74,23 @@
     .payment-facts { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; margin:12px 0; }
     .payment-fact { border:1px solid var(--line); border-radius:8px; padding:10px 12px; background:#fff8ed; color:var(--ink); font-weight:900; overflow-wrap:anywhere; }
     .payment-fact small { display:block; color:var(--muted); font-size:11px; font-weight:950; text-transform:uppercase; letter-spacing:.05em; }
+    .order-form { margin-top:24px; padding:20px; border:1px solid rgba(36,102,92,.3); border-radius:8px; background:var(--panel); }
+    .order-form form { display:grid; gap:14px; margin-top:18px; }
+    .form-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; }
+    label { display:grid; gap:6px; color:var(--ink); font-weight:900; }
+    label span { color:var(--muted); font-size:13px; font-weight:700; line-height:1.4; }
+    input, textarea { width:100%; min-height:48px; border:1px solid var(--line); border-radius:8px; background:white; color:var(--ink); padding:10px 12px; font:inherit; }
+    textarea { min-height:96px; resize:vertical; }
+    .full { grid-column:1 / -1; }
+    .check-row { display:flex; align-items:center; gap:10px; color:var(--muted); font-size:14px; font-weight:850; }
+    .check-row input { width:18px; min-height:18px; }
     .reserve { margin-top:34px; padding:20px; border-radius:8px; background:var(--deep); color:#fff8ea; }
     .reserve p { color:#eadfcd; }
     .note { margin-top:22px; padding:16px; border:1px solid rgba(169,63,42,.24); border-radius:8px; background:#fff7e8; color:#43382c; font-size:15px; line-height:1.5; }
     .status { display:none; margin-top:10px; padding:10px 12px; border-radius:8px; background:#fff7e8; color:#43382c; font-size:13px; font-weight:850; line-height:1.4; white-space:pre-wrap; overflow-wrap:anywhere; }
     .status.is-visible { display:block; }
     footer { margin-top:40px; color:var(--muted); font-size:14px; }
-    @media (max-width:760px){ .top, .hero, .sample, .payment-panel { grid-template-columns:1fr; } .hero img, .sample img, .payment-panel img { max-width:360px; } .grid, .buttons, .actions, .payment-facts { grid-template-columns:1fr; } }
+    @media (max-width:760px){ .top, .hero, .sample, .payment-panel { grid-template-columns:1fr; } .hero img, .sample img, .payment-panel img { max-width:360px; } .grid, .buttons, .actions, .payment-facts, .form-grid { grid-template-columns:1fr; } .full { grid-column:auto; } }
     @media (min-width:900px){ main { padding:52px 28px 88px; } }
   </style>
 </head>
@@ -149,6 +159,32 @@
       </div>
     </div>
 
+    <section class="order-form" id="premium-order-form">
+      <p class="kicker">After payment</p>
+      <h2>Send the Premium order from this page.</h2>
+      <p>After sending 19 USDT, paste the transaction hash and birth details below. This creates the same kind of order email the delivery worker checks.</p>
+      <form id="premiumOrderForm">
+        <div class="form-grid">
+          <label class="full">USDT transaction hash<input name="orderId" placeholder="Paste the TRON / TRC20 transaction hash" required><span>This is required so the payment can be matched.</span></label>
+          <label>Full name<input name="name" required></label>
+          <label>Email<input name="email" type="email" required><span>Use the same email for delivery.</span></label>
+          <label>Birth date<input name="birthDate" placeholder="MM / DD / YYYY" required></label>
+          <label>Birth time<input name="birthTime" placeholder="14:35 or 2:35 PM"><span>Leave blank only if unknown.</span></label>
+          <label class="check-row full"><input name="unknownBirthTime" type="checkbox"> I do not know the birth time</label>
+          <label>Birth country<input name="birthCountry" placeholder="United States / UK / Canada / ..." required></label>
+          <label>Birth city<input name="birthCity" placeholder="Los Angeles / London / Toronto" required></label>
+          <label>Timezone, if known<input name="timezone" placeholder="America/Los_Angeles"></label>
+          <label class="full">Notes<textarea name="memo" placeholder="If birth time is approximate, or the birthplace is a small town, write it here."></textarea></label>
+        </div>
+        <div class="actions">
+          <button class="button primary" id="sendPremiumOrderMail" type="button">Open order email</button>
+          <button class="button" id="sendPremiumOrderGmail" type="button">Open Gmail order</button>
+          <button class="button" id="copyPremiumOrder" type="button">Copy order details</button>
+        </div>
+        <div class="status" id="orderStatus" aria-live="polite"></div>
+      </form>
+    </section>
+
     <section class="reserve" id="reserve">
       <p class="kicker">Reserve Premium</p>
       <h2>Reserve the 19 USDT Premium report before paying.</h2>
@@ -169,8 +205,71 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const trackingKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
+    const premiumOrderForm = document.getElementById('premiumOrderForm');
+    const orderStatus = document.getElementById('orderStatus');
     function trackingLines() {
       return trackingKeys.map((key) => `${key}: ${params.get(key) || 'direct_or_unknown'}`);
+    }
+    function preserveCampaignParams() {
+      const entries = trackingKeys.map((key) => [key, params.get(key)]).filter(([, value]) => value);
+      if (!entries.length) return;
+      document.querySelectorAll('a[href]').forEach((link) => {
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('https://mail.google.com')) return;
+        const url = new URL(href, window.location.href);
+        if (url.origin !== window.location.origin) return;
+        entries.forEach(([key, value]) => {
+          if (!url.searchParams.has(key)) url.searchParams.set(key, value);
+        });
+        link.setAttribute('href', `${url.pathname}${url.search}${url.hash}`);
+      });
+    }
+    function orderValue(name) {
+      return premiumOrderForm.elements[name].value.trim();
+    }
+    function premiumOrderText() {
+      const unknownTime = premiumOrderForm.elements.unknownBirthTime.checked;
+      return [
+        `order_id: ${orderValue('orderId')}`,
+        `customer_name: ${orderValue('name')}`,
+        `email: ${orderValue('email')}`,
+        'tier: premium',
+        `birth_date: ${orderValue('birthDate')}`,
+        `birth_time: ${unknownTime ? 'unknown' : orderValue('birthTime')}`,
+        'gender:',
+        `birth_country: ${orderValue('birthCountry')}`,
+        `birth_city: ${orderValue('birthCity')}`,
+        'birth_region:',
+        `timezone: ${orderValue('timezone')}`,
+        `timezone_status: ${orderValue('timezone') ? 'provided' : 'not_provided'}`,
+        'longitude:',
+        'longitude_status: not_provided',
+        'dst_basis: recorded-civil-time',
+        `time_policy: ${unknownTime ? 'unknown-time' : 'local-civil'}`,
+        `landing_path: ${window.location.pathname || '/premium-korean-saju-reading.html'}`,
+        ...trackingLines(),
+        `source_page: premium_quick_order_form`,
+        `amount_usdt: 19`,
+        `wallet_address: ${premiumWalletAddress()}`,
+        `memo: ${orderValue('memo')}`,
+      ].join('\n');
+    }
+    function validatePremiumOrderForm() {
+      const required = ['orderId', 'name', 'email', 'birthDate', 'birthCountry', 'birthCity'];
+      const missing = required.filter((name) => !orderValue(name));
+      const timeMissing = !premiumOrderForm.elements.unknownBirthTime.checked && !orderValue('birthTime');
+      if (missing.length || timeMissing || !premiumOrderForm.elements.email.checkValidity()) {
+        orderStatus.textContent = 'Add transaction hash, name, email, birth date, birth city, birth country, and either birth time or the unknown-time checkbox before creating the order email.';
+        orderStatus.classList.add('is-visible');
+        return false;
+      }
+      return true;
+    }
+    function premiumOrderSubject() {
+      return encodeURIComponent('Saju report birth details');
+    }
+    function premiumOrderBody() {
+      return encodeURIComponent(premiumOrderText());
     }
     function reservationText() {
       return [
@@ -219,6 +318,27 @@
       });
     }
     refreshReservationLinks();
+    preserveCampaignParams();
+    document.getElementById('sendPremiumOrderMail').addEventListener('click', () => {
+      if (!validatePremiumOrderForm()) return;
+      window.location.href = `mailto:aideseobot@gmail.com?subject=${premiumOrderSubject()}&body=${premiumOrderBody()}`;
+    });
+    document.getElementById('sendPremiumOrderGmail').addEventListener('click', () => {
+      if (!validatePremiumOrderForm()) return;
+      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=aideseobot@gmail.com&su=${premiumOrderSubject()}&body=${premiumOrderBody()}`, '_blank', 'noopener');
+    });
+    document.getElementById('copyPremiumOrder').addEventListener('click', async () => {
+      if (!validatePremiumOrderForm()) return;
+      const text = premiumOrderText();
+      try {
+        if (!navigator.clipboard) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(text);
+        orderStatus.textContent = 'Premium order details copied. Paste them into email and send to aideseobot@gmail.com.';
+      } catch (error) {
+        orderStatus.textContent = `Copy did not complete in this browser. Email this text to aideseobot@gmail.com:\n\n${text}`;
+      }
+      orderStatus.classList.add('is-visible');
+    });
     document.getElementById('copyReservation').addEventListener('click', async () => {
       const status = document.getElementById('copyStatus');
       const text = reservationText();

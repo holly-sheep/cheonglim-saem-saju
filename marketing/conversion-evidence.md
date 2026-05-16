@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T20:09:48+09:00
+Last updated: 2026-05-16T20:13:29+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -159,6 +159,8 @@ Live-verified on 2026-05-16T20:03:14+09:00 after the Pages deployment for commit
 Updated locally on 2026-05-16T20:07:31+09:00 to reduce the free-preview lead friction. `free-korean-saju-reading.html` now has a fast mini preview request form that creates a reviewable email/Gmail/copy draft with `lead_type: free_mini_preview_request`, `source_page: free_korean_saju_reading_form`, UTM fields, birth date, birth time or unknown-time, birth country, birth city, optional timezone, optional reply email, and question/context. The static Pages artifact built successfully to `/tmp/cheonglim-site-free-preview-form-check`, and a full-page mobile screenshot was saved at `/tmp/cheonglim-free-preview-mini-form-mobile.png`. This is a conversion artifact only; it becomes a real lead only when a sent email is received.
 
 Live-verified on 2026-05-16T20:09:48+09:00 after the Pages deployment for commit `b818716`. A cache-busted live request to `free-korean-saju-reading.html` returned `Fast request form`, `miniPreviewForm`, `source_page: free_korean_saju_reading_form`, birth detail fields, `Open email draft`, `Open Gmail draft`, and copy actions. The public URL batch was submitted to IndexNow; the first sandboxed run failed DNS resolution for `api.indexnow.org`, and the escalated retry returned HTTP/2 200. GitHub repo traffic remained `27` views and `1` unique. The latest 5 TronGrid TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match.
+
+Updated locally on 2026-05-16T20:13:29+09:00 to reduce the Premium paid-order friction. `premium-korean-saju-reading.html` now includes an after-payment order form directly below the Premium payment panel. It creates an order email with `order_id`, `customer_name`, `email`, `tier: premium`, birth details, UTM fields, `source_page: premium_quick_order_form`, `amount_usdt: 19`, and the wallet address, so a buyer can send payment details without leaving the Premium page. The static Pages artifact built successfully to `/tmp/cheonglim-site-premium-quick-order-check`, and a full-page mobile screenshot was saved at `/tmp/cheonglim-premium-quick-order-mobile.png`. This is a conversion artifact only; it becomes a paid-order evidence item only when a sent order email includes a transaction hash that matches a 19 USDT TRON transfer.
 
 ## Evidence Rules
 
