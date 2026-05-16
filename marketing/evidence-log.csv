@@ -1,4 +1,7 @@
 timestamp,type,source,identifier,evidence,notes
 ,,,,,
-2026-05-16T00:00:00+09:00,setup,local,send-ready-outreach-001,marketing/send-ready-outreach.md created,"First outreach wave prepared; not sent yet"
-2026-05-16T00:00:00+09:00,setup,web-verified,send-ready-outreach-002,public contact sources checked,"Talie Tarot Linktree; hbbtarot Linktree; piecesofminty Carrd; KDRAMADIARY about page; Kpop Kollective contact page; KDramaStars contact page; BB Soto site"
+2026-05-16T00:00:00+09:00,setup,local,send-ready-outreach-001,marketing/send-ready-outreach.md created,First outreach wave prepared; not sent yet
+2026-05-16T00:00:00+09:00,setup,web-verified,send-ready-outreach-002,public contact sources checked,Talie Tarot Linktree; hbbtarot Linktree; piecesofminty Carrd; KDRAMADIARY about page; Kpop Kollective contact page; KDramaStars contact page; BB Soto site
+2026-05-16T13:51:37+09:00,outreach_sent,smtp,kdramadiary-001,sent to kdramadiary.official@gmail.com,editorial review copy URL included
+2026-05-16T13:51:37+09:00,outreach_sent,smtp,kpop-kollective-001,sent to kpkgenadm@gmail.com,Hallyu explainer review copy URL included
+2026-05-16T13:51:37+09:00,outreach_sent,smtp,kdramastars-001,sent to info@kdramastars.com,culture explainer review copy URL included
