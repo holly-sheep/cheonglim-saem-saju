@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T18:23:14+09:00
+Last updated: 2026-05-16T18:28:59+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -73,6 +73,10 @@ Rechecked on 2026-05-16T18:16:38+09:00 after adding current Reddit promotion/ser
 Rechecked on 2026-05-16T18:21:24+09:00 after creating `reddit-saju-preview.html` and routing Reddit promotion/service thread links to it. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. No Reddit, forum, social, modmail, DM, or email post was submitted by automation.
 
 Live-verified on 2026-05-16T18:23:14+09:00 after the Pages deployment for commit `d82e1b4`. A cache-busted request to `reddit-saju-preview.html` returned `For Reddit readers`, `Not tarot`, `source_page: reddit_saju_preview`, `Reserve Premium`, and `lead_type: order_reservation_intent`. The public URL batch including `reddit-saju-preview.html` was then submitted to IndexNow; the first sandboxed run failed DNS resolution for `api.indexnow.org`, and the escalated retry returned HTTP/2 200. This is a conversion and search-submission artifact only; it is not a qualified visit, sent lead, or paid order.
+
+Updated locally on 2026-05-16T18:26:51+09:00 after the user asked about posting on foreign forums or Reddit. `post-now-community.html` now includes gated follow-up reply drafts for `What is Saju?`, `Can I try it?`, `Is it AI or private?`, and `How do I order Premium?`. The preview, trust, and Premium follow-ups use UTM-tracked URLs with `reddit_followup_preview_request`, `reddit_followup_trust`, and `reddit_followup_premium_intent`. These are owner-reply tools only; no Reddit, forum, social, modmail, DM, or email post was submitted by automation.
+
+Rechecked on 2026-05-16T18:28:59+09:00 after adding Reddit follow-up reply drafts. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. The latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
 
 ## Evidence Rules
 
