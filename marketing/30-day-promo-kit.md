@@ -212,6 +212,7 @@ If you are interested, send:
 - Save every reply in a simple tracker: handle, niche, contacted date, response, comp PDF sent, testimonial permission.
 - Check site visits, preview usage, emails, and payment wallet daily.
 - Count emails with `lead_type: free_mini_preview_followup` as free-preview leads.
+- Count emails with `lead_type: free_vip_review_application` as creator-review leads.
 - Reuse the best-performing hook as Reel, carousel, static post, X thread, and Pinterest pin.
 
 ## Success Evidence To Collect
@@ -223,12 +224,17 @@ If you are interested, send:
 - Paid order transaction hash or payment receipt.
 - Delivered PDF record.
 - Testimonial text with explicit permission.
+- Creator-review applications containing `lead_type: free_vip_review_application`.
 
 ## Public Assets
 
 Share kit:
 
 https://cheonglimsaju.com/promo-assets.html
+
+Creator free VIP review application:
+
+https://cheonglimsaju.com/free-vip-review.html
 
 Social cards:
 

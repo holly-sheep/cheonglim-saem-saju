@@ -13,7 +13,10 @@ No scripted praise. If it is useful, you can share your honest reaction; if not,
 Share kit and sample PDFs:
 https://cheonglimsaju.com/promo-assets.html
 
-Free mini preview:
+Review application:
+https://cheonglimsaju.com/free-vip-review.html?utm_source=outreach&utm_medium=dm&utm_campaign=kfortune_launch
+
+Free mini preview, if you want to test the style first:
 https://cheonglimsaju.com/?utm_source=outreach&utm_medium=dm&utm_campaign=kfortune_launch#free-preview
 
 If you are interested, send:
