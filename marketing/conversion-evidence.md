@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T18:41:55+09:00
+Last updated: 2026-05-16T18:46:09+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -87,6 +87,10 @@ Updated locally on 2026-05-16T18:38:55+09:00 after scanning the public post-now 
 Rechecked on 2026-05-16T18:39:39+09:00 after the copy cleanup and noindex update. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. The latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
 
 Live-verified on 2026-05-16T18:41:55+09:00 after the Pages deployment for commit `8b68e1d`. A cache-busted request to `post-now-shorts.html` returned `Korean Saju starts with your real birth city` and `noindex,nofollow`; `post-now-community.html` returned `global birth records` and `launch-evidence-dashboard.html`; `launch-evidence-dashboard.html` returned `noindex,nofollow` and `Launch evidence dashboard`. This proves the copy cleanup and noindex update are live, but it is not a public post, qualified visit, sent lead, or paid order.
+
+Updated locally on 2026-05-16T18:44:41+09:00 to reduce the gap between free preview and payment intent. The homepage free preview result now builds a Premium reservation mailto and Gmail draft containing `lead_type: order_reservation_intent`, `source_page: free_preview_result`, `selected_tier: Premium`, `amount_usdt: 19`, the preview birth details, and UTM fields. This is a conversion artifact only; it does not count until a sent email or payment evidence exists.
+
+Rechecked on 2026-05-16T18:46:09+09:00 after adding the preview-result Premium reservation CTA. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. The latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
 
 ## Evidence Rules
 
