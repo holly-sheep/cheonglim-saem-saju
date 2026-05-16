@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T19:09:39+09:00
+Last updated: 2026-05-16T19:11:30+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -111,6 +111,8 @@ Updated locally on 2026-05-16T19:07:59+09:00 to reduce the payment friction on t
 Rechecked on 2026-05-16T19:08:46+09:00 after the direct payment panel update. The static Pages artifact built successfully to `/tmp/cheonglim-site-premium-payment-panel-check` with 24 root HTML files, and the rendered Premium page includes `Premium payment details`, `19 USDT`, wallet `TPinvSovyuBHTVK1Kd6bUYYESMoSBxjgjJ`, `copyPremiumPayment`, `wallet_address`, and `intake.html?tier=premium`. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match; the latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
 
 Visual-checked on 2026-05-16T19:09:39+09:00 with a full-page mobile Playwright screenshot saved at `/tmp/cheonglim-premium-payment-panel-mobile-full.png`. The rendered Premium page shows the payment panel with QR, `19 USDT`, TRON/TRC20 network, wallet, copy button, and Premium intake link without obvious mobile overlap.
+
+Live-verified on 2026-05-16T19:11:30+09:00 after the Pages deployment for commit `7533c30`. A cache-busted request to `premium-korean-saju-reading.html` returned `Premium payment details`, `19 USDT`, wallet `TPinvSovyuBHTVK1Kd6bUYYESMoSBxjgjJ`, `copyPremiumPayment`, and `intake.html?tier=premium`. This proves the direct payment panel is live, but it is still not a public post, qualified visit, sent lead, reservation email, or paid order.
 
 ## Evidence Rules
 
