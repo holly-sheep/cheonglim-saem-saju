@@ -57,7 +57,7 @@ Free mini preview first.
 ## Evidence After Posting
 
 1. Save the public post URL or screenshot.
-2. Open `marketing/launch-evidence-dashboard.html`.
+2. Open `launch-evidence-dashboard.html`.
 3. Build rows for `marketing/campaign-tracker.csv` and `marketing/evidence-log.csv`.
 4. Check email for `lead_type: free_mini_preview_request`.
 5. Check the USDT wallet for `9`, `19`, or `39` USDT inbound transactions.

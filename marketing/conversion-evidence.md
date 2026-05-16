@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T18:28:59+09:00
+Last updated: 2026-05-16T18:31:59+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -78,6 +78,8 @@ Updated locally on 2026-05-16T18:26:51+09:00 after the user asked about posting 
 
 Rechecked on 2026-05-16T18:28:59+09:00 after adding Reddit follow-up reply drafts. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window, which is weak repository evidence only and not counted as qualified site visits. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. The latest transfer was still tx `114b9e9ef71dcb993f16d46e2e47ff70c80b37dab69a3c353308d9d739336a0d`, outbound `201.411351` USDT at 2025-10-31T01:06:06Z.
 
+Fixed on 2026-05-16T18:31:59+09:00 after live checking the owner posting page. The public `post-now-community.html` follow-up section was live, but `/marketing/launch-evidence-dashboard.html` returned GitHub Pages 404 because the Pages build only publishes root HTML files. Added root `launch-evidence-dashboard.html` and updated `post-now-community.html` and `post-now-shorts.html` to link to it. This fixes the evidence-recording path only; it is not a public post, lead, or paid-order event.
+
 ## Evidence Rules
 
 - Qualified visit evidence: platform analytics screenshot, GitHub Pages/custom domain analytics if available, or a UTM-tagged lead/order email that proves the visitor came from a campaign URL.
@@ -90,7 +92,7 @@ Rechecked on 2026-05-16T18:28:59+09:00 after adding Reddit follow-up reply draft
 ## Daily Manual Check
 
 1. Open the posted platform and capture the post URL or screenshot.
-2. Use `marketing/launch-evidence-dashboard.html` to build copy-ready tracker and evidence rows, then update `marketing/campaign-tracker.csv` with `date`, `status`, and `evidence_url_or_file`.
+2. Use `launch-evidence-dashboard.html` to build copy-ready tracker and evidence rows, then update `marketing/campaign-tracker.csv` with `date`, `status`, and `evidence_url_or_file`.
 3. Check email for `lead_type:` lines and copy the UTM source fields into the tracker.
 4. Count `payment_question_or_intent` or `order_reservation_intent` as payment-intent lead only, then follow up manually before counting a paid order.
 5. Check the USDT wallet for matching payment receipts before counting paid orders.
