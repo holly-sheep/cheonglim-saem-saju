@@ -633,6 +633,7 @@
               <div class="button-row">
                 <a class="button primary" id="paymentQuestionMail" href="mailto:aideseobot@gmail.com">Ask before paying</a>
                 <button class="button secondary" type="button" id="copyPaymentQuestion">Copy payment question</button>
+                <a class="button secondary" id="paymentQuestionGmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=aideseobot@gmail.com" target="_blank" rel="noopener">Open Gmail draft</a>
               </div>
               <div class="button-row">
                 <a class="button secondary" href="intake.html?tier=basic">Basic form</a>
@@ -1156,6 +1157,7 @@
       const subject = encodeURIComponent('Cheonglim Saem payment question');
       const body = encodeURIComponent(paymentQuestionText());
       document.getElementById('paymentQuestionMail').href = `mailto:aideseobot@gmail.com?subject=${subject}&body=${body}`;
+      document.getElementById('paymentQuestionGmail').href = `https://mail.google.com/mail/?view=cm&fs=1&to=aideseobot@gmail.com&su=${subject}&body=${body}`;
     }
     document.getElementById('copyWalletButton').addEventListener('click', async () => {
       const address = walletAddress.textContent.trim();
