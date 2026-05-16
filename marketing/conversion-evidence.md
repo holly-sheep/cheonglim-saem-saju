@@ -1,6 +1,6 @@
 # Conversion Evidence Ledger
 
-Last updated: 2026-05-16T15:00:38+09:00
+Last updated: 2026-05-16T15:27:52+09:00
 
 This file separates actual evidence from planned promotion. Do not count a channel as working until an external artifact proves it.
 
@@ -27,6 +27,7 @@ This proves no current paid-order evidence was found in the public wallet check.
 - Qualified visit evidence: platform analytics screenshot, GitHub Pages/custom domain analytics if available, or a UTM-tagged lead/order email that proves the visitor came from a campaign URL.
 - Free preview lead evidence: an email body containing `lead_type: free_mini_preview_followup` plus `utm_source`, `utm_campaign`, and ideally `utm_content`.
 - Creator review lead evidence: an email body containing `lead_type: free_vip_review_application` plus source fields.
+- Payment-intent lead evidence: an email body containing `lead_type: payment_question_or_intent`, selected `tier`, `amount`, and UTM fields. Count this separately from paid orders because it proves checkout intent, not completed payment.
 - Paid order evidence: USDT-TRC20 payment receipt, wallet transaction hash, or order email body from `intake.html` that can be matched to a payment.
 - Test clicks, local screenshots, curl requests, and repo views do not count as qualified visits unless a real external user or platform analytics source is attached.
 
@@ -35,8 +36,9 @@ This proves no current paid-order evidence was found in the public wallet check.
 1. Open the posted platform and capture the post URL or screenshot.
 2. Update `marketing/campaign-tracker.csv` with `date`, `status`, and `evidence_url_or_file`.
 3. Check email for `lead_type:` lines and copy the UTM source fields into the tracker.
-4. Check the USDT wallet for matching payment receipts before counting paid orders.
-5. Append hard evidence to `marketing/evidence-log.csv`.
+4. Count `payment_question_or_intent` as payment-intent lead only, then follow up manually before counting a paid order.
+5. Check the USDT wallet for matching payment receipts before counting paid orders.
+6. Append hard evidence to `marketing/evidence-log.csv`.
 
 ## Outbound Safety
 
