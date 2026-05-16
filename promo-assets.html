@@ -34,6 +34,7 @@
     .buttons { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
     .button { min-height:48px; display:inline-flex; align-items:center; justify-content:center; padding:10px 16px; border:1px solid var(--deep); border-radius:8px; background:white; color:var(--deep); font-weight:950; text-align:center; text-decoration:none; }
     .button.primary { border-color:var(--jade); background:var(--jade); color:white; }
+    .share-actions { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:10px; margin-top:16px; }
     .grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:16px; margin-top:18px; }
     .asset { border:1px solid var(--line); border-radius:8px; overflow:hidden; background:var(--panel); }
     .asset img { width:100%; display:block; background:#102f2b; }
@@ -49,11 +50,11 @@
     .copy { display:grid; gap:12px; margin-top:18px; }
     .copy article { border:1px solid var(--line); border-radius:8px; padding:18px; background:var(--panel); }
     .copy h3 { margin:0 0 8px; font-size:19px; line-height:1.22; }
-    pre { margin:0; white-space:pre-wrap; color:#43382c; font:inherit; line-height:1.52; }
+    pre { margin:0; white-space:pre-wrap; overflow-wrap:anywhere; color:#43382c; font:inherit; line-height:1.52; }
     .links { display:grid; gap:10px; margin-top:18px; }
     .links a { display:block; padding:14px 16px; border:1px solid rgba(36,102,92,.24); border-radius:8px; background:#edf7f4; color:var(--deep); font-weight:900; overflow-wrap:anywhere; }
     footer { margin-top:50px; color:var(--muted); font-size:14px; }
-    @media (max-width:760px) { .top { flex-direction:column; } .grid, .queue { grid-template-columns:1fr; } .buttons { display:grid; grid-template-columns:1fr; } }
+    @media (max-width:760px) { .top { flex-direction:column; } .grid, .queue, .share-actions { grid-template-columns:1fr; } .buttons { display:grid; grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -74,6 +75,11 @@
 
     <h2 id="post-today">Post Today</h2>
     <p>Owner-posted public content only. Do not send DMs, emails, contact forms, or follow-ups from this pack.</p>
+    <div class="share-actions" aria-label="Open manual share composer">
+      <a class="button primary" href="https://twitter.com/intent/tweet?text=Born%20outside%20Korea%3F%20Your%20Korean%20Saju%20chart%20should%20start%20from%20the%20real%20birth%20record%3A%20city%2C%20timezone%2C%20DST%2C%20and%20true%20solar%20time%20when%20it%20matters.%0A%0AI%20made%20an%20English%20K-fortune%20mini%20preview%20for%20people%20born%20anywhere%20in%20the%20world%3A&amp;url=https%3A%2F%2Fcheonglimsaju.com%2Fstart.html%3Futm_source%3Dx%26utm_medium%3Dsocial%26utm_campaign%3Dkfortune_launch%26utm_content%3Dday1_time_context_post" target="_blank" rel="noopener">Open X composer</a>
+      <a class="button" href="https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fcheonglimsaju.com%2Fstart.html%3Futm_source%3Dpinterest%26utm_medium%3Dsocial%26utm_campaign%3Dkfortune_launch%26utm_content%3Dday1_time_context_pin&amp;media=https%3A%2F%2Fcheonglimsaju.com%2Fassets%2Fsocial%2Fkfortune-card-02-time-context.png&amp;description=Born%20outside%20Korea%3F%20Learn%20why%20birthplace%2C%20timezone%2C%20DST%2C%20and%20true%20solar%20time%20can%20matter%20in%20a%20Korean%20Four%20Pillars%20reading.%20Try%20the%20free%20K-fortune%20mini%20preview%20before%20ordering%20the%20full%20English%20PDF." target="_blank" rel="noopener">Open Pinterest pin</a>
+      <a class="button" href="https://www.reddit.com/submit?url=https%3A%2F%2Fcheonglimsaju.com%2Foverseas-birth-saju.html%3Futm_source%3Dreddit%26utm_medium%3Dcommunity%26utm_campaign%3Dkfortune_launch%26utm_content%3Dday1_time_context_comment&amp;title=Why%20Korean%20Saju%20readings%20get%20tricky%20for%20people%20born%20outside%20Korea" target="_blank" rel="noopener">Open Reddit submit</a>
+    </div>
     <div class="copy">
       <article>
         <h3>Instagram bio</h3>
