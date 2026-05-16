@@ -54,6 +54,8 @@ Rechecked on 2026-05-16T17:45:47+09:00 with a cache-busted live request to `post
 
 Rechecked on 2026-05-16T17:49:44+09:00 after prioritizing the direct free-preview request CTA on `free-korean-saju-reading.html`. A cache-busted live request returned HTTP/2 200 and included `Request free preview by email`, `Open Gmail draft`, `Try browser preview`, `preview-request-mail`, and `querySelectorAll('.preview-request-mail')`. This proves the hero CTA is live. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match.
 
+Rechecked on 2026-05-16T17:53:28+09:00 after creating the live community candidate list. GitHub repo traffic remained `27` views and `1` unique over the available 14-day window. The latest 5 TronGrid USDT TRC20 rows still showed no inbound `9`, `19`, or `39` USDT package-price match. The community candidate list is an owner-action posting artifact, not a public post, qualified visit, lead, or paid-order event.
+
 ## Evidence Rules
 
 - Qualified visit evidence: platform analytics screenshot, GitHub Pages/custom domain analytics if available, or a UTM-tagged lead/order email that proves the visitor came from a campaign URL.
