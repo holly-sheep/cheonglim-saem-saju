@@ -20,6 +20,7 @@ payload=$(cat <<JSON
     "https://${HOST}/kfortune-launch.html",
     "https://${HOST}/overseas-birth-saju.html",
     "https://${HOST}/saju-in-english.html",
+    "https://${HOST}/korean-four-pillars-reading.html",
     "https://${HOST}/korean-saju-reading-online.html",
     "https://${HOST}/premium-korean-saju-reading.html",
     "https://${HOST}/true-solar-time-saju.html",
