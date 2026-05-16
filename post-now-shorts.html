@@ -38,8 +38,13 @@
     .status.visible { display:block; }
     .checklist { display:grid; gap:9px; margin-top:12px; }
     .checklist div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#fffdf8; color:#43372b; font-size:14px; line-height:1.42; }
+    .launch-grid { display:grid; gap:12px; margin-top:12px; }
+    .launch-card { padding:14px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .launch-card b { display:block; font-size:17px; line-height:1.22; }
+    .launch-card p { margin-top:6px; font-size:14px; line-height:1.42; }
+    .mini-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px; }
     footer { padding:20px 18px 36px; color:var(--muted); font-size:13px; }
-    @media (max-width:360px) { .actions, .script-actions { grid-template-columns:1fr; } .script-actions .full { grid-column:auto; } }
+    @media (max-width:360px) { .actions, .script-actions, .mini-actions { grid-template-columns:1fr; } .script-actions .full { grid-column:auto; } }
   </style>
 </head>
 <body>
@@ -55,6 +60,73 @@
       </div>
       <p class="status" id="top-status">Copied.</p>
     </header>
+
+    <section>
+      <h2>30-Minute Launch Push</h2>
+      <p>Publish one public post, one pin, and one profile link update. Reddit stays link-free unless the community explicitly allows project links.</p>
+      <div class="launch-grid">
+        <div class="launch-card">
+          <b>1. X post</b>
+          <p>Fastest public URL. Use the free preview hook, then save the public post URL.</p>
+          <pre id="x-copy">Born outside Korea?
+
+Your Korean Saju / Four Pillars reading should start from your real birth record: city, timezone, DST, and true solar time when it matters.
+
+Free mini preview first:
+https://cheonglimsaju.com/free-korean-saju-reading.html?utm_source=x&utm_medium=social&utm_campaign=kfortune_launch&utm_content=launch_push_x_birth_city</pre>
+          <div class="mini-actions">
+            <button data-copy="#x-copy">Copy X text</button>
+            <a class="button primary" href="https://twitter.com/intent/tweet?text=Born%20outside%20Korea%3F%0A%0AYour%20Korean%20Saju%20%2F%20Four%20Pillars%20reading%20should%20start%20from%20your%20real%20birth%20record%3A%20city%2C%20timezone%2C%20DST%2C%20and%20true%20solar%20time%20when%20it%20matters.%0A%0AFree%20mini%20preview%20first%3A&amp;url=https%3A%2F%2Fcheonglimsaju.com%2Ffree-korean-saju-reading.html%3Futm_source%3Dx%26utm_medium%3Dsocial%26utm_campaign%3Dkfortune_launch%26utm_content%3Dlaunch_push_x_birth_city" target="_blank" rel="noopener">Open X</a>
+          </div>
+          <p class="status">Copied.</p>
+        </div>
+        <div class="launch-card">
+          <b>2. Pinterest pin</b>
+          <p>Use the free-preview card and point to the free Korean Saju preview page.</p>
+          <pre id="pin-copy">Title:
+Free Korean Saju Mini Preview in English
+
+Description:
+Korean Four Pillars reading in English for people born anywhere. Try a free mini preview before ordering the full PDF. The full reading checks birthplace, timezone, DST, and true solar time.</pre>
+          <div class="mini-actions">
+            <button data-copy="#pin-copy">Copy pin text</button>
+            <a class="button primary" href="https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fcheonglimsaju.com%2Ffree-korean-saju-reading.html%3Futm_source%3Dpinterest%26utm_medium%3Dsocial%26utm_campaign%3Dkfortune_launch%26utm_content%3Dlaunch_push_pin_free_preview&amp;media=https%3A%2F%2Fcheonglimsaju.com%2Fassets%2Fsocial%2Fkfortune-card-03-free-preview.png&amp;description=Korean%20Four%20Pillars%20reading%20in%20English%20for%20people%20born%20anywhere.%20Try%20a%20free%20mini%20preview%20before%20ordering%20the%20full%20PDF.%20The%20full%20reading%20checks%20birthplace%2C%20timezone%2C%20DST%2C%20and%20true%20solar%20time." target="_blank" rel="noopener">Open Pinterest</a>
+          </div>
+          <p class="status">Copied.</p>
+        </div>
+        <div class="launch-card">
+          <b>3. Instagram bio</b>
+          <p>Update `cheonglim_lab` bio and link, then capture a screenshot.</p>
+          <pre id="ig-copy">Korean Saju / Four Pillars in English
+Born anywhere. Timezone, DST & solar time checked.
+Free mini preview first.
+
+https://cheonglimsaju.com/bio.html?utm_source=instagram&utm_medium=bio&utm_campaign=kfortune_launch&utm_content=launch_push_bio</pre>
+          <div class="mini-actions">
+            <button data-copy="#ig-copy">Copy IG bio</button>
+            <button data-copy="#ig-link">Copy bio URL</button>
+          </div>
+          <div class="linkbox" id="ig-link">https://cheonglimsaju.com/bio.html?utm_source=instagram&utm_medium=bio&utm_campaign=kfortune_launch&utm_content=launch_push_bio</div>
+          <p class="status">Copied.</p>
+        </div>
+        <div class="launch-card">
+          <b>4. Reddit value reply</b>
+          <p>Use only as a human-edited reply to a relevant thread. Keep it link-free unless links are clearly allowed.</p>
+          <pre id="reddit-copy">One thing I find interesting when comparing Western astrology with Korean Saju/Four Pillars is that the reading depends a lot on the time basis before interpretation even starts.
+
+Saju does not use houses, planets, signs, MC/IC, or aspects. It starts from the year, month, day, and hour pillars, then reads the relationship between stems, branches, five elements, seasonal balance, and timing cycles.
+
+For someone born outside Korea, I would want the reader to check recorded local birth time, birth city, historical timezone, daylight saving time, and whether true solar time could affect the hour block.
+
+That is the part English explanations often miss: the useful question is not only "what does this pillar mean?" but "was the time basis handled honestly before the reading started?"</pre>
+          <div class="mini-actions">
+            <button data-copy="#reddit-copy">Copy Reddit reply</button>
+            <a class="button" href="marketing/reddit-forum-post-now-pack.md">Rules pack</a>
+          </div>
+          <p class="status">Copied.</p>
+        </div>
+      </div>
+    </section>
 
     <section>
       <h2>Today Priority</h2>
