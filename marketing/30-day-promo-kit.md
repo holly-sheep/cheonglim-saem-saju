@@ -205,6 +205,7 @@ If you are interested, send:
 
 ## Manual Daily Checklist
 
+- Open the public share kit: https://cheonglimsaju.com/promo-assets.html
 - Update Instagram bio with the short positioning.
 - Post one Reel, carousel, or static asset daily for 7 days.
 - DM 3 micro-influencers per day until 20 are contacted.
@@ -221,3 +222,25 @@ If you are interested, send:
 - Paid order transaction hash or payment receipt.
 - Delivered PDF record.
 - Testimonial text with explicit permission.
+
+## Public Assets
+
+Share kit:
+
+https://cheonglimsaju.com/promo-assets.html
+
+Social cards:
+
+- https://cheonglimsaju.com/assets/social/kfortune-card-01-four-pillars.png
+- https://cheonglimsaju.com/assets/social/kfortune-card-02-time-context.png
+- https://cheonglimsaju.com/assets/social/kfortune-card-03-free-preview.png
+- https://cheonglimsaju.com/assets/social/kfortune-card-04-sample-pdf.png
+- https://cheonglimsaju.com/assets/social/kfortune-card-05-premium.png
+
+Campaign URLs:
+
+- Instagram: https://cheonglimsaju.com/?utm_source=instagram&utm_medium=social&utm_campaign=kfortune_launch#free-preview
+- TikTok: https://cheonglimsaju.com/?utm_source=tiktok&utm_medium=social&utm_campaign=kfortune_launch#free-preview
+- Pinterest: https://cheonglimsaju.com/?utm_source=pinterest&utm_medium=social&utm_campaign=kfortune_launch#samples
+- X: https://cheonglimsaju.com/?utm_source=x&utm_medium=social&utm_campaign=kfortune_launch#free-preview
+- Reddit: https://cheonglimsaju.com/overseas-birth-saju.html?utm_source=reddit&utm_medium=community&utm_campaign=kfortune_launch
