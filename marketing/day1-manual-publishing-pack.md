@@ -10,8 +10,8 @@ https://cheonglimsaju.com/start.html?utm_source=instagram&utm_medium=bio&utm_cam
 
 ## Instagram Bio
 
-Korean Saju/Four Pillars in English.  
-Born anywhere. Timezone, DST & solar time checked.  
+Korean Saju/Four Pillars in English.<br>
+Born anywhere. Timezone, DST & solar time checked.<br>
 Free mini preview first.
 
 ## Instagram Reel Or Static Post
