@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheonglim Launch Evidence Dashboard</title>
+  <style>
+    :root { --ink:#17120d; --muted:#665e55; --line:#ded6cc; --paper:#fbf5ec; --panel:#fffdfa; --deep:#17443d; --jade:#24665c; --red:#a93f2a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--paper); font-size:16px; line-height:1.6; }
+    main { max-width:1040px; margin:0 auto; padding:32px 20px 80px; }
+    h1 { margin:0; font-size:clamp(34px, 6vw, 58px); line-height:1.04; letter-spacing:0; }
+    h2 { margin:34px 0 12px; font-size:28px; line-height:1.12; }
+    p { color:var(--muted); }
+    .kicker { margin:0 0 10px; color:var(--red); font-size:12px; font-weight:950; letter-spacing:.08em; text-transform:uppercase; }
+    .grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:14px; margin-top:18px; }
+    .box, form { border:1px solid var(--line); border-radius:8px; padding:18px; background:var(--panel); }
+    .box b { display:block; margin-bottom:6px; }
+    label { display:grid; gap:6px; color:var(--ink); font-weight:850; }
+    input, select, textarea { width:100%; min-height:46px; border:1px solid var(--line); border-radius:8px; padding:10px 12px; background:#fffdf8; color:var(--ink); font:inherit; }
+    textarea { min-height:92px; resize:vertical; }
+    .form-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:12px; }
+    .span-2 { grid-column:1 / -1; }
+    .button { min-height:46px; margin-top:14px; padding:10px 16px; border:1px solid var(--deep); border-radius:8px; background:var(--deep); color:white; font:inherit; font-weight:950; cursor:pointer; }
+    .secondary { background:#fffdf8; color:var(--deep); }
+    pre { white-space:pre-wrap; overflow-wrap:anywhere; border:1px solid var(--line); border-radius:8px; padding:14px; background:#f8efe1; color:#43382c; font:inherit; line-height:1.5; }
+    .status { display:none; margin-top:10px; color:var(--jade); font-weight:850; }
+    .status.is-visible { display:block; }
+    code { color:var(--deep); font-weight:850; }
+    @media (max-width:760px) { .grid, .form-grid { grid-template-columns:1fr; } .span-2 { grid-column:auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="kicker">Internal evidence tool</p>
+    <h1>Launch evidence dashboard</h1>
+    <p>This local dashboard turns a public post URL, platform metrics, and lead/payment checks into copy-ready rows for <code>marketing/campaign-tracker.csv</code> and <code>marketing/evidence-log.csv</code>. It does not post anything and does not count drafts as evidence.</p>
+
+    <h2>Evidence gates</h2>
+    <div class="grid">
+      <article class="box"><b>Qualified visit</b><p>Use platform analytics screenshot, public post metrics, or a UTM-tagged sent lead/order email. Test clicks and local curl checks do not count.</p></article>
+      <article class="box"><b>Free preview lead</b><p>Count only sent email bodies containing <code>lead_type: free_mini_preview_request</code> or <code>free_mini_preview_followup</code> plus UTM fields.</p></article>
+      <article class="box"><b>Payment-intent lead</b><p>Count sent email bodies containing <code>payment_question_or_intent</code> or <code>order_reservation_intent</code>. Do not count as paid orders.</p></article>
+      <article class="box"><b>Paid order</b><p>Count only a matching USDT-TRC20 transaction hash, payment receipt, or order email that can be reconciled to payment.</p></article>
+    </div>
+
+    <h2>Post evidence row builder</h2>
+    <form id="evidenceForm">
+      <div class="form-grid">
+        <label>Platform<select id="platform"><option>Instagram</option><option>X</option><option>Pinterest</option><option>Reddit</option><option>TikTok</option><option>Forum</option></select></label>
+        <label>Post status<select id="status"><option>post_published</option><option>metrics_snapshot</option><option>lead_received</option><option>payment_recheck</option></select></label>
+        <label>Public post or screenshot URL<input id="publicUrl" placeholder="https://..."></label>
+        <label>Campaign URL<input id="campaignUrl" value="https://cheonglimsaju.com/kfortune-launch.html?utm_source=instagram&utm_medium=social&utm_campaign=kfortune_launch&utm_content=launch_profile_start"></label>
+        <label>Views<input id="views" placeholder="0"></label>
+        <label>Clicks<input id="clicks" placeholder="0"></label>
+        <label>Preview leads<input id="previewLeads" placeholder="0"></label>
+        <label>Paid orders<input id="paidOrders" placeholder="0"></label>
+        <label class="span-2">Notes<textarea id="notes" placeholder="Example: public post URL captured; no preview lead or payment yet"></textarea></label>
+      </div>
+      <button class="button" type="submit">Build rows</button>
+      <button class="button secondary" id="copyRows" type="button">Copy rows</button>
+      <div class="status" id="copyStatus" aria-live="polite"></div>
+    </form>
+
+    <h2>Copy-ready output</h2>
+    <pre id="output">Fill the form, then build rows.</pre>
+  </main>
+  <script>
+    const form = document.getElementById('evidenceForm');
+    const output = document.getElementById('output');
+    const copyStatus = document.getElementById('copyStatus');
+
+    function csv(value) {
+      const text = String(value || '');
+      if (/[",\n]/.test(text)) return `"${text.replaceAll('"', '""')}"`;
+      return text;
+    }
+
+    function todayLocal() {
+      const date = new Date();
+      const pad = (number) => String(number).padStart(2, '0');
+      const offsetMinutes = -date.getTimezoneOffset();
+      const sign = offsetMinutes >= 0 ? '+' : '-';
+      const hours = pad(Math.floor(Math.abs(offsetMinutes) / 60));
+      const minutes = pad(Math.abs(offsetMinutes) % 60);
+      return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}${sign}${hours}:${minutes}`;
+    }
+
+    function buildRows() {
+      const timestamp = todayLocal();
+      const platform = document.getElementById('platform').value;
+      const status = document.getElementById('status').value;
+      const publicUrl = document.getElementById('publicUrl').value.trim();
+      const campaignUrl = document.getElementById('campaignUrl').value.trim();
+      const views = document.getElementById('views').value.trim();
+      const clicks = document.getElementById('clicks').value.trim();
+      const previewLeads = document.getElementById('previewLeads').value.trim();
+      const paidOrders = document.getElementById('paidOrders').value.trim();
+      const notes = document.getElementById('notes').value.trim();
+      const id = `${platform.toLowerCase()}-${status}-${timestamp.replaceAll(/[^0-9]/g, '').slice(0, 14)}`;
+      const tracker = [
+        'campaign-tracker.csv append/update:',
+        [
+          '',
+          timestamp.slice(0, 10),
+          platform,
+          status,
+          'marketing/launch-evidence-dashboard.html',
+          campaignUrl,
+          status,
+          publicUrl || `marketing/evidence-log.csv#${id}`,
+          views,
+          clicks,
+          previewLeads,
+          paidOrders,
+          notes || 'Update from launch evidence dashboard',
+        ].map(csv).join(','),
+      ].join('\n');
+      const evidence = [
+        'evidence-log.csv append:',
+        [
+          timestamp,
+          status,
+          platform.toLowerCase(),
+          id,
+          publicUrl || campaignUrl,
+          notes || 'public post or metrics evidence recorded; verify leads and payments separately',
+        ].map(csv).join(','),
+      ].join('\n');
+      return `${tracker}\n\n${evidence}`;
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      output.textContent = buildRows();
+    });
+
+    document.getElementById('copyRows').addEventListener('click', async () => {
+      const text = output.textContent;
+      try {
+        if (!navigator.clipboard) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(text);
+        copyStatus.textContent = 'Rows copied.';
+      } catch (error) {
+        copyStatus.textContent = 'Copy failed. Select the output manually.';
+      }
+      copyStatus.classList.add('is-visible');
+    });
+  </script>
+</body>
+</html>
