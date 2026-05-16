@@ -998,7 +998,9 @@
     });
     function openAnchoredDetails() {
       const target = document.querySelector(window.location.hash);
-      if (target && target.tagName === 'DETAILS') target.open = true;
+      if (!target) return;
+      const details = target.tagName === 'DETAILS' ? target : target.querySelector('details');
+      if (details) details.open = true;
     }
     window.addEventListener('hashchange', openAnchoredDetails);
     openAnchoredDetails();
